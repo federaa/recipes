@@ -161,5 +161,8 @@ Every recipe from here is a markdown file and a cook-it-live HTML copied from th
   promoted to the canonical recipe and propagated to its cook-live HTML.
 - Keep the CellarTracker export fresh. Last pulled 2026-09-16. A `cellartracker` MCP is now
   wired into Claude Code, so a live pull no longer needs a manual download.
+- Beef chili for the 8.5 qt is written, not cooked. The uncovered window and the 8 g of cocoa are
+  the two numbers a first cook has to answer. If it tastes dusty, drop the cocoa before reaching
+  for sugar.
 
 *Last thought: the failures have taught more than the successes. Keep writing them down.*

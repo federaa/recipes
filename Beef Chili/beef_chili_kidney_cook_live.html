@@ -1,0 +1,1375 @@
+<!DOCTYPE html>
+<!--
+  Cook It Live engine 2026-10-23.
+  Copy this file per dish. Replace the header, the mise, RECIPE_ID, and STEPS.
+  Leave the script below STEPS alone unless you are fixing the engine.
+  Engine fixes go back into this file and into cook-it-live/SKILL.md.
+-->
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cook It Live · Beef Chili with Kidney Beans</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ground: #1a0c0a;
+    --panel: #271412;
+    --panel-2: #331c18;
+    --line: #4c2c26;
+    --ivory: #f7ebdf;
+    --muted: #c4a398;
+    --faint: #8a6a60;
+    --amber: #e3843a;
+    --amber-deep: #b85e22;
+    --chili: #d2492b;
+    --chili-soft: #e86a4e;
+    --ancho: #6e2c24;
+    --guajillo: #c4502a;
+    --chipotle: #3d2918;
+    --radius: 4px;
+    --dock-h: 108px;
+  }
+
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+
+  body {
+    margin: 0;
+    background: var(--ground);
+    color: var(--ivory);
+    font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+    line-height: 1.5;
+    padding-bottom: calc(var(--dock-h) + env(safe-area-inset-bottom));
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .mono { font-family: "JetBrains Mono", ui-monospace, monospace; font-feature-settings: "tnum"; }
+
+  header {
+    border-bottom: 1px solid var(--line);
+    padding: 18px 20px 18px;
+    background: linear-gradient(180deg, #2a1210 0%, var(--ground) 100%);
+  }
+  .head-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 8px;
+  }
+  .head-actions { display: flex; gap: 8px; flex: 0 0 auto; }
+  .eyebrow {
+    font-family: "JetBrains Mono", monospace;
+    font-size: 11px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--amber);
+    margin: 0;
+  }
+  h1 {
+    font-family: "Fraunces", Georgia, serif;
+    font-weight: 500;
+    font-size: clamp(26px, 5vw, 40px);
+    line-height: 1.04;
+    margin: 0 0 10px;
+    letter-spacing: -0.01em;
+  }
+  .meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px 18px;
+    font-family: "JetBrains Mono", monospace;
+    font-size: 12px;
+    color: var(--muted);
+  }
+  .meta b { color: var(--ivory); font-weight: 500; }
+
+  .legend { display: flex; gap: 16px; flex-wrap: wrap; margin-top: 16px; }
+  .legend:empty { display: none; }
+  .legend-item { display: flex; align-items: center; gap: 8px; font-size: 12px; color: var(--muted); }
+  .swatch {
+    width: 14px; height: 14px; border-radius: 50%;
+    flex: 0 0 auto;
+    box-shadow: inset 0 0 0 1px rgba(0,0,0,0.35);
+  }
+  .legend-item b { color: var(--ivory); font-weight: 500; }
+  .legend-item span { color: var(--faint); }
+
+  .wrap {
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: 20px;
+    display: grid;
+    grid-template-columns: 268px 1fr;
+    gap: 26px;
+    align-items: start;
+  }
+
+  .rail { position: sticky; top: 16px; }
+  .rail h2, .mise h2 {
+    font-family: "JetBrains Mono", monospace;
+    font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--faint); margin: 0 0 12px; font-weight: 500;
+  }
+  .steplist { list-style: none; margin: 0 0 26px; padding: 0; }
+  .steplist li {
+    display: flex; align-items: baseline; gap: 11px;
+    padding: 7px 10px; border-radius: var(--radius);
+    cursor: pointer; color: var(--muted);
+    font-size: 13.5px; line-height: 1.3;
+    border: 1px solid transparent;
+  }
+  .steplist li:hover { background: var(--panel); color: var(--ivory); }
+  .steplist li.active { background: var(--panel-2); color: var(--ivory); border-color: var(--line); }
+  .steplist li.done .idx { color: var(--amber-deep); }
+  .steplist li.done .s-name { color: var(--faint); text-decoration: line-through; text-decoration-color: var(--line); }
+  .steplist li.phase {
+    cursor: default; pointer-events: none;
+    font-family: "JetBrains Mono", monospace;
+    font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase;
+    color: var(--faint); padding: 14px 10px 2px;
+  }
+  .steplist li.phase:hover { background: transparent; color: var(--faint); }
+  .idx { font-family: "JetBrains Mono", monospace; font-size: 11px; color: var(--faint); flex: 0 0 20px; }
+  .active .idx { color: var(--amber); }
+  .s-tag {
+    margin-left: auto; font-family: "JetBrains Mono", monospace;
+    font-size: 10px; letter-spacing: 0.05em;
+    padding: 1px 6px; border-radius: 20px; flex: 0 0 auto; align-self: center;
+  }
+  .s-tag.timed { color: var(--amber); border: 1px solid var(--amber-deep); }
+  .s-tag.gate { color: var(--chili-soft); border: 1px solid #7a3020; }
+
+  .mise {
+    background: var(--panel); border: 1px solid var(--line);
+    border-radius: var(--radius); padding: 16px 16px 6px;
+  }
+  .mise ul { list-style: none; margin: 0 0 14px; padding: 0; }
+  .mise li {
+    display: flex; justify-content: space-between; gap: 12px;
+    font-size: 13px; padding: 5px 0; border-bottom: 1px solid #2a2018;
+  }
+  .mise li:last-child { border-bottom: none; }
+  .mise .ing { color: var(--ivory); }
+  .mise .amt { font-family: "JetBrains Mono", monospace; font-size: 12.5px; color: var(--amber); white-space: nowrap; }
+  .mise .grp { font-family: "JetBrains Mono", monospace; font-size: 10.5px; letter-spacing: .12em; text-transform: uppercase; color: var(--faint); margin: 12px 0 4px; }
+  .cut { color: var(--faint); text-decoration: line-through; text-decoration-color: var(--chili); }
+  .cut .amt { color: var(--faint); }
+
+  .stage { min-height: 60vh; }
+  .step-head { display: flex; align-items: baseline; gap: 14px; margin-bottom: 4px; flex-wrap: wrap; }
+  .step-num { font-family: "JetBrains Mono", monospace; font-size: 13px; color: var(--amber); letter-spacing: .1em; }
+  .step-kind {
+    font-family: "JetBrains Mono", monospace; font-size: 10.5px; letter-spacing: .14em; text-transform: uppercase;
+    padding: 2px 9px; border-radius: 20px;
+  }
+  .step-kind.timed { color: var(--amber); border: 1px solid var(--amber-deep); }
+  .step-kind.gate { color: var(--chili-soft); border: 1px solid #7a3020; background: rgba(210,73,43,.08); }
+  .step-kind.plain { color: var(--faint); border: 1px solid var(--line); }
+  .where {
+    font-family: "JetBrains Mono", monospace; font-size: 10.5px; letter-spacing: .14em;
+    text-transform: uppercase; color: var(--ivory);
+    border: 1px solid var(--amber-deep); background: rgba(224,160,62,.08);
+    border-radius: 20px; padding: 2px 9px;
+  }
+  .phase-kicker {
+    font-family: "JetBrains Mono", monospace; font-size: 11px; letter-spacing: .18em;
+    text-transform: uppercase; color: var(--amber); margin: 12px 0 0;
+  }
+
+  .uses { display: flex; flex-wrap: wrap; gap: 6px; margin: 0 0 16px; }
+  .use {
+    font-family: "JetBrains Mono", monospace; font-size: 12.5px; line-height: 1.35;
+    color: var(--muted); background: var(--panel); border: 1px solid var(--line);
+    border-radius: 999px; padding: 5px 10px;
+  }
+  .use b { color: var(--amber); font-weight: 500; }
+
+  .step-title {
+    font-family: "Fraunces", Georgia, serif; font-weight: 500;
+    font-size: clamp(24px, 4vw, 34px); line-height: 1.08; margin: 8px 0 18px;
+    letter-spacing: -0.01em;
+  }
+  .step-title:focus { outline: none; }
+  .step-body { font-size: 16px; color: #ded2c1; max-width: 62ch; }
+  .step-body p { margin: 0 0 14px; }
+  .step-body strong { color: var(--ivory); font-weight: 600; }
+  .step-body em { color: var(--amber); font-style: normal; }
+
+  .also {
+    border: 1px solid var(--amber-deep);
+    background: rgba(224,160,62,.06);
+    border-radius: var(--radius);
+    padding: 10px 14px;
+    margin: 0 0 16px;
+    max-width: 62ch;
+  }
+  .also-k {
+    font-family: "JetBrains Mono", monospace;
+    font-size: 10px; letter-spacing: .16em; text-transform: uppercase; color: var(--amber);
+  }
+  .also ul { margin: 6px 0 0; padding-left: 18px; color: var(--muted); font-size: 14.5px; }
+
+  .probe {
+    display: inline-flex; align-items: center; gap: 10px;
+    background: var(--panel-2); border: 1px solid var(--line);
+    border-radius: var(--radius); padding: 10px 16px; margin: 4px 0 18px;
+  }
+  .probe .lab { font-size: 11px; letter-spacing: .12em; text-transform: uppercase; color: var(--faint); font-family: "JetBrains Mono", monospace; }
+  .probe .val { font-family: "JetBrains Mono", monospace; font-size: 22px; color: var(--amber); font-weight: 500; }
+
+  .gate-branches { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 14px; margin: 20px 0; }
+  .branch { border: 1px solid var(--line); border-radius: var(--radius); padding: 16px; background: var(--panel); }
+  .branch.good { border-color: #4a5a2e; }
+  .branch.wait { border-color: var(--amber-deep); }
+  .branch.bad { border-color: #7a3020; }
+  .branch h4 {
+    font-family: "JetBrains Mono", monospace; font-size: 12px; letter-spacing: .06em;
+    margin: 0 0 8px; display: flex; align-items: center; gap: 8px; text-transform: uppercase;
+  }
+  .branch.good h4 { color: #a9c76a; }
+  .branch.wait h4 { color: var(--amber); }
+  .branch.bad h4 { color: var(--chili-soft); }
+  .branch p { margin: 0; font-size: 14px; color: var(--muted); }
+
+  .timer-launch {
+    display: flex; align-items: center; gap: 12px; flex-wrap: wrap;
+    margin: 22px 0 6px; padding: 16px; border: 1px dashed var(--amber-deep);
+    border-radius: var(--radius); background: rgba(224,160,62,.04);
+  }
+  .timer-launch .tl-time { font-family: "JetBrains Mono", monospace; font-size: 30px; color: var(--amber); font-weight: 500; }
+  .timer-launch .tl-lab { font-size: 13px; color: var(--muted); flex: 1 1 180px; }
+  .adj { display: inline-flex; gap: 6px; }
+  .adj button {
+    min-width: 44px; height: 44px; padding: 0 8px;
+    font-family: "JetBrains Mono", monospace; font-size: 14px;
+    background: var(--panel-2); color: var(--ivory); border: 1px solid var(--line);
+    border-radius: var(--radius); cursor: pointer;
+  }
+  .adj button:hover { border-color: var(--amber-deep); color: var(--amber); }
+
+  button { font-family: inherit; }
+  .btn {
+    border: none; border-radius: var(--radius); cursor: pointer;
+    font-family: "JetBrains Mono", monospace; font-size: 13px; letter-spacing: .04em;
+    padding: 12px 20px; min-height: 44px;
+  }
+  .btn:disabled { opacity: 0.4; cursor: default; }
+  .btn-amber { background: var(--amber); color: #1c1207; font-weight: 700; }
+  .btn-amber:hover:not(:disabled) { filter: brightness(1.08); }
+  .btn-ghost { background: var(--panel-2); color: var(--ivory); border: 1px solid var(--line); }
+  .btn-ghost:hover:not(:disabled) { border-color: var(--amber-deep); color: var(--amber); }
+  .btn-tiny {
+    background: var(--panel-2); border: 1px solid var(--line); color: var(--muted);
+    border-radius: var(--radius); padding: 7px 12px; cursor: pointer;
+    font-family: "JetBrains Mono", monospace; font-size: 11px; letter-spacing: .05em;
+    min-height: 36px;
+  }
+  .btn-tiny:hover { color: var(--amber); border-color: var(--amber-deep); }
+  .btn-tiny.armed { color: var(--chili-soft); border-color: #7a3020; }
+
+  .nav { display: flex; justify-content: space-between; gap: 12px; margin-top: 34px; padding-top: 20px; border-top: 1px solid var(--line); }
+
+  .dock {
+    position: fixed; left: 0; right: 0; bottom: 0; z-index: 40;
+    min-height: var(--dock-h);
+    background: rgba(22,10,8,.94); backdrop-filter: blur(8px);
+    border-top: 1px solid var(--line);
+    padding: 12px 16px calc(12px + env(safe-area-inset-bottom));
+    display: flex; align-items: center; gap: 12px; overflow-x: auto;
+  }
+  .dock-label {
+    font-family: "JetBrains Mono", monospace; font-size: 10px; letter-spacing: .16em;
+    text-transform: uppercase; color: var(--faint); writing-mode: vertical-rl; transform: rotate(180deg);
+    flex: 0 0 auto; padding-right: 2px;
+  }
+  .dock-empty { color: var(--faint); font-size: 13px; font-family: "JetBrains Mono", monospace; }
+  .chip {
+    flex: 0 0 auto; display: flex; align-items: center; gap: 12px;
+    background: var(--panel-2); border: 1px solid var(--line);
+    border-radius: var(--radius); padding: 8px 8px 8px 14px; min-width: 200px;
+  }
+  .chip.ringing { border-color: var(--chili); animation: flash .7s steps(1) infinite; }
+  @keyframes flash { 50% { background: rgba(210,73,43,.22); } }
+  .chip .c-info { display: flex; flex-direction: column; gap: 1px; }
+  .chip .c-name { font-size: 11px; color: var(--muted); font-family: "JetBrains Mono", monospace; letter-spacing: .04em; }
+  .chip .c-time { font-family: "JetBrains Mono", monospace; font-size: 24px; font-weight: 500; color: var(--amber); line-height: 1; }
+  .chip.ringing .c-time { color: var(--chili-soft); }
+  .chip .c-btns { display: flex; gap: 6px; margin-left: auto; }
+  .chip .c-btns button {
+    width: 44px; height: 44px; border-radius: var(--radius);
+    background: var(--panel); border: 1px solid var(--line); color: var(--muted);
+    cursor: pointer; font-size: 14px; display: grid; place-items: center;
+  }
+  .chip .c-btns button:hover { color: var(--amber); border-color: var(--amber-deep); }
+
+  .empty-stage { color: var(--muted); max-width: 52ch; }
+  .sr {
+    position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+    overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0;
+  }
+
+  :focus-visible { outline: 2px solid var(--amber); outline-offset: 2px; }
+
+  @media (max-width: 860px) {
+    .wrap { grid-template-columns: 1fr; gap: 18px; }
+    .rail { position: static; order: 2; }
+    .seq h2, .rail .steplist { display: none; }
+    .seq.open h2, .seq.open .steplist { display: block; }
+    .mise-toggle {
+      display: block; width: 100%; text-align: left;
+      background: var(--panel); border: 1px solid var(--line); color: var(--ivory);
+      border-radius: var(--radius); padding: 12px 14px; margin-bottom: 12px;
+      font-family: "JetBrains Mono", monospace; font-size: 12px; letter-spacing: .06em; cursor: pointer;
+      min-height: 44px;
+    }
+    .mise { display: none; }
+    .mise.open { display: block; }
+    .stage { order: 1; }
+    .progress-mini { display: flex; }
+  }
+  @media (min-width: 861px) {
+    .progress-mini { display: none; }
+    .mise-toggle { display: none; }
+    .rail {
+      max-height: calc(100vh - 20px - var(--dock-h));
+      overflow: auto;
+      padding-right: 6px;
+    }
+    .rail .mise { margin-top: 6px; }
+  }
+
+  .progress-mini { gap: 4px; margin-bottom: 14px; flex-wrap: wrap; }
+  .progress-mini .pip {
+    height: 8px; flex: 1 1 16px; border-radius: 2px; background: var(--line); cursor: pointer;
+  }
+  .progress-mini .pip.done { background: var(--amber-deep); }
+  .progress-mini .pip.active { background: var(--amber); }
+
+  @media (prefers-reduced-motion: reduce) {
+    * { animation: none !important; transition: none !important; }
+    .chip.ringing { background: rgba(210,73,43,.22); }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="head-row">
+    <p class="eyebrow">Cook It Live</p>
+    <div class="head-actions">
+      <button class="btn-tiny" id="soundToggle" type="button" aria-pressed="true">Sound on</button>
+      <button class="btn-tiny" id="resetBtn" type="button">Start over</button>
+    </div>
+  </div>
+  <h1>Beef Chili with Kidney Beans</h1>
+  <div class="meta">
+    <span><b>Serves 14</b> · about 5 L</span>
+    <span>8.5 qt enamel · two-thirds full</span>
+    <span>Gas · ~3–3½ h</span>
+    <span>Bare simmer, then the spoon</span>
+  </div>
+  <div class="legend" id="legend">
+    <div class="legend-item"><span class="swatch" style="background:var(--ancho)"></span><div><b>Ancho</b> <span>· 40 g · bloom, body</span></div></div>
+    <div class="legend-item"><span class="swatch" style="background:var(--guajillo)"></span><div><b>Guajillo</b> <span>· 17 g · bloom, tart red</span></div></div>
+    <div class="legend-item"><span class="swatch" style="background:var(--chipotle)"></span><div><b>Chipotle</b> <span>· 12 g · smoke, with the garlic</span></div></div>
+  </div>
+</header>
+
+<div class="wrap">
+  <aside class="rail" id="rail">
+    <button class="mise-toggle" id="seqToggle" type="button" aria-expanded="false">▸ Sequence</button>
+    <div class="seq" id="seq">
+      <h2>Sequence</h2>
+      <ol class="steplist" id="steplist"></ol>
+    </div>
+    <button class="mise-toggle" id="miseToggle" type="button" aria-expanded="false">▸ Mise / ingredients</button>
+    <div class="mise" id="mise">
+      <h2>Mise en place</h2>
+      <div class="grp">Toast, then grind</div>
+      <ul>
+        <li><span class="ing">Ancho, stemmed and seeded</span><span class="amt">40 g</span></li>
+        <li><span class="ing">Guajillo, stemmed and seeded</span><span class="amt">17 g</span></li>
+        <li><span class="ing">Cumin seed</span><span class="amt">14 g</span></li>
+        <li><span class="ing">Coriander seed</span><span class="amt">8 g</span></li>
+      </ul>
+      <div class="grp">Bloom, in the beef fat</div>
+      <ul>
+        <li><span class="ing">Ground cumin, from the toast</span><span class="amt">10 g</span></li>
+        <li><span class="ing">Mexican oregano</span><span class="amt">2 g</span></li>
+        <li><span class="ing">Red pepper flakes</span><span class="amt">3 g</span></li>
+        <li><span class="ing">Cayenne</span><span class="amt">1 g</span></li>
+        <li><span class="ing">Natural cocoa</span><span class="amt">8 g</span></li>
+        <li><span class="ing">Black pepper</span><span class="amt">2 g</span></li>
+      </ul>
+      <div class="grp">Beef</div>
+      <ul>
+        <li><span class="ing">Ground beef, 85% lean</span><span class="amt">1.6 kg</span></li>
+        <li><span class="ing">Kosher salt, for the sear</span><span class="amt">6 g</span></li>
+      </ul>
+      <div class="grp">Aromatics</div>
+      <ul>
+        <li><span class="ing">Yellow onion, small dice</span><span class="amt">520 g</span></li>
+        <li><span class="ing">Red bell pepper, 1 cm</span><span class="amt">300 g</span></li>
+        <li><span class="ing">Garlic, minced</span><span class="amt">45 g</span></li>
+        <li><span class="ing">Chipotle in adobo, minced</span><span class="amt">12 g</span></li>
+        <li><span class="ing">Adobo sauce</span><span class="amt">8 ml</span></li>
+        <li><span class="ing">Tomato paste</span><span class="amt">40 g</span></li>
+      </ul>
+      <div class="grp">The pot</div>
+      <ul>
+        <li><span class="ing">Diced tomatoes, with juice</span><span class="amt">1.6 kg</span></li>
+        <li><span class="ing">Tomato puree, to the line</span><span class="amt">up to 1.6 kg</span></li>
+        <li><span class="ing">Red kidney beans, drained</span><span class="amt">950 g</span></li>
+        <li><span class="ing">Kosher salt</span><span class="amt">12 g</span></li>
+      </ul>
+      <div class="grp">Finish, off the heat</div>
+      <ul>
+        <li><span class="ing">Cumin, the reserved</span><span class="amt">4 g</span></li>
+        <li><span class="ing">Lime juice</span><span class="amt">30–60 ml</span></li>
+      </ul>
+      <div class="grp">Only if a gate sends you</div>
+      <ul>
+        <li><span class="ing">Neutral oil</span><span class="amt">30 ml</span></li>
+        <li><span class="ing">Cayenne, more</span><span class="amt">0–2 g</span></li>
+        <li><span class="ing">Masa harina</span><span class="amt">25 g</span></li>
+        <li><span class="ing">Water</span><span class="amt">100–250 ml</span></li>
+      </ul>
+    </div>
+  </aside>
+
+  <main class="stage" id="stage">
+    <div class="progress-mini" id="progressMini"></div>
+    <div id="stepView"></div>
+    <div class="nav">
+      <button class="btn btn-ghost" id="prevBtn" type="button">← Back</button>
+      <button class="btn btn-amber" id="nextBtn" type="button">Next step →</button>
+    </div>
+  </main>
+</div>
+
+<div class="dock" id="dock">
+  <span class="dock-label">Timers</span>
+  <span class="dock-empty" id="dockEmpty">No timers running. Start one from a timed step.</span>
+</div>
+<div id="live" class="sr" aria-live="assertive"></div>
+
+<script>
+"use strict";
+
+/* Unique per dish. The restore key is cook-live:<RECIPE_ID>. */
+const RECIPE_ID = "beef-chili-kidney-8q";
+const ENGINE = "2026-10-23";
+
+const STEPS = [
+  {
+    kind: "plain",
+    phase: "Prep",
+    where: "Counter",
+    title: "Weigh and read the tins",
+    uses: [
+      { amt: "1.6 kg", name: "beef, in thirds" },
+      { amt: "6 g", name: "salt, 2 g a batch" },
+      { amt: "950 g", name: "beans, drained" },
+      { amt: "40 g", name: "ancho, seeded" },
+      { amt: "17 g", name: "guajillo, seeded" }
+    ],
+    body: `<p>Divide the beef into three batches of about <em>530 g</em>. The salt for the sear is <em>2 g</em> on each batch, in the pot, not an hour ahead.</p>
+    <p><strong>Read the sodium</strong> on the diced tomatoes and the puree. Under <em>50 mg per 100 g</em> is a low-salt tin. <em>150–250</em> is standard. Over <em>300</em> is salty. That number is the salt gate.</p>
+    <p>Rinse the beans and weigh <em>950 g</em>. Stem and seed the chiles. The pot is <strong>enamel</strong>. Bare iron will taste like a pan after two hours of tomato and salt. Stay on the gas.</p>`
+  },
+  {
+    kind: "timed",
+    timerName: "Chiles",
+    defaultSec: 180,
+    minSec: 90,
+    maxSec: 300,
+    timerNote: "A backstop. Each chile is seconds on a side, not this whole clock.",
+    phase: "Toast",
+    where: "Dutch oven, dry",
+    title: "Toast the chiles",
+    uses: [
+      { amt: "40 g", name: "ancho, seeded" },
+      { amt: "17 g", name: "guajillo, seeded" },
+      { amt: "15–20 s", name: "a side" }
+    ],
+    body: `<p>Dry pot, medium gas. Press <strong>one chile flat</strong> for <em>15–20 seconds a side</em>, until it smells like raisin and the flesh flexes. Onto a plate. Work through all of them.</p>
+    <p>They scorch in the time it takes to look away. The timer is only so the pot is not forgotten.</p>`
+  },
+  {
+    kind: "gate",
+    phase: "Toast",
+    where: "Plate",
+    title: "Read the chiles",
+    uses: [
+      { amt: "40 g + 17 g", name: "only the good ones" }
+    ],
+    body: `<p>Smell them before they go in the mill. Bitter chile does not cook out. It fills the pot.</p>`,
+    branches: [
+      { type: "good", glyph: "✓", head: "Raisin, pliable, no black patches", text: "Grind these. Ancho should smell sweet. Guajillo should smell tart and red." },
+      { type: "wait", glyph: "!", head: "Still stiff and dusty", text: "Back in the pot for a few seconds a side. A raw dried chile tastes like cardboard." },
+      { type: "bad", glyph: "✕", head: "Black, or a sharp burnt smell", text: "Throw that one out. Toast a replacement. Do not grind a scorched chile to save it." }
+    ]
+  },
+  {
+    kind: "timed",
+    timerName: "Seeds",
+    defaultSec: 75,
+    minSec: 45,
+    maxSec: 150,
+    timerNote: "Pull them when the cumin smells sweet, even if the clock is early.",
+    phase: "Toast",
+    where: "Dutch oven, dry",
+    title: "Toast the seeds",
+    uses: [
+      { amt: "14 g", name: "cumin seed" },
+      { amt: "8 g", name: "coriander seed" },
+      { amt: "60–90 s", name: "stirring" }
+    ],
+    body: `<p>Same dry pot. Both seeds in. Stir for <em>60–90 seconds</em>, until the cumin smells sweet and a shade darker. Tip them out.</p>
+    <p>Leave the pot. The beef goes into it next, and any seed left behind will scorch under the meat.</p>`
+  },
+  {
+    kind: "plain",
+    phase: "Toast",
+    where: "Mill",
+    title: "Split the cumin, then grind",
+    uses: [
+      { amt: "4 g", name: "toasted cumin, held out" },
+      { amt: "10 g", name: "cumin, into the bloom" },
+      { amt: "8 g", name: "coriander" }
+    ],
+    body: `<p>Weigh <em>4 g</em> of the toasted cumin seed into a cup <strong>before it touches the chiles</strong>. Grind that 4 g first, while the mill is empty, and leave it in the cup. That is the finish.</p>
+    <p>Then grind the remaining cumin, the coriander, and the chiles together. That mix is the bloom. You cannot split cumin back out once it is ground into the chile.</p>`
+  },
+  {
+    kind: "timed",
+    timerName: "Sear 1",
+    defaultSec: 300,
+    minSec: 180,
+    maxSec: 420,
+    timerNote: "Pull on color. The beep is the backstop.",
+    phase: "Sear",
+    where: "Dutch oven",
+    title: "Sear the first batch",
+    uses: [
+      { amt: "530 g", name: "beef" },
+      { amt: "2 g", name: "salt" },
+      { amt: "~5 min", name: "to a crust" }
+    ],
+    body: `<p>The pot is dry from the toast. Set it over medium-high. Lay in the first <em>530 g</em> and <em>2 g</em> salt. Break it into <strong>walnut pieces</strong> and leave it.</p>
+    <p>A little fat will render. That film is enough. Stir only once a piece has a crust. Pull it when the edges are <strong>mahogany</strong>, about <em>5 minutes</em>. Do not cook it gray and done.</p>`
+  },
+  {
+    kind: "timed",
+    timerName: "Sear 2",
+    defaultSec: 300,
+    minSec: 180,
+    maxSec: 420,
+    timerNote: "Same rule. Color, not the beep.",
+    phase: "Sear",
+    where: "Dutch oven",
+    title: "Sear the second batch",
+    uses: [
+      { amt: "530 g", name: "beef" },
+      { amt: "2 g", name: "salt" }
+    ],
+    body: `<p>Same pot, still hot. <em>530 g</em>, <em>2 g</em> salt, walnut pieces, undisturbed until they crust. Out with the first batch.</p>
+    <p>If the last batch was pale and wet, put less in this time and let the juices cook off before you stir.</p>`
+  },
+  {
+    kind: "timed",
+    timerName: "Sear 3",
+    defaultSec: 300,
+    minSec: 180,
+    maxSec: 420,
+    timerNote: "Last batch. Then read the pot before any spice.",
+    phase: "Sear",
+    where: "Dutch oven",
+    title: "Sear the third batch",
+    uses: [
+      { amt: "530 g", name: "beef" },
+      { amt: "2 g", name: "salt" }
+    ],
+    body: `<p>Last <em>530 g</em>, last <em>2 g</em> salt. Crust, then out. Leave whatever is stuck to the enamel. That fond is the base the spices are about to fry on.</p>`
+  },
+  {
+    kind: "gate",
+    phase: "Sear",
+    where: "Dutch oven",
+    title: "Read the fond",
+    uses: [
+      { amt: "3 batches", name: "already out" }
+    ],
+    body: `<p>Look at the pot floor before any spice goes in. This is the last moment the fond can be sorted.</p>`,
+    branches: [
+      { type: "good", glyph: "✓", head: "Dark brown fond, meat with mahogany edges", text: "Leave it. The bloom fries on it, and the onions will scrape up what is left." },
+      { type: "wait", glyph: "!", head: "Pale meat, wet pot, almost no fond", text: "It steamed. You cannot brown it in the liquid later. Carry on. Salt and lime at the end will have to do more work." },
+      { type: "bad", glyph: "✕", head: "Black fond, acrid", text: "Spoon the black flecks out before the spices. What will not come free, leave, and do not scrape it into the bloom." }
+    ]
+  },
+  {
+    kind: "gate",
+    phase: "Sear",
+    where: "Dutch oven",
+    title: "Read the fat",
+    uses: [
+      { amt: "a film", name: "what you want left" },
+      { amt: "30 ml", name: "oil, only if dry" }
+    ],
+    body: `<p>Tilt the pot. The bloom needs a film of fat on the enamel, not a pool and not a dry pan.</p>`,
+    branches: [
+      { type: "good", glyph: "✓", head: "A thin film, the bottom glistening", text: "Right. On to the spices." },
+      { type: "wait", glyph: "!", head: "Dry and matte", text: "Add the 30 ml oil. Heat it until it shimmers, then bloom." },
+      { type: "bad", glyph: "✕", head: "A pool you can tilt", text: "Spoon it off until a film remains. A deep layer fries the spices swimming and leaves an oil slick lime will not cut." }
+    ]
+  },
+  {
+    kind: "timed",
+    timerName: "Bloom",
+    defaultSec: 60,
+    minSec: 45,
+    maxSec: 90,
+    timerNote: "Stay here. This is the step that turns bitter.",
+    phase: "Base",
+    where: "Dutch oven",
+    title: "Season the pot",
+    uses: [
+      { amt: "40 g", name: "ancho, ground" },
+      { amt: "17 g", name: "guajillo, ground" },
+      { amt: "10 g", name: "cumin" },
+      { amt: "8 g", name: "coriander" },
+      { amt: "2 g", name: "Mexican oregano" },
+      { amt: "3 g", name: "pepper flakes" },
+      { amt: "1 g", name: "cayenne" },
+      { amt: "8 g", name: "cocoa" },
+      { amt: "2 g", name: "black pepper" }
+    ],
+    body: `<p>Heat the film until it shimmers. In with the bloom: ancho, guajillo, the <em>10 g</em> cumin, coriander, oregano, pepper flakes, the <em>1 g</em> cayenne, cocoa, black pepper. Stir.</p>
+    <p><em>45–75 seconds.</em> The fat goes <strong>brick red</strong> and the base of the pot takes a coat. That coat is the seasoning. The <em>4 g</em> cumin stays in its cup.</p>`
+  },
+  {
+    kind: "gate",
+    phase: "Base",
+    where: "Dutch oven",
+    title: "Read the bloom",
+    uses: [
+      { amt: "520 g", name: "onion, if it is red" },
+      { amt: "300 g", name: "pepper, if it is red" }
+    ],
+    body: `<p>Smell it before the onions go in. Onions stop the cooking. They do not undo a burnt chile.</p>`,
+    branches: [
+      { type: "good", glyph: "✓", head: "Brick-red fat, fragrant, base coated", text: "Onions and pepper in, now." },
+      { type: "wait", glyph: "!", head: "Still dusty, oil still pale", text: "Another 20 seconds, stirring. Then read it again." },
+      { type: "bad", glyph: "✕", head: "Black flecks, sharp smell", text: "Scrape it out. A bitter paste cannot be buried under 5 L. Start this bloom again with fresh spices." }
+    ]
+  },
+  {
+    kind: "timed",
+    timerName: "Sweat",
+    defaultSec: 540,
+    minSec: 420,
+    maxSec: 720,
+    timerNote: "Sweet onion, just starting to color. Not brown.",
+    phase: "Base",
+    where: "Dutch oven",
+    title: "Sweat the onion and pepper",
+    uses: [
+      { amt: "520 g", name: "onion, small dice" },
+      { amt: "300 g", name: "red pepper, 1 cm" },
+      { amt: "8–10 min", name: "medium gas" }
+    ],
+    body: `<p>Onions and pepper in onto the red fat. Medium gas, <em>8–10 minutes</em>, until the onion is sweet and just starting to color.</p>
+    <p>Scrape as they give up water. That water lifts the fond. Garlic stays out until the last minute.</p>`
+  },
+  {
+    kind: "timed",
+    timerName: "Paste",
+    defaultSec: 120,
+    minSec: 60,
+    maxSec: 180,
+    timerNote: "Brick and sweet. Pull it early if the edges darken.",
+    phase: "Base",
+    where: "Dutch oven",
+    title: "Garlic, chipotle, paste",
+    uses: [
+      { amt: "45 g", name: "garlic, minced" },
+      { amt: "12 g", name: "chipotle, minced" },
+      { amt: "8 ml", name: "adobo" },
+      { amt: "40 g", name: "tomato paste" }
+    ],
+    body: `<p>Clear a space. In with the garlic, the chipotle, the <em>8 ml</em> adobo, and the <em>40 g</em> tomato paste. Stir through the vegetables.</p>
+    <p>Cook <em>about 2 minutes</em>, until the paste goes from bright red to <strong>brick</strong> and smells sweet. The puree never gets to brown once the pot is wet. This is the tomato Maillard.</p>`
+  },
+  {
+    kind: "gate",
+    phase: "Base",
+    where: "Dutch oven",
+    title: "Read the paste",
+    body: `<p>The paste has sugar in it. It goes from right to scorched in a minute.</p>`,
+    branches: [
+      { type: "good", glyph: "✓", head: "Brick red, smells sweet", text: "Load the pot." },
+      { type: "wait", glyph: "!", head: "Still bright red", text: "Another minute, stirring. Bright paste tastes raw and metallic." },
+      { type: "bad", glyph: "✕", head: "Black at the edges, acrid", text: "A few flecks and the pot still smells sweet: stir the onions over them and carry on. The paste itself black: scrape that patch out." }
+    ]
+  },
+  {
+    kind: "plain",
+    phase: "Base",
+    where: "Dutch oven",
+    title: "Load the pot",
+    uses: [
+      { amt: "1.6 kg", name: "beef, back in" },
+      { amt: "1.6 kg", name: "diced tomatoes, all" },
+      { amt: "950 g", name: "beans" },
+      { amt: "12 g", name: "salt" },
+      { amt: "to the line", name: "puree, from 1.6 kg" }
+    ],
+    body: `<p>Beef back in. All <em>1.6 kg</em> of diced tomatoes, juice included. The <em>950 g</em> beans. The <em>12 g</em> salt.</p>
+    <p>Tomato puree until the surface sits <strong>about 4 cm below the rim</strong>. Hold the rest in the tin. Stir. Bring to a <strong>bare simmer</strong>, small bubbles, not a roll. The next clock starts at that simmer, not at the pour.</p>`
+  },
+  {
+    kind: "gate",
+    phase: "Base",
+    where: "Dutch oven",
+    title: "Read the fill line",
+    probe: "4 cm below the rim",
+    probeLabel: "Fill",
+    uses: [
+      { amt: "4 cm", name: "of wall, minimum" },
+      { amt: "250 ml", name: "water, only if the wall is huge" }
+    ],
+    body: `<p>An 8.5 qt pot holds 8 L to the brim. This batch wants about two-thirds, so you can stir and so the wall can build a ring. The line beats the tin.</p>`,
+    branches: [
+      { type: "good", glyph: "✓", head: "About 4 cm of bare wall, or a little more", text: "Lid on. Start the hour once it is at a bare simmer." },
+      { type: "wait", glyph: "!", head: "Higher than 4 cm below the rim", text: "Too full. Ladle puree back to the line. It will climb the lid and stick where you cannot see it." },
+      { type: "bad", glyph: "✕", head: "More than about 8 cm of bare wall", text: "The uncovered hour will reduce too fast. Stir in held puree. If the wall is still that tall, add 250 ml water." }
+    ]
+  },
+  {
+    kind: "timed",
+    timerName: "Covered",
+    defaultSec: 3600,
+    minSec: 2700,
+    maxSec: 4500,
+    timerNote: "Clock starts at a bare simmer. Stir once at 30 minutes. The beep is the hour, not a texture.",
+    phase: "Simmer",
+    where: "Gas, lid on",
+    title: "Covered hour",
+    uses: [
+      { amt: "60 min", name: "bare simmer" },
+      { amt: "30 min", name: "stir and scrape once" }
+    ],
+    body: `<p>Lid on. Lowest gas that holds a <strong>bare simmer</strong>. A boil breaks the beans.</p>
+    <p>Stir once at <em>30 minutes</em>, scraping the bottom. At the hour, the beans should be soft through and still whole.</p>`
+  },
+  {
+    kind: "gate",
+    phase: "Simmer",
+    where: "Dutch oven",
+    title: "Read the beans",
+    body: `<p>Fish one out and press it. The center is the tell. The outside lies.</p>`,
+    branches: [
+      { type: "good", glyph: "✓", head: "Soft through, still a whole bean", text: "Lid off." },
+      { type: "wait", glyph: "!", head: "Chalky in the center", text: "15 more minutes, still covered, still a tremor. Then read another bean." },
+      { type: "bad", glyph: "✕", head: "Falling apart", text: "The simmer was a boil. Barest heat for the rest of the cook, and stir gently." }
+    ]
+  },
+  {
+    kind: "timed",
+    timerName: "Uncovered",
+    defaultSec: 2700,
+    minSec: 2400,
+    maxSec: 5400,
+    timerNote: "First check at 45 minutes. Scrape every 15. The beep is not the verdict.",
+    phase: "Simmer",
+    where: "Gas, lid off",
+    title: "Uncover and reduce",
+    uses: [
+      { amt: "45–90 min", name: "the window" },
+      { amt: "every 15 min", name: "scrape bottom and ring" }
+    ],
+    body: `<p>Lid off. Keep the bare simmer. Scrape the bottom and the ring on the wall <strong>every 15 minutes</strong>.</p>
+    <p>First read at <em>45 minutes</em>. Expect somewhere in <em>45–90</em>, longer if most of the puree went in. This pot is deeper than the one that hour was timed on. <strong>The spoon is the instrument.</strong></p>`
+  },
+  {
+    kind: "gate",
+    phase: "Simmer",
+    where: "Dutch oven",
+    title: "Fond, or scorch",
+    body: `<p>Read the ring before you stir it in. Deep red-brown and sweet is the cook. Black is the failure, and it telegraphs through the whole pot.</p>`,
+    branches: [
+      { type: "good", glyph: "✓", head: "Deep red-brown, sweet, comes off the wall", text: "Stir it through. That ring is flavor the tomatoes did not arrive with." },
+      { type: "wait", glyph: "!", head: "No ring after 45 minutes", text: "The simmer is too shy, or the pot is still very wet. A slightly livelier bubble. Keep scraping." },
+      { type: "bad", glyph: "✕", head: "Black, brittle, acrid", text: "Scorched. Leave the black patches. Drop the heat. Do not stir them through the chili." }
+    ]
+  },
+  {
+    kind: "gate",
+    phase: "Simmer",
+    where: "Dutch oven",
+    title: "Read the thickness",
+    uses: [
+      { amt: "25 g", name: "masa, only if you must" },
+      { amt: "80 ml", name: "chili liquid, for the masa" },
+      { amt: "100 ml", name: "water, if it went dry" }
+    ],
+    body: `<p>Drag a spoon across the floor. Read it in the pot, not in a tasting spoon. A spoonful should <strong>mound, then slump</strong>.</p>`,
+    branches: [
+      { type: "good", glyph: "✓", head: "Mounds, then slumps. The line fills in over a second or two", text: "Off the heat. On to salt." },
+      { type: "wait", glyph: "!", head: "The line vanishes and the edge weeps", text: "Not there. Keep the simmer and keep scraping. If the bottom is starting to grab and you cannot safely reduce further: whisk 25 g masa with 80 ml of the chili liquid, stir it in, simmer 5 minutes. Masa is the exit when the pot runs out of road, not a shortcut." },
+      { type: "bad", glyph: "✕", head: "The line stays open, oil weeps, edges dry", text: "Too far. Stir in 100 ml water. Do not add masa to a chili that is already a brick." }
+    ]
+  },
+  {
+    kind: "gate",
+    phase: "Finish",
+    where: "Off heat",
+    title: "Taste for salt",
+    uses: [
+      { amt: "15 g", name: "prior, standard tins" },
+      { amt: "22 g", name: "prior, low-salt tins" },
+      { amt: "6 g", name: "start, if a tin is salty" },
+      { amt: "3 g", name: "the step" }
+    ],
+    body: `<p>Heat off. Taste before any finish salt. Early salt plus a standard tin lands near half of where this wants to be. Target is savory and clear, about <em>0.85%</em>. Cheese at the table takes it further. Add in <em>3 g</em> steps.</p>`,
+    branches: [
+      { type: "good", glyph: "✓", head: "Standard tins, about 150–250 mg sodium per 100 g", text: "Start with 15 g. Taste between the 3 g steps. Stop when it tastes clear, even if you have not hit 15." },
+      { type: "wait", glyph: "!", head: "Low-salt tins, under 50 mg", text: "Start with 22 g, same way. The 15 g prior assumed the tomatoes brought salt. These did not." },
+      { type: "bad", glyph: "✕", head: "A tin over 300 mg, or you bloomed salted chili powder", text: "Taste first. Start with 6 g. The ledger's prior does not apply once a salted blend is in the pot." }
+    ]
+  },
+  {
+    kind: "gate",
+    phase: "Finish",
+    where: "Off heat",
+    title: "Taste for heat",
+    uses: [
+      { amt: "0–2 g", name: "cayenne, after you taste" }
+    ],
+    body: `<p>The chipotle, the flakes, and the <em>1 g</em> cayenne are already in, and the reduction has concentrated them. Taste a small spoon.</p>`,
+    branches: [
+      { type: "good", glyph: "✓", head: "Warmth at the back of the throat", text: "No more cayenne." },
+      { type: "good", glyph: "✓", head: "Already hot", text: "Nothing. Dairy at the table softens it. Sugar will not." },
+      { type: "wait", glyph: "!", head: "Flat, and you want it hotter", text: "1 g cayenne. Taste. Stop by 2 g." }
+    ]
+  },
+  {
+    kind: "plain",
+    phase: "Finish",
+    where: "Off heat",
+    title: "Cumin and lime",
+    uses: [
+      { amt: "4 g", name: "reserved cumin" },
+      { amt: "30 ml", name: "lime juice" },
+      { amt: "30 ml", name: "more, only if it sits heavy" }
+    ],
+    body: `<p>Still off the heat. Stir in the reserved <em>4 g</em> cumin and <em>30 ml</em> lime juice. Taste.</p>
+    <p>If the fat still sits heavy, up to another <em>30 ml</em>. Stop when it snaps into focus. <strong>Do not boil this.</strong> A boil spends the cumin and the lime you just put in.</p>`
+  },
+  {
+    kind: "plain",
+    phase: "Finish",
+    where: "Table",
+    title: "Serve, or hold",
+    uses: [
+      { amt: "onion + cilantro", name: "the cut" },
+      { amt: "lime wedges", name: "on the side" }
+    ],
+    body: `<p>White onion and cilantro are the cut. Cheese and sour cream soften it, which is a different choice. Lime wedges on the side.</p>
+    <p>It is better the next day. If you can wait, do the salt, the cayenne, the cumin, and the lime <strong>tomorrow, on the reheat</strong>, once it is hot. Overnight they die, and the salt taste shifts as it cools. Bare simmer to reheat, with a splash of water if it tightened. Fridge 5 days, freezer a month.</p>`
+  }
+];
+
+/* ---------------- state ---------------- */
+const storageKey = "cook-live:" + RECIPE_ID;
+let current = 0;
+const done = new Set();
+let finished = false;
+let soundOn = true;
+const timers = {};
+let timerSeq = 0;
+const timedDraft = {};
+let wakeLock = null;
+let audioCtx = null;
+let resetArm = 0;
+
+function load() {
+  let blob = null;
+  try { blob = JSON.parse(localStorage.getItem(storageKey) || "null"); } catch (e) { blob = null; }
+  if (!blob || typeof blob !== "object") return;
+  if (Number.isInteger(blob.current)) current = blob.current;
+  if (current < 0 || current >= Math.max(STEPS.length, 1)) current = 0;
+  if (STEPS.length && current >= STEPS.length) current = 0;
+  if (Array.isArray(blob.done)) blob.done.forEach(i => { if (Number.isInteger(i)) done.add(i); });
+  if (typeof blob.soundOn === "boolean") soundOn = blob.soundOn;
+  if (blob.finished) finished = true;
+  if (blob.timedDraft && typeof blob.timedDraft === "object") {
+    Object.keys(blob.timedDraft).forEach(k => { timedDraft[k] = blob.timedDraft[k]; });
+  }
+  if (Number.isInteger(blob.timerSeq)) timerSeq = blob.timerSeq;
+  if (Array.isArray(blob.timers)) {
+    blob.timers.forEach(raw => {
+      if (!raw || typeof raw.name !== "string") return;
+      const t = {
+        name: raw.name,
+        endsAt: typeof raw.endsAt === "number" ? raw.endsAt : null,
+        remaining: typeof raw.remaining === "number" ? raw.remaining : 0,
+        running: !!raw.running,
+        ringing: !!raw.ringing,
+        announced: !!raw.announced
+      };
+      if (t.running && t.endsAt) {
+        const left = Math.round((t.endsAt - Date.now()) / 1000);
+        if (left <= 0) {
+          t.remaining = 0; t.running = false; t.ringing = true;
+        } else {
+          t.remaining = left;
+        }
+      }
+      const id = Number.isInteger(raw.id) ? raw.id : ++timerSeq;
+      timers[id] = t;
+      if (id > timerSeq) timerSeq = id;
+    });
+  }
+}
+
+function save() {
+  const blob = {
+    engine: ENGINE,
+    current,
+    done: [...done],
+    finished,
+    soundOn,
+    timerSeq,
+    timedDraft,
+    timers: Object.keys(timers).map(id => {
+      const t = timers[id];
+      return {
+        id: Number(id), name: t.name, endsAt: t.endsAt, remaining: t.remaining,
+        running: t.running, ringing: t.ringing, announced: t.announced
+      };
+    })
+  };
+  try { localStorage.setItem(storageKey, JSON.stringify(blob)); } catch (e) { /* private mode */ }
+}
+
+/* ---------------- audio + alerts ---------------- */
+function unlockAudio() {
+  try {
+    audioCtx = audioCtx || new (window.AudioContext || window.webkitAudioContext)();
+    if (audioCtx.state === "suspended") audioCtx.resume();
+  } catch (e) { /* audio unavailable */ }
+}
+function beep() {
+  if (!soundOn) return;
+  try {
+    unlockAudio();
+    if (!audioCtx) return;
+    const now = audioCtx.currentTime;
+    [0, 0.28, 0.56].forEach(off => {
+      const o = audioCtx.createOscillator();
+      const g = audioCtx.createGain();
+      o.frequency.value = 880;
+      o.type = "sine";
+      o.connect(g); g.connect(audioCtx.destination);
+      g.gain.setValueAtTime(0.0001, now + off);
+      g.gain.exponentialRampToValueAtTime(0.32, now + off + 0.02);
+      g.gain.exponentialRampToValueAtTime(0.0001, now + off + 0.22);
+      o.start(now + off); o.stop(now + off + 0.24);
+    });
+  } catch (e) { /* audio unavailable */ }
+}
+function announce(name) {
+  const live = document.getElementById("live");
+  if (live) live.textContent = name + " timer done";
+  if ("Notification" in window && Notification.permission === "granted") {
+    try { new Notification(name + " · done", { body: "Timer finished." }); } catch (e) { /* blocked */ }
+  }
+}
+function askNotify() {
+  if (!("Notification" in window)) return;
+  if (Notification.permission !== "default") return;
+  try { Notification.requestPermission(); } catch (e) { /* no permission API */ }
+}
+
+/* ---------------- helpers ---------------- */
+function esc(s) {
+  return String(s == null ? "" : s).replace(/[&<>"']/g, c => ({
+    "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;"
+  }[c]));
+}
+function fmt(sec) {
+  sec = Math.max(0, Math.round(sec));
+  const h = Math.floor(sec / 3600);
+  const m = Math.floor((sec % 3600) / 60);
+  const s = sec % 60;
+  const mm = String(m).padStart(2, "0");
+  const ss = String(s).padStart(2, "0");
+  return h > 0 ? (h + ":" + mm + ":" + ss) : (mm + ":" + ss);
+}
+function adjustSteps(st) {
+  return st.defaultSec >= 1200 ? [-300, -60, 60, 300] : [-60, -30, 30, 60];
+}
+function adjLabel(delta) {
+  const sign = delta > 0 ? "+" : "−";
+  const a = Math.abs(delta);
+  if (a >= 60 && a % 60 === 0) return sign + (a / 60) + "m";
+  return sign + a + "s";
+}
+const kindLabel = { timed: "Timed", gate: "Decision", plain: "Step" };
+
+/* ---------------- rail + progress ---------------- */
+function renderRail() {
+  const ol = document.getElementById("steplist");
+  ol.innerHTML = "";
+  STEPS.forEach((st, i) => {
+    if (st.phase && (i === 0 || STEPS[i - 1].phase !== st.phase)) {
+      const ph = document.createElement("li");
+      ph.className = "phase";
+      ph.textContent = st.phase;
+      ol.appendChild(ph);
+    }
+    const li = document.createElement("li");
+    li.className = (i === current ? "active " : "") + (done.has(i) ? "done" : "");
+    let tag = "";
+    if (st.kind === "timed") tag = `<span class="s-tag timed">timer</span>`;
+    if (st.kind === "gate") tag = `<span class="s-tag gate">gate</span>`;
+    li.innerHTML = `<span class="idx mono">${String(i + 1).padStart(2, "0")}</span><span class="s-name">${esc(st.title)}</span>${tag}`;
+    li.addEventListener("click", () => goto(i));
+    ol.appendChild(li);
+  });
+
+  const mini = document.getElementById("progressMini");
+  mini.innerHTML = "";
+  STEPS.forEach((st, i) => {
+    const p = document.createElement("div");
+    p.className = "pip" + (i === current ? " active" : done.has(i) ? " done" : "");
+    p.title = st.title || "";
+    p.addEventListener("click", () => goto(i));
+    mini.appendChild(p);
+  });
+
+  const active = ol.querySelector("li.active");
+  const rail = document.getElementById("rail");
+  if (active && rail.scrollHeight > rail.clientHeight + 4) {
+    const railRect = rail.getBoundingClientRect();
+    const aRect = active.getBoundingClientRect();
+    if (aRect.bottom > railRect.bottom - 8) rail.scrollTop += aRect.bottom - railRect.bottom + 16;
+    else if (aRect.top < railRect.top + 8) rail.scrollTop -= railRect.top - aRect.top + 16;
+  }
+}
+
+/* ---------------- step view ---------------- */
+function renderStep() {
+  const v = document.getElementById("stepView");
+  const prev = document.getElementById("prevBtn");
+  const next = document.getElementById("nextBtn");
+  if (!STEPS.length) {
+    v.innerHTML = `<p class="empty-stage">This is the cook-it-live engine. Copy the file, then fill the header, the mise, and STEPS. The shape is in cook-it-live/SKILL.md.</p>`;
+    prev.disabled = true;
+    next.disabled = true;
+    return;
+  }
+  const st = STEPS[current];
+  const uses = (st.uses && st.uses.length)
+    ? `<div class="uses">` + st.uses.map(u => `<span class="use"><b>${esc(u.amt)}</b> ${esc(u.name)}</span>`).join("") + `</div>`
+    : "";
+  const also = (st.also && st.also.length)
+    ? `<div class="also"><div class="also-k">Still running</div><ul>` + st.also.map(a => `<li>${esc(a)}</li>`).join("") + `</ul></div>`
+    : "";
+  let html = `<div class="step-head">
+      <span class="step-num mono">${String(current + 1).padStart(2, "0")} / ${String(STEPS.length).padStart(2, "0")}</span>
+      <span class="step-kind ${esc(st.kind)}">${kindLabel[st.kind] || "Step"}</span>
+      ${st.where ? `<span class="where">${esc(st.where)}</span>` : ""}
+    </div>
+    ${st.phase ? `<p class="phase-kicker">${esc(st.phase)}</p>` : ""}
+    <h2 class="step-title" id="stepTitle" tabindex="-1">${esc(st.title)}</h2>
+    ${uses}
+    ${also}
+    ${st.probe ? `<div class="probe"><span class="lab">${esc(st.probeLabel || "Pull at")}</span><span class="val mono">${esc(st.probe)}</span></div>` : ""}
+    <div class="step-body">${st.body || ""}</div>`;
+
+  if (st.kind === "gate" && st.branches) {
+    html += `<div class="gate-branches">`;
+    st.branches.forEach(b => {
+      const type = (b.type === "good" || b.type === "wait" || b.type === "bad") ? b.type : "wait";
+      html += `<div class="branch ${type}">
+        <h4><span class="glyph">${esc(b.glyph || "")}</span> ${esc(b.head)}</h4>
+        <p>${esc(b.text)}</p></div>`;
+    });
+    html += `</div>`;
+  }
+
+  if (finished) {
+    html += `<div class="also"><div class="also-k">Done</div><ul><li>That is the cook. Start over clears the timers and the place.</li></ul></div>`;
+  }
+
+  if (st.kind === "timed") {
+    const pending = "pending_" + current;
+    if (!(pending in timedDraft)) timedDraft[pending] = st.defaultSec;
+    const buttons = adjustSteps(st).map(d =>
+      `<button type="button" data-adj="${d}">${adjLabel(d)}</button>`
+    ).join("");
+    const note = st.timerNote
+      ? esc(st.timerNote)
+      : "Wall clock. Holds while the screen is locked, as long as this tab stays loaded. Reopening this file restores the end time.";
+    html += `<div class="timer-launch">
+        <span class="tl-time mono" id="draft_${current}">${fmt(timedDraft[pending])}</span>
+        <span class="adj">${buttons}</span>
+        <span class="tl-lab">${esc(st.timerName)}. ${note}</span>
+        <button class="btn btn-amber" id="launch_${current}" type="button">▶ Start ${esc(st.timerName)}</button>
+      </div>`;
+  }
+
+  v.innerHTML = html;
+
+  if (st.kind === "timed") {
+    v.querySelectorAll("[data-adj]").forEach(btn => {
+      btn.addEventListener("click", () => {
+        const key = "pending_" + current;
+        let val = timedDraft[key] + parseInt(btn.dataset.adj, 10);
+        val = Math.min(st.maxSec, Math.max(st.minSec, val));
+        timedDraft[key] = val;
+        document.getElementById("draft_" + current).textContent = fmt(val);
+        save();
+      });
+    });
+    document.getElementById("launch_" + current).addEventListener("click", () => {
+      addTimer(st.timerName, timedDraft["pending_" + current]);
+    });
+  }
+
+  prev.disabled = current === 0;
+  next.disabled = false;
+  next.textContent = finished ? "Cook again" : (current === STEPS.length - 1 ? "Finish" : "Next step →");
+
+  const title = document.getElementById("stepTitle");
+  if (title) title.focus({ preventScroll: true });
+}
+
+/* ---------------- navigation ---------------- */
+function goto(i) {
+  if (!STEPS.length || i < 0 || i >= STEPS.length) return;
+  finished = false;
+  current = i;
+  save();
+  renderRail();
+  renderStep();
+  const reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  window.scrollTo({ top: 0, behavior: reduce ? "auto" : "smooth" });
+}
+function advance() {
+  if (!STEPS.length) return;
+  if (finished) { resetCook(); return; }
+  done.add(current);
+  if (current < STEPS.length - 1) goto(current + 1);
+  else { finished = true; save(); renderRail(); renderStep(); }
+}
+document.getElementById("nextBtn").addEventListener("click", advance);
+document.getElementById("prevBtn").addEventListener("click", () => goto(current - 1));
+
+/* ---------------- timers / dock ---------------- */
+function addTimer(name, sec) {
+  unlockAudio();
+  askNotify();
+  const id = ++timerSeq;
+  timers[id] = {
+    name,
+    endsAt: Date.now() + sec * 1000,
+    remaining: sec,
+    running: true,
+    ringing: false,
+    announced: false
+  };
+  save();
+  renderDock();
+  syncWake();
+}
+function sweepTimers() {
+  let changed = false;
+  Object.keys(timers).forEach(id => {
+    const t = timers[id];
+    if (t.running && t.endsAt) {
+      const left = Math.round((t.endsAt - Date.now()) / 1000);
+      if (left <= 0) {
+        t.remaining = 0;
+        t.running = false;
+        t.ringing = true;
+        changed = true;
+      } else {
+        t.remaining = left;
+      }
+    }
+    if (t.ringing && !t.announced) {
+      t.announced = true;
+      changed = true;
+      beep();
+      announce(t.name);
+    }
+    updateChip(id);
+  });
+  if (changed) { save(); syncWake(); }
+}
+function toggleTimer(id) {
+  const t = timers[id];
+  if (!t) return;
+  if (t.ringing) { removeTimer(id); return; }
+  if (t.running) {
+    t.remaining = Math.max(0, Math.round((t.endsAt - Date.now()) / 1000));
+    t.running = false;
+    t.endsAt = null;
+  } else if (t.remaining > 0) {
+    unlockAudio();
+    t.running = true;
+    t.endsAt = Date.now() + t.remaining * 1000;
+  }
+  save();
+  updateChip(id);
+  syncWake();
+}
+function removeTimer(id) {
+  if (!timers[id]) return;
+  delete timers[id];
+  save();
+  renderDock();
+  syncWake();
+}
+function renderDock() {
+  const dock = document.getElementById("dock");
+  dock.querySelectorAll(".chip").forEach(c => c.remove());
+  const ids = Object.keys(timers);
+  document.getElementById("dockEmpty").style.display = ids.length ? "none" : "";
+  ids.forEach(id => dock.appendChild(buildChip(id)));
+}
+function buildChip(id) {
+  const t = timers[id];
+  const el = document.createElement("div");
+  el.className = "chip" + (t.ringing ? " ringing" : "");
+  el.id = "chip_" + id;
+  el.innerHTML = `
+    <div class="c-info">
+      <span class="c-name">${esc(t.name)}${t.ringing ? " · done" : (t.running ? "" : " · paused")}</span>
+      <span class="c-time mono">${fmt(t.remaining)}</span>
+    </div>
+    <div class="c-btns">
+      <button type="button" title="${t.ringing ? "dismiss" : (t.running ? "pause" : "resume")}" data-act="toggle">${t.ringing ? "✓" : (t.running ? "❚❚" : "▶")}</button>
+      <button type="button" title="dismiss" data-act="remove">✕</button>
+    </div>`;
+  el.querySelector('[data-act="toggle"]').addEventListener("click", () => toggleTimer(id));
+  el.querySelector('[data-act="remove"]').addEventListener("click", () => removeTimer(id));
+  return el;
+}
+function updateChip(id) {
+  const t = timers[id];
+  const el = document.getElementById("chip_" + id);
+  if (!el || !t) { renderDock(); return; }
+  el.className = "chip" + (t.ringing ? " ringing" : "");
+  el.querySelector(".c-time").textContent = fmt(t.remaining);
+  el.querySelector(".c-name").textContent = t.name + (t.ringing ? " · done" : (t.running ? "" : " · paused"));
+  const toggle = el.querySelector('[data-act="toggle"]');
+  toggle.textContent = t.ringing ? "✓" : (t.running ? "❚❚" : "▶");
+  toggle.title = t.ringing ? "dismiss" : (t.running ? "pause" : "resume");
+}
+
+async function syncWake() {
+  const any = Object.keys(timers).some(id => timers[id].running);
+  if (any && "wakeLock" in navigator) {
+    try {
+      if (!wakeLock) wakeLock = await navigator.wakeLock.request("screen");
+    } catch (e) { /* unsupported or hidden tab */ }
+  } else if (wakeLock) {
+    try { await wakeLock.release(); } catch (e) { /* already released */ }
+    wakeLock = null;
+  }
+}
+document.addEventListener("visibilitychange", () => {
+  if (document.visibilityState !== "visible") return;
+  sweepTimers();
+  syncWake();
+});
+setInterval(sweepTimers, 250);
+
+/* ---------------- toggles ---------------- */
+function paintSound() {
+  const b = document.getElementById("soundToggle");
+  b.textContent = soundOn ? "Sound on" : "Sound off";
+  b.setAttribute("aria-pressed", soundOn ? "true" : "false");
+}
+document.getElementById("soundToggle").addEventListener("click", (e) => {
+  soundOn = !soundOn;
+  paintSound();
+  save();
+  if (soundOn) { unlockAudio(); beep(); }
+});
+document.getElementById("seqToggle").addEventListener("click", (e) => {
+  const seq = document.getElementById("seq");
+  const open = seq.classList.toggle("open");
+  e.currentTarget.textContent = (open ? "▾ " : "▸ ") + "Sequence";
+  e.currentTarget.setAttribute("aria-expanded", open ? "true" : "false");
+  if (open) seq.scrollIntoView({ block: "start" });
+});
+document.getElementById("miseToggle").addEventListener("click", (e) => {
+  const m = document.getElementById("mise");
+  const open = m.classList.toggle("open");
+  e.currentTarget.textContent = (open ? "▾ " : "▸ ") + "Mise / ingredients";
+  e.currentTarget.setAttribute("aria-expanded", open ? "true" : "false");
+  if (open) m.scrollIntoView({ block: "start" });
+});
+document.getElementById("resetBtn").addEventListener("click", (e) => {
+  const now = Date.now();
+  if (now - resetArm > 4000) {
+    resetArm = now;
+    e.currentTarget.textContent = "Clear this cook?";
+    e.currentTarget.classList.add("armed");
+    setTimeout(() => {
+      if (Date.now() - resetArm >= 3900) {
+        const b = document.getElementById("resetBtn");
+        b.textContent = "Start over";
+        b.classList.remove("armed");
+      }
+    }, 4000);
+    return;
+  }
+  resetCook();
+});
+function resetCook() {
+  current = 0;
+  done.clear();
+  finished = false;
+  Object.keys(timers).forEach(id => delete timers[id]);
+  Object.keys(timedDraft).forEach(k => delete timedDraft[k]);
+  timerSeq = 0;
+  resetArm = 0;
+  const b = document.getElementById("resetBtn");
+  b.textContent = "Start over";
+  b.classList.remove("armed");
+  try { localStorage.removeItem(storageKey); } catch (e) { /* private mode */ }
+  renderRail();
+  renderStep();
+  renderDock();
+  syncWake();
+}
+
+document.addEventListener("keydown", (e) => {
+  if (e.metaKey || e.ctrlKey || e.altKey) return;
+  const tag = e.target && e.target.tagName;
+  if (tag === "BUTTON" || tag === "INPUT" || tag === "TEXTAREA") return;
+  if (e.key === "ArrowRight") { e.preventDefault(); advance(); }
+  if (e.key === "ArrowLeft") { e.preventDefault(); goto(current - 1); }
+});
+
+/* ---------------- init ---------------- */
+load();
+paintSound();
+renderRail();
+renderStep();
+renderDock();
+sweepTimers();
+syncWake();
+</script>
+</body>
+</html>
