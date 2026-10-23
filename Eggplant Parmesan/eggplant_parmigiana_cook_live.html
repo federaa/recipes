@@ -1,0 +1,734 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cook It Live — Melanzane alla Parmigiana</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ground: #17101a;
+    --panel: #201526;
+    --panel-2: #2a1c30;
+    --line: #3a2a42;
+    --ivory: #f3ebe3;
+    --muted: #a793a0;
+    --faint: #6f5f6d;
+    --amber: #e0b74e;       /* parmesan gold — interactive / positive */
+    --amber-deep: #a97f26;
+    --chili: #d2402b;       /* tomato — gates / alarms */
+    --chili-soft: #e56048;
+    /* parmigiana legend */
+    --auberg: #7c4a8c;
+    --tomato: #c8402e;
+    --parm:   #ecd9a6;
+    --radius: 4px;
+    --dock-h: 92px;
+  }
+
+  * { box-sizing: border-box; }
+
+  html { -webkit-text-size-adjust: 100%; }
+
+  body {
+    margin: 0;
+    background: var(--ground);
+    color: var(--ivory);
+    font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+    line-height: 1.5;
+    padding-bottom: calc(var(--dock-h) + env(safe-area-inset-bottom));
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .mono { font-family: "JetBrains Mono", ui-monospace, monospace; font-feature-settings: "tnum"; }
+
+  /* ---------- header ---------- */
+  header {
+    border-bottom: 1px solid var(--line);
+    padding: 22px 20px 18px;
+    background: linear-gradient(180deg, #1c1510 0%, var(--ground) 100%);
+  }
+  .eyebrow {
+    font-family: "JetBrains Mono", monospace;
+    font-size: 11px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--amber);
+    margin: 0 0 6px;
+  }
+  h1 {
+    font-family: "Fraunces", Georgia, serif;
+    font-weight: 500;
+    font-size: clamp(26px, 5vw, 40px);
+    line-height: 1.04;
+    margin: 0 0 10px;
+    letter-spacing: -0.01em;
+  }
+  .meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px 18px;
+    font-family: "JetBrains Mono", monospace;
+    font-size: 12px;
+    color: var(--muted);
+  }
+  .meta b { color: var(--ivory); font-weight: 500; }
+
+  .legend {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+    margin-top: 16px;
+  }
+  .legend-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 12px;
+    color: var(--muted);
+  }
+  .swatch {
+    width: 14px; height: 14px; border-radius: 50%;
+    flex: 0 0 auto;
+    box-shadow: inset 0 0 0 1px rgba(0,0,0,0.35);
+  }
+  .legend-item b { color: var(--ivory); font-weight: 500; }
+  .legend-item span { color: var(--faint); }
+
+  /* ---------- layout ---------- */
+  .wrap {
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: 20px;
+    display: grid;
+    grid-template-columns: 268px 1fr;
+    gap: 26px;
+    align-items: start;
+  }
+
+  /* ---------- rail ---------- */
+  .rail { position: sticky; top: 16px; }
+  .rail h2, .mise h2 {
+    font-family: "JetBrains Mono", monospace;
+    font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--faint); margin: 0 0 12px; font-weight: 500;
+  }
+  .steplist { list-style: none; margin: 0 0 26px; padding: 0; }
+  .steplist li {
+    display: flex; align-items: baseline; gap: 11px;
+    padding: 7px 10px; border-radius: var(--radius);
+    cursor: pointer; color: var(--muted);
+    font-size: 13.5px; line-height: 1.3;
+    border: 1px solid transparent;
+    transition: background .15s, color .15s;
+  }
+  .steplist li:hover { background: var(--panel); color: var(--ivory); }
+  .steplist li.active {
+    background: var(--panel-2); color: var(--ivory);
+    border-color: var(--line);
+  }
+  .steplist li.done .idx { color: var(--amber-deep); }
+  .steplist li.done .s-name { color: var(--faint); text-decoration: line-through; text-decoration-color: var(--line); }
+  .idx {
+    font-family: "JetBrains Mono", monospace;
+    font-size: 11px; color: var(--faint); flex: 0 0 20px;
+  }
+  .active .idx { color: var(--amber); }
+  .s-tag {
+    margin-left: auto; font-family: "JetBrains Mono", monospace;
+    font-size: 10px; letter-spacing: 0.05em;
+    padding: 1px 6px; border-radius: 20px; flex: 0 0 auto;
+    align-self: center;
+  }
+  .s-tag.timed { color: var(--amber); border: 1px solid var(--amber-deep); }
+  .s-tag.gate { color: var(--chili-soft); border: 1px solid #7a3020; }
+
+  /* ---------- mise ---------- */
+  .mise {
+    background: var(--panel); border: 1px solid var(--line);
+    border-radius: var(--radius); padding: 16px 16px 6px;
+  }
+  .mise ul { list-style: none; margin: 0 0 14px; padding: 0; }
+  .mise li {
+    display: flex; justify-content: space-between; gap: 12px;
+    font-size: 13px; padding: 5px 0; border-bottom: 1px solid #2a2018;
+  }
+  .mise li:last-child { border-bottom: none; }
+  .mise .ing { color: var(--ivory); }
+  .mise .amt { font-family: "JetBrains Mono", monospace; font-size: 12.5px; color: var(--amber); white-space: nowrap; }
+  .mise .grp { font-family: "JetBrains Mono", monospace; font-size: 10.5px; letter-spacing: .12em; text-transform: uppercase; color: var(--faint); margin: 12px 0 4px; }
+  .cut { color: var(--faint); text-decoration: line-through; text-decoration-color: var(--chili); }
+  .cut .amt { color: var(--faint); }
+
+  /* ---------- main step ---------- */
+  .stage { min-height: 60vh; }
+  .step-head { display: flex; align-items: baseline; gap: 14px; margin-bottom: 4px; flex-wrap: wrap; }
+  .step-num {
+    font-family: "JetBrains Mono", monospace; font-size: 13px; color: var(--amber);
+    letter-spacing: .1em;
+  }
+  .step-kind {
+    font-family: "JetBrains Mono", monospace; font-size: 10.5px; letter-spacing: .14em; text-transform: uppercase;
+    padding: 2px 9px; border-radius: 20px;
+  }
+  .step-kind.timed { color: var(--amber); border: 1px solid var(--amber-deep); }
+  .step-kind.gate { color: var(--chili-soft); border: 1px solid #7a3020; background: rgba(210,73,43,.08); }
+  .step-kind.plain { color: var(--faint); border: 1px solid var(--line); }
+
+  .step-title {
+    font-family: "Fraunces", Georgia, serif; font-weight: 500;
+    font-size: clamp(24px, 4vw, 34px); line-height: 1.08; margin: 8px 0 18px;
+    letter-spacing: -0.01em;
+  }
+  .step-body { font-size: 16px; color: #ded2c1; max-width: 62ch; }
+  .step-body p { margin: 0 0 14px; }
+  .step-body strong { color: var(--ivory); font-weight: 600; }
+  .step-body em { color: var(--amber); font-style: normal; }
+
+  .callout {
+    border-left: 3px solid var(--amber-deep);
+    background: var(--panel);
+    padding: 12px 16px; border-radius: 0 var(--radius) var(--radius) 0;
+    margin: 18px 0; font-size: 14.5px; color: var(--muted);
+  }
+  .callout b { color: var(--ivory); }
+
+  /* temp badge */
+  .probe {
+    display: inline-flex; align-items: center; gap: 10px;
+    background: var(--panel-2); border: 1px solid var(--line);
+    border-radius: var(--radius); padding: 10px 16px; margin: 4px 0 18px;
+  }
+  .probe .lab { font-size: 11px; letter-spacing: .12em; text-transform: uppercase; color: var(--faint); font-family: "JetBrains Mono", monospace; }
+  .probe .val { font-family: "JetBrains Mono", monospace; font-size: 22px; color: var(--amber); font-weight: 500; }
+
+  /* ---------- gate ---------- */
+  .gate-branches { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin: 20px 0; }
+  .branch {
+    border: 1px solid var(--line); border-radius: var(--radius);
+    padding: 16px; background: var(--panel);
+  }
+  .branch.good { border-color: #4a5a2e; }
+  .branch.bad { border-color: #7a3020; }
+  .branch h4 {
+    font-family: "JetBrains Mono", monospace; font-size: 12px; letter-spacing: .06em;
+    margin: 0 0 8px; display: flex; align-items: center; gap: 8px; text-transform: uppercase;
+  }
+  .branch.good h4 { color: #a9c76a; }
+  .branch.bad h4 { color: var(--chili-soft); }
+  .branch p { margin: 0; font-size: 14px; color: var(--muted); }
+  .branch .glyph { font-size: 15px; }
+
+  /* ---------- timer controls in step ---------- */
+  .timer-launch {
+    display: flex; align-items: center; gap: 12px; flex-wrap: wrap;
+    margin: 22px 0 6px; padding: 16px; border: 1px dashed var(--amber-deep);
+    border-radius: var(--radius); background: rgba(224,160,62,.04);
+  }
+  .timer-launch .tl-time { font-family: "JetBrains Mono", monospace; font-size: 30px; color: var(--amber); font-weight: 500; }
+  .timer-launch .tl-lab { font-size: 13px; color: var(--muted); flex: 1 1 140px; }
+  .adj { display: inline-flex; gap: 6px; }
+  .adj button {
+    width: 34px; height: 34px; font-family: "JetBrains Mono", monospace; font-size: 15px;
+    background: var(--panel-2); color: var(--ivory); border: 1px solid var(--line);
+    border-radius: var(--radius); cursor: pointer;
+  }
+  .adj button:hover { border-color: var(--amber-deep); color: var(--amber); }
+
+  /* buttons */
+  button { font-family: inherit; }
+  .btn {
+    border: none; border-radius: var(--radius); cursor: pointer;
+    font-family: "JetBrains Mono", monospace; font-size: 13px; letter-spacing: .04em;
+    padding: 12px 20px; transition: filter .15s, background .15s;
+  }
+  .btn-amber { background: var(--amber); color: #1c1207; font-weight: 700; }
+  .btn-amber:hover { filter: brightness(1.08); }
+  .btn-ghost { background: var(--panel-2); color: var(--ivory); border: 1px solid var(--line); }
+  .btn-ghost:hover { border-color: var(--amber-deep); color: var(--amber); }
+
+  .nav { display: flex; justify-content: space-between; gap: 12px; margin-top: 34px; padding-top: 20px; border-top: 1px solid var(--line); }
+
+  /* ---------- timer dock ---------- */
+  .dock {
+    position: fixed; left: 0; right: 0; bottom: 0; z-index: 40;
+    min-height: var(--dock-h);
+    background: rgba(20,15,11,.94); backdrop-filter: blur(8px);
+    border-top: 1px solid var(--line);
+    padding: 12px 16px calc(12px + env(safe-area-inset-bottom));
+    display: flex; align-items: center; gap: 12px; overflow-x: auto;
+  }
+  .dock-label {
+    font-family: "JetBrains Mono", monospace; font-size: 10px; letter-spacing: .16em;
+    text-transform: uppercase; color: var(--faint); writing-mode: vertical-rl; transform: rotate(180deg);
+    flex: 0 0 auto; padding-right: 2px;
+  }
+  .dock-empty { color: var(--faint); font-size: 13px; font-family: "JetBrains Mono", monospace; }
+  .chip {
+    flex: 0 0 auto; display: flex; align-items: center; gap: 12px;
+    background: var(--panel-2); border: 1px solid var(--line);
+    border-radius: var(--radius); padding: 10px 12px 10px 14px; min-width: 180px;
+  }
+  .chip.ringing { border-color: var(--chili); animation: flash .7s steps(1) infinite; }
+  @keyframes flash { 50% { background: rgba(210,73,43,.22); } }
+  .chip .c-info { display: flex; flex-direction: column; gap: 1px; }
+  .chip .c-name { font-size: 11px; color: var(--muted); font-family: "JetBrains Mono", monospace; letter-spacing: .04em; }
+  .chip .c-time { font-family: "JetBrains Mono", monospace; font-size: 24px; font-weight: 500; color: var(--amber); line-height: 1; }
+  .chip.ringing .c-time { color: var(--chili-soft); }
+  .chip .c-btns { display: flex; gap: 5px; margin-left: auto; }
+  .chip .c-btns button {
+    width: 30px; height: 30px; border-radius: var(--radius);
+    background: var(--panel); border: 1px solid var(--line); color: var(--muted);
+    cursor: pointer; font-size: 13px; display: grid; place-items: center;
+  }
+  .chip .c-btns button:hover { color: var(--amber); border-color: var(--amber-deep); }
+
+  .sound-toggle {
+    position: absolute; top: 22px; right: 20px;
+    background: var(--panel-2); border: 1px solid var(--line); color: var(--muted);
+    border-radius: var(--radius); padding: 7px 12px; cursor: pointer;
+    font-family: "JetBrains Mono", monospace; font-size: 11px; letter-spacing: .05em;
+  }
+  .sound-toggle:hover { color: var(--amber); }
+
+  .mise-toggle { display: none; }
+
+  :focus-visible { outline: 2px solid var(--amber); outline-offset: 2px; }
+
+  /* ---------- responsive ---------- */
+  @media (max-width: 860px) {
+    .wrap { grid-template-columns: 1fr; gap: 18px; }
+    .rail { position: static; order: 2; }
+    .rail .steplist { display: none; }
+    .rail.open .steplist { display: block; }
+    .mise-toggle {
+      display: block; width: 100%; text-align: left;
+      background: var(--panel); border: 1px solid var(--line); color: var(--ivory);
+      border-radius: var(--radius); padding: 12px 14px; margin-bottom: 12px;
+      font-family: "JetBrains Mono", monospace; font-size: 12px; letter-spacing: .06em; cursor: pointer;
+    }
+    .mise { display: none; }
+    .mise.open { display: block; }
+    .stage { order: 1; }
+    .gate-branches { grid-template-columns: 1fr; }
+    .progress-mini { display: flex; }
+  }
+  @media (min-width: 861px) { .progress-mini { display: none; } }
+
+  .progress-mini {
+    gap: 4px; margin-bottom: 14px; flex-wrap: wrap;
+  }
+  .progress-mini .pip {
+    height: 4px; flex: 1 1 12px; border-radius: 2px; background: var(--line); cursor: pointer;
+  }
+  .progress-mini .pip.done { background: var(--amber-deep); }
+  .progress-mini .pip.active { background: var(--amber); }
+
+  @media (prefers-reduced-motion: reduce) {
+    * { animation: none !important; transition: none !important; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <button class="sound-toggle" id="soundToggle" aria-pressed="true">🔔 SOUND ON</button>
+  <p class="eyebrow">Cook It Live</p>
+  <h1>Melanzane alla Parmigiana</h1>
+  <div class="meta">
+    <span><b>Serves 4–6</b> · 1.3 kg eggplant</span>
+    <span>~2 h · then rest</span>
+    <span>Convection oven · ~2.5 L baker</span>
+    <span>Roasted, not breaded</span>
+  </div>
+  <div class="legend">
+    <div class="legend-item"><span class="swatch" style="background:var(--auberg)"></span><div><b>Eggplant</b> <span>· roast to collapse</span></div></div>
+    <div class="legend-item"><span class="swatch" style="background:var(--tomato)"></span><div><b>Sugo</b> <span>· reduce past pourable</span></div></div>
+    <div class="legend-item"><span class="swatch" style="background:var(--parm)"></span><div><b>Cheese</b> <span>· restraint + rest</span></div></div>
+  </div>
+</header>
+
+<div class="wrap">
+  <aside class="rail" id="rail">
+    <button class="mise-toggle" id="miseToggle">▸ MISE / INGREDIENTS</button>
+    <div class="mise" id="mise">
+      <h2>Mise en place</h2>
+      <div class="grp">Eggplant</div>
+      <ul>
+        <li><span class="ing">Globe eggplant</span><span class="amt">1.3 kg</span></li>
+        <li><span class="ing">Fine salt — purge</span><span class="amt">~15 g</span></li>
+        <li><span class="ing">Olive oil — brush</span><span class="amt">60–80 ml</span></li>
+      </ul>
+      <div class="grp">Tomato sugo</div>
+      <ul>
+        <li><span class="ing">Whole peeled San Marzano</span><span class="amt">800 g</span></li>
+        <li><span class="ing">Passata (opt., smooth)</span><span class="amt">200 g</span></li>
+        <li><span class="ing">Olive oil</span><span class="amt">40 ml</span></li>
+        <li><span class="ing">Garlic, sliced</span><span class="amt">3 cloves</span></li>
+        <li><span class="ing">Basil stems + leaves</span><span class="amt">—</span></li>
+        <li><span class="ing">Salt — to taste after</span><span class="amt">4–6 g</span></li>
+        <li><span class="ing">Sugar (only if sharp)</span><span class="amt">pinch</span></li>
+      </ul>
+      <div class="grp">Cheese · layers</div>
+      <ul>
+        <li><span class="ing">Low-moisture mozz / drained fior di latte</span><span class="amt">350 g</span></li>
+        <li><span class="ing">Parmigiano-Reggiano</span><span class="amt">100 g</span></li>
+        <li><span class="ing">Pecorino (opt., edge)</span><span class="amt">20 g</span></li>
+        <li><span class="ing">Basil leaves</span><span class="amt">~20</span></li>
+      </ul>
+    </div>
+    <h2 style="margin-top:22px">Sequence</h2>
+    <ol class="steplist" id="steplist"></ol>
+  </aside>
+
+  <main class="stage" id="stage">
+    <div class="progress-mini" id="progressMini"></div>
+    <!-- step renders here -->
+    <div id="stepView"></div>
+    <div class="nav">
+      <button class="btn btn-ghost" id="prevBtn">← Back</button>
+      <button class="btn btn-amber" id="nextBtn">Next step →</button>
+    </div>
+  </main>
+</div>
+
+<div class="dock" id="dock">
+  <span class="dock-label">Timers</span>
+  <span class="dock-empty" id="dockEmpty">No timers running — start one from a timed step.</span>
+</div>
+
+<script>
+"use strict";
+
+/* ---------------- recipe data ---------------- */
+const STEPS = [
+  {
+    kind: "plain",
+    title: "Slice, salt, set up",
+    body: `<p>Cut the eggplant into <strong>10 mm rounds</strong>. Salt both faces with the <em>~15 g</em> fine salt, lay on a rack, and leave to purge (next step).</p>
+    <p>While it weeps: if you're using <strong>fresh fior di latte</strong>, slice or tear it now and set it to <em>drain on towels</em> — it needs 30+ min to shed water. Low-moisture mozz needs none of this. Grate the parm. Pick your basil.</p>`
+  },
+  {
+    kind: "timed", timerName: "Purge", defaultSec: 3000, minSec: 2700, maxSec: 3600,
+    title: "Purge the eggplant",
+    body: `<p>Let the salted slices sit <strong>45–60 min</strong>. You want <em>beads of amber liquid</em> standing on the surface.</p>
+    <p>This is <strong>moisture and oil-absorption control</strong>, not a bitterness ritual — modern globe eggplant is bred low-bitter. Drawing the free water is what lets it <em>roast instead of steam</em> and stops it drinking a puddle of oil later.</p>`
+  },
+  {
+    kind: "plain",
+    title: "Press, pat, preheat",
+    body: `<p><strong>Press and pat the slices bone-dry</strong> — squeeze out the weeped water, blot both sides. Damp eggplant steams.</p>
+    <p>Oven to <strong>220 °C convection</strong>. Line trays with parchment or set racks.</p>`
+  },
+  {
+    kind: "timed", timerName: "Roast", defaultSec: 1320, minSec: 1200, maxSec: 1500,
+    title: "Roast the eggplant",
+    body: `<p><strong>Brush</strong> both sides with oil — <em>brush, don't pool</em>; even purged eggplant will drink a puddle. Single layer, no crowding.</p>
+    <p><strong>Flip once</strong> at the halfway mark. You're chasing deep gold and full collapse — read it at the doneness gate, not off this clock.</p>`
+  },
+  {
+    kind: "gate",
+    title: "Roast doneness",
+    body: `<p>Undercooked eggplant is the <strong>most common structural failure</strong> — pale, springy slices never meld and read leathery in the bake. Pull one and read it:</p>`,
+    branches: [
+      { type:"good", glyph:"✓", head:"Deep gold, slumped, creamy", text:"Caramelised edges, soft all the way through. That's it — pull the lot." },
+      { type:"bad", glyph:"✕", head:"Pale / springy — or charred", text:"Pale and rubbery: not done, keep roasting. Acrid and blackened: gone bitter — pull those pieces now, the char telegraphs into the whole dish." }
+    ]
+  },
+  {
+    kind: "timed", timerName: "Sugo", defaultSec: 1800, minSec: 1500, maxSec: 2100,
+    title: "Build the sugo",
+    body: `<p>Warm the <em>40 ml oil</em>, infuse the sliced garlic to <strong>pale gold only</strong> — any browning turns it bitter. Hand-crush the tomatoes in, light pinch of salt, basil stems.</p>
+    <p>Simmer <strong>25–35 min to a mounding nappe</strong>. This is the single biggest lever against soupy parmigiana: reduce it <em>past pourable</em>. Pull the garlic and basil stems at the end if you want a cleaner sauce.</p>`
+  },
+  {
+    kind: "gate",
+    title: "Nappe, or watery?",
+    body: `<p>Before it goes anywhere near the bake, test the reduction — draw a spoon through the sauce across the pan bottom:</p>`,
+    branches: [
+      { type:"good", glyph:"✓", head:"Clean trail, mounds on the spoon", text:"The trail holds and no water floods back in. This sauce won't soak your layers. Good to build." },
+      { type:"bad", glyph:"!", head:"Pools / floods back / thin", text:"Watery sauce = soupy parm, guaranteed. Keep reducing on medium until the trail holds. Better to overshoot than serve soup." }
+    ]
+  },
+  {
+    kind: "gate",
+    title: "The salt gate",
+    body: `<p>Taste the sugo now, <strong>with the cheese load in mind</strong>. Three salt sources are stacking: purge-salt residue, tinned-tomato salt, and a heavy parmigiano + pecorino finish.</p>`,
+    branches: [
+      { type:"good", glyph:"✓", head:"Just-under / headroom", text:"Right where you want it. Leave it — let the cheese carry the last of the salt." },
+      { type:"bad", glyph:"!", head:"Already fully seasoned", text:"Stop adding salt. With the parm and pecorino still to come, a fully-salted sauce lands over the line. If anything, stretch it with the passata." }
+    ]
+  },
+  {
+    kind: "plain",
+    title: "Assemble",
+    body: `<p>Thin film of sauce on the base (anti-stick). Then per layer, <strong>×3</strong>:</p>
+    <p><em>Eggplant</em> (overlapping, no gaps) → <em>sauce</em> (spooned, not drowned) → <em>mozzarella</em> (torn, <strong>restrained</strong>) → <em>parm</em> → <em>torn basil</em>.</p>
+    <p>Finish the top with <strong>sauce + a heavy hand of parm, only a little mozzarella</strong> — surface mozz goes leathery and oily; parm browns beautifully.</p>`
+  },
+  {
+    kind: "timed", timerName: "Bake", defaultSec: 1920, minSec: 1800, maxSec: 2100,
+    probe: "~75 °C",
+    title: "Bake",
+    body: `<p><strong>190 °C convection, 30–35 min</strong>, until the edges bubble and the top is burnished. Internal <strong>~75 °C</strong> if you want a number.</p>
+    <p>If the top colours too fast, <strong>tent with foil</strong> and carry on.</p>`
+  },
+  {
+    kind: "timed", timerName: "Rest", defaultSec: 1620, minSec: 1500, maxSec: 1800,
+    title: "Rest — do not skip",
+    body: `<p><strong>Rest 25–30 min out of the oven before cutting.</strong> This is structural, not optional: the layers come out molten and a hot cut slides into soup.</p>
+    <p>Even better, if you have the time: <em>cool completely and reheat</em> — parmigiana is famously better the next day, fully set.</p>`
+  },
+  {
+    kind: "gate",
+    title: "Cut, or wait?",
+    body: `<p>Test-cut a single slice at the edge and read the wall:</p>`,
+    branches: [
+      { type:"good", glyph:"✓", head:"Holds its wall", text:"The cut face stands up and the layers stay stacked. It's set — serve." },
+      { type:"bad", glyph:"!", head:"Collapses / runs", text:"Still molten inside. Push the slice back, give it another 15 min. Patience here is the difference between a slice and a scoop." }
+    ]
+  },
+  {
+    kind: "plain",
+    title: "Serve",
+    body: `<p>Fresh basil, a thread of good olive oil, a last dusting of <em>parm</em>.</p>
+    <p><em>That's the cook.</em></p>`
+  }
+];
+
+/* ---------------- state ---------------- */
+let current = 0;
+const done = new Set();
+let soundOn = true;
+const timers = {}; // id -> {name, remaining, total, running, intervalId, ringing}
+let timerSeq = 0;
+
+/* ---------------- audio ---------------- */
+let audioCtx = null;
+function beep() {
+  if (!soundOn) return;
+  try {
+    audioCtx = audioCtx || new (window.AudioContext || window.webkitAudioContext)();
+    const now = audioCtx.currentTime;
+    [0, 0.28, 0.56].forEach(off => {
+      const o = audioCtx.createOscillator();
+      const g = audioCtx.createGain();
+      o.frequency.value = 880;
+      o.type = "sine";
+      o.connect(g); g.connect(audioCtx.destination);
+      g.gain.setValueAtTime(0.0001, now + off);
+      g.gain.exponentialRampToValueAtTime(0.32, now + off + 0.02);
+      g.gain.exponentialRampToValueAtTime(0.0001, now + off + 0.22);
+      o.start(now + off); o.stop(now + off + 0.24);
+    });
+  } catch (e) { /* audio unavailable */ }
+}
+
+/* ---------------- helpers ---------------- */
+function fmt(sec) {
+  sec = Math.max(0, Math.round(sec));
+  const m = Math.floor(sec / 60), s = sec % 60;
+  return String(m).padStart(2,"0") + ":" + String(s).padStart(2,"0");
+}
+const kindLabel = { timed: "Timed", gate: "Decision", plain: "Step" };
+
+/* ---------------- rail + progress ---------------- */
+function renderRail() {
+  const ol = document.getElementById("steplist");
+  ol.innerHTML = "";
+  STEPS.forEach((st, i) => {
+    const li = document.createElement("li");
+    li.className = (i === current ? "active " : "") + (done.has(i) ? "done" : "");
+    let tag = "";
+    if (st.kind === "timed") tag = `<span class="s-tag timed">timer</span>`;
+    if (st.kind === "gate") tag = `<span class="s-tag gate">gate</span>`;
+    li.innerHTML = `<span class="idx mono">${String(i+1).padStart(2,"0")}</span><span class="s-name">${st.title}</span>${tag}`;
+    li.addEventListener("click", () => goto(i));
+    ol.appendChild(li);
+  });
+
+  const mini = document.getElementById("progressMini");
+  mini.innerHTML = "";
+  STEPS.forEach((st, i) => {
+    const p = document.createElement("div");
+    p.className = "pip" + (i === current ? " active" : done.has(i) ? " done" : "");
+    p.addEventListener("click", () => goto(i));
+    mini.appendChild(p);
+  });
+}
+
+/* ---------------- step view ---------------- */
+function renderStep() {
+  const st = STEPS[current];
+  const v = document.getElementById("stepView");
+  let html = `<div class="step-head">
+      <span class="step-num mono">${String(current+1).padStart(2,"0")} / ${String(STEPS.length).padStart(2,"0")}</span>
+      <span class="step-kind ${st.kind}">${kindLabel[st.kind]}</span>
+    </div>
+    <h2 class="step-title">${st.title}</h2>
+    <div class="step-body">${st.body}</div>`;
+
+  if (st.probe) {
+    html += `<div class="probe"><span class="lab">Pull at</span><span class="val mono">${st.probe}</span></div>`;
+  }
+
+  if (st.kind === "gate") {
+    html += `<div class="gate-branches">`;
+    st.branches.forEach(b => {
+      html += `<div class="branch ${b.type}">
+        <h4><span class="glyph">${b.glyph}</span> ${b.head}</h4>
+        <p>${b.text}</p></div>`;
+    });
+    html += `</div>`;
+  }
+
+  if (st.kind === "timed") {
+    const pending = `pending_${current}`;
+    if (!(pending in timedDraft)) timedDraft[pending] = st.defaultSec;
+    html += `<div class="timer-launch">
+        <span class="tl-time mono" id="draft_${current}">${fmt(timedDraft[pending])}</span>
+        <span class="adj">
+          <button data-adj="-60" data-step="${current}">−1m</button>
+          <button data-adj="-30" data-step="${current}">−30s</button>
+          <button data-adj="30" data-step="${current}">+30s</button>
+          <button data-adj="60" data-step="${current}">+1m</button>
+        </span>
+        <span class="tl-lab">${st.timerName} timer — sends to the dock below.</span>
+        <button class="btn btn-amber" id="launch_${current}">▶ Start ${st.timerName}</button>
+      </div>`;
+  }
+
+  v.innerHTML = html;
+
+  if (st.kind === "timed") {
+    v.querySelectorAll("[data-adj]").forEach(btn => {
+      btn.addEventListener("click", () => {
+        const key = `pending_${current}`;
+        let val = timedDraft[key] + parseInt(btn.dataset.adj, 10);
+        val = Math.min(st.maxSec, Math.max(st.minSec, val));
+        timedDraft[key] = val;
+        document.getElementById(`draft_${current}`).textContent = fmt(val);
+      });
+    });
+    document.getElementById(`launch_${current}`).addEventListener("click", () => {
+      addTimer(st.timerName, timedDraft[`pending_${current}`]);
+    });
+  }
+
+  document.getElementById("prevBtn").disabled = current === 0;
+  document.getElementById("nextBtn").textContent = current === STEPS.length - 1 ? "Finish ✓" : "Next step →";
+}
+const timedDraft = {};
+
+/* ---------------- navigation ---------------- */
+function goto(i) {
+  if (i < 0 || i >= STEPS.length) return;
+  current = i;
+  renderRail(); renderStep();
+  window.scrollTo({ top: 0, behavior: "smooth" });
+}
+document.getElementById("nextBtn").addEventListener("click", () => {
+  done.add(current);
+  if (current < STEPS.length - 1) goto(current + 1);
+  else { renderRail(); renderStep(); }
+});
+document.getElementById("prevBtn").addEventListener("click", () => goto(current - 1));
+
+/* ---------------- timers / dock ---------------- */
+function addTimer(name, sec) {
+  const id = ++timerSeq;
+  timers[id] = { name, remaining: sec, total: sec, running: true, ringing: false, intervalId: null };
+  timers[id].intervalId = setInterval(() => tick(id), 1000);
+  renderDock();
+}
+function tick(id) {
+  const t = timers[id];
+  if (!t || !t.running) return;
+  t.remaining -= 1;
+  if (t.remaining <= 0) {
+    t.remaining = 0; t.running = false; t.ringing = true;
+    clearInterval(t.intervalId);
+    beep();
+  }
+  updateChip(id);
+}
+function toggleTimer(id) {
+  const t = timers[id]; if (!t) return;
+  if (t.ringing) { removeTimer(id); return; }
+  t.running = !t.running;
+  if (t.running && !t.intervalId) { /* restart interval */ }
+  if (t.running) { t.intervalId = setInterval(() => tick(id), 1000); }
+  else { clearInterval(t.intervalId); t.intervalId = null; }
+  updateChip(id);
+}
+function removeTimer(id) {
+  const t = timers[id]; if (!t) return;
+  clearInterval(t.intervalId);
+  delete timers[id];
+  renderDock();
+}
+function renderDock() {
+  const dock = document.getElementById("dock");
+  dock.querySelectorAll(".chip").forEach(c => c.remove());
+  const ids = Object.keys(timers);
+  document.getElementById("dockEmpty").style.display = ids.length ? "none" : "block";
+  ids.forEach(id => dock.appendChild(buildChip(id)));
+}
+function buildChip(id) {
+  const t = timers[id];
+  const el = document.createElement("div");
+  el.className = "chip" + (t.ringing ? " ringing" : "");
+  el.id = "chip_" + id;
+  el.innerHTML = `
+    <div class="c-info">
+      <span class="c-name">${t.name}${t.ringing ? " — done" : ""}</span>
+      <span class="c-time mono">${fmt(t.remaining)}</span>
+    </div>
+    <div class="c-btns">
+      <button title="pause/resume" data-act="toggle">${t.ringing ? "✓" : (t.running ? "❚❚" : "▶")}</button>
+      <button title="dismiss" data-act="remove">✕</button>
+    </div>`;
+  el.querySelector('[data-act="toggle"]').addEventListener("click", () => toggleTimer(id));
+  el.querySelector('[data-act="remove"]').addEventListener("click", () => removeTimer(id));
+  return el;
+}
+function updateChip(id) {
+  const t = timers[id];
+  const el = document.getElementById("chip_" + id);
+  if (!el) { renderDock(); return; }
+  if (!t) { el.remove(); return; }
+  el.className = "chip" + (t.ringing ? " ringing" : "");
+  el.querySelector(".c-time").textContent = fmt(t.remaining);
+  el.querySelector(".c-name").textContent = t.name + (t.ringing ? " — done" : "");
+  el.querySelector('[data-act="toggle"]').textContent = t.ringing ? "✓" : (t.running ? "❚❚" : "▶");
+}
+
+/* ---------------- toggles ---------------- */
+document.getElementById("soundToggle").addEventListener("click", (e) => {
+  soundOn = !soundOn;
+  e.target.textContent = soundOn ? "🔔 SOUND ON" : "🔕 SOUND OFF";
+  e.target.setAttribute("aria-pressed", soundOn);
+  if (soundOn) beep();
+});
+document.getElementById("miseToggle").addEventListener("click", (e) => {
+  const m = document.getElementById("mise");
+  m.classList.toggle("open");
+  e.target.textContent = (m.classList.contains("open") ? "▾ " : "▸ ") + "MISE / INGREDIENTS";
+});
+
+/* keyboard: left/right arrows */
+document.addEventListener("keydown", (e) => {
+  if (e.target.tagName === "BUTTON") return;
+  if (e.key === "ArrowRight") { done.add(current); goto(Math.min(STEPS.length-1, current+1)); }
+  if (e.key === "ArrowLeft") goto(Math.max(0, current-1));
+});
+
+/* ---------------- init ---------------- */
+renderRail();
+renderStep();
+renderDock();
+</script>
+</body>
+</html>

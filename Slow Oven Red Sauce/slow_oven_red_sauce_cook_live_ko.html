@@ -1,0 +1,814 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>라이브 쿠킹 — 슬로 오븐 레드 소스</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=JetBrains+Mono:wght@400;500;700&family=Noto+Sans+KR:wght@400;500;600;700&family=Noto+Serif+KR:wght@500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ground: #170e0b;
+    --panel: #221512;
+    --panel-2: #2d1c17;
+    --line: #422720;
+    --ivory: #f5e8dd;
+    --muted: #ab9083;
+    --faint: #776055;
+    --amber: #e2903c;
+    --amber-deep: #b26a20;
+    --chili: #cf3a29;
+    --chili-soft: #e75c46;
+    /* three streams */
+    --s-garlic: #e9d9a4;
+    --s-fresh: #843c68;
+    --s-braise: #a83a20;
+    --radius: 4px;
+    --dock-h: 92px;
+  }
+
+  * { box-sizing: border-box; }
+
+  html { -webkit-text-size-adjust: 100%; }
+
+  body {
+    margin: 0;
+    background: var(--ground);
+    color: var(--ivory);
+    font-family: "Noto Sans KR", system-ui, -apple-system, "Apple SD Gothic Neo", "Segoe UI", sans-serif;
+    line-height: 1.7;
+    word-break: keep-all;
+    overflow-wrap: break-word;
+    padding-bottom: calc(var(--dock-h) + env(safe-area-inset-bottom));
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .mono { font-family: "JetBrains Mono", "Noto Sans KR", ui-monospace, monospace; font-feature-settings: "tnum"; }
+
+  /* ---------- header ---------- */
+  header {
+    border-bottom: 1px solid var(--line);
+    padding: 22px 20px 18px;
+    background: linear-gradient(180deg, #1c1510 0%, var(--ground) 100%);
+  }
+  .eyebrow {
+    font-family: "JetBrains Mono", "Noto Sans KR", monospace;
+    font-size: 11px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--amber);
+    margin: 0 0 6px;
+  }
+  h1 {
+    font-family: "Fraunces", "Noto Serif KR", "Apple SD Gothic Neo", Georgia, serif;
+    font-weight: 500;
+    font-size: clamp(26px, 5vw, 40px);
+    line-height: 1.25;
+    margin: 0 0 10px;
+    letter-spacing: -0.01em;
+  }
+  .meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px 18px;
+    font-family: "JetBrains Mono", "Noto Sans KR", monospace;
+    font-size: 12px;
+    color: var(--muted);
+  }
+  .meta b { color: var(--ivory); font-weight: 500; }
+
+  .legend {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+    margin-top: 16px;
+  }
+  .legend-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 12px;
+    color: var(--muted);
+  }
+  .swatch {
+    width: 14px; height: 14px; border-radius: 50%;
+    flex: 0 0 auto;
+    box-shadow: inset 0 0 0 1px rgba(0,0,0,0.35);
+  }
+  .legend-item b { color: var(--ivory); font-weight: 500; }
+  .legend-item span { color: var(--faint); }
+
+  /* ---------- layout ---------- */
+  .wrap {
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: 20px;
+    display: grid;
+    grid-template-columns: 268px 1fr;
+    gap: 26px;
+    align-items: start;
+  }
+
+  /* ---------- rail ---------- */
+  .rail { position: sticky; top: 16px; }
+  .rail h2, .mise h2 {
+    font-family: "JetBrains Mono", "Noto Sans KR", monospace;
+    font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase;
+    color: var(--faint); margin: 0 0 12px; font-weight: 500;
+  }
+  .steplist { list-style: none; margin: 0 0 26px; padding: 0; }
+  .steplist li {
+    display: flex; align-items: baseline; gap: 11px;
+    padding: 7px 10px; border-radius: var(--radius);
+    cursor: pointer; color: var(--muted);
+    font-size: 13.5px; line-height: 1.45;
+    border: 1px solid transparent;
+    transition: background .15s, color .15s;
+  }
+  .steplist li:hover { background: var(--panel); color: var(--ivory); }
+  .steplist li.active {
+    background: var(--panel-2); color: var(--ivory);
+    border-color: var(--line);
+  }
+  .steplist li.done .idx { color: var(--amber-deep); }
+  .steplist li.done .s-name { color: var(--faint); text-decoration: line-through; text-decoration-color: var(--line); }
+  .idx {
+    font-family: "JetBrains Mono", monospace;
+    font-size: 11px; color: var(--faint); flex: 0 0 20px;
+  }
+  .active .idx { color: var(--amber); }
+  .s-tag {
+    margin-left: auto; font-family: "JetBrains Mono", "Noto Sans KR", monospace;
+    font-size: 10px; letter-spacing: 0.02em;
+    padding: 1px 6px; border-radius: 20px; flex: 0 0 auto;
+    align-self: center;
+  }
+  .s-tag.timed { color: var(--amber); border: 1px solid var(--amber-deep); }
+  .s-tag.gate { color: var(--chili-soft); border: 1px solid #7a3020; }
+
+  /* ---------- mise ---------- */
+  .mise {
+    background: var(--panel); border: 1px solid var(--line);
+    border-radius: var(--radius); padding: 16px 16px 6px;
+  }
+  .mise ul { list-style: none; margin: 0 0 14px; padding: 0; }
+  .mise li {
+    display: flex; justify-content: space-between; gap: 12px;
+    font-size: 13px; padding: 5px 0; border-bottom: 1px solid #2a2018;
+  }
+  .mise li:last-child { border-bottom: none; }
+  .mise .ing { color: var(--ivory); }
+  .mise .amt { font-family: "JetBrains Mono", monospace; font-size: 12.5px; color: var(--amber); white-space: nowrap; }
+  .mise .grp { font-family: "JetBrains Mono", "Noto Sans KR", monospace; font-size: 10.5px; letter-spacing: .04em; text-transform: uppercase; color: var(--faint); margin: 12px 0 4px; }
+  .cut { color: var(--faint); text-decoration: line-through; text-decoration-color: var(--chili); }
+  .cut .amt { color: var(--faint); }
+
+  /* ---------- main step ---------- */
+  .stage { min-height: 60vh; }
+  .step-head { display: flex; align-items: baseline; gap: 14px; margin-bottom: 4px; flex-wrap: wrap; }
+  .step-num {
+    font-family: "JetBrains Mono", monospace; font-size: 13px; color: var(--amber);
+    letter-spacing: .1em;
+  }
+  .step-kind {
+    font-family: "JetBrains Mono", "Noto Sans KR", monospace; font-size: 10.5px; letter-spacing: .04em; text-transform: uppercase;
+    padding: 2px 9px; border-radius: 20px;
+  }
+  .step-kind.timed { color: var(--amber); border: 1px solid var(--amber-deep); }
+  .step-kind.gate { color: var(--chili-soft); border: 1px solid #7a3020; background: rgba(210,73,43,.08); }
+  .step-kind.plain { color: var(--faint); border: 1px solid var(--line); }
+
+  .step-title {
+    font-family: "Fraunces", "Noto Serif KR", "Apple SD Gothic Neo", Georgia, serif; font-weight: 500;
+    font-size: clamp(24px, 4vw, 34px); line-height: 1.3; margin: 8px 0 18px;
+    letter-spacing: -0.01em;
+  }
+  .step-body { font-size: 16px; color: #ded2c1; max-width: 62ch; }
+  .step-body p { margin: 0 0 14px; }
+  .step-body strong { color: var(--ivory); font-weight: 600; }
+  .step-body em { color: var(--amber); font-style: normal; }
+
+  .callout {
+    border-left: 3px solid var(--amber-deep);
+    background: var(--panel);
+    padding: 12px 16px; border-radius: 0 var(--radius) var(--radius) 0;
+    margin: 18px 0; font-size: 14.5px; color: var(--muted);
+  }
+  .callout b { color: var(--ivory); }
+
+  /* temp badge */
+  .probe {
+    display: inline-flex; align-items: center; gap: 10px;
+    background: var(--panel-2); border: 1px solid var(--line);
+    border-radius: var(--radius); padding: 10px 16px; margin: 4px 0 18px;
+  }
+  .probe .lab { font-size: 11px; letter-spacing: .04em; text-transform: uppercase; color: var(--faint); font-family: "JetBrains Mono", "Noto Sans KR", monospace; }
+  .probe .val { font-family: "JetBrains Mono", "Noto Sans KR", monospace; font-size: 22px; color: var(--amber); font-weight: 500; }
+
+  /* ---------- gate ---------- */
+  .gate-branches { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin: 20px 0; }
+  .branch {
+    border: 1px solid var(--line); border-radius: var(--radius);
+    padding: 16px; background: var(--panel);
+  }
+  .branch.good { border-color: #4a5a2e; }
+  .branch.bad { border-color: #7a3020; }
+  .branch h4 {
+    font-family: "JetBrains Mono", "Noto Sans KR", monospace; font-size: 12px; letter-spacing: .02em;
+    margin: 0 0 8px; display: flex; align-items: center; gap: 8px; text-transform: uppercase;
+    line-height: 1.45;
+  }
+  .branch.good h4 { color: #a9c76a; }
+  .branch.bad h4 { color: var(--chili-soft); }
+  .branch p { margin: 0; font-size: 14px; color: var(--muted); line-height: 1.65; }
+  .branch .glyph { font-size: 15px; }
+
+  /* ---------- timer controls in step ---------- */
+  .timer-launch {
+    display: flex; align-items: center; gap: 12px; flex-wrap: wrap;
+    margin: 22px 0 6px; padding: 16px; border: 1px dashed var(--amber-deep);
+    border-radius: var(--radius); background: rgba(224,160,62,.04);
+  }
+  .timer-launch .tl-time { font-family: "JetBrains Mono", monospace; font-size: 30px; color: var(--amber); font-weight: 500; }
+  .timer-launch .tl-lab { font-size: 13px; color: var(--muted); flex: 1 1 140px; }
+  .adj { display: inline-flex; gap: 6px; }
+  .adj button {
+    min-width: 34px; height: 34px; padding: 0 8px; width: auto;
+    font-family: "JetBrains Mono", "Noto Sans KR", ui-monospace, monospace; font-size: 14px;
+    background: var(--panel-2); color: var(--ivory); border: 1px solid var(--line);
+    border-radius: var(--radius); cursor: pointer;
+  }
+  .adj button:hover { border-color: var(--amber-deep); color: var(--amber); }
+
+  /* buttons */
+  button { font-family: inherit; }
+  .btn {
+    border: none; border-radius: var(--radius); cursor: pointer;
+    font-family: "JetBrains Mono", "Noto Sans KR", monospace; font-size: 13px; letter-spacing: .02em;
+    padding: 12px 20px; transition: filter .15s, background .15s;
+  }
+  .btn-amber { background: var(--amber); color: #1c1207; font-weight: 700; }
+  .btn-amber:hover { filter: brightness(1.08); }
+  .btn-ghost { background: var(--panel-2); color: var(--ivory); border: 1px solid var(--line); }
+  .btn-ghost:hover { border-color: var(--amber-deep); color: var(--amber); }
+
+  .nav { display: flex; justify-content: space-between; gap: 12px; margin-top: 34px; padding-top: 20px; border-top: 1px solid var(--line); }
+
+  /* ---------- timer dock ---------- */
+  .dock {
+    position: fixed; left: 0; right: 0; bottom: 0; z-index: 40;
+    min-height: var(--dock-h);
+    background: rgba(20,15,11,.94); backdrop-filter: blur(8px);
+    border-top: 1px solid var(--line);
+    padding: 12px 16px calc(12px + env(safe-area-inset-bottom));
+    display: flex; align-items: center; gap: 12px; overflow-x: auto;
+  }
+  .dock-label {
+    font-family: "JetBrains Mono", "Noto Sans KR", monospace; font-size: 10px; letter-spacing: .08em;
+    text-transform: uppercase; color: var(--faint); writing-mode: vertical-rl; transform: rotate(180deg);
+    flex: 0 0 auto; padding-right: 2px;
+  }
+  .dock-empty { color: var(--faint); font-size: 13px; font-family: "JetBrains Mono", "Noto Sans KR", monospace; }
+  .chip {
+    flex: 0 0 auto; display: flex; align-items: center; gap: 12px;
+    background: var(--panel-2); border: 1px solid var(--line);
+    border-radius: var(--radius); padding: 10px 12px 10px 14px; min-width: 210px;
+  }
+  .chip.ringing { border-color: var(--chili); animation: flash .7s steps(1) infinite; }
+  @keyframes flash { 50% { background: rgba(210,73,43,.22); } }
+  .chip .c-info { display: flex; flex-direction: column; gap: 1px; }
+  .chip .c-name { font-size: 11px; color: var(--muted); font-family: "JetBrains Mono", "Noto Sans KR", monospace; letter-spacing: .02em; }
+  .chip .c-time { font-family: "JetBrains Mono", monospace; font-size: 24px; font-weight: 500; color: var(--amber); line-height: 1; }
+  .chip.ringing .c-time { color: var(--chili-soft); }
+  .chip .c-btns { display: flex; gap: 5px; margin-left: auto; }
+  .chip .c-btns button {
+    width: 30px; height: 30px; border-radius: var(--radius);
+    background: var(--panel); border: 1px solid var(--line); color: var(--muted);
+    cursor: pointer; font-size: 13px; display: grid; place-items: center;
+  }
+  .chip .c-btns button:hover { color: var(--amber); border-color: var(--amber-deep); }
+
+  .sound-toggle {
+    position: absolute; top: 22px; right: 20px;
+    background: var(--panel-2); border: 1px solid var(--line); color: var(--muted);
+    border-radius: var(--radius); padding: 7px 12px; cursor: pointer;
+    font-family: "JetBrains Mono", "Noto Sans KR", monospace; font-size: 11px; letter-spacing: .02em;
+  }
+  .sound-toggle:hover { color: var(--amber); }
+
+  .mise-toggle { display: none; }
+
+  :focus-visible { outline: 2px solid var(--amber); outline-offset: 2px; }
+
+  /* ---------- responsive ---------- */
+  @media (max-width: 860px) {
+    .wrap { grid-template-columns: 1fr; gap: 18px; }
+    .rail { position: static; order: 2; }
+    .rail .steplist { display: none; }
+    .rail.open .steplist { display: block; }
+    .mise-toggle {
+      display: block; width: 100%; text-align: left;
+      background: var(--panel); border: 1px solid var(--line); color: var(--ivory);
+      border-radius: var(--radius); padding: 12px 14px; margin-bottom: 12px;
+      font-family: "JetBrains Mono", "Noto Sans KR", monospace; font-size: 12px; letter-spacing: .04em; cursor: pointer;
+    }
+    .mise { display: none; }
+    .mise.open { display: block; }
+    .stage { order: 1; }
+    .gate-branches { grid-template-columns: 1fr; }
+    .progress-mini { display: flex; }
+  }
+  @media (min-width: 861px) { .progress-mini { display: none; } }
+
+  .progress-mini {
+    gap: 4px; margin-bottom: 14px; flex-wrap: wrap;
+  }
+  .progress-mini .pip {
+    height: 4px; flex: 1 1 12px; border-radius: 2px; background: var(--line); cursor: pointer;
+  }
+  .progress-mini .pip.done { background: var(--amber-deep); }
+  .progress-mini .pip.active { background: var(--amber); }
+
+  @media (prefers-reduced-motion: reduce) {
+    * { animation: none !important; transition: none !important; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <button class="sound-toggle" id="soundToggle" aria-pressed="true">🔔 소리 켬</button>
+  <p class="eyebrow">라이브 쿠킹</p>
+  <h1>슬로 오븐 레드 소스</h1>
+  <div class="meta">
+    <span><b>~1.35 L</b> · 6–8인분</span>
+    <span>약 3시간 15분 · 실제 손질 약 40분</span>
+    <span>브레이저 24–26 cm 1개 · 트레이 1장</span>
+    <span>브레이즈 <b class="mono">135 °C</b> 컨벡션, 뚜껑 없이</span>
+    <span>끝점: <b>절반으로 졸이기</b>, 시간이 기준이 아님</span>
+  </div>
+  <div class="legend">
+    <div class="legend-item"><span class="swatch" style="background:var(--s-garlic)"></span><div><b>갈릭 콩피</b> <span>· 단 마늘 맛과 향이 밴 기름</span></div></div>
+    <div class="legend-item"><span class="swatch" style="background:var(--s-fresh)"></span><div><b>구운 인디고 로즈</b> <span>· 캐러멜화와 잼</span></div></div>
+    <div class="legend-item"><span class="swatch" style="background:var(--s-braise)"></span><div><b>오븐 브레이즈</b> <span>· 벽 퐁(눌은 맛)과 바디</span></div></div>
+  </div>
+</header>
+
+<div class="wrap">
+  <aside class="rail" id="rail">
+    <button class="mise-toggle" id="miseToggle">▸ 재료 준비</button>
+    <div class="mise" id="mise">
+      <h2>재료 준비</h2>
+      <div class="grp">갈릭 콩피</div>
+      <ul>
+        <li><span class="ing">마늘, 깐 쪽 통째로</span><span class="amt">65 g</span></li>
+        <li><span class="ing">올리브유, 잠기게</span><span class="amt">200 ml</span></li>
+      </ul>
+      <div class="grp">생토마토 로스팅 · 트레이 1장</div>
+      <ul>
+        <li><span class="ing">인디고 로즈, <b>완숙</b>, 반으로</span><span class="amt">1 kg</span></li>
+        <li><span class="ing">올리브유</span><span class="amt">25 ml</span></li>
+        <li><span class="ing">고운 소금</span><span class="amt">2 g</span></li>
+      </ul>
+      <div class="grp">오븐 브레이즈 · 24–26 cm</div>
+      <ul>
+        <li><span class="ing">홀토마토</span><span class="amt">1.3 kg</span></li>
+        <li><span class="ing">올리브유</span><span class="amt">30 ml</span></li>
+        <li><span class="ing">버터</span><span class="amt">20 g</span></li>
+        <li><span class="ing">양파, 반으로 (나중에 건짐)</span><span class="amt">큰 것 1</span></li>
+        <li><span class="ing">당근, 통째 (나중에 건짐)</span><span class="amt">큰 것 1</span></li>
+        <li><span class="ing">파르미지아노 껍질</span><span class="amt">40 g</span></li>
+        <li><span class="ing">건조 오레가노</span><span class="amt">2.5 g</span></li>
+        <li><span class="ing">칠리 플레이크</span><span class="amt">1.5 g</span></li>
+        <li><span class="ing">바질 줄기</span><span class="amt">1단</span></li>
+        <li><span class="ing">고운 소금, 처음에만</span><span class="amt">1.5 g</span></li>
+      </ul>
+      <div class="grp">합칠 때 · 따로 보관</div>
+      <ul>
+        <li><span class="ing">생 통조림 토마토, 남겨 둔 것</span><span class="amt">300 g</span></li>
+        <li><span class="ing">마늘 오일, 콩피에서</span><span class="amt">50 ml</span></li>
+        <li><span class="ing">트레이 데글레이즈 물</span><span class="amt">40 ml</span></li>
+        <li><span class="ing">피시 소스</span><span class="amt">8 ml</span></li>
+      </ul>
+      <div class="grp">마무리 · 불 끈 뒤</div>
+      <ul>
+        <li><span class="ing">차가운 버터, 깍둑</span><span class="amt">20 g</span></li>
+        <li><span class="ing">피시 소스, 마지막</span><span class="amt">4 ml</span></li>
+        <li><span class="ing">소금. 소금 판단 참고</span><span class="amt">0–5 g</span></li>
+        <li><span class="ing">설탕, 실 때만</span><span class="amt">0–6 g</span></li>
+        <li><span class="ing">바질 잎, 찢어서</span><span class="amt">1단</span></li>
+        <li class="cut"><span class="ing">베이킹소다. ATK: 밋밋하고 단조로움</span><span class="amt">—</span></li>
+        <li class="cut"><span class="ing">앤초비. 원본에 없음</span><span class="amt">—</span></li>
+      </ul>
+    </div>
+    <h2 style="margin-top:22px">순서</h2>
+    <ol class="steplist" id="steplist"></ol>
+  </aside>
+
+  <main class="stage" id="stage">
+    <div class="progress-mini" id="progressMini"></div>
+    <!-- step renders here -->
+    <div id="stepView"></div>
+    <div class="nav">
+      <button class="btn btn-ghost" id="prevBtn">← 이전</button>
+      <button class="btn btn-amber" id="nextBtn">다음 단계 →</button>
+    </div>
+  </main>
+</div>
+
+<div class="dock" id="dock">
+  <span class="dock-label">타이머</span>
+  <span class="dock-empty" id="dockEmpty">돌아가는 타이머가 없습니다. 시간 단계에서 시작하세요.</span>
+</div>
+
+<script>
+"use strict";
+
+/* ---------------- recipe data ---------------- */
+const STEPS = [
+  {
+    kind: "gate",
+    title: "무엇보다 먼저: 토마토 상태",
+    body: `<p><strong>인디고 로즈는 속이 익기 전에 보라색이 됩니다.</strong> 색소는 숙성과 상관없이 올라오고, 덜 익은 과일은 물기가 많고 거의 맛이 없습니다. 구워도 살리지 못합니다. 이 레시피에서 가장 큰 실패 지점이고, 오븐을 켜는 시점에는 이미 결정되어 있습니다.</p>`,
+    branches: [
+      { type:"good", glyph:"✓", head:"꼭지 쪽이 보랏빛 갈색으로 탁하고, 배꼽 쪽이 절반 넘게 빨강에서 주황이며, 누르면 들어간다", text:"완숙입니다. 진행하세요. 트레이에 담기 전에 지금 무게를 잽니다. 로스팅의 끝점은 시간이 아니라 무게입니다." },
+      { type:"bad", glyph:"✕", head:"꼭지 쪽이 윤기 나는 청흑색이고, 단단하며, 밑동이 녹색이다", text:"덜 익었습니다. 실온에 두고 기다리거나, 양을 줄이고 모자란 만큼 통조림을 더하세요. 잘 익은 소량이 푸석한 1 kg보다 낫습니다." }
+    ]
+  },
+  {
+    kind: "plain",
+    title: "준비",
+    body: `<p>오븐을 <strong>160 °C 컨벡션</strong>으로.</p>
+    <p><strong>요리 전에 통조림 나트륨을 확인하세요.</strong> 프리미엄 홀토마토는 나트륨이 5배까지 벌어지고, 마지막에 할 일이 여기서 갈립니다. Mutti, Cento, 대부분의 DOP 통조림은 100 g당 나트륨 약 33–40 mg이라 마지막에 소금을 약 4 g 넣습니다. Bianco DiNapoli는 약 149 mg이라 소금을 넣지 않습니다.</p>
+    <p>통조림 두 캔을 엽니다. <strong>토마토 300 g은 냉장고에 남겨 둡니다.</strong> 마지막에 다시 넣어 밝기를 되돌리는 분량입니다. 마늘 <em>65 g</em>은 쪽으로 깝니다. 인디고 로즈 <em>1 kg</em>은 가운데를 가로질러 반으로 가릅니다.</p>`
+  },
+  {
+    kind: "timed", timerName: "마늘+트레이", defaultSec: 2100, minSec: 1500, maxSec: 3300,
+    probe: "160 °C 컨벡션",
+    title: "마늘과 트레이, 함께",
+    body: `<p><strong>마늘:</strong> 쪽마늘 통째, 한 층, <strong>올리브유 200 ml에 완전히 잠기고, 포일로 단단히 덮습니다.</strong></p>
+    <p>잠기면 노출된 수분 표면이 거의 없어 고르게 색이 납니다. 덮개가 중요한 이유는 <strong>160 °C가 콩피에는 뜨거운 온도이기 때문</strong>입니다. 마늘은 토마토와 오븐을 같이 쓰려고 토마토 온도에서 가고, 포일이 그걸 안전하게 만듭니다.</p>
+    <p><strong>토마토:</strong> <em>올리브유 25 ml</em>와 <em>소금 2 g</em>에 버무립니다. <strong>자른 면이 위로, 한 층, 서로 닿지 않게.</strong> 1 kg은 트레이 하나에 여유 있게 들어갑니다. 붙여 담는 것이 이 단계를 망치는 유일한 길입니다. 닿은 반쪽은 김을 가두고 쪄집니다.</p>
+    <p>타이머는 트레이가 아니라 <em>마늘 첫 확인</em>인 35분에 맞춰져 있습니다.</p>`
+  },
+  {
+    kind: "gate",
+    title: "마늘 판단",
+    body: `<p>알림이 울리면 확인하고, 그다음은 8분마다 봅니다. 한 방향입니다. 쓴 마늘은 완성된 소스에서 빼낼 수 없습니다.</p>`,
+    branches: [
+      { type:"good", glyph:"✓", head:"깊은 금색, 숟가락으로 가볍게 누르면 무너지고, 달콤하며 생마늘 맛이 없다", text:"쪽마늘을 건집니다. 오일 50 ml는 소스용으로 남기고, 나머지는 걸러 보관합니다. 냉장, 약 2주." },
+      { type:"bad", glyph:"!", head:"창백하고 단단하다", text:"아직입니다. 8분 더 두고 다시 봅니다. 단단한 쪽은 완성 소스에서 생마늘처럼 남습니다." },
+      { type:"bad", glyph:"✕", head:"가장자리가 짙은 갈색이다", text:"그 자리의 기름이 얕았거나 포일이 헐거웠습니다. 골라내세요. 금색은 남기고 어두운 것은 버립니다. 탄 쪽 하나가 한 솥 전체에 납니다." }
+    ]
+  },
+  {
+    kind: "plain",
+    title: "브레이저 만들기 (트레이가 구워지는 동안)",
+    body: `<p><strong>24–26 cm 브레이저 하나.</strong> 이 분량이면 층이 약 2.5–3 cm이고, 그게 맞는 깊이입니다. 벽에 퐁이 생길 만큼 얕고, 졸임이 손을 벗어날 만큼 얇지는 않습니다. 30 cm 팬이면 2 cm가 안 되고, 보는 속도보다 빨리 졸아듭니다.</p>
+    <p><em>올리브유 30 ml</em>와 <em>버터 20 g</em>을 중불에 데웁니다. <em>건조 오레가노 2.5 g</em>과 <em>칠리 플레이크 1.5 g</em>을 넣고 <strong>30초</strong> 향을 냅니다. 향이 나되, 색이 나면 안 됩니다.</p>
+    <p>통조림 토마토 <strong>1.3 kg</strong>을 손으로 으깨 넣습니다. <em>반으로 가른 양파 1개</em>, <em>통 당근 1개</em>, <em>파르미지아노 껍질 40 g</em>, <em>바질 줄기</em>, 그리고 <strong>소금은 1.5 g만. 피시 소스는 아직 넣지 않습니다.</strong> 원본처럼 마지막에 들어갑니다.</p>
+    <p>양파와 당근은 통째로 들어가고 통째로 나옵니다. 질감이 되지 않는 단맛입니다. 다지면 토마토를 둔하게 만드는, 더 무거운 소프리토 소스가 됩니다.</p>
+    <p><strong>겨우 끓어오르면 불을 끄고 뚜껑을 덮어</strong> 오븐이 빌 때까지 둡니다. 토마토 브레이즈를 법랑 위에서 직화로 두고 자리를 비우지 마세요.</p>`
+  },
+  {
+    kind: "timed", timerName: "트레이 210", defaultSec: 900, minSec: 720, maxSec: 1080,
+    probe: "210 °C 컨벡션",
+    title: "색을 내려고 트레이 온도를 올린다",
+    body: `<p><strong>오븐을 210 °C로.</strong> 뜨거운 구간을 일부러 마지막에 둡니다. 자른 면에 물기가 남아 있는 동안 그 표면은 약 100 °C에 묶여 갈변하지 못합니다. 약 75분 말린 뒤에야 210 °C가 실제로 일을 합니다.</p>
+    <p><strong>지켜보세요.</strong> 15분은 시작값이지, 약속이 아닙니다.</p>`
+  },
+  {
+    kind: "gate",
+    title: "트레이 상태를 보고, 무게를 잰다",
+    body: `<p>토마토 로스팅 감량에 대한 공개 수치는 제각각이라, 이 레시피는 숫자 하나를 못 박지 않습니다. <strong>시작 토마토 무게의 대략 절반이 되면 꺼냅니다.</strong> 추측이 아니라 측정입니다. 그다음 트레이 바닥을 봅니다. 과일보다 더 많은 것을 말해 줍니다.</p>`,
+    branches: [
+      { type:"good", glyph:"✓", head:"시작 무게의 약 절반. 주저앉고, 가장자리는 갈변하고, 트레이 퐁은 호박색에서 갈색이며 끈적하다", text:"됐습니다. 그 끈적한 트레이가 맛의 진짜 몫이고, 이제 그걸 걷어 옵니다." },
+      { type:"bad", glyph:"!", head:"아직 윤기 나고 통통하며, 트레이 액체는 묽고 물 같다", text:"아직입니다. 15분 더. 여기서 꺼내면 구운 토마토가 아니라 묽은 생토마토입니다." },
+      { type:"bad", glyph:"✕", head:"자른 면이 검고, 트레이 퐁이 검으며 연기가 난다", text:"지나쳤습니다. 지금 꺼냅니다. 짙은 갈색인 과일만 남기고, 검은 퐁은 냄비에 긁어 넣지 마세요." }
+    ]
+  },
+  {
+    kind: "plain",
+    title: "데글레이즈한 다음 푸드 밀",
+    body: `<p>물 약 40 ml로 <strong>트레이를 데글레이즈</strong>하고, 세게 긁습니다. 건너뛰지 마세요. 이 요리에서 가장 좋은 맛의 일부가 금속에 붙어 있습니다.</p>
+    <p><strong>푸드 밀, 중간 원판.</strong> 껍질과 씨는 뒤에 남습니다. 데글레이즈한 액을 과육에 섞습니다.</p>
+    <p><em>왜 푸드 밀인가:</em> 인디고 로즈는 껍질이 유난히 두껍다고 알려져 있고, 공개된 시식 평가 적어도 한 곳은 껍질이 두껍고 탄닌이 있다고 했습니다. 근거는 평가 하나이지, 증명은 아닙니다. 다만 갈면 캐러멜화된 껍질을 조금 잃고, 반대로 틀리면 은은한 쓴맛으로 한 솥을 잃습니다. <strong>색은 어느 쪽이든 남습니다.</strong> 안토시아닌은 굽는 동안 이미 껍질에서 과육으로 빠져나왔기 때문입니다.</p>`
+  },
+  {
+    kind: "timed", timerName: "브레이즈", defaultSec: 3600, minSec: 2700, maxSec: 7200,
+    probe: "135 °C 컨벡션",
+    title: "오븐에, 뚜껑 없이",
+    body: `<p><strong>오븐을 135 °C 컨벡션으로 내립니다</strong> (210에서 내려오는 데 약 10분). 브레이저를 넣고, <strong>뚜껑 없이</strong>.</p>
+    <p><strong>끝점은 시간이 아니라 양입니다. 약 절반으로 졸고, 깊은 빨강으로 어두워집니다.</strong> 원본의 끝점이고, 맞는 끝점입니다. 여기 타이머는 <em>60분 첫 확인</em>이고, 그다음 20분마다 봅니다. 1시간 15분에서 2시간 사이를 예상하세요. 이 냄비, 이 양에 정확한 시간을 주는 사람은 짐작하는 것입니다.</p>
+    <p><em>참고:</em> 원본은 뚜껑을 살짝 어긋나게 둡니다. 뚜껑을 완전히 여는 것은 의도된 강화입니다. 벽 퐁이 더 생기고, 졸임이 더 빠르며, <strong>눌을 위험도 더 큽니다</strong>. 불안하면 뚜껑을 살짝 어긋나게 두고, 더 오래 익히세요.</p>`
+  },
+  {
+    kind: "gate",
+    title: "퐁인가, 눌음인가",
+    body: `<p>20–30분마다, 액면 위 벽에 생긴 테두리를 납작한 나무 주걱으로 긁어 내립니다. <strong>이 테두리가 이 레시피입니다.</strong> 토마토 고형분의 마이야르이고, 토마토가 원래 갖지 않은 맛을 만드는 과정의 유일한 단계입니다. 저어 넣기 전에 상태를 보세요.</p>`,
+    branches: [
+      { type:"good", glyph:"✓", head:"깊은 적갈색이고, 긁으면 떨어지며, 달콤하고 구운 냄새가 난다", text:"정확합니다. 저어 섞고 다시 오븐에 넣습니다." },
+      { type:"bad", glyph:"✕", head:"검고 바스러지며, 아리거나 탄 커피 냄새가 난다", text:"눌었습니다. 이 얕은 깊이에서 가장 흔한 실패입니다. 120 °C로 내리고 15분마다 젓습니다. 검은 부분은 긁어 넣지 마세요. 설탕으로 그 쓴맛은 고치지 못합니다." },
+      { type:"bad", glyph:"!", head:"45분이 지나도 테두리가 없다", text:"수분이 너무 많거나 오븐이 덜 뜨겁습니다. 150 °C로 올리고 20분 뒤에 다시 봅니다." }
+    ]
+  },
+  {
+    kind: "plain",
+    title: "합치기",
+    body: `<p><strong>양파, 당근, 바질 줄기</strong>를 건져 버립니다. <strong>파르미지아노 껍질</strong>은 냄비 벽에 눌러 짜고 버립니다.</p>
+    <p>넣어 젓습니다.</p>
+    <p>1. <strong>간 구운 생토마토</strong>와 그 데글레이즈.<br>
+    2. <strong>따로 둔 통조림 토마토 300 g</strong>, 손으로 으깨서.<br>
+    3. <strong>콩피 마늘</strong>. 3분의 2는 벽에 으깨고, 나머지는 통째로.<br>
+    4. <strong>마늘 오일 50 ml</strong>.<br>
+    5. <strong>피시 소스 8 ml</strong> (마무리용 4 ml는 남겨 둡니다).</p>
+    <p><em>다섯 가지가 같은 일을 합니다.</em> 긴 오븐 조리는 깊이를 쌓으면서, 같은 동작으로 밝기를 없앱니다. 이것들을 마지막에 넣는 이유는 휘발 성분이 몇 시간 전에 이미 날아갔을 것이기 때문이고, 원본이 피시 소스를 처음이 아니라 끝에 넣는 이유도 같습니다.</p>`
+  },
+  {
+    kind: "timed", timerName: "마무리", defaultSec: 1500, minSec: 1200, maxSec: 2400,
+    probe: "135 °C 컨벡션",
+    title: "다시 넣어 어우르기",
+    body: `<p><strong>135 °C, 20–30분, 뚜껑 없이.</strong> 세 갈래를 어우르고, 생토마토가 방금 더한 수분을 날립니다.</p>`
+  },
+  {
+    kind: "gate",
+    title: "졸임 판단",
+    body: `<p>숟가락으로 냄비 바닥을 긋고, 고랑을 봅니다. <strong>맛보기 숟가락이 아니라 냄비 안에서 판단하세요.</strong> 작은 한 숟갈은 식으면서 걸쭉해지고, 거짓말을 합니다.</p>
+    <p>파스타용으로 맞추면 <em>오븐에 굽는 소스보다 묽어야</em> 합니다. 전분 있는 파스타 물과 유화되어 면을 감쌀 만큼 잘 흘러야 합니다.</p>`,
+    branches: [
+      { type:"good", glyph:"✓", head:"고랑이 약 2초 안에 닫힌다", text:"그게 목표입니다. 불을 끄고 질감으로 갑니다." },
+      { type:"bad", glyph:"!", head:"바로 닫히거나, 가장자리에서 묽은 주황 액이 배어 나온다", text:"아직 물기가 있습니다. 15분 더. 아직 간하지 마세요. 물이 더 날아갈 소스에 소금을 치면 반드시 지나칩니다." },
+      { type:"bad", glyph:"✕", head:"고랑이 열린 채 남고, 소스가 숟가락 위에 봉긋하다", text:"파스타용으로는 너무 졸았습니다. 육수가 아니라 물 50–100 ml로 풉니다. 금세 다시 돌아옵니다." }
+    ]
+  },
+  {
+    kind: "plain",
+    title: "질감, 불 끈 뒤",
+    body: `<p><strong>핸드 블렌더로 짧게 4–5번, 약 절반만 갈아 줍니다.</strong> 달라붙고 유화될 만큼 매끈하되, 토마토 조각은 보이게. 완전히 매끈하면 시판 소스 같고, 완전히 거칠면 파스타에서 미끄러집니다.</p>
+    <p><strong>헤드를 완전히 잠그고, 속도는 중간으로.</strong> 토마토 소스에 공기를 넣으면 주황 쪽으로 밝아집니다. 기록된 효과이고, 어느 블렌더냐의 문제가 아니라 공기 혼입의 문제입니다. 수면 위로 나온 핸드 블렌더 헤드도 병 블렌더만큼 쉽게 그렇게 만듭니다.</p>
+    <p>소스는 <em>벽돌색에서 마호가니</em>로 보일 겁니다. 인디고 로즈의 안토시아닌입니다. 눌음이 아닙니다.</p>`
+  },
+  {
+    kind: "gate",
+    title: "소금 판단",
+    body: `<p>졸임이 멈췄으니, 이제야 간을 해도 안전합니다. <strong>지금까지 고정으로 들어간 소금 환산은 약 6.9 g</strong>입니다 (피시 소스 3.0, 파르미지아노 껍질 0.4, 트레이 2.0, 브레이즈 1.5). 소스 약 1.42 kg 기준입니다. 나머지는 토마토가 결정합니다. 목표는 약 0.85%입니다.</p>`,
+    branches: [
+      { type:"good", glyph:"✓", head:"Mutti / Cento / 대부분의 DOP (100 g당 Na 약 33–40 mg)", text:"지금 약 0.6%입니다. 약 4 g을, 1 g씩 넣으며 맛봅니다." },
+      { type:"good", glyph:"✓", head:"무염 통조림", text:"지금 약 0.49%입니다. 약 5 g을 1 g씩 넣습니다." },
+      { type:"bad", glyph:"!", head:"Bianco DiNapoli (100 g당 Na 약 149 mg)", text:"이미 약 0.91%입니다. 더 넣지 마세요. 먼저 맛보고, 산과 버터를 다룹니다." }
+    ]
+  },
+  {
+    kind: "plain",
+    title: "마무리, 불 끈 뒤",
+    body: `<p><strong>1. 버터.</strong> 차가운 것 20 g을 깍둑썰기해, 녹아 없어질 때까지 젓습니다. 고소함만큼 질감과 산입니다. 유화된 지방이 느껴지는 신맛을 둥글게 하고, 파스타에 묻어가는 윤기를 줍니다.</p>
+    <p><strong>2. 남은 피시 소스 4 ml.</strong> 넣기 전과 후를 맛봅니다.</p>
+    <p><strong>3. 산.</strong> <em>순서는 소금, 그다음 버터, 그다음 설탕입니다.</em> 간이 덜 된 소스는 싱겁게 느껴지기 전에 시게 느껴집니다. 소금을 먼저 잡지 않으면 설탕을 과하게 넣게 됩니다. 설탕은 2 g씩, 상한은 약 6 g입니다.</p>
+    <p><strong>베이킹소다는 넣지 않습니다.</strong> America's Test Kitchen이 설탕과 블라인드 비교했고, 티스푼의 8분의 1에서도 밋밋하고 단조로웠습니다.</p>
+    <p><strong>4. 바질.</strong> <em>불 끈 뒤, 마지막 순간에</em> 찢어 넣습니다.</p>
+    <p>인디고 로즈가 덜 익은 채 들어왔다면, 설탕은 상한까지 가고 향은 덜합니다. 방법이 아니라 과일 때문입니다.</p>`
+  },
+  {
+    kind: "plain",
+    title: "담고, 보관",
+    body: `<p><strong>파스타:</strong> <em>2분 덜</em> 삶아, 소스와 <em>파스타 물 50–70 ml</em>가 담긴 팬에 넣고, 중불에서 60–90초 세게 뒤섞어 면에 조여 붙을 때까지. 이 양은 건면 약 <strong>1.3–1.6 kg</strong>, 6–8인분입니다.</p>
+    <p><strong>보관:</strong> 냉장 5일, 냉동 6개월. 버터까지 넣어서 얼립니다. Kenji는 바로 이 소스를 얼리고, 물을 조금 넣어 약하게 데웁니다. 해동하면 분리될 수 있습니다. 물 50 ml와 함께 약한 불에서 휘저어 되돌립니다.</p>
+    <p><em>여기까지가 조리입니다.</em></p>`
+  }
+];
+
+/* ---------------- state ---------------- */
+let current = 0;
+const done = new Set();
+let soundOn = true;
+const timers = {}; // id -> {name, remaining, total, running, intervalId, ringing}
+let timerSeq = 0;
+
+/* ---------------- audio ---------------- */
+let audioCtx = null;
+function beep() {
+  if (!soundOn) return;
+  try {
+    audioCtx = audioCtx || new (window.AudioContext || window.webkitAudioContext)();
+    const now = audioCtx.currentTime;
+    [0, 0.28, 0.56].forEach(off => {
+      const o = audioCtx.createOscillator();
+      const g = audioCtx.createGain();
+      o.frequency.value = 880;
+      o.type = "sine";
+      o.connect(g); g.connect(audioCtx.destination);
+      g.gain.setValueAtTime(0.0001, now + off);
+      g.gain.exponentialRampToValueAtTime(0.32, now + off + 0.02);
+      g.gain.exponentialRampToValueAtTime(0.0001, now + off + 0.22);
+      o.start(now + off); o.stop(now + off + 0.24);
+    });
+  } catch (e) { /* audio unavailable */ }
+}
+
+/* ---------------- helpers ---------------- */
+function fmt(sec) {
+  sec = Math.max(0, Math.round(sec));
+  const m = Math.floor(sec / 60), s = sec % 60;
+  return String(m).padStart(2,"0") + ":" + String(s).padStart(2,"0");
+}
+const kindLabel = { timed: "타이머", gate: "판단", plain: "단계" };
+
+/* ---------------- rail + progress ---------------- */
+function renderRail() {
+  const ol = document.getElementById("steplist");
+  ol.innerHTML = "";
+  STEPS.forEach((st, i) => {
+    const li = document.createElement("li");
+    li.className = (i === current ? "active " : "") + (done.has(i) ? "done" : "");
+    let tag = "";
+    if (st.kind === "timed") tag = `<span class="s-tag timed">타이머</span>`;
+    if (st.kind === "gate") tag = `<span class="s-tag gate">판단</span>`;
+    li.innerHTML = `<span class="idx mono">${String(i+1).padStart(2,"0")}</span><span class="s-name">${st.title}</span>${tag}`;
+    li.addEventListener("click", () => goto(i));
+    ol.appendChild(li);
+  });
+
+  const mini = document.getElementById("progressMini");
+  mini.innerHTML = "";
+  STEPS.forEach((st, i) => {
+    const p = document.createElement("div");
+    p.className = "pip" + (i === current ? " active" : done.has(i) ? " done" : "");
+    p.addEventListener("click", () => goto(i));
+    mini.appendChild(p);
+  });
+}
+
+/* ---------------- step view ---------------- */
+function renderStep() {
+  const st = STEPS[current];
+  const v = document.getElementById("stepView");
+  let html = `<div class="step-head">
+      <span class="step-num mono">${String(current+1).padStart(2,"0")} / ${String(STEPS.length).padStart(2,"0")}</span>
+      <span class="step-kind ${st.kind}">${kindLabel[st.kind]}</span>
+    </div>
+    <h2 class="step-title">${st.title}</h2>
+    <div class="step-body">${st.body}</div>`;
+
+  if (st.probe) {
+    html += `<div class="probe"><span class="lab">오븐</span><span class="val mono">${st.probe}</span></div>`;
+  }
+
+  if (st.kind === "gate") {
+    html += `<div class="gate-branches">`;
+    st.branches.forEach(b => {
+      html += `<div class="branch ${b.type}">
+        <h4><span class="glyph">${b.glyph}</span> ${b.head}</h4>
+        <p>${b.text}</p></div>`;
+    });
+    html += `</div>`;
+  }
+
+  if (st.kind === "timed") {
+    const pending = `pending_${current}`;
+    if (!(pending in timedDraft)) timedDraft[pending] = st.defaultSec;
+    html += `<div class="timer-launch">
+        <span class="tl-time mono" id="draft_${current}">${fmt(timedDraft[pending])}</span>
+        <span class="adj">
+          <button data-adj="-60" data-step="${current}">−1분</button>
+          <button data-adj="-30" data-step="${current}">−30초</button>
+          <button data-adj="30" data-step="${current}">+30초</button>
+          <button data-adj="60" data-step="${current}">+1분</button>
+        </span>
+        <span class="tl-lab">${st.timerName} 타이머. 아래 막대로 보냅니다.</span>
+        <button class="btn btn-amber" id="launch_${current}">▶ ${st.timerName} 시작</button>
+      </div>`;
+  }
+
+  v.innerHTML = html;
+
+  if (st.kind === "timed") {
+    v.querySelectorAll("[data-adj]").forEach(btn => {
+      btn.addEventListener("click", () => {
+        const key = `pending_${current}`;
+        let val = timedDraft[key] + parseInt(btn.dataset.adj, 10);
+        val = Math.min(st.maxSec, Math.max(st.minSec, val));
+        timedDraft[key] = val;
+        document.getElementById(`draft_${current}`).textContent = fmt(val);
+      });
+    });
+    document.getElementById(`launch_${current}`).addEventListener("click", () => {
+      addTimer(st.timerName, timedDraft[`pending_${current}`]);
+    });
+  }
+
+  document.getElementById("prevBtn").disabled = current === 0;
+  document.getElementById("nextBtn").textContent = current === STEPS.length - 1 ? "완료 ✓" : "다음 단계 →";
+}
+const timedDraft = {};
+
+/* ---------------- navigation ---------------- */
+function goto(i) {
+  if (i < 0 || i >= STEPS.length) return;
+  current = i;
+  renderRail(); renderStep();
+  window.scrollTo({ top: 0, behavior: "smooth" });
+}
+document.getElementById("nextBtn").addEventListener("click", () => {
+  done.add(current);
+  if (current < STEPS.length - 1) goto(current + 1);
+  else { renderRail(); renderStep(); }
+});
+document.getElementById("prevBtn").addEventListener("click", () => goto(current - 1));
+
+/* ---------------- timers / dock ---------------- */
+function addTimer(name, sec) {
+  const id = ++timerSeq;
+  timers[id] = { name, remaining: sec, total: sec, running: true, ringing: false, intervalId: null };
+  timers[id].intervalId = setInterval(() => tick(id), 1000);
+  renderDock();
+}
+function tick(id) {
+  const t = timers[id];
+  if (!t || !t.running) return;
+  t.remaining -= 1;
+  if (t.remaining <= 0) {
+    t.remaining = 0; t.running = false; t.ringing = true;
+    clearInterval(t.intervalId);
+    beep();
+  }
+  updateChip(id);
+}
+function toggleTimer(id) {
+  const t = timers[id]; if (!t) return;
+  if (t.ringing) { removeTimer(id); return; }
+  t.running = !t.running;
+  if (t.running && !t.intervalId) { /* restart interval */ }
+  if (t.running) { t.intervalId = setInterval(() => tick(id), 1000); }
+  else { clearInterval(t.intervalId); t.intervalId = null; }
+  updateChip(id);
+}
+function removeTimer(id) {
+  const t = timers[id]; if (!t) return;
+  clearInterval(t.intervalId);
+  delete timers[id];
+  renderDock();
+}
+function renderDock() {
+  const dock = document.getElementById("dock");
+  dock.querySelectorAll(".chip").forEach(c => c.remove());
+  const ids = Object.keys(timers);
+  document.getElementById("dockEmpty").style.display = ids.length ? "none" : "block";
+  ids.forEach(id => dock.appendChild(buildChip(id)));
+}
+function buildChip(id) {
+  const t = timers[id];
+  const el = document.createElement("div");
+  el.className = "chip" + (t.ringing ? " ringing" : "");
+  el.id = "chip_" + id;
+  el.innerHTML = `
+    <div class="c-info">
+      <span class="c-name">${t.name}${t.ringing ? " · 끝" : ""}</span>
+      <span class="c-time mono">${fmt(t.remaining)}</span>
+    </div>
+    <div class="c-btns">
+      <button title="일시정지/재개" data-act="toggle">${t.ringing ? "✓" : (t.running ? "❚❚" : "▶")}</button>
+      <button title="지우기" data-act="remove">✕</button>
+    </div>`;
+  el.querySelector('[data-act="toggle"]').addEventListener("click", () => toggleTimer(id));
+  el.querySelector('[data-act="remove"]').addEventListener("click", () => removeTimer(id));
+  return el;
+}
+function updateChip(id) {
+  const t = timers[id];
+  const el = document.getElementById("chip_" + id);
+  if (!el) { renderDock(); return; }
+  if (!t) { el.remove(); return; }
+  el.className = "chip" + (t.ringing ? " ringing" : "");
+  el.querySelector(".c-time").textContent = fmt(t.remaining);
+  el.querySelector(".c-name").textContent = t.name + (t.ringing ? " · 끝" : "");
+  el.querySelector('[data-act="toggle"]').textContent = t.ringing ? "✓" : (t.running ? "❚❚" : "▶");
+}
+
+/* ---------------- toggles ---------------- */
+document.getElementById("soundToggle").addEventListener("click", (e) => {
+  soundOn = !soundOn;
+  e.target.textContent = soundOn ? "🔔 소리 켬" : "🔕 소리 꺼짐";
+  e.target.setAttribute("aria-pressed", soundOn);
+  if (soundOn) beep();
+});
+document.getElementById("miseToggle").addEventListener("click", (e) => {
+  const m = document.getElementById("mise");
+  m.classList.toggle("open");
+  e.target.textContent = (m.classList.contains("open") ? "▾ " : "▸ ") + "재료 준비";
+});
+
+/* keyboard: left/right arrows */
+document.addEventListener("keydown", (e) => {
+  if (e.target.tagName === "BUTTON") return;
+  if (e.key === "ArrowRight") { done.add(current); goto(Math.min(STEPS.length-1, current+1)); }
+  if (e.key === "ArrowLeft") goto(Math.max(0, current-1));
+});
+
+/* ---------------- init ---------------- */
+renderRail();
+renderStep();
+renderDock();
+</script>
+</body>
+</html>
