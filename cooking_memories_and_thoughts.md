@@ -144,6 +144,16 @@ converge with savory-fruited Syrah, not high-tannin Bordeaux.
 
 ---
 
+## Cook-it-live, filed
+
+The skill had been a pattern living inside the HTML files and nowhere else, so each new dish re-derived it. The slow-oven red sauce quietly dropped the phase rail, the vessel chip, and the quantity chips the miso braise had earned. It is now `cook-it-live/template.html`. The rules for deriving a dish from it, and the changelog, are `cook-it-live/SKILL.md`. Standing output rules for this kitchen are `AGENTS.md`.
+
+The engine change that earned the filing: the timers counted down with `setInterval`, which a phone throttles or freezes when the screen locks. A braise timer that only advances while the tab is awake is not a timer. They now store an end timestamp and read the wall clock, restore that end time if the tab is killed and reopened, hold a screen wake lock while one is running, and raise a notification when it hits zero. Gates grew a third branch, `wait`, because "not yet" and "ruined" were sharing a color. Long oven steps adjust by minutes. A step can name what is still running on the other burner.
+
+Every recipe from here is a markdown file and a cook-it-live HTML copied from that template. An engine change goes back into the template and the changelog. A reskin does not count.
+
+---
+
 ## Open threads
 
 - Finish the interrupted eggplant parmigiana cook-live HTML transfer to iCloud.

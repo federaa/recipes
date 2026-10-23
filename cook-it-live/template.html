@@ -1,0 +1,904 @@
+<!DOCTYPE html>
+<!--
+  Cook It Live engine 2026-10-23.
+  Copy this file per dish. Replace the header, the mise, RECIPE_ID, and STEPS.
+  Leave the script below STEPS alone unless you are fixing the engine.
+  Engine fixes go back into this file and into cook-it-live/SKILL.md.
+-->
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cook It Live · Recipe title</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ground: #16110d;
+    --panel: #201811;
+    --panel-2: #2a2118;
+    --line: #3a2e21;
+    --ivory: #f2e9dc;
+    --muted: #a2937d;
+    --faint: #6f6353;
+    --amber: #e0a03e;
+    --amber-deep: #b57922;
+    --chili: #d2492b;
+    --chili-soft: #e8674a;
+    --radius: 4px;
+    --dock-h: 108px;
+  }
+
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+
+  body {
+    margin: 0;
+    background: var(--ground);
+    color: var(--ivory);
+    font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+    line-height: 1.5;
+    padding-bottom: calc(var(--dock-h) + env(safe-area-inset-bottom));
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .mono { font-family: "JetBrains Mono", ui-monospace, monospace; font-feature-settings: "tnum"; }
+
+  header {
+    border-bottom: 1px solid var(--line);
+    padding: 18px 20px 18px;
+    background: linear-gradient(180deg, #1c1510 0%, var(--ground) 100%);
+  }
+  .head-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 8px;
+  }
+  .head-actions { display: flex; gap: 8px; flex: 0 0 auto; }
+  .eyebrow {
+    font-family: "JetBrains Mono", monospace;
+    font-size: 11px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--amber);
+    margin: 0;
+  }
+  h1 {
+    font-family: "Fraunces", Georgia, serif;
+    font-weight: 500;
+    font-size: clamp(26px, 5vw, 40px);
+    line-height: 1.04;
+    margin: 0 0 10px;
+    letter-spacing: -0.01em;
+  }
+  .meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px 18px;
+    font-family: "JetBrains Mono", monospace;
+    font-size: 12px;
+    color: var(--muted);
+  }
+  .meta b { color: var(--ivory); font-weight: 500; }
+
+  .legend { display: flex; gap: 16px; flex-wrap: wrap; margin-top: 16px; }
+  .legend:empty { display: none; }
+  .legend-item { display: flex; align-items: center; gap: 8px; font-size: 12px; color: var(--muted); }
+  .swatch {
+    width: 14px; height: 14px; border-radius: 50%;
+    flex: 0 0 auto;
+    box-shadow: inset 0 0 0 1px rgba(0,0,0,0.35);
+  }
+  .legend-item b { color: var(--ivory); font-weight: 500; }
+  .legend-item span { color: var(--faint); }
+
+  .wrap {
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: 20px;
+    display: grid;
+    grid-template-columns: 268px 1fr;
+    gap: 26px;
+    align-items: start;
+  }
+
+  .rail { position: sticky; top: 16px; }
+  .rail h2, .mise h2 {
+    font-family: "JetBrains Mono", monospace;
+    font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--faint); margin: 0 0 12px; font-weight: 500;
+  }
+  .steplist { list-style: none; margin: 0 0 26px; padding: 0; }
+  .steplist li {
+    display: flex; align-items: baseline; gap: 11px;
+    padding: 7px 10px; border-radius: var(--radius);
+    cursor: pointer; color: var(--muted);
+    font-size: 13.5px; line-height: 1.3;
+    border: 1px solid transparent;
+  }
+  .steplist li:hover { background: var(--panel); color: var(--ivory); }
+  .steplist li.active { background: var(--panel-2); color: var(--ivory); border-color: var(--line); }
+  .steplist li.done .idx { color: var(--amber-deep); }
+  .steplist li.done .s-name { color: var(--faint); text-decoration: line-through; text-decoration-color: var(--line); }
+  .steplist li.phase {
+    cursor: default; pointer-events: none;
+    font-family: "JetBrains Mono", monospace;
+    font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase;
+    color: var(--faint); padding: 14px 10px 2px;
+  }
+  .steplist li.phase:hover { background: transparent; color: var(--faint); }
+  .idx { font-family: "JetBrains Mono", monospace; font-size: 11px; color: var(--faint); flex: 0 0 20px; }
+  .active .idx { color: var(--amber); }
+  .s-tag {
+    margin-left: auto; font-family: "JetBrains Mono", monospace;
+    font-size: 10px; letter-spacing: 0.05em;
+    padding: 1px 6px; border-radius: 20px; flex: 0 0 auto; align-self: center;
+  }
+  .s-tag.timed { color: var(--amber); border: 1px solid var(--amber-deep); }
+  .s-tag.gate { color: var(--chili-soft); border: 1px solid #7a3020; }
+
+  .mise {
+    background: var(--panel); border: 1px solid var(--line);
+    border-radius: var(--radius); padding: 16px 16px 6px;
+  }
+  .mise ul { list-style: none; margin: 0 0 14px; padding: 0; }
+  .mise li {
+    display: flex; justify-content: space-between; gap: 12px;
+    font-size: 13px; padding: 5px 0; border-bottom: 1px solid #2a2018;
+  }
+  .mise li:last-child { border-bottom: none; }
+  .mise .ing { color: var(--ivory); }
+  .mise .amt { font-family: "JetBrains Mono", monospace; font-size: 12.5px; color: var(--amber); white-space: nowrap; }
+  .mise .grp { font-family: "JetBrains Mono", monospace; font-size: 10.5px; letter-spacing: .12em; text-transform: uppercase; color: var(--faint); margin: 12px 0 4px; }
+  .cut { color: var(--faint); text-decoration: line-through; text-decoration-color: var(--chili); }
+  .cut .amt { color: var(--faint); }
+
+  .stage { min-height: 60vh; }
+  .step-head { display: flex; align-items: baseline; gap: 14px; margin-bottom: 4px; flex-wrap: wrap; }
+  .step-num { font-family: "JetBrains Mono", monospace; font-size: 13px; color: var(--amber); letter-spacing: .1em; }
+  .step-kind {
+    font-family: "JetBrains Mono", monospace; font-size: 10.5px; letter-spacing: .14em; text-transform: uppercase;
+    padding: 2px 9px; border-radius: 20px;
+  }
+  .step-kind.timed { color: var(--amber); border: 1px solid var(--amber-deep); }
+  .step-kind.gate { color: var(--chili-soft); border: 1px solid #7a3020; background: rgba(210,73,43,.08); }
+  .step-kind.plain { color: var(--faint); border: 1px solid var(--line); }
+  .where {
+    font-family: "JetBrains Mono", monospace; font-size: 10.5px; letter-spacing: .14em;
+    text-transform: uppercase; color: var(--ivory);
+    border: 1px solid var(--amber-deep); background: rgba(224,160,62,.08);
+    border-radius: 20px; padding: 2px 9px;
+  }
+  .phase-kicker {
+    font-family: "JetBrains Mono", monospace; font-size: 11px; letter-spacing: .18em;
+    text-transform: uppercase; color: var(--amber); margin: 12px 0 0;
+  }
+
+  .uses { display: flex; flex-wrap: wrap; gap: 6px; margin: 0 0 16px; }
+  .use {
+    font-family: "JetBrains Mono", monospace; font-size: 12.5px; line-height: 1.35;
+    color: var(--muted); background: var(--panel); border: 1px solid var(--line);
+    border-radius: 999px; padding: 5px 10px;
+  }
+  .use b { color: var(--amber); font-weight: 500; }
+
+  .step-title {
+    font-family: "Fraunces", Georgia, serif; font-weight: 500;
+    font-size: clamp(24px, 4vw, 34px); line-height: 1.08; margin: 8px 0 18px;
+    letter-spacing: -0.01em;
+  }
+  .step-title:focus { outline: none; }
+  .step-body { font-size: 16px; color: #ded2c1; max-width: 62ch; }
+  .step-body p { margin: 0 0 14px; }
+  .step-body strong { color: var(--ivory); font-weight: 600; }
+  .step-body em { color: var(--amber); font-style: normal; }
+
+  .also {
+    border: 1px solid var(--amber-deep);
+    background: rgba(224,160,62,.06);
+    border-radius: var(--radius);
+    padding: 10px 14px;
+    margin: 0 0 16px;
+    max-width: 62ch;
+  }
+  .also-k {
+    font-family: "JetBrains Mono", monospace;
+    font-size: 10px; letter-spacing: .16em; text-transform: uppercase; color: var(--amber);
+  }
+  .also ul { margin: 6px 0 0; padding-left: 18px; color: var(--muted); font-size: 14.5px; }
+
+  .probe {
+    display: inline-flex; align-items: center; gap: 10px;
+    background: var(--panel-2); border: 1px solid var(--line);
+    border-radius: var(--radius); padding: 10px 16px; margin: 4px 0 18px;
+  }
+  .probe .lab { font-size: 11px; letter-spacing: .12em; text-transform: uppercase; color: var(--faint); font-family: "JetBrains Mono", monospace; }
+  .probe .val { font-family: "JetBrains Mono", monospace; font-size: 22px; color: var(--amber); font-weight: 500; }
+
+  .gate-branches { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 14px; margin: 20px 0; }
+  .branch { border: 1px solid var(--line); border-radius: var(--radius); padding: 16px; background: var(--panel); }
+  .branch.good { border-color: #4a5a2e; }
+  .branch.wait { border-color: var(--amber-deep); }
+  .branch.bad { border-color: #7a3020; }
+  .branch h4 {
+    font-family: "JetBrains Mono", monospace; font-size: 12px; letter-spacing: .06em;
+    margin: 0 0 8px; display: flex; align-items: center; gap: 8px; text-transform: uppercase;
+  }
+  .branch.good h4 { color: #a9c76a; }
+  .branch.wait h4 { color: var(--amber); }
+  .branch.bad h4 { color: var(--chili-soft); }
+  .branch p { margin: 0; font-size: 14px; color: var(--muted); }
+
+  .timer-launch {
+    display: flex; align-items: center; gap: 12px; flex-wrap: wrap;
+    margin: 22px 0 6px; padding: 16px; border: 1px dashed var(--amber-deep);
+    border-radius: var(--radius); background: rgba(224,160,62,.04);
+  }
+  .timer-launch .tl-time { font-family: "JetBrains Mono", monospace; font-size: 30px; color: var(--amber); font-weight: 500; }
+  .timer-launch .tl-lab { font-size: 13px; color: var(--muted); flex: 1 1 180px; }
+  .adj { display: inline-flex; gap: 6px; }
+  .adj button {
+    min-width: 44px; height: 44px; padding: 0 8px;
+    font-family: "JetBrains Mono", monospace; font-size: 14px;
+    background: var(--panel-2); color: var(--ivory); border: 1px solid var(--line);
+    border-radius: var(--radius); cursor: pointer;
+  }
+  .adj button:hover { border-color: var(--amber-deep); color: var(--amber); }
+
+  button { font-family: inherit; }
+  .btn {
+    border: none; border-radius: var(--radius); cursor: pointer;
+    font-family: "JetBrains Mono", monospace; font-size: 13px; letter-spacing: .04em;
+    padding: 12px 20px; min-height: 44px;
+  }
+  .btn:disabled { opacity: 0.4; cursor: default; }
+  .btn-amber { background: var(--amber); color: #1c1207; font-weight: 700; }
+  .btn-amber:hover:not(:disabled) { filter: brightness(1.08); }
+  .btn-ghost { background: var(--panel-2); color: var(--ivory); border: 1px solid var(--line); }
+  .btn-ghost:hover:not(:disabled) { border-color: var(--amber-deep); color: var(--amber); }
+  .btn-tiny {
+    background: var(--panel-2); border: 1px solid var(--line); color: var(--muted);
+    border-radius: var(--radius); padding: 7px 12px; cursor: pointer;
+    font-family: "JetBrains Mono", monospace; font-size: 11px; letter-spacing: .05em;
+    min-height: 36px;
+  }
+  .btn-tiny:hover { color: var(--amber); border-color: var(--amber-deep); }
+  .btn-tiny.armed { color: var(--chili-soft); border-color: #7a3020; }
+
+  .nav { display: flex; justify-content: space-between; gap: 12px; margin-top: 34px; padding-top: 20px; border-top: 1px solid var(--line); }
+
+  .dock {
+    position: fixed; left: 0; right: 0; bottom: 0; z-index: 40;
+    min-height: var(--dock-h);
+    background: rgba(20,15,11,.94); backdrop-filter: blur(8px);
+    border-top: 1px solid var(--line);
+    padding: 12px 16px calc(12px + env(safe-area-inset-bottom));
+    display: flex; align-items: center; gap: 12px; overflow-x: auto;
+  }
+  .dock-label {
+    font-family: "JetBrains Mono", monospace; font-size: 10px; letter-spacing: .16em;
+    text-transform: uppercase; color: var(--faint); writing-mode: vertical-rl; transform: rotate(180deg);
+    flex: 0 0 auto; padding-right: 2px;
+  }
+  .dock-empty { color: var(--faint); font-size: 13px; font-family: "JetBrains Mono", monospace; }
+  .chip {
+    flex: 0 0 auto; display: flex; align-items: center; gap: 12px;
+    background: var(--panel-2); border: 1px solid var(--line);
+    border-radius: var(--radius); padding: 8px 8px 8px 14px; min-width: 200px;
+  }
+  .chip.ringing { border-color: var(--chili); animation: flash .7s steps(1) infinite; }
+  @keyframes flash { 50% { background: rgba(210,73,43,.22); } }
+  .chip .c-info { display: flex; flex-direction: column; gap: 1px; }
+  .chip .c-name { font-size: 11px; color: var(--muted); font-family: "JetBrains Mono", monospace; letter-spacing: .04em; }
+  .chip .c-time { font-family: "JetBrains Mono", monospace; font-size: 24px; font-weight: 500; color: var(--amber); line-height: 1; }
+  .chip.ringing .c-time { color: var(--chili-soft); }
+  .chip .c-btns { display: flex; gap: 6px; margin-left: auto; }
+  .chip .c-btns button {
+    width: 44px; height: 44px; border-radius: var(--radius);
+    background: var(--panel); border: 1px solid var(--line); color: var(--muted);
+    cursor: pointer; font-size: 14px; display: grid; place-items: center;
+  }
+  .chip .c-btns button:hover { color: var(--amber); border-color: var(--amber-deep); }
+
+  .empty-stage { color: var(--muted); max-width: 52ch; }
+  .sr {
+    position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+    overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0;
+  }
+
+  :focus-visible { outline: 2px solid var(--amber); outline-offset: 2px; }
+
+  @media (max-width: 860px) {
+    .wrap { grid-template-columns: 1fr; gap: 18px; }
+    .rail { position: static; order: 2; }
+    .seq h2, .rail .steplist { display: none; }
+    .seq.open h2, .seq.open .steplist { display: block; }
+    .mise-toggle {
+      display: block; width: 100%; text-align: left;
+      background: var(--panel); border: 1px solid var(--line); color: var(--ivory);
+      border-radius: var(--radius); padding: 12px 14px; margin-bottom: 12px;
+      font-family: "JetBrains Mono", monospace; font-size: 12px; letter-spacing: .06em; cursor: pointer;
+      min-height: 44px;
+    }
+    .mise { display: none; }
+    .mise.open { display: block; }
+    .stage { order: 1; }
+    .progress-mini { display: flex; }
+  }
+  @media (min-width: 861px) {
+    .progress-mini { display: none; }
+    .mise-toggle { display: none; }
+    .rail {
+      max-height: calc(100vh - 20px - var(--dock-h));
+      overflow: auto;
+      padding-right: 6px;
+    }
+    .rail .mise { margin-top: 6px; }
+  }
+
+  .progress-mini { gap: 4px; margin-bottom: 14px; flex-wrap: wrap; }
+  .progress-mini .pip {
+    height: 8px; flex: 1 1 16px; border-radius: 2px; background: var(--line); cursor: pointer;
+  }
+  .progress-mini .pip.done { background: var(--amber-deep); }
+  .progress-mini .pip.active { background: var(--amber); }
+
+  @media (prefers-reduced-motion: reduce) {
+    * { animation: none !important; transition: none !important; }
+    .chip.ringing { background: rgba(210,73,43,.22); }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="head-row">
+    <p class="eyebrow">Cook It Live</p>
+    <div class="head-actions">
+      <button class="btn-tiny" id="soundToggle" type="button" aria-pressed="true">Sound on</button>
+      <button class="btn-tiny" id="resetBtn" type="button">Start over</button>
+    </div>
+  </div>
+  <h1>Recipe title</h1>
+  <div class="meta">
+    <span><b>Serves —</b></span>
+    <span>Gas range · Miele convection</span>
+  </div>
+  <div class="legend" id="legend"></div>
+</header>
+
+<div class="wrap">
+  <aside class="rail" id="rail">
+    <button class="mise-toggle" id="seqToggle" type="button" aria-expanded="false">▸ Sequence</button>
+    <div class="seq" id="seq">
+      <h2>Sequence</h2>
+      <ol class="steplist" id="steplist"></ol>
+    </div>
+    <button class="mise-toggle" id="miseToggle" type="button" aria-expanded="false">▸ Mise / ingredients</button>
+    <div class="mise" id="mise">
+      <h2>Mise en place</h2>
+      <div class="grp">Replace these groups</div>
+      <ul>
+        <li><span class="ing">Ingredient</span><span class="amt">quantity</span></li>
+      </ul>
+    </div>
+  </aside>
+
+  <main class="stage" id="stage">
+    <div class="progress-mini" id="progressMini"></div>
+    <div id="stepView"></div>
+    <div class="nav">
+      <button class="btn btn-ghost" id="prevBtn" type="button">← Back</button>
+      <button class="btn btn-amber" id="nextBtn" type="button">Next step →</button>
+    </div>
+  </main>
+</div>
+
+<div class="dock" id="dock">
+  <span class="dock-label">Timers</span>
+  <span class="dock-empty" id="dockEmpty">No timers running. Start one from a timed step.</span>
+</div>
+<div id="live" class="sr" aria-live="assertive"></div>
+
+<script>
+"use strict";
+
+/* Unique per dish. The restore key is cook-live:<RECIPE_ID>. */
+const RECIPE_ID = "template";
+const ENGINE = "2026-10-23";
+
+/* Replace with the dish. Shape is documented in cook-it-live/SKILL.md. */
+const STEPS = [];
+
+/* ---------------- state ---------------- */
+const storageKey = "cook-live:" + RECIPE_ID;
+let current = 0;
+const done = new Set();
+let finished = false;
+let soundOn = true;
+const timers = {};
+let timerSeq = 0;
+const timedDraft = {};
+let wakeLock = null;
+let audioCtx = null;
+let resetArm = 0;
+
+function load() {
+  let blob = null;
+  try { blob = JSON.parse(localStorage.getItem(storageKey) || "null"); } catch (e) { blob = null; }
+  if (!blob || typeof blob !== "object") return;
+  if (Number.isInteger(blob.current)) current = blob.current;
+  if (current < 0 || current >= Math.max(STEPS.length, 1)) current = 0;
+  if (STEPS.length && current >= STEPS.length) current = 0;
+  if (Array.isArray(blob.done)) blob.done.forEach(i => { if (Number.isInteger(i)) done.add(i); });
+  if (typeof blob.soundOn === "boolean") soundOn = blob.soundOn;
+  if (blob.finished) finished = true;
+  if (blob.timedDraft && typeof blob.timedDraft === "object") {
+    Object.keys(blob.timedDraft).forEach(k => { timedDraft[k] = blob.timedDraft[k]; });
+  }
+  if (Number.isInteger(blob.timerSeq)) timerSeq = blob.timerSeq;
+  if (Array.isArray(blob.timers)) {
+    blob.timers.forEach(raw => {
+      if (!raw || typeof raw.name !== "string") return;
+      const t = {
+        name: raw.name,
+        endsAt: typeof raw.endsAt === "number" ? raw.endsAt : null,
+        remaining: typeof raw.remaining === "number" ? raw.remaining : 0,
+        running: !!raw.running,
+        ringing: !!raw.ringing,
+        announced: !!raw.announced
+      };
+      if (t.running && t.endsAt) {
+        const left = Math.round((t.endsAt - Date.now()) / 1000);
+        if (left <= 0) {
+          t.remaining = 0; t.running = false; t.ringing = true;
+        } else {
+          t.remaining = left;
+        }
+      }
+      const id = Number.isInteger(raw.id) ? raw.id : ++timerSeq;
+      timers[id] = t;
+      if (id > timerSeq) timerSeq = id;
+    });
+  }
+}
+
+function save() {
+  const blob = {
+    engine: ENGINE,
+    current,
+    done: [...done],
+    finished,
+    soundOn,
+    timerSeq,
+    timedDraft,
+    timers: Object.keys(timers).map(id => {
+      const t = timers[id];
+      return {
+        id: Number(id), name: t.name, endsAt: t.endsAt, remaining: t.remaining,
+        running: t.running, ringing: t.ringing, announced: t.announced
+      };
+    })
+  };
+  try { localStorage.setItem(storageKey, JSON.stringify(blob)); } catch (e) { /* private mode */ }
+}
+
+/* ---------------- audio + alerts ---------------- */
+function unlockAudio() {
+  try {
+    audioCtx = audioCtx || new (window.AudioContext || window.webkitAudioContext)();
+    if (audioCtx.state === "suspended") audioCtx.resume();
+  } catch (e) { /* audio unavailable */ }
+}
+function beep() {
+  if (!soundOn) return;
+  try {
+    unlockAudio();
+    if (!audioCtx) return;
+    const now = audioCtx.currentTime;
+    [0, 0.28, 0.56].forEach(off => {
+      const o = audioCtx.createOscillator();
+      const g = audioCtx.createGain();
+      o.frequency.value = 880;
+      o.type = "sine";
+      o.connect(g); g.connect(audioCtx.destination);
+      g.gain.setValueAtTime(0.0001, now + off);
+      g.gain.exponentialRampToValueAtTime(0.32, now + off + 0.02);
+      g.gain.exponentialRampToValueAtTime(0.0001, now + off + 0.22);
+      o.start(now + off); o.stop(now + off + 0.24);
+    });
+  } catch (e) { /* audio unavailable */ }
+}
+function announce(name) {
+  const live = document.getElementById("live");
+  if (live) live.textContent = name + " timer done";
+  if ("Notification" in window && Notification.permission === "granted") {
+    try { new Notification(name + " · done", { body: "Timer finished." }); } catch (e) { /* blocked */ }
+  }
+}
+function askNotify() {
+  if (!("Notification" in window)) return;
+  if (Notification.permission !== "default") return;
+  try { Notification.requestPermission(); } catch (e) { /* no permission API */ }
+}
+
+/* ---------------- helpers ---------------- */
+function esc(s) {
+  return String(s == null ? "" : s).replace(/[&<>"']/g, c => ({
+    "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;"
+  }[c]));
+}
+function fmt(sec) {
+  sec = Math.max(0, Math.round(sec));
+  const h = Math.floor(sec / 3600);
+  const m = Math.floor((sec % 3600) / 60);
+  const s = sec % 60;
+  const mm = String(m).padStart(2, "0");
+  const ss = String(s).padStart(2, "0");
+  return h > 0 ? (h + ":" + mm + ":" + ss) : (mm + ":" + ss);
+}
+function adjustSteps(st) {
+  return st.defaultSec >= 1200 ? [-300, -60, 60, 300] : [-60, -30, 30, 60];
+}
+function adjLabel(delta) {
+  const sign = delta > 0 ? "+" : "−";
+  const a = Math.abs(delta);
+  if (a >= 60 && a % 60 === 0) return sign + (a / 60) + "m";
+  return sign + a + "s";
+}
+const kindLabel = { timed: "Timed", gate: "Decision", plain: "Step" };
+
+/* ---------------- rail + progress ---------------- */
+function renderRail() {
+  const ol = document.getElementById("steplist");
+  ol.innerHTML = "";
+  STEPS.forEach((st, i) => {
+    if (st.phase && (i === 0 || STEPS[i - 1].phase !== st.phase)) {
+      const ph = document.createElement("li");
+      ph.className = "phase";
+      ph.textContent = st.phase;
+      ol.appendChild(ph);
+    }
+    const li = document.createElement("li");
+    li.className = (i === current ? "active " : "") + (done.has(i) ? "done" : "");
+    let tag = "";
+    if (st.kind === "timed") tag = `<span class="s-tag timed">timer</span>`;
+    if (st.kind === "gate") tag = `<span class="s-tag gate">gate</span>`;
+    li.innerHTML = `<span class="idx mono">${String(i + 1).padStart(2, "0")}</span><span class="s-name">${esc(st.title)}</span>${tag}`;
+    li.addEventListener("click", () => goto(i));
+    ol.appendChild(li);
+  });
+
+  const mini = document.getElementById("progressMini");
+  mini.innerHTML = "";
+  STEPS.forEach((st, i) => {
+    const p = document.createElement("div");
+    p.className = "pip" + (i === current ? " active" : done.has(i) ? " done" : "");
+    p.title = st.title || "";
+    p.addEventListener("click", () => goto(i));
+    mini.appendChild(p);
+  });
+
+  const active = ol.querySelector("li.active");
+  const rail = document.getElementById("rail");
+  if (active && rail.scrollHeight > rail.clientHeight + 4) {
+    const railRect = rail.getBoundingClientRect();
+    const aRect = active.getBoundingClientRect();
+    if (aRect.bottom > railRect.bottom - 8) rail.scrollTop += aRect.bottom - railRect.bottom + 16;
+    else if (aRect.top < railRect.top + 8) rail.scrollTop -= railRect.top - aRect.top + 16;
+  }
+}
+
+/* ---------------- step view ---------------- */
+function renderStep() {
+  const v = document.getElementById("stepView");
+  const prev = document.getElementById("prevBtn");
+  const next = document.getElementById("nextBtn");
+  if (!STEPS.length) {
+    v.innerHTML = `<p class="empty-stage">This is the cook-it-live engine. Copy the file, then fill the header, the mise, and STEPS. The shape is in cook-it-live/SKILL.md.</p>`;
+    prev.disabled = true;
+    next.disabled = true;
+    return;
+  }
+  const st = STEPS[current];
+  const uses = (st.uses && st.uses.length)
+    ? `<div class="uses">` + st.uses.map(u => `<span class="use"><b>${esc(u.amt)}</b> ${esc(u.name)}</span>`).join("") + `</div>`
+    : "";
+  const also = (st.also && st.also.length)
+    ? `<div class="also"><div class="also-k">Still running</div><ul>` + st.also.map(a => `<li>${esc(a)}</li>`).join("") + `</ul></div>`
+    : "";
+  let html = `<div class="step-head">
+      <span class="step-num mono">${String(current + 1).padStart(2, "0")} / ${String(STEPS.length).padStart(2, "0")}</span>
+      <span class="step-kind ${esc(st.kind)}">${kindLabel[st.kind] || "Step"}</span>
+      ${st.where ? `<span class="where">${esc(st.where)}</span>` : ""}
+    </div>
+    ${st.phase ? `<p class="phase-kicker">${esc(st.phase)}</p>` : ""}
+    <h2 class="step-title" id="stepTitle" tabindex="-1">${esc(st.title)}</h2>
+    ${uses}
+    ${also}
+    ${st.probe ? `<div class="probe"><span class="lab">${esc(st.probeLabel || "Pull at")}</span><span class="val mono">${esc(st.probe)}</span></div>` : ""}
+    <div class="step-body">${st.body || ""}</div>`;
+
+  if (st.kind === "gate" && st.branches) {
+    html += `<div class="gate-branches">`;
+    st.branches.forEach(b => {
+      const type = (b.type === "good" || b.type === "wait" || b.type === "bad") ? b.type : "wait";
+      html += `<div class="branch ${type}">
+        <h4><span class="glyph">${esc(b.glyph || "")}</span> ${esc(b.head)}</h4>
+        <p>${esc(b.text)}</p></div>`;
+    });
+    html += `</div>`;
+  }
+
+  if (finished) {
+    html += `<div class="also"><div class="also-k">Done</div><ul><li>That is the cook. Start over clears the timers and the place.</li></ul></div>`;
+  }
+
+  if (st.kind === "timed") {
+    const pending = "pending_" + current;
+    if (!(pending in timedDraft)) timedDraft[pending] = st.defaultSec;
+    const buttons = adjustSteps(st).map(d =>
+      `<button type="button" data-adj="${d}">${adjLabel(d)}</button>`
+    ).join("");
+    const note = st.timerNote
+      ? esc(st.timerNote)
+      : "Wall clock. Holds while the screen is locked, as long as this tab stays loaded. Reopening this file restores the end time.";
+    html += `<div class="timer-launch">
+        <span class="tl-time mono" id="draft_${current}">${fmt(timedDraft[pending])}</span>
+        <span class="adj">${buttons}</span>
+        <span class="tl-lab">${esc(st.timerName)}. ${note}</span>
+        <button class="btn btn-amber" id="launch_${current}" type="button">▶ Start ${esc(st.timerName)}</button>
+      </div>`;
+  }
+
+  v.innerHTML = html;
+
+  if (st.kind === "timed") {
+    v.querySelectorAll("[data-adj]").forEach(btn => {
+      btn.addEventListener("click", () => {
+        const key = "pending_" + current;
+        let val = timedDraft[key] + parseInt(btn.dataset.adj, 10);
+        val = Math.min(st.maxSec, Math.max(st.minSec, val));
+        timedDraft[key] = val;
+        document.getElementById("draft_" + current).textContent = fmt(val);
+        save();
+      });
+    });
+    document.getElementById("launch_" + current).addEventListener("click", () => {
+      addTimer(st.timerName, timedDraft["pending_" + current]);
+    });
+  }
+
+  prev.disabled = current === 0;
+  next.disabled = false;
+  next.textContent = finished ? "Cook again" : (current === STEPS.length - 1 ? "Finish" : "Next step →");
+
+  const title = document.getElementById("stepTitle");
+  if (title) title.focus({ preventScroll: true });
+}
+
+/* ---------------- navigation ---------------- */
+function goto(i) {
+  if (!STEPS.length || i < 0 || i >= STEPS.length) return;
+  finished = false;
+  current = i;
+  save();
+  renderRail();
+  renderStep();
+  const reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  window.scrollTo({ top: 0, behavior: reduce ? "auto" : "smooth" });
+}
+function advance() {
+  if (!STEPS.length) return;
+  if (finished) { resetCook(); return; }
+  done.add(current);
+  if (current < STEPS.length - 1) goto(current + 1);
+  else { finished = true; save(); renderRail(); renderStep(); }
+}
+document.getElementById("nextBtn").addEventListener("click", advance);
+document.getElementById("prevBtn").addEventListener("click", () => goto(current - 1));
+
+/* ---------------- timers / dock ---------------- */
+function addTimer(name, sec) {
+  unlockAudio();
+  askNotify();
+  const id = ++timerSeq;
+  timers[id] = {
+    name,
+    endsAt: Date.now() + sec * 1000,
+    remaining: sec,
+    running: true,
+    ringing: false,
+    announced: false
+  };
+  save();
+  renderDock();
+  syncWake();
+}
+function sweepTimers() {
+  let changed = false;
+  Object.keys(timers).forEach(id => {
+    const t = timers[id];
+    if (t.running && t.endsAt) {
+      const left = Math.round((t.endsAt - Date.now()) / 1000);
+      if (left <= 0) {
+        t.remaining = 0;
+        t.running = false;
+        t.ringing = true;
+        changed = true;
+      } else {
+        t.remaining = left;
+      }
+    }
+    if (t.ringing && !t.announced) {
+      t.announced = true;
+      changed = true;
+      beep();
+      announce(t.name);
+    }
+    updateChip(id);
+  });
+  if (changed) { save(); syncWake(); }
+}
+function toggleTimer(id) {
+  const t = timers[id];
+  if (!t) return;
+  if (t.ringing) { removeTimer(id); return; }
+  if (t.running) {
+    t.remaining = Math.max(0, Math.round((t.endsAt - Date.now()) / 1000));
+    t.running = false;
+    t.endsAt = null;
+  } else if (t.remaining > 0) {
+    unlockAudio();
+    t.running = true;
+    t.endsAt = Date.now() + t.remaining * 1000;
+  }
+  save();
+  updateChip(id);
+  syncWake();
+}
+function removeTimer(id) {
+  if (!timers[id]) return;
+  delete timers[id];
+  save();
+  renderDock();
+  syncWake();
+}
+function renderDock() {
+  const dock = document.getElementById("dock");
+  dock.querySelectorAll(".chip").forEach(c => c.remove());
+  const ids = Object.keys(timers);
+  document.getElementById("dockEmpty").style.display = ids.length ? "none" : "";
+  ids.forEach(id => dock.appendChild(buildChip(id)));
+}
+function buildChip(id) {
+  const t = timers[id];
+  const el = document.createElement("div");
+  el.className = "chip" + (t.ringing ? " ringing" : "");
+  el.id = "chip_" + id;
+  el.innerHTML = `
+    <div class="c-info">
+      <span class="c-name">${esc(t.name)}${t.ringing ? " · done" : (t.running ? "" : " · paused")}</span>
+      <span class="c-time mono">${fmt(t.remaining)}</span>
+    </div>
+    <div class="c-btns">
+      <button type="button" title="${t.ringing ? "dismiss" : (t.running ? "pause" : "resume")}" data-act="toggle">${t.ringing ? "✓" : (t.running ? "❚❚" : "▶")}</button>
+      <button type="button" title="dismiss" data-act="remove">✕</button>
+    </div>`;
+  el.querySelector('[data-act="toggle"]').addEventListener("click", () => toggleTimer(id));
+  el.querySelector('[data-act="remove"]').addEventListener("click", () => removeTimer(id));
+  return el;
+}
+function updateChip(id) {
+  const t = timers[id];
+  const el = document.getElementById("chip_" + id);
+  if (!el || !t) { renderDock(); return; }
+  el.className = "chip" + (t.ringing ? " ringing" : "");
+  el.querySelector(".c-time").textContent = fmt(t.remaining);
+  el.querySelector(".c-name").textContent = t.name + (t.ringing ? " · done" : (t.running ? "" : " · paused"));
+  const toggle = el.querySelector('[data-act="toggle"]');
+  toggle.textContent = t.ringing ? "✓" : (t.running ? "❚❚" : "▶");
+  toggle.title = t.ringing ? "dismiss" : (t.running ? "pause" : "resume");
+}
+
+async function syncWake() {
+  const any = Object.keys(timers).some(id => timers[id].running);
+  if (any && "wakeLock" in navigator) {
+    try {
+      if (!wakeLock) wakeLock = await navigator.wakeLock.request("screen");
+    } catch (e) { /* unsupported or hidden tab */ }
+  } else if (wakeLock) {
+    try { await wakeLock.release(); } catch (e) { /* already released */ }
+    wakeLock = null;
+  }
+}
+document.addEventListener("visibilitychange", () => {
+  if (document.visibilityState !== "visible") return;
+  sweepTimers();
+  syncWake();
+});
+setInterval(sweepTimers, 250);
+
+/* ---------------- toggles ---------------- */
+function paintSound() {
+  const b = document.getElementById("soundToggle");
+  b.textContent = soundOn ? "Sound on" : "Sound off";
+  b.setAttribute("aria-pressed", soundOn ? "true" : "false");
+}
+document.getElementById("soundToggle").addEventListener("click", (e) => {
+  soundOn = !soundOn;
+  paintSound();
+  save();
+  if (soundOn) { unlockAudio(); beep(); }
+});
+document.getElementById("seqToggle").addEventListener("click", (e) => {
+  const seq = document.getElementById("seq");
+  const open = seq.classList.toggle("open");
+  e.currentTarget.textContent = (open ? "▾ " : "▸ ") + "Sequence";
+  e.currentTarget.setAttribute("aria-expanded", open ? "true" : "false");
+  if (open) seq.scrollIntoView({ block: "start" });
+});
+document.getElementById("miseToggle").addEventListener("click", (e) => {
+  const m = document.getElementById("mise");
+  const open = m.classList.toggle("open");
+  e.currentTarget.textContent = (open ? "▾ " : "▸ ") + "Mise / ingredients";
+  e.currentTarget.setAttribute("aria-expanded", open ? "true" : "false");
+  if (open) m.scrollIntoView({ block: "start" });
+});
+document.getElementById("resetBtn").addEventListener("click", (e) => {
+  const now = Date.now();
+  if (now - resetArm > 4000) {
+    resetArm = now;
+    e.currentTarget.textContent = "Clear this cook?";
+    e.currentTarget.classList.add("armed");
+    setTimeout(() => {
+      if (Date.now() - resetArm >= 3900) {
+        const b = document.getElementById("resetBtn");
+        b.textContent = "Start over";
+        b.classList.remove("armed");
+      }
+    }, 4000);
+    return;
+  }
+  resetCook();
+});
+function resetCook() {
+  current = 0;
+  done.clear();
+  finished = false;
+  Object.keys(timers).forEach(id => delete timers[id]);
+  Object.keys(timedDraft).forEach(k => delete timedDraft[k]);
+  timerSeq = 0;
+  resetArm = 0;
+  const b = document.getElementById("resetBtn");
+  b.textContent = "Start over";
+  b.classList.remove("armed");
+  try { localStorage.removeItem(storageKey); } catch (e) { /* private mode */ }
+  renderRail();
+  renderStep();
+  renderDock();
+  syncWake();
+}
+
+document.addEventListener("keydown", (e) => {
+  if (e.metaKey || e.ctrlKey || e.altKey) return;
+  const tag = e.target && e.target.tagName;
+  if (tag === "BUTTON" || tag === "INPUT" || tag === "TEXTAREA") return;
+  if (e.key === "ArrowRight") { e.preventDefault(); advance(); }
+  if (e.key === "ArrowLeft") { e.preventDefault(); goto(current - 1); }
+});
+
+/* ---------------- init ---------------- */
+load();
+paintSound();
+renderRail();
+renderStep();
+renderDock();
+sweepTimers();
+syncWake();
+</script>
+</body>
+</html>
