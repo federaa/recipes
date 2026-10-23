@@ -10,7 +10,7 @@ Each dish keeps its own copy, because these files move to the phone one at a tim
 
 1. Copy `cook-it-live/template.html` to `<Dish Folder>/<slug>_cook_live.html`.
 2. Set the title, the `<h1>`, the meta line, and `RECIPE_ID` (a stable slug, unique per dish). The restore key is `cook-live:<RECIPE_ID>`. Two dishes that share an id will share a half-finished cook.
-3. Replace the mise list. Group it the way the cook reaches for it. A quantity that is conditional stays in the list and is marked, the way the miso file strikes the soy that only goes in for unsalted stock.
+3. Replace the mise list. Group it the way the cook reaches for it. A quantity that is conditional stays in the list and is marked, the way the miso file strikes the soy that only goes in for unsalted stock. The opening page is built from this list. Do not also type the ingredients into `STEPS`.
 4. Replace `STEPS`. Leave the script below `STEPS` alone unless you are fixing the engine.
 5. Retint the `:root` colors and, when the dish has non-overlapping components, add a legend. Do not restyle the layout.
 6. If you changed the engine because something actually failed, put the same change in `template.html` and add a changelog entry below. The template is the base the next dish copies.
@@ -59,7 +59,7 @@ Do not re-implement these, and do not drop them while editing a dish.
 
 - Timers store an end timestamp and read the wall clock. Locking the phone does not stall them, provided the tab is still loaded. Coming back recomputes. If the browser threw the tab away, reopening the same file restores the end time, the step, and a timer that already finished.
 - A screen wake lock is requested while any timer runs, and released when nothing is running. A notification is requested on the first start. Both depend on the browser allowing them. On zero, regardless: a beep, a flashing dock chip, and an assertive live region. A timer that hits zero while the file is closed announces once when the file is opened again.
-- On a phone, Sequence and Mise are collapsed under their own controls. Opening one scrolls it up past the step. The step stays first. The pips are still there.
+- The file opens on the full ingredient list, built from the mise in the rail. Next is "Start cooking." The rail list is hidden on that page so it is not on screen twice, and comes back once the cook starts. On a phone, Sequence and Mise stay collapsed under their own controls after that. Opening one scrolls it up past the step. The pips are still there.
 - Sound, the step, the done set, timer drafts, and timers persist under `RECIPE_ID`. Start over is a two-tap control so a wet thumb does not wipe a braise.
 - Rail phases, a vessel chip, quantity chips, and a labeled probe badge.
 - An "Still running" banner for a step that overlaps another stream.
@@ -86,3 +86,5 @@ Filed the engine as `template.html`. Before this, each dish re-derived the page,
 Timers counted down with `setInterval`. A phone throttles or freezes that when the screen locks, so a braise timer only advanced while the cook was looking at it. They now use an end timestamp, restore it if the tab is killed, request a screen wake lock, and notify on zero where the browser allows it. A timer that already finished announces once on reopen. The phone layout can open the named sequence, which the older files hid.
 
 Gates grew a `wait` branch, distinct from `bad`, because "not yet" and "ruined" were sharing one color. The probe badge takes a label, so an oven setpoint is no longer printed as a pull temperature. Steps of 20 minutes or more adjust by minutes. A step can name what is still running on another burner. Start over asks twice.
+
+The page used to open on the first action, with the ingredients tucked in the rail. A cook standing at the stove wants the whole list before anything is lit. The opening page is now that list, taken from the mise so it is typed once. A saved cook from before this change shifts forward one step instead of landing on the ingredients.
