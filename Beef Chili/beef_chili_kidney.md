@@ -39,7 +39,7 @@ Whole anchos and guajillos, not a chili-powder blend. A blend is already salted 
 ### The pot
 - Diced tomatoes, with their juice — **1.6 kg** (2 × 794 g tins, all of it)
 - Tomato puree — **up to 1.6 kg** (2 × 794 g tins, to the fill line)
-- Red kidney beans, drained and rinsed — **950 g** (from 4 × 425 g cans; weigh them)
+- Red kidney beans, cooked and drained — **950 g**, or the whole pot if it comes in under that (from one **454 g / 16 oz** dry bag)
 - Kosher salt — **12 g**
 - Neutral oil — **30 ml**, only if the fat gate is dry
 
@@ -58,10 +58,29 @@ Whole anchos and guajillos, not a chili-powder blend. A blend is already salted 
 
 ---
 
+## The dry beans
+
+**16 oz is 454 g dry.** Cook the whole bag. Dry kidney beans usually come back at about **2.3×** their dry weight, so this bag should land around **1.0–1.1 kg** cooked. That figure is asserted, not a weighing of this bag. The chili wants **950 g** drained. If the pot comes in over that, hold the extra back. If it comes in under, the chili gets all of it.
+
+Use a large pot and leave the Dutch oven dry for the chili. This bag will not fill it.
+
+Kidney beans are not done when they are hot. A simmer does not destroy the lectin in the raw bean, and this chili never boils hard enough to do it later. They also stop softening once they hit tomatoes. So they are fully cooked, in fresh water, before they go near the pot.
+
+1. **Rinse and pick** the 454 g. Cover them by **8 cm** of cold water.
+2. **Soak.** Overnight, 8 hours, is the even path. If you are starting now: boil **2 minutes**, kill the heat, cover, **1 hour**. That short boil is not the safety boil.
+3. **Drain** the soak water and rinse.
+4. **Cover with fresh water by 5 cm.** Salt it at **10 g per litre** of that water. Bring to a **rolling boil** and hold it for **10 minutes**. Skim the foam. Do not shorten this.
+5. **Drop to a simmer** and cook until a bean crushed on the side of the pot is creamy through, no chalky center. Start checking at **50 minutes**. Expect 50–90.
+6. **Drain.** Discard the cooking water. Weigh out **950 g** for the chili, or keep the whole pot if it weighs less than that.
+
+> Chalky in the center: more simmering, still in this pot. Do not move them into the tomatoes to finish. If they never held a rolling boil, they are not ready even if they seem soft. Fresh water, 10 minutes at a hard boil, then simmer again if the centers need it.
+
+The bean water was salted and then thrown out. The beans themselves are seasoned. At the chili's salt gate, taste before you commit to the 15 g prior.
+
 ## Method
 
 ### 1. Weigh, and read the tins
-Divide the beef into three batches of about **530 g**. Read the sodium on the diced tomatoes and the puree. Under 50 mg per 100 g is a low-salt tin, 150–250 is a standard one, over 300 is a salty one. That number is the salt gate, later. Rinse and drain the beans and weigh out **950 g**. Stem and seed the chiles.
+Divide the beef into three batches of about **530 g**. Read the sodium on the diced tomatoes and the puree. Under 50 mg per 100 g is a low-salt tin, 150–250 is a standard one, over 300 is a salty one. That number is the salt gate, later. The **950 g** of beans are already cooked. Stem and seed the chiles.
 
 ### 2. Toast the chiles
 Dry enameled Dutch oven, medium gas. Press one chile flat for **15–20 seconds a side**, until it smells like raisin and the flesh is flexible. Out onto a plate. Repeat through all of them. They scorch in the time it takes to answer a question.
@@ -168,7 +187,7 @@ Chart densities, then × 1.75. Not a weighing of the jars in this kitchen. Chili
 | Beef, 2 lb | 907 g | 1.59 kg | 1.6 kg |
 | Onion, about 2 cups chopped | ~300 g, an estimate | ~525 g | 520 g |
 | One red pepper | ~170 g, an estimate | ~300 g | 300 g |
-| Kidney beans, 2 cans, drained weight not stated | — | — | 950 g drained, from 4 cans. The drained weight of a can is the estimate |
+| Kidney beans, 2 cans, drained weight not stated | — | — | 950 g cooked and drained, from a 454 g / 16 oz dry bag. The 2.3× yield is asserted |
 | Diced tomatoes, 28 oz, and tomato puree, 28 oz | 794 g each | 1.39 kg each | 1.6 kg diced, all in. Puree to the 4 cm line, from up to 1.6 kg. The extra is geometry, not a richer ratio |
 | Salt, ½ tsp table | 3 g | — | Not scaled. 6 g on the beef, 12 g in the pot, the rest at the gate |
 

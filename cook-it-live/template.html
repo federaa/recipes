@@ -156,6 +156,34 @@
   .cut { color: var(--faint); text-decoration: line-through; text-decoration-color: var(--chili); }
   .cut .amt { color: var(--faint); }
 
+  /* The opening page is the full mise, not the narrow rail card. */
+  .step-body .mise-page {
+    display: block;
+    max-width: 40rem;
+    background: transparent;
+    border: none;
+    padding: 0;
+  }
+  .step-body .mise-page .grp {
+    font-size: 11px;
+    margin: 22px 0 6px;
+  }
+  .step-body .mise-page .grp:first-child { margin-top: 0; }
+  .step-body .mise-page li {
+    font-size: 16.5px;
+    padding: 8px 0;
+  }
+  .step-body .mise-page .amt { font-size: 15px; }
+  .page-note {
+    margin: 0 0 18px;
+    max-width: 62ch;
+    color: var(--muted);
+    font-size: 15.5px;
+  }
+  .rail .page-note { display: none; }
+  body.on-mise .rail .mise,
+  body.on-mise #miseToggle { display: none !important; }
+
   .stage { min-height: 60vh; }
   .step-head { display: flex; align-items: baseline; gap: 14px; margin-bottom: 4px; flex-wrap: wrap; }
   .step-num { font-family: "JetBrains Mono", monospace; font-size: 13px; color: var(--amber); letter-spacing: .1em; }
@@ -166,6 +194,7 @@
   .step-kind.timed { color: var(--amber); border: 1px solid var(--amber-deep); }
   .step-kind.gate { color: var(--chili-soft); border: 1px solid #7a3020; background: rgba(210,73,43,.08); }
   .step-kind.plain { color: var(--faint); border: 1px solid var(--line); }
+  .step-kind.mise { color: var(--amber); border: 1px solid var(--amber-deep); }
   .where {
     font-family: "JetBrains Mono", monospace; font-size: 10.5px; letter-spacing: .14em;
     text-transform: uppercase; color: var(--ivory);
@@ -464,11 +493,31 @@ function load() {
       if (id > timerSeq) timerSeq = id;
     });
   }
+  /* Older saves were indexed from the first cook step. The ingredients page now leads.
+     An unstarted cook stays on that page. */
+  if (!blob.ingredientsLead) {
+    const unstarted = current === 0 && done.size === 0 && !blob.finished && (!blob.timers || blob.timers.length === 0);
+    if (unstarted) return;
+    current += 1;
+    const shifted = [...done].map(i => i + 1);
+    done.clear();
+    shifted.forEach(i => { if (i < STEPS.length) done.add(i); });
+    const drafts = {};
+    Object.keys(timedDraft).forEach(k => {
+      const m = /^pending_(\d+)$/.exec(k);
+      if (m) drafts["pending_" + (Number(m[1]) + 1)] = timedDraft[k];
+      else drafts[k] = timedDraft[k];
+    });
+    Object.keys(timedDraft).forEach(k => delete timedDraft[k]);
+    Object.keys(drafts).forEach(k => { timedDraft[k] = drafts[k]; });
+    if (current >= STEPS.length) current = Math.max(0, STEPS.length - 1);
+  }
 }
 
 function save() {
   const blob = {
     engine: ENGINE,
+    ingredientsLead: true,
     current,
     done: [...done],
     finished,
@@ -541,15 +590,18 @@ function fmt(sec) {
   return h > 0 ? (h + ":" + mm + ":" + ss) : (mm + ":" + ss);
 }
 function adjustSteps(st) {
-  return st.defaultSec >= 1200 ? [-300, -60, 60, 300] : [-60, -30, 30, 60];
+  if (st.defaultSec >= 3600) return [-3600, -300, 300, 3600];
+  if (st.defaultSec >= 1200) return [-300, -60, 60, 300];
+  return [-60, -30, 30, 60];
 }
 function adjLabel(delta) {
   const sign = delta > 0 ? "+" : "−";
   const a = Math.abs(delta);
+  if (a >= 3600 && a % 3600 === 0) return sign + (a / 3600) + "h";
   if (a >= 60 && a % 60 === 0) return sign + (a / 60) + "m";
   return sign + a + "s";
 }
-const kindLabel = { timed: "Timed", gate: "Decision", plain: "Step" };
+const kindLabel = { timed: "Timed", gate: "Decision", plain: "Step", mise: "Ingredients" };
 
 /* ---------------- rail + progress ---------------- */
 function renderRail() {
@@ -673,8 +725,11 @@ function renderStep() {
   }
 
   prev.disabled = current === 0;
-  next.disabled = false;
-  next.textContent = finished ? "Cook again" : (current === STEPS.length - 1 ? "Finish" : "Next step →");
+  next.disabled = authoredCount === 0;
+  next.textContent = finished ? "Cook again"
+    : (current === STEPS.length - 1 ? "Finish"
+    : (st.kind === "mise" ? "Start cooking →" : "Next step →"));
+  document.body.classList.toggle("on-mise", st.kind === "mise");
 
   const title = document.getElementById("stepTitle");
   if (title) title.focus({ preventScroll: true });
@@ -890,6 +945,29 @@ document.addEventListener("keydown", (e) => {
   if (e.key === "ArrowRight") { e.preventDefault(); advance(); }
   if (e.key === "ArrowLeft") { e.preventDefault(); goto(current - 1); }
 });
+
+/* The opening page is the mise. Built from the sidebar list so a dish types it once. */
+function buildIngredientsStep() {
+  const mise = document.getElementById("mise");
+  const clone = mise.cloneNode(true);
+  clone.removeAttribute("id");
+  clone.classList.add("mise-page");
+  const h2 = clone.querySelector("h2");
+  if (h2) h2.remove();
+  let note = "";
+  if (!authoredCount) {
+    note = `<p class="empty-stage">Copy this file, then replace the mise and STEPS. The shape is in cook-it-live/SKILL.md.</p>`;
+  }
+  return {
+    kind: "mise",
+    phase: "Mise",
+    where: "Counter",
+    title: "Ingredients",
+    body: clone.outerHTML + note
+  };
+}
+const authoredCount = STEPS.length;
+STEPS.unshift(buildIngredientsStep());
 
 /* ---------------- init ---------------- */
 load();

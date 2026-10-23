@@ -2,6 +2,10 @@
 
 The cook is semi-professional and can hold a complex sequence and its timing. Write at that level. Keep the judgment gates in the recipe, because that is where these dishes fail. Do not add beginner glosses for techniques they already run.
 
+## How changes land
+
+This is a sole-user repo. Commit the work, merge it into `main`, and push `main`. Do not open a pull request. A bad merge can be rewound.
+
 ## The kitchen
 
 Assume the tool is already here. Name the vessel by the job it does.
