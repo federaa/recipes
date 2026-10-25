@@ -236,12 +236,14 @@
     padding: 16px; background: var(--panel);
   }
   .branch.good { border-color: #4a5a2e; }
+  .branch.wait { border-color: var(--amber-deep); }
   .branch.bad { border-color: #7a3020; }
   .branch h4 {
     font-family: "JetBrains Mono", monospace; font-size: 12px; letter-spacing: .06em;
     margin: 0 0 8px; display: flex; align-items: center; gap: 8px; text-transform: uppercase;
   }
   .branch.good h4 { color: #a9c76a; }
+  .branch.wait h4 { color: var(--amber); }
   .branch.bad h4 { color: var(--chili-soft); }
   .branch p { margin: 0; font-size: 14px; color: var(--muted); }
   .branch .glyph { font-size: 15px; }
@@ -396,8 +398,7 @@
       <h2>Mise en place</h2>
       <div class="grp">Chicken</div>
       <ul>
-        <li><span class="ing">Legs, bone-in, skin-on</span><span class="amt">3 legs</span></li>
-        <li><span class="ing">Total weight, about</span><span class="amt">1.0–1.2 kg</span></li>
+        <li><span class="ing">Legs, bone-in, skin-on</span><span class="amt">3, about 1.0–1.2 kg</span></li>
         <li><span class="ing">Kosher salt, light</span><span class="amt">a pinch</span></li>
         <li><span class="ing">Neutral oil, for the sear</span><span class="amt">a thin film</span></li>
       </ul>
@@ -412,16 +413,19 @@
         <li><span class="ing">Ginger, sliced</span><span class="amt">20 g</span></li>
         <li><span class="ing">Garlic, smashed</span><span class="amt">3 cloves</span></li>
         <li><span class="ing">Scallion whites</span><span class="amt">3 scallions</span></li>
-        <li><span class="ing">Dried chili, optional</span><span class="amt">1 chili</span></li>
+      </ul>
+      <div class="grp">Leave until a step names it</div>
+      <ul>
+        <li><span class="ing">Dried chili, only if the sweat uses it</span><span class="amt">1 chili</span></li>
       </ul>
       <div class="grp">Finish · off the boil</div>
       <ul>
-        <li><span class="ing">Jūwari kōji miso</span><span class="amt">30 g</span></li>
+        <li><span class="ing">Jūwari kōji miso. Weigh once; the salt gate may hold some back</span><span class="amt">30 g</span></li>
         <li><span class="ing">White sweet miso</span><span class="amt">15 g</span></li>
         <li><span class="ing">Cold butter</span><span class="amt">8 g</span></li>
         <li><span class="ing">Rice vinegar or yuzu</span><span class="amt">a few drops</span></li>
       </ul>
-      <div class="grp">To serve</div>
+      <div class="grp">At the table, not in the pot</div>
       <ul>
         <li><span class="ing">Scallion greens</span><span class="amt">from the 3 scallions</span></li>
         <li><span class="ing">Toasted sesame</span><span class="amt">to taste</span></li>
@@ -457,16 +461,10 @@ const STEPS = [
     where: "Counter",
     title: "Weigh and heat",
     uses: [
-      { amt: "3 legs", name: "bone-in, skin-on" },
-      { amt: "1.0–1.2 kg", name: "total weight" },
+      { amt: "3 legs", name: "bone-in, skin-on, about 1.0–1.2 kg" },
       { amt: "a pinch", name: "kosher salt" },
       { amt: "3.5 g", name: "stock sachet" },
-      { amt: "400 ml", name: "hot water" },
-      { amt: "25 g", name: "awase miso" },
-      { amt: "30 g", name: "kōji miso" },
-      { amt: "15 g", name: "white miso" },
-      { amt: "8 g", name: "cold butter" },
-      { amt: "160 °C", name: "oven" }
+      { amt: "400 ml", name: "hot water" }
     ],
     body: `<p>Pat the legs <strong>bone-dry</strong>. Salt with <em>a pinch</em> only. There is no gram dose. The seasoned stock and the two miso additions carry the salt, and a braise concentrates it.</p>
     <p>Dissolve the <em>3.5 g</em> sachet in <em>400 ml</em> hot water. <strong>Taste the stock.</strong> You want savory and lightly saline.</p>
@@ -502,9 +500,6 @@ const STEPS = [
     phase: "Sear",
     where: "Sear pan",
     title: "Read the fond",
-    uses: [
-      { amt: "80 ml", name: "sake, only if scorched" }
-    ],
     body: `<p>Stay at the sear pan. Look at the stuck bits before any of them go into the braiser. Bitterness carries in this sauce.</p>`,
     branches: [
       { type:"good", glyph:"✓", head:"Brown, and it will dissolve", text:"Leave it. The sake step scrapes it up. That fond is the sauce." },
@@ -520,8 +515,7 @@ const STEPS = [
       { amt: "a thin film", name: "rendered fat" },
       { amt: "20 g", name: "ginger, sliced" },
       { amt: "3 cloves", name: "garlic, smashed" },
-      { amt: "3 scallions", name: "whites only" },
-      { amt: "1 chili", name: "dried, optional" }
+      { amt: "3 scallions", name: "whites only" }
     ],
     body: `<p>Switch to the <strong>enameled or ceramic braiser</strong>. Spoon in <em>a thin film</em> of fat from the sear pan.</p>
     <p>Sweat the ginger, garlic, scallion whites, and the chili if you are using it. About <em>1 minute</em>. Fragrant, and <strong>no color on the garlic</strong>.</p>
@@ -571,15 +565,10 @@ const STEPS = [
     phase: "Finish",
     where: "Braiser",
     title: "Taste for salt",
-    uses: [
-      { amt: "30 g", name: "kōji, if it has room" },
-      { amt: "15 g", name: "white, if it has room" },
-      { amt: "20 g", name: "start here if salty" }
-    ],
-    body: `<p>Legs out, tented, resting. If the liquid looks thin, reduce it on low for <em>a couple of minutes</em>. Then <strong>taste it, before any finishing miso</strong>. This stock is already seasoned, and there is no soy in the pot. The taste sets the dose.</p>`,
+    body: `<p>Legs out, tented, resting. If the liquid looks thin, reduce it on low for <em>a couple of minutes</em>. Then <strong>taste it, before any finishing miso</strong>. This stock is already seasoned, and there is no soy in the pot. The taste sets the next step. Nothing goes in yet.</p>`,
     branches: [
-      { type:"good", glyph:"✓", head:"Savory, with room", text:"Use the full finish: 30 g kōji miso and 15 g white miso (45 g)." },
-      { type:"bad", glyph:"!", head:"Already salty", text:"Start with 20 g of the finishing miso. Taste. Add more only if it needs body, not salt." }
+      { type:"good", glyph:"✓", head:"Savory, with room", text:"The next step takes the full 30 g kōji and 15 g white." },
+      { type:"wait", glyph:"!", head:"Already salty", text:"The next step starts with 20 g of the kōji and white you already weighed. Taste. More of that same miso only if it needs body." }
     ]
   },
   {
@@ -588,13 +577,11 @@ const STEPS = [
     where: "Off heat",
     title: "Finish off the boil",
     uses: [
-      { amt: "30 g + 15 g", name: "if the gate had room" },
-      { amt: "20 g", name: "if you held the salt back" },
       { amt: "8 g", name: "cold butter" },
       { amt: "a few drops", name: "rice vinegar or yuzu" }
     ],
     body: `<p><strong>Heat off</strong>, or the barest tremble. <em>Do not boil the finishing miso.</em> A boil flattens the kōji and the white miso.</p>
-    <p>Loosen the dose from the salt gate with one ladle of the hot liquid, then whisk it in. Mount <em>8 g</em> cold butter. Finish with <em>a few drops</em> of rice vinegar or yuzu, so the fat does not sit heavy. Stop when it snaps into focus.</p>`
+    <p>Loosen the one dose from the salt gate with one ladle of the hot liquid, then whisk it in. Mount <em>8 g</em> cold butter. Finish with <em>a few drops</em> of rice vinegar or yuzu, so the fat does not sit heavy. Stop when it snaps into focus.</p>`
   },
   {
     kind: "timed", timerName: "Broiler", defaultSec: 150, minSec: 90, maxSec: 240,
@@ -603,7 +590,7 @@ const STEPS = [
     title: "Crisp and plate",
     uses: [
       { amt: "2–3 min", name: "broiler, optional" },
-      { amt: "3 scallions", name: "greens" },
+      { amt: "the greens", name: "from the 3 scallions" },
       { amt: "to taste", name: "toasted sesame" },
       { amt: "to taste", name: "shichimi" }
     ],

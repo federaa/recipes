@@ -20,19 +20,21 @@ control**, so the method is organised around that.
 
 ### Tomato sugo
 - Whole peeled San Marzano (or good plum tomatoes) — **800 g** (2 tins)
-- Passata, to smooth (optional) — **200 g**
 - Olive oil — **40 ml**
 - Garlic, thinly sliced — **3 cloves**
-- Basil — a few stems (into the sugo) + leaves (for layering)
-- Salt — **~4–6 g**, to taste *after* tasting
-- Sugar — a pinch, only if the tin reads sharp
-- Chili flakes (optional) — a pinch
+- Basil stems — from the one bunch, into the sugo
 
-### Cheese & layers
+### Cheese and layers
 - Low-moisture mozzarella, *or* well-drained fior di latte — **350 g**
 - Parmigiano-Reggiano, finely grated — **100 g**
-- Pecorino Romano (optional, for edge) — **20 g**
-- Fresh basil leaves — **~20**
+- Basil leaves — **~20**, from that same bunch, for the layers and the plate
+
+### Leave in the cupboard until a step names it
+- Passata — **200 g**, only if the crushed tomatoes stay chunky and you want the sugo smoother
+- Salt for the sugo — **4–6 g**. A light pinch of this goes in with the tomatoes. The rest only if the taste is shy
+- Sugar — a pinch, only if the tin reads sharp
+- Chili flakes — a pinch, only if you want heat in the sugo
+- Pecorino Romano — **20 g**, only if you want it with the parm
 
 ---
 
@@ -59,25 +61,29 @@ slices never meld and read leathery in the finished bake. Take them fully soft.
 - **Deep gold / slumped / creamy** → right. Pull.
 - **Charred, acrid** → gone bitter. Pull immediately; the char telegraphs.
 
-### 3. Build the sugo — reduce past pourable
-Warm the oil, infuse the sliced garlic to **pale gold only** (any browning =
-bitterness). Hand-crush the tomatoes, add with a light pinch of salt and the basil
-stems. Simmer **25–35 min to a mounding nappe** — a spoon drawn through leaves a
-clean trail with **no watery pool**.
+### 3. Build the sugo — the trail has to hold
+Warm the **40 ml** oil. If you are using the pinch of chili flakes, they go in now.
+Infuse the sliced garlic to **pale gold only** (any browning = bitterness).
+Hand-crush the tomatoes. Add a light pinch from the **4–6 g** sugo salt, and the
+basil stems. If the crush stays chunky and you want it smoother, stir in the
+**200 g** passata. Simmer **25–35 min**. Draw a spoon through the sauce on the
+bottom of the pan. The line it leaves stays clear, and no watery pool floods back.
 
-*Why:* this is the single biggest lever against soupy parmigiana. The sauce must
-reduce **past pourable**. Pull the garlic if you want a cleaner sauce; discard the
-basil stems.
+*Why:* this is the single biggest lever against soupy parmigiana. Pull the garlic
+if you want a cleaner sauce; discard the basil stems.
 
 ### 4. Cheese prep + the salt gate
 If using **fresh fior di latte**: slice or tear and **drain on towels 30+ min**,
 then pat — fresh mozzarella can shed 20 %+ of its weight in water straight into
 your bake. Low-moisture mozzarella skips this. Grate the parm.
 
-Now **taste the sugo** with the cheese load in mind. You have **three salt
-sources** stacking — purge-salt residue, tinned-tomato salt, and a heavy
-parmigiano + pecorino finish. Season the sugo to **just-under** and let the cheese
-carry the rest.
+**Taste the sugo.** The **4–6 g** is the whole sugo salt, and the pinch already
+came out of it. Purge salt, the tinned tomatoes, and the parm are stacking, and
+the pecorino too if you are using the **20 g**.
+- **Shy** → a pinch more from that same 4–6 g. Taste again. Stop while it is still a little under.
+- **Just under, or already seasoned** → add no more salt. The cheese carries the rest.
+
+If it still reads sharp once the salt is right, a pinch of sugar.
 
 ### 5. Assemble
 Thin film of sauce on the base (anti-stick). Then per layer:
@@ -85,7 +91,8 @@ Thin film of sauce on the base (anti-stick). Then per layer:
 (restrained) → parm → torn basil.** Build **3 layers**.
 
 Finish the top with **sauce + a heavy hand of parm, and only a little mozzarella** —
-surface mozzarella goes leathery and oily, while parm browns beautifully.
+surface mozzarella goes leathery and oily, while parm browns beautifully. If you
+are using the **20 g** pecorino, it goes with the parm.
 
 ### 6. Bake
 **190 °C convection, 30–35 min**, until the edges bubble and the top is burnished
@@ -99,7 +106,7 @@ parmigiana is famously better the next day, fully set.
 - **Collapses / runs** → give it another 15 min.
 
 ### 8. Serve
-Fresh basil, a thread of good oil, a last dusting of parm.
+A few of the basil leaves, a thread of good oil, a last dusting of parm.
 
 ---
 

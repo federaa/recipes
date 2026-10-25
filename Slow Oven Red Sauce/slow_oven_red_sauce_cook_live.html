@@ -211,12 +211,14 @@
     padding: 16px; background: var(--panel);
   }
   .branch.good { border-color: #4a5a2e; }
+  .branch.wait { border-color: var(--amber-deep); }
   .branch.bad { border-color: #7a3020; }
   .branch h4 {
     font-family: "JetBrains Mono", monospace; font-size: 12px; letter-spacing: .06em;
     margin: 0 0 8px; display: flex; align-items: center; gap: 8px; text-transform: uppercase;
   }
   .branch.good h4 { color: #a9c76a; }
+  .branch.wait h4 { color: var(--amber); }
   .branch.bad h4 { color: var(--chili-soft); }
   .branch p { margin: 0; font-size: 14px; color: var(--muted); }
   .branch .glyph { font-size: 15px; }
@@ -359,17 +361,18 @@
       <div class="grp">Garlic confit</div>
       <ul>
         <li><span class="ing">Garlic, whole peeled cloves</span><span class="amt">65 g</span></li>
-        <li><span class="ing">Olive oil, to submerge</span><span class="amt">200 ml</span></li>
+        <li><span class="ing">Olive oil, to submerge. 50 ml of this oil goes in at the merge</span><span class="amt">200 ml</span></li>
       </ul>
       <div class="grp">Roasted fresh · one tray</div>
       <ul>
         <li><span class="ing">Indigo Rose, <b>ripe</b>, halved</span><span class="amt">1 kg</span></li>
         <li><span class="ing">Olive oil</span><span class="amt">25 ml</span></li>
         <li><span class="ing">Fine salt</span><span class="amt">2 g</span></li>
+        <li><span class="ing">Water, to deglaze the tray</span><span class="amt">40 ml</span></li>
       </ul>
       <div class="grp">Oven braise · 24–26 cm</div>
       <ul>
-        <li><span class="ing">Whole peeled tomatoes</span><span class="amt">1.3 kg</span></li>
+        <li><span class="ing">Whole peeled tomatoes, into the braise. From 2 × 800 g</span><span class="amt">1.3 kg</span></li>
         <li><span class="ing">Olive oil</span><span class="amt">30 ml</span></li>
         <li><span class="ing">Butter</span><span class="amt">20 g</span></li>
         <li><span class="ing">Onion, halved (removed)</span><span class="amt">1 lg</span></li>
@@ -377,23 +380,23 @@
         <li><span class="ing">Parmigiano rind</span><span class="amt">40 g</span></li>
         <li><span class="ing">Dried oregano</span><span class="amt">2.5 g</span></li>
         <li><span class="ing">Chili flakes</span><span class="amt">1.5 g</span></li>
-        <li><span class="ing">Basil stems</span><span class="amt">1 bunch</span></li>
+        <li><span class="ing">Basil, one bunch. Stems in the braise</span><span class="amt">1 bunch</span></li>
         <li><span class="ing">Fine salt, up front only</span><span class="amt">1.5 g</span></li>
       </ul>
       <div class="grp">Merge · held back</div>
       <ul>
-        <li><span class="ing">Raw tinned tomato, reserved</span><span class="amt">300 g</span></li>
-        <li><span class="ing">Garlic oil, from the confit</span><span class="amt">50 ml</span></li>
-        <li><span class="ing">Tray deglaze water</span><span class="amt">40 ml</span></li>
-        <li><span class="ing">Fish sauce</span><span class="amt">8 ml</span></li>
+        <li><span class="ing">Same tins, held raw until the merge</span><span class="amt">300 g</span></li>
+        <li><span class="ing">Fish sauce. 8 ml now, 4 ml at the finish</span><span class="amt">12 ml</span></li>
+      </ul>
+      <div class="grp">Leave until a step names it</div>
+      <ul>
+        <li><span class="ing">Salt, 1 g at a time, after the fish sauce</span><span class="amt">0–5 g</span></li>
+        <li><span class="ing">Sugar, only if still sharp after the salt</span><span class="amt">0–6 g</span></li>
       </ul>
       <div class="grp">Finish · off heat</div>
       <ul>
         <li><span class="ing">Cold butter, cubed</span><span class="amt">20 g</span></li>
-        <li><span class="ing">Fish sauce, last</span><span class="amt">4 ml</span></li>
-        <li><span class="ing">Salt — see salt gate</span><span class="amt">0–5 g</span></li>
-        <li><span class="ing">Sugar, only if tart</span><span class="amt">0–6 g</span></li>
-        <li><span class="ing">Basil leaves, torn</span><span class="amt">1 bunch</span></li>
+        <li><span class="ing">Basil leaves, from that bunch</span><span class="amt">the leaves</span></li>
         <li class="cut"><span class="ing">Baking soda — ATK: flat, 1-dimensional</span><span class="amt">—</span></li>
         <li class="cut"><span class="ing">Anchovy — not in the original</span><span class="amt">—</span></li>
       </ul>
@@ -436,7 +439,7 @@ const STEPS = [
     kind: "plain",
     title: "Set the stage",
     body: `<p>Oven to <strong>160 &deg;C convection</strong>.</p>
-    <p><strong>Check your tin sodium before you cook.</strong> Premium whole peeled spans a 5&times; range and it decides what you do at the finish. Mutti, Cento and most DOP tins run ~33&ndash;40 mg Na/100 g and you will add ~4 g salt at the end. Bianco DiNapoli runs ~149 mg and you will add none.</p>
+    <p><strong>Check your tin sodium now, and remember which tin it is.</strong> Premium whole peeled spans a 5&times; range. Mutti, Cento and most DOP tins sit near 33&ndash;40 mg sodium per 100 g. Bianco DiNapoli sits near 149 mg. The finish salt waits until reduction has stopped. Do not weigh it yet.</p>
     <p>Open both tins. <strong>Hold back 300 g of tomato in the fridge</strong> &mdash; that is the brightness you stir back at the end. Peel <em>65 g</em> garlic, whole cloves. Halve <em>1 kg</em> Indigo Rose through the equator.</p>`
   },
   {
@@ -454,7 +457,7 @@ const STEPS = [
     body: `<p>Check at the beep, then every 8 minutes. This is one-way &mdash; bitter garlic cannot be walked back out of a finished sauce.</p>`,
     branches: [
       { type:"good", glyph:"✓", head:"Deep gold, collapses under light spoon pressure, sweet with no raw bite", text:"Lift the cloves out. Reserve 50 ml of the oil for the sauce; strain and keep the rest (fridge, ~2 weeks)." },
-      { type:"bad", glyph:"!", head:"Pale and firm", text:"Not there. 8 more minutes and read again. Firm cloves stay assertive and raw-tasting in the finished sauce." },
+      { type:"wait", glyph:"!", head:"Pale and firm", text:"Not there. 8 more minutes and read again. Firm cloves stay assertive and raw-tasting in the finished sauce." },
       { type:"bad", glyph:"✕", head:"Dark brown at the edges", text:"The oil was shallow at that spot, or the foil was loose. Sort them: keep the gold, discard anything dark. One scorched clove reads across the whole batch." }
     ]
   },
@@ -480,7 +483,7 @@ const STEPS = [
     body: `<p>Published figures for tomato roasting loss are all over the place, so this recipe will not assert one. <strong>Pull at roughly half the starting tomato weight.</strong> That is a measurement rather than a guess. Then read the tray floor, which tells you more than the fruit does.</p>`,
     branches: [
       { type:"good", glyph:"✓", head:"~Half the starting weight; slumped, edges browned, tray fond amber-to-brown and sticky", text:"Done. That sticky tray is a real share of your flavor and you are about to go get it." },
-      { type:"bad", glyph:"!", head:"Still glossy and plump, tray liquid thin and watery", text:"Not done. Another 15 minutes. Pulling here gives you diluted raw tomato, not roasted tomato." },
+      { type:"wait", glyph:"!", head:"Still glossy and plump, tray liquid thin and watery", text:"Not done. Another 15 minutes. Pulling here gives you diluted raw tomato, not roasted tomato." },
       { type:"bad", glyph:"✕", head:"Cut faces black, tray fond black and smoking", text:"Overshot. Pull now. Keep the fruit that is only dark-brown and do NOT scrape black fond into the pot." }
     ]
   },
@@ -502,11 +505,11 @@ const STEPS = [
   {
     kind: "gate",
     title: "Fond, or scorch?",
-    body: `<p>Every 20&ndash;30 minutes, scrape the ring off the wall above the liquid line with a flat wooden spatula. <strong>This ring is the recipe</strong> &mdash; Maillard on tomato solids, and the only step in the process producing flavors that tomatoes do not already contain. Read it before you stir it in.</p>`,
+    body: `<p>Every 20&ndash;30 minutes, scrape the crust on the wall above the sauce with a flat wooden spatula. That crust is tomato cooked onto the enamel. <strong>It is the recipe</strong> &mdash; Maillard on tomato solids, and the only step in the process producing flavors that tomatoes do not already contain. Read it before you stir it in.</p>`,
     branches: [
       { type:"good", glyph:"✓", head:"Deep red-brown, releases when scraped, smells sweet and roasted", text:"Exactly right. Stir it through and back in the oven." },
       { type:"bad", glyph:"✕", head:"Black, brittle, smells acrid or like burnt coffee", text:"Scorched — the likeliest failure at this shallow depth. Drop to 120 °C and stir every 15. Do NOT scrape the black in; sugar will not fix that bitterness." },
-      { type:"bad", glyph:"!", head:"No ring after 45 minutes", text:"Too much liquid or a cool oven. Bump to 150 °C and check again in 20." }
+      { type:"wait", glyph:"!", head:"No crust on the wall after 45 minutes", text:"Too much liquid or a cool oven. Bump to 150 °C and check again in 20." }
     ]
   },
   {
@@ -517,8 +520,8 @@ const STEPS = [
     <p>1. The <strong>milled roasted fresh</strong> plus its deglaze.<br>
     2. The <strong>300 g reserved tinned tomato</strong>, hand-crushed.<br>
     3. The <strong>confit garlic</strong> &mdash; crush two-thirds against the wall, leave the rest whole.<br>
-    4. The <strong>50 ml garlic oil</strong>.<br>
-    5. <strong>8 ml fish sauce</strong> (hold 4 ml back for the finish).</p>
+    4. <strong>50 ml of the confit oil.</strong> The rest of the 200 ml stays in the jar.<br>
+    5. <strong>8 ml fish sauce</strong> (the last 4 ml of the 12 ml waits for the finish).</p>
     <p><em>All five are doing the same job.</em> A long oven cook builds depth and destroys brightness in the same motion. These go last precisely because their volatiles would have gone hours ago &mdash; which is also why the original adds its fish sauce at the end rather than the start.</p>`
   },
   {
@@ -530,12 +533,12 @@ const STEPS = [
   {
     kind: "gate",
     title: "The reduction gate",
-    body: `<p>Drag a spoon across the floor of the pot and watch the channel. <strong>Test in the pot, not in a tasting spoon</strong> &mdash; a small spoonful cools, thickens, and lies to you.</p>
+    body: `<p>Drag a spoon across the bottom of the pot. Look at the path it leaves, in the pot. <strong>A tasting spoon cools, thickens, and lies to you.</strong></p>
     <p>Tuned for pasta this wants to be <em>looser than a bake sauce</em>: free-flowing enough to emulsify with starchy pasta water into a coating.</p>`,
     branches: [
-      { type:"good", glyph:"✓", head:"Channel closes in about 2 seconds", text:"That is the target. Off heat and on to texture." },
-      { type:"bad", glyph:"!", head:"Closes instantly, or thin orange liquid weeps at the edge", text:"Still watery. Another 15 minutes. Do not season yet — salting a sauce with water still to lose guarantees you overshoot." },
-      { type:"bad", glyph:"✕", head:"Channel holds open, sauce mounds on the spoon", text:"Over-reduced for pasta. Loosen with 50–100 ml water, not stock. You will get it straight back." }
+      { type:"good", glyph:"✓", head:"The path fills in after about 2 seconds", text:"That is the target. Off heat and on to texture." },
+      { type:"wait", glyph:"!", head:"The path disappears at once, or thin orange liquid sits at the edge", text:"Still watery. Another 15 minutes. Do not season yet. Salt waits until this path is right." },
+      { type:"bad", glyph:"✕", head:"The path stays open and the sauce sits in a mound", text:"Over-reduced for pasta. Loosen with 50–100 ml water, not stock. You will get it straight back." }
     ]
   },
   {
@@ -546,23 +549,27 @@ const STEPS = [
     <p>Expect the sauce to read <em>brick to mahogany</em>. That is anthocyanin from the Indigo Rose. It is not scorching.</p>`
   },
   {
+    kind: "plain",
+    title: "Butter and the last fish sauce",
+    body: `<p><strong>Butter.</strong> 20 g cold, cubed, stirred in until it disappears. Texture and acid as much as richness &mdash; emulsified fat rounds perceived sharpness and gives the gloss that carries onto pasta.</p>
+    <p><strong>The last 4 ml fish sauce.</strong> Taste before and after. This is the rest of the 12 ml. The salt step is next, once this is in the pot.</p>`
+  },
+  {
     kind: "gate",
     title: "The salt gate",
-    body: `<p>Reduction has stopped, so it is finally safe to season. <strong>Fixed contributions so far are ~6.9 g salt equivalent</strong> (fish sauce 3.0, parm rind 0.4, tray 2.0, braise 1.5) in ~1.42 kg of sauce. The tomatoes decide the rest. Target ~0.85 %.</p>`,
+    body: `<p>The last 4 ml of fish sauce is in, and reduction has stopped. <strong>Fixed contributions so far are ~6.9 g salt equivalent</strong> (fish sauce 3.0, parm rind 0.4, tray 2.0, braise 1.5) in ~1.42 kg of sauce. The tomatoes decide the rest. Target ~0.85 %. Add <em>1 g</em> at a time and taste. Stop when it tastes savory, even if you are short of the number for your tin.</p>`,
     branches: [
-      { type:"good", glyph:"✓", head:"Mutti / Cento / most DOP (~33–40 mg Na per 100 g)", text:"You are at ~0.6 %. Add about 4 g, in 1 g increments, tasting as you go." },
-      { type:"good", glyph:"✓", head:"No-salt-added tins", text:"You are at ~0.49 %. Add about 5 g, in 1 g increments." },
-      { type:"bad", glyph:"!", head:"Bianco DiNapoli (~149 mg Na per 100 g)", text:"You are already at ~0.91 %. Add nothing. Taste first and work on acid and butter instead." }
+      { type:"good", glyph:"✓", head:"Mutti / Cento / most DOP (~33–40 mg Na per 100 g)", text:"1 g at a time. You will probably stop near 4 g. Stop sooner if it already tastes savory." },
+      { type:"good", glyph:"✓", head:"No-salt-added tins", text:"Same 1 g steps. You may go nearer 5 g. Still stop on the taste." },
+      { type:"wait", glyph:"!", head:"Bianco DiNapoli (~149 mg Na per 100 g)", text:"Taste before any salt. You may be done at none." }
     ]
   },
   {
     kind: "plain",
-    title: "Finish — off heat",
-    body: `<p><strong>1. Butter.</strong> 20 g cold, cubed, stirred in until it disappears. Texture and acid as much as richness &mdash; emulsified fat rounds perceived sharpness and gives the gloss that carries onto pasta.</p>
-    <p><strong>2. The last 4 ml fish sauce.</strong> Taste before and after.</p>
-    <p><strong>3. Acid.</strong> <em>Work the levers in order: salt, then butter, then sugar.</em> An under-salted sauce reads sour before it reads bland, so fix salt first or you will over-sugar. Sugar in 2 g steps, ceiling ~6 g.</p>
+    title: "Sugar, then basil",
+    body: `<p><strong>Sugar,</strong> only if it is still sharp after the salt. <em>2 g</em> steps, ceiling <em>~6 g</em>. An under-salted sauce reads sour before it reads bland, so the salt step has to be right before any sugar.</p>
     <p><strong>Skip baking soda.</strong> America's Test Kitchen blind-tasted it against sugar and found it flat and one-dimensional even at an eighth of a teaspoon.</p>
-    <p><strong>4. Basil.</strong> Torn in <em>off heat, at the last moment</em>.</p>
+    <p><strong>Basil.</strong> The leaves from the bunch, torn in <em>off heat, at the last moment</em>.</p>
     <p>If your Indigo Rose came in underripe, expect the full sugar allowance and less perfume. That is the fruit, not the method.</p>`
   },
   {
