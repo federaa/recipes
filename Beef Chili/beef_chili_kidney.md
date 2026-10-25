@@ -8,53 +8,43 @@ Built on America's Test Kitchen's *Simple Beef Chili with Kidney Beans* (recipe 
 
 ## Ingredients
 
-Whole anchos and guajillos, not a chili-powder blend. A blend is already salted and already contains cumin and oregano, and the salt ledger below assumes it does not. Beef at 85% lean. The pot is enamel: tomatoes and salt for two hours will pull a metallic note out of bare iron.
+Weigh each line once. The bloom is the chiles and seeds from the toast, not a second measure. Whole anchos and guajillos, not a chili-powder blend. Beef at 85% lean. Enamel pot.
 
-### Toast, then grind
-- Ancho chiles, stemmed and seeded — **40 g** (about 3)
-- Guajillo chiles, stemmed and seeded — **17 g** (about 3)
-- Cumin seed — **14 g**
-- Coriander seed — **8 g**
-
-### Bloom, in the beef fat
-- The ground ancho, the ground guajillo, the ground coriander, and **10 g** of the ground cumin
-- Mexican oregano, crumbled — **2 g**
-- Red pepper flakes — **3 g**
-- Cayenne — **1 g**
-- Natural cocoa, unsweetened — **8 g**
-- Black pepper — **2 g**
-
-### Beef
+### In the pot
+- Ancho chiles, stemmed and seeded — **40 g**. Toast, then all of it into the bloom
+- Guajillo chiles, stemmed and seeded — **17 g**. Same
+- Cumin seed — **14 g**. Toast, then **10 g** into the bloom and **4 g** held for the finish
+- Coriander seed — **8 g**. Toast, then all of it into the bloom
+- Mexican oregano, crumbled — **2 g**, into the bloom
+- Red pepper flakes — **3 g**, into the bloom
+- Cayenne — **1 g**, into the bloom
+- Natural cocoa, unsweetened — **8 g**, into the bloom
+- Black pepper — **2 g**, into the bloom
 - Ground beef, 85% lean — **1.6 kg**
-- Kosher salt, divided across the three sear batches — **6 g**
-
-### Aromatics
 - Yellow onion, small dice — **520 g**
 - Red bell pepper, 1 cm dice — **300 g**
 - Garlic, minced — **45 g**
 - Chipotle in adobo, minced — **12 g** (about 1 pepper)
-- Adobo sauce — **8 ml**
+- Adobo sauce — **8 ml**, with the chipotle
 - Tomato paste — **40 g**
+- Diced tomatoes, with their juice — **1.6 kg**. All of it
+- Tomato puree — **up to 1.6 kg**. Stop at the fill line
+- Kidney beans — one **454 g / 16 oz** dry bag, cooked. **950 g** into the pot, or the whole cooked pot if it weighs less
+- Kosher salt — **18 g** weighed now: **6 g** on the beef, **12 g** when the pot is loaded
+- Limes — **30 ml** juice into the pot at the end. Wedge the rest for the table
 
-### The pot
-- Diced tomatoes, with their juice — **1.6 kg** (2 × 794 g tins, all of it)
-- Tomato puree — **up to 1.6 kg** (2 × 794 g tins, to the fill line)
-- Red kidney beans, cooked and drained — **950 g**, or the whole pot if it comes in under that (from one **454 g / 16 oz** dry bag)
-- Kosher salt — **12 g**
-- Neutral oil — **30 ml**, only if the fat gate is dry
+### Leave in the cupboard until a step names it
+- Neutral oil — **30 ml**, only if the fat looks dry after the sear
+- Cayenne — **up to 2 g** more, only after the heat taste
+- Kosher salt — more, only after the salt taste, **3 g** at a time
+- Masa harina — **25 g**, only if the spoon says stop reducing
+- Water — **100 ml** if the chili went dry, or **250 ml** if the pot was too empty at the start
+- Lime juice — a second **30 ml**, only if the first still tastes heavy
 
-### Finish, off the heat
-- Ground cumin, the reserved — **4 g**
-- Cayenne — **0–2 g**, whatever the heat gate says
-- Lime juice — **30 ml**, up to **60 ml**
-- Masa harina — **25 g**, only if the thickness gate sends you there
-- Water — **100 ml**, only if the pot has gone dry
-
-### At the table
-- Lime wedges
-- White onion, small dice
-- Cilantro leaves
-- Softeners, if you want them: scallion, avocado, diced tomato, sour cream, Monterey Jack or cheddar
+### At the table, not in the pot
+- White onion, small dice — a little
+- Cilantro leaves — a handful
+- If you want it softer: scallion, avocado, diced tomato, sour cream, Monterey Jack or cheddar
 
 ---
 
@@ -101,7 +91,7 @@ You want a **thin film** left in the pot, the bottom glistening, no pool.
 > Dry and matte: add the **30 ml** oil. A pool you can tilt: spoon it off back to a film. A deep layer of fat fries the spices swimming and leaves an oil slick no lime will cut.
 
 ### 6. Season the pot
-Heat the film until it shimmers. Add the bloom spices — ancho, guajillo, coriander, the **10 g** cumin, oregano, pepper flakes, the **1 g** cayenne, cocoa, black pepper. Stir. **45–75 seconds.** The fat turns brick red and the base of the pot takes a coat. This is the seasoning of the vessel. Stay on it.
+Heat the film until it shimmers. Add the ground mix from the mill, and nothing else from those jars. Then the oregano, pepper flakes, **1 g** cayenne, cocoa, and black pepper. Stir. **45–75 seconds.** The fat turns brick red and the base of the pot takes a coat. The **4 g** cumin stays in its cup. Stay on it.
 
 > Brick red and fragrant: onions in, now. Still dusty and pale: another 20 seconds. Black flecks and a sharp smell: that bloom is bitter. Scrape it out. A bitter chile paste cannot be buried under 5 L of chili. Start the bloom again with fresh spices.
 
@@ -113,14 +103,14 @@ Clear a space. Garlic, chipotle, the **8 ml** adobo, and the **40 g** tomato pas
 > Bright red paste: another minute. Brick and sweet: right. Black at the edges and acrid: the sugar scorched. If it is a few flecks and the pot still smells sweet, stir the onions over them and carry on. If the paste itself is black, scrape that patch out.
 
 ### 8. Load, then read the line
-Beef back in. All **1.6 kg** of diced tomatoes. Beans. The **12 g** salt. Tomato puree until the surface sits **about 4 cm below the rim**. Hold the rest of the puree in the tin. Bring to a **bare simmer**: small bubbles, not a roll. The clock starts here, not at the pour.
+Beef back in. All **1.6 kg** of diced tomatoes. The cooked beans, **950 g** or the whole pot if it weighed less. The **12 g** salt. Tomato puree until you can see **about 4 cm** of bare wall above the surface. Hold the rest of the puree in the tin. Bring to a **bare simmer**: small bubbles, not a roll. The clock starts here, not at the pour.
 
-> Higher than 4 cm below the rim: you added puree too fast. It will climb the lid and stick where you cannot see it. Ladle back to the line. More than about 8 cm of bare wall: the uncovered hour will reduce too fast. Stir in held puree, and if the wall is still that tall, add **250 ml** water.
+> Closer to the rim than 4 cm: too full. Ladle puree back until the wall shows. More than about 8 cm of bare wall: too empty. Stir in the held puree, and if the wall is still that tall, add **250 ml** water.
 
 ### 9. Covered hour
-Lid on. Lowest gas that holds the bare simmer. **60 minutes**, stir once at 30, scraping the bottom. The beans should be soft through and still whole. A boil breaks them.
+Lid on. Lowest gas that holds the bare simmer. **60 minutes**, stir once at 30, scraping the bottom. The beans went in already tender. At the hour they should still be whole, not mush. A boil breaks them.
 
-> Chalky in the center: 15 more minutes, still covered, still a tremor. Falling apart: the simmer was a boil. Barely-there heat for the rest of the cook, and stir gently.
+> Falling apart: the simmer was a boil. Barely-there heat for the rest of the cook, and stir gently. A chalky center will not soften in the tomatoes. That bean was undercooked before it came in.
 
 ### 10. Uncover
 Lid off. Keep the bare simmer. Scrape the bottom and the ring on the wall **every 15 minutes**. First read at **45 minutes**. The window is **45–90 minutes**, and it can run longer if most of the puree went in. This pot is deeper than the one the original hour was timed on. The spoon is the instrument, not the beep.
@@ -133,9 +123,9 @@ Drag a spoon across the floor. Read it in the pot. A spoonful should **mound, th
 > The line vanishes at once and the edge weeps: not there. Keep going, and keep scraping. If the bottom is starting to grab and you cannot safely reduce any further, whisk **25 g** masa harina with **80 ml** of the chili liquid, stir it in, and simmer **5 minutes**. Masa is the exit when the pot runs out of road. It is not a shortcut for a chili that has not concentrated. A channel that stays open, oil weeping, edges dry: too far. Stir in **100 ml** water.
 
 ### 12. Salt, then heat, then lime
-Off the heat. Taste before any finish salt. The early salt plus a standard tin lands near half of where this wants to be. Target is savory and clear, about **0.85%**, which cheese at the table will push further. Add in **3 g** steps.
+Off the heat. Taste before any more salt. Do not weigh out the 15 g, the 22 g, and the 6 g. Those are three different guesses for three different tins. Add **3 g**, taste, and add another 3 g only if it still wants it.
 
-> Standard diced tomatoes, roughly 150–250 mg sodium per 100 g, and a low-salt puree: start with **15 g**. Low-salt tins, under 50 mg: start with **22 g**. A tin over 300 mg, or a salted chili powder if that is what you bloomed: taste first and start with **6 g**. The arithmetic is in the ledger. The spoon beats it.
+> Standard diced tomatoes, roughly 150–250 mg sodium per 100 g: you will probably land near **15 g**. Low-salt tins, under 50 mg: nearer **22 g**. A tin over 300 mg: you may be done at **6 g** or before. The spoon beats the guess.
 
 Then heat. The chipotle and the flakes are already in, and the reduction has concentrated them.
 
