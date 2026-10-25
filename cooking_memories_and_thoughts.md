@@ -50,6 +50,19 @@ to a carbon-steel paella pan, and back to two enameled braisers — which crysta
 geometry (below). This is also where the **cook-it-live skill** got packaged into something
 reusable.
 
+**Beef chili with kidney beans, 8.5 qt.** Scaled from America's Test Kitchen to the big enamel
+pot, spices fried on before the onions. It cooked well — pretty good, and people liked it. The
+failure was the card. The same spice was listed twice, whole and then "ground, from the toast,"
+so it was weighed twice. One step showed every branch at once — three salt priors, the masa and
+the water together — and we pulled all of it, including doses the method never put in the pot. A
+comparison with the source was sitting on the page we cook from. **That page shows only the dose
+this step uses.** Dry kidney beans and a tomato braise are two cooks. The beans hold a
+rolling boil for 10 minutes in fresh water before they ever see tomato, because a simmer does
+not destroy the lectin, acid stops them softening, and this chili never boils hard enough to
+finish the job later. That boil is done before the chili starts. The short 2-minute boil is only
+the quick soak. The bag was 16 oz (454 g). Cook the whole bag; it should land near the 950 g
+this pot wants. A 32 oz bag is about twice the cooked beans the pot wants.
+
 ---
 
 ## The bourguignon post-mortem — kept deliberately
@@ -109,6 +122,9 @@ properly caramelized, a third of the liquid as stock, garnishes cooked in separa
   be doing distinct work.
 - **Calibrate confidence to derivation.** A number that was computed and a number that was asserted
   should not be presented the same way. Flag pattern-matching as pattern-matching.
+- **The cook page shows only what this step uses.** A spice listed twice gets weighed twice. Every
+  branch on one step gets pulled. The comparison with the source is not a step. The beef chili did
+  all three, and the dish itself was fine.
 
 ---
 
@@ -161,8 +177,8 @@ Every recipe from here is a markdown file and a cook-it-live HTML copied from th
   promoted to the canonical recipe and propagated to its cook-live HTML.
 - Keep the CellarTracker export fresh. Last pulled 2026-09-16. A `cellartracker` MCP is now
   wired into Claude Code, so a live pull no longer needs a manual download.
-- Beef chili for the 8.5 qt is written, not cooked. The uncovered window and the 8 g of cocoa are
-  the two numbers a first cook has to answer. If it tastes dusty, drop the cocoa before reaching
-  for sugar.
+- Beef chili for the 8.5 qt has been cooked; what it taught is above. The uncovered window and the
+  8 g of cocoa still have no report from that pot. If it tastes dusty, drop the cocoa before
+  reaching for sugar.
 
 *Last thought: the failures have taught more than the successes. Keep writing them down.*
