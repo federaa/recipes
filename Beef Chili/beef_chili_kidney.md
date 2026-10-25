@@ -1,6 +1,8 @@
 # Beef Chili with Kidney Beans
 
-**About 5 L · Serves 14 · 8.5 qt enameled Dutch oven, about two-thirds full · Gas · Active ~45 min · Total ~3–3½ h**
+**About 5 L · Serves 14 · 8.5 qt enameled Dutch oven · Gas**
+
+Beans: about 2½ hours if you soak them the short way, or overnight plus about 1½ hours. Chili after that: about 3–3½ hours.
 
 Built on America's Test Kitchen's *Simple Beef Chili with Kidney Beans* (recipe 34, 2012: about 3 qt, serves 8–10). Same skeleton. Bigger pot, and the spices do their work on the enamel before the onions ever see them.
 
@@ -52,25 +54,29 @@ Weigh each line once. The bloom is the chiles and seeds from the toast, not a se
 
 **16 oz is 454 g dry.** Cook the whole bag. Dry kidney beans usually come back at about **2.3×** their dry weight, so this bag should land around **1.0–1.1 kg** cooked. That figure is asserted, not a weighing of this bag. The chili wants **950 g** drained. If the pot comes in over that, hold the extra back. If it comes in under, the chili gets all of it.
 
-Use a large pot and leave the Dutch oven dry for the chili. This bag will not fill it.
+Cook the beans in a large pot. Do not use the Dutch oven. You need it clean for the chili.
 
 Kidney beans are not done when they are hot. A simmer does not destroy the lectin in the raw bean, and this chili never boils hard enough to do it later. They also stop softening once they hit tomatoes. So they are fully cooked, in fresh water, before they go near the pot.
 
 1. **Rinse and pick** the 454 g. Cover them by **8 cm** of cold water.
 2. **Soak.** Overnight, 8 hours, is the even path. If you are starting now: boil **2 minutes**, kill the heat, cover, **1 hour**. That short boil is not the safety boil.
 3. **Drain** the soak water and rinse.
-4. **Cover with fresh water by 5 cm.** Salt it at **10 g per litre** of that water. Bring to a **rolling boil** and hold it for **10 minutes**. Skim the foam. Do not shorten this.
+4. **Cover with fresh water by 5 cm.** Salt that water at **10 g per litre**. Take this salt from the box. Do not use the **18 g** you weighed for the chili. That salt is thrown out with the cooking water. Bring the pot to a **rolling boil** and hold it there for **10 minutes**. Skim the foam. Do not shorten the boil.
 5. **Drop to a simmer** and cook until a bean crushed on the side of the pot is creamy through, no chalky center. Start checking at **50 minutes**. Expect 50–90.
 6. **Drain.** Discard the cooking water. Weigh out **950 g** for the chili, or keep the whole pot if it weighs less than that.
 
 > Chalky in the center: more simmering, still in this pot. Do not move them into the tomatoes to finish. If they never held a rolling boil, they are not ready even if they seem soft. Fresh water, 10 minutes at a hard boil, then simmer again if the centers need it.
 
-The bean water was salted and then thrown out. The beans themselves are seasoned. At the chili's salt gate, taste before you commit to the 15 g prior.
+The beans pick up some of that salt. When you salt the chili, taste first and add **3 g** at a time. Do not weigh out a 15 g pile.
 
 ## Method
 
 ### 1. Weigh, and read the tins
-Divide the beef into three batches of about **530 g**. Read the sodium on the diced tomatoes and the puree. Under 50 mg per 100 g is a low-salt tin, 150–250 is a standard one, over 300 is a salty one. That number is the salt gate, later. The **950 g** of beans are already cooked. Stem and seed the chiles.
+Divide the beef into three batches of about **530 g**. Put **2 g** salt on each batch when it goes into the pot, not before.
+
+Read the sodium on the diced tomatoes and the puree. Under 50 mg per 100 g is a low-salt tin. 150–250 is a standard tin. Over 300 is a salty tin. Remember which one you have. You do not add salt for it now.
+
+The beans are already cooked. Stem and seed the chiles.
 
 ### 2. Toast the chiles
 Dry enameled Dutch oven, medium gas. Press one chile flat for **15–20 seconds a side**, until it smells like raisin and the flesh is flexible. Out onto a plate. Repeat through all of them. They scorch in the time it takes to answer a question.
@@ -103,9 +109,9 @@ Clear a space. Garlic, chipotle, the **8 ml** adobo, and the **40 g** tomato pas
 > Bright red paste: another minute. Brick and sweet: right. Black at the edges and acrid: the sugar scorched. If it is a few flecks and the pot still smells sweet, stir the onions over them and carry on. If the paste itself is black, scrape that patch out.
 
 ### 8. Load, then read the line
-Beef back in. All **1.6 kg** of diced tomatoes. The cooked beans, **950 g** or the whole pot if it weighed less. The **12 g** salt. Tomato puree until you can see **about 4 cm** of bare wall above the surface. Hold the rest of the puree in the tin. Bring to a **bare simmer**: small bubbles, not a roll. The clock starts here, not at the pour.
+Beef back in. All **1.6 kg** of diced tomatoes, juice included. The cooked beans. The **12 g** salt. Stir in tomato puree until you can see **about 4 cm of bare wall** above the chili. Leave the rest of the puree in the tin. Bring to a bare simmer: small bubbles, not a rolling boil. Start the hour when it is simmering, not when you pour.
 
-> Closer to the rim than 4 cm: too full. Ladle puree back until the wall shows. More than about 8 cm of bare wall: too empty. Stir in the held puree, and if the wall is still that tall, add **250 ml** water.
+> Less than 4 cm of bare wall: too full. Ladle puree out until the wall shows. More than about 8 cm of bare wall: too empty. Add the puree you held back. If the wall is still that tall, add **250 ml** water.
 
 ### 9. Covered hour
 Lid on. Lowest gas that holds the bare simmer. **60 minutes**, stir once at 30, scraping the bottom. The beans went in already tender. At the hour they should still be whole, not mush. A boil breaks them.
@@ -113,14 +119,17 @@ Lid on. Lowest gas that holds the bare simmer. **60 minutes**, stir once at 30, 
 > Falling apart: the simmer was a boil. Barely-there heat for the rest of the cook, and stir gently. A chalky center will not soften in the tomatoes. That bean was undercooked before it came in.
 
 ### 10. Uncover
-Lid off. Keep the bare simmer. Scrape the bottom and the ring on the wall **every 15 minutes**. First read at **45 minutes**. The window is **45–90 minutes**, and it can run longer if most of the puree went in. This pot is deeper than the one the original hour was timed on. The spoon is the instrument, not the beep.
+Lid off. Keep the bare simmer. Every **15 minutes**, scrape the bottom and the crust on the wall above the chili. That crust should be deep red-brown and smell sweet. Scrape it in. It is flavor. Look at the spoon at **45 minutes**, then keep going until the chili is thick enough. That may be 45 minutes. It may be 90, or a bit longer if you used most of the puree.
 
-> The ring should be deep red-brown, sweet, and willing to be scraped in. That ring is flavor. Black, brittle, acrid: scorched. Off the black patches, drop the heat, and do not stir them through the pot.
+> Black, brittle, and sharp-smelling: scorched. Leave those patches in the pot. Do not scrape them into the chili. Turn the heat down.
 
 ### 11. Thickness
-Drag a spoon across the floor. Read it in the pot. A spoonful should **mound, then slump**.
+Drag a spoon across the bottom of the pot. Look at the path it leaves, in the pot, not in a little tasting spoon.
 
-> The line vanishes at once and the edge weeps: not there. Keep going, and keep scraping. If the bottom is starting to grab and you cannot safely reduce any further, whisk **25 g** masa harina with **80 ml** of the chili liquid, stir it in, and simmer **5 minutes**. Masa is the exit when the pot runs out of road. It is not a shortcut for a chili that has not concentrated. A channel that stays open, oil weeping, edges dry: too far. Stir in **100 ml** water.
+> The path fills in after a couple of seconds, and a spoonful sits up and then slowly flattens: it is ready. Heat off.
+> The path disappears at once and the edge looks watery: not ready. Keep simmering and keep scraping.
+> The bottom is starting to stick and you still have a watery path: stop reducing. Whisk **25 g** masa harina with **80 ml** of the chili, stir it in, and simmer **5 minutes**.
+> The path stays open, oil is pooling, and the edges look dry: too thick. Stir in **100 ml** water. Do not add masa.
 
 ### 12. Salt, then heat, then lime
 Off the heat. Taste before any more salt. Do not weigh out the 15 g, the 22 g, and the 6 g. Those are three different guesses for three different tins. Add **3 g**, taste, and add another 3 g only if it still wants it.
@@ -134,9 +143,9 @@ Then heat. The chipotle and the flakes are already in, and the reduction has con
 Stir in the reserved **4 g** cumin and **30 ml** lime juice. Taste. If the fat still sits heavy, up to another **30 ml**. Stop when it snaps. Do not boil this.
 
 ### 13. Serve, or hold
-White onion and cilantro are the cut. Cheese and sour cream soften it, which is a different choice. Lime wedges on the side.
+Eating now: white onion and cilantro on top. Lime wedges on the side. Cheese or sour cream only if you want it softer.
 
-It is better the next day. If you can wait, stop before this finish, cool, and fridge. Salt, cayenne, cumin, and lime go on at the reheat, once it is hot, or the top notes die overnight and the salt taste will have shifted. Bare simmer to reheat, with a splash of water if it tightened. Fridge 5 days, freezer a month — those storage times are ATK's.
+Holding it: stop before the salt, the extra cayenne, the cumin, and the lime. Cool it and fridge it. Do those four things after you reheat it, once it is hot. Bare simmer to reheat. Add a splash of water if it thickened in the fridge. Fridge 5 days. Freezer a month.
 
 ---
 

@@ -543,7 +543,7 @@ const STEPS = [
       { amt: "10 g", name: "salt, per litre of that water" },
       { amt: "10 min", name: "rolling boil, the floor" }
     ],
-    body: `<p>Cover the soaked beans with fresh water by <em>5 cm</em>. Salt it at <em>10 g per litre</em>.</p>
+    body: `<p>Cover the soaked beans with fresh water by <em>5 cm</em>. Salt that water at <em>10 g per litre</em>. Take it from the box. <strong>Do not use the 18 g</strong> you set aside for the chili. This salt is thrown out with the cooking water.</p>
     <p>Bring it to a <strong>rolling boil</strong> and hold that boil for <em>10 minutes</em>. Skim the foam. This is the step that makes raw kidney beans safe. A simmer does not do it, and the chili later never boils hard enough to substitute.</p>`
   },
   {
@@ -588,9 +588,9 @@ const STEPS = [
       { amt: "40 g", name: "ancho, seeded" },
       { amt: "17 g", name: "guajillo, seeded" }
     ],
-    body: `<p>Divide the beef into three batches of about <em>530 g</em>. The salt for the sear is <em>2 g</em> on each batch, in the pot, not an hour ahead.</p>
-    <p><strong>Read the sodium</strong> on the diced tomatoes and the puree. Under <em>50 mg per 100 g</em> is a low-salt tin. <em>150–250</em> is standard. Over <em>300</em> is salty. That number is the salt gate.</p>
-    <p>The <em>950 g</em> of beans are already cooked and drained. Stem and seed the chiles. The pot is <strong>enamel</strong>. Bare iron will taste like a pan after two hours of tomato and salt. Stay on the gas.</p>`
+    body: `<p>Divide the beef into three batches of about <em>530 g</em>. The <em>2 g</em> of salt goes on a batch when it hits the pot, not an hour before.</p>
+    <p><strong>Read the sodium</strong> on the diced tomatoes and the puree. Under <em>50 mg per 100 g</em> is a low-salt tin. <em>150–250</em> is standard. Over <em>300</em> is salty. Remember which one you have. You do not add salt for it now.</p>
+    <p>The beans are already cooked and drained. Stem and seed the chiles. The chili pot is <strong>enamel</strong>. Stay on the gas.</p>`
   },
   {
     kind: "timed",
@@ -836,23 +836,23 @@ const STEPS = [
       { amt: "12 g", name: "salt" },
       { amt: "to the line", name: "puree, from 1.6 kg" }
     ],
-    body: `<p>Beef back in. All <em>1.6 kg</em> of diced tomatoes, juice included. The <em>950 g</em> of cooked beans. The <em>12 g</em> salt.</p>
-    <p>Tomato puree until the surface sits <strong>about 4 cm below the rim</strong>. Hold the rest in the tin. Stir. Bring to a <strong>bare simmer</strong>, small bubbles, not a roll. The next clock starts at that simmer, not at the pour.</p>`
+    body: `<p>Beef back in. All <em>1.6 kg</em> of diced tomatoes, juice included. The cooked beans. The <em>12 g</em> salt.</p>
+    <p>Stir in tomato puree until you can see <strong>about 4 cm of bare wall</strong> above the chili. Leave the rest in the tin. Bring to a bare simmer: small bubbles, not a rolling boil. Start the next clock when it is simmering, not when you pour.</p>`
   },
   {
     kind: "gate",
     phase: "Base",
     where: "Dutch oven",
     title: "Read the fill line",
-    probe: "4 cm below the rim",
+    probe: "4 cm of bare wall",
     probeLabel: "Fill",
     uses: [
       { amt: "4 cm", name: "of bare wall above the chili" }
     ],
-    body: `<p>Look at the wall above the surface. You want about <em>4 cm</em> of bare enamel. That is the room to stir, and the wall the ring builds on.</p>`,
+    body: `<p>Look at the wall above the chili. You want about <em>4 cm</em> of bare enamel. That is the room to stir, and the wall where the crust forms.</p>`,
     branches: [
       { type: "good", glyph: "✓", head: "About 4 cm of bare wall", text: "Lid on. Start the hour once it is at a bare simmer." },
-      { type: "wait", glyph: "!", head: "The surface is closer to the rim than 4 cm", text: "Too full. Ladle puree back until you can see about 4 cm of wall. A full pot climbs the lid and sticks where you cannot see it." },
+      { type: "wait", glyph: "!", head: "Less than 4 cm of bare wall", text: "Too full. Ladle puree out until you can see about 4 cm of wall. A full pot climbs the lid and sticks where you cannot see it." },
       { type: "bad", glyph: "✕", head: "More than about 8 cm of bare wall", text: "Too empty. Stir in the puree you held back. If the wall is still that tall, add 250 ml water." }
     ]
   },
@@ -881,7 +881,7 @@ const STEPS = [
     body: `<p>Fish one out. You are checking that the simmer did not smash them. More time in this tomato pot will not soften a chalky bean.</p>`,
     branches: [
       { type: "good", glyph: "✓", head: "Whole, still creamy", text: "Lid off." },
-      { type: "wait", glyph: "!", head: "Chalky in the center", text: "They were undercooked before they came in. The tomatoes will not finish them. Leave them, and cook the next batch longer before it hits the pot." },
+      { type: "wait", glyph: "!", head: "Chalky in the center", text: "They were undercooked before they came in. More time in the tomatoes will not soften them. Lid off and carry on." },
       { type: "bad", glyph: "✕", head: "Falling apart", text: "The simmer was a boil. Barest heat for the rest of the cook, and stir gently." }
     ]
   },
@@ -899,19 +899,19 @@ const STEPS = [
       { amt: "45–90 min", name: "the window" },
       { amt: "every 15 min", name: "scrape bottom and ring" }
     ],
-    body: `<p>Lid off. Keep the bare simmer. Scrape the bottom and the ring on the wall <strong>every 15 minutes</strong>.</p>
-    <p>First read at <em>45 minutes</em>. Expect somewhere in <em>45–90</em>, longer if most of the puree went in. This pot is deeper than the one that hour was timed on. <strong>The spoon is the instrument.</strong></p>`
+    body: `<p>Lid off. Keep the bare simmer. Every <em>15 minutes</em>, scrape the bottom and the crust on the wall above the chili. That crust should be deep red-brown and smell sweet. Scrape it in.</p>
+    <p>Look at the spoon at <em>45 minutes</em>. Keep going until the chili is thick enough. That may be 45 minutes, or 90, or a bit longer if you used most of the puree.</p>`
   },
   {
     kind: "gate",
     phase: "Simmer",
     where: "Dutch oven",
     title: "Fond, or scorch",
-    body: `<p>Read the ring before you stir it in. Deep red-brown and sweet is the cook. Black is the failure, and it telegraphs through the whole pot.</p>`,
+    body: `<p>Look at the crust on the wall above the chili before you scrape it in.</p>`,
     branches: [
-      { type: "good", glyph: "✓", head: "Deep red-brown, sweet, comes off the wall", text: "Stir it through. That ring is flavor the tomatoes did not arrive with." },
-      { type: "wait", glyph: "!", head: "No ring after 45 minutes", text: "The simmer is too shy, or the pot is still very wet. A slightly livelier bubble. Keep scraping." },
-      { type: "bad", glyph: "✕", head: "Black, brittle, acrid", text: "Scorched. Leave the black patches. Drop the heat. Do not stir them through the chili." }
+      { type: "good", glyph: "✓", head: "Deep red-brown, sweet, comes off when scraped", text: "Stir it through. That crust is flavor." },
+      { type: "wait", glyph: "!", head: "No crust after 45 minutes", text: "The simmer is too quiet, or the chili is still very wet. A slightly livelier bubble. Keep scraping." },
+      { type: "bad", glyph: "✕", head: "Black, brittle, smells sharp", text: "Scorched. Leave the black patches where they are. Turn the heat down. Do not stir them into the chili." }
     ]
   },
   {
@@ -922,11 +922,11 @@ const STEPS = [
     uses: [
       { amt: "the spoon", name: "read it before anything else goes in" }
     ],
-    body: `<p>Drag a spoon across the floor. Read it in the pot, not in a tasting spoon. A spoonful should <strong>mound, then slump</strong>.</p>`,
+    body: `<p>Drag a spoon across the bottom. Look at the path it leaves, in the pot, not in a little tasting spoon.</p>`,
     branches: [
-      { type: "good", glyph: "✓", head: "Mounds, then slumps. The line fills in over a second or two", text: "Off the heat. On to salt." },
-      { type: "wait", glyph: "!", head: "The line vanishes and the edge weeps", text: "Not there. Keep the simmer and keep scraping. If the bottom is starting to grab and you cannot safely reduce further: whisk 25 g masa with 80 ml of the chili liquid, stir it in, simmer 5 minutes. Masa is the exit when the pot runs out of road, not a shortcut." },
-      { type: "bad", glyph: "✕", head: "The line stays open, oil weeps, edges dry", text: "Too far. Stir in 100 ml water. Do not add masa to a chili that is already a brick." }
+      { type: "good", glyph: "✓", head: "The path fills in after a couple of seconds. A spoonful sits up, then slowly flattens", text: "Heat off. On to salt." },
+      { type: "wait", glyph: "!", head: "The path disappears at once and the edge looks watery", text: "Not ready. Keep simmering and keep scraping. If the bottom is starting to stick while the path is still watery: whisk 25 g masa with 80 ml of the chili, stir it in, and simmer 5 minutes." },
+      { type: "bad", glyph: "✕", head: "The path stays open, oil is pooling, the edges look dry", text: "Too thick. Stir in 100 ml water. Do not add masa." }
     ]
   },
   {
@@ -937,7 +937,7 @@ const STEPS = [
     uses: [
       { amt: "3 g", name: "at a time, after you taste" }
     ],
-    body: `<p>Heat off. Taste before any finish salt. Early salt plus a standard tin lands near half of where this wants to be. Target is savory and clear, about <em>0.85%</em>. Cheese at the table takes it further. Add in <em>3 g</em> steps.</p>`,
+    body: `<p>Heat off. Taste before any more salt. Add <em>3 g</em>, stir, and taste again. Stop when it tastes savory and clear. Cheese at the table will add more.</p>`,
     branches: [
       { type: "good", glyph: "✓", head: "Standard tins, about 150–250 mg sodium per 100 g", text: "Add 3 g, taste, and repeat. You will probably stop near 15 g. Stop when it tastes clear, even if you are short of that." },
       { type: "wait", glyph: "!", head: "Low-salt tins, under 50 mg", text: "Same 3 g steps. These tomatoes brought less salt, so you may go nearer 22 g. Still stop on the taste." },
@@ -980,8 +980,8 @@ const STEPS = [
       { amt: "onion + cilantro", name: "the cut" },
       { amt: "lime wedges", name: "on the side" }
     ],
-    body: `<p>White onion and cilantro are the cut. Cheese and sour cream soften it, which is a different choice. Lime wedges on the side.</p>
-    <p>It is better the next day. If you can wait, do the salt, the cayenne, the cumin, and the lime <strong>tomorrow, on the reheat</strong>, once it is hot. Overnight they die, and the salt taste shifts as it cools. Bare simmer to reheat, with a splash of water if it tightened. Fridge 5 days, freezer a month.</p>`
+    body: `<p><strong>Eating now.</strong> White onion and cilantro on top. Lime wedges on the side. Cheese or sour cream only if you want it softer.</p>
+    <p><strong>Holding it.</strong> Stop before the salt, the extra cayenne, the cumin, and the lime. Do those after you reheat it, once it is hot. Bare simmer to reheat. Add a splash of water if it thickened in the fridge. Fridge 5 days. Freezer a month.</p>`
   }
 ];
 
