@@ -149,27 +149,6 @@ Holding it: stop before the salt, the extra cayenne, the cumin, and the lime. Co
 
 ---
 
-## What is kept, and what changed
-
-Kept, because they tested it: the spices meet fat, the beans go in with the tomatoes and stay for the whole simmer, the lid is on for the first hour and off for the second, the pot is nonreactive, lime is the acid, and it improves overnight.
-
-| Change | Why |
-|---|---|
-| Scaled about **1.75×**, aimed at **5 L** in an **8.5 qt / 8.0 L** pot | Brim capacity is not a fill. Two-thirds leaves room to stir and leaves wall for the ring. The fill line overrides the puree |
-| Ancho and guajillo instead of chili powder | One blend was doing three jobs, and most blends are salted. Ancho is raisin and body. Guajillo is the tart red. Chipotle, added, is smoke |
-| Toast in the dry pot, then bloom in the beef fat **before** the onions | The original stirs the spices in with the onions, which protects them and also steams them. Frying them onto the enamel is the seasoning step. Onions go in the moment the fat is red, which is what stops the scorch |
-| Beef browned in three batches, to a crust | The original takes it to "no longer pink" in with the vegetables. That steams. The fond is also what the bloom fries on |
-| Garlic, chipotle, and the reserved cumin at the end of their stages | 45 g of garlic in the chile fry goes bitter. Cumin's top note does not survive the uncovered hour |
-| **40 g** tomato paste, cooked to brick | The puree never browns once the pot is wet. The paste is the tomato Maillard. One job |
-| **8 g** cocoa in the bloom | Bitter backbone, not sweetness. Untested in this pot. If the chili tastes dusty, this is the first thing to drop next time, not something to cover with sugar |
-| Salt gated, not 3 g for the pot | Their ½ tsp is a floor they then tell you to adjust. It does not survive the scale or the swing in tin sodium |
-| Masa only if reduction runs out of road | Their thickener is time. This pot is deeper, so the uncovered hour is a window, not a promise. Masa is the safety margin, not a second recipe |
-| Stays on the gas | A covered pot in the Miele boils, and a scorch stays hidden until you smell it. The bare simmer is a thing you look at |
-
-No beer and no coffee. Cocoa is already the bitter note. A second one muddies it.
-
----
-
 ## Ledger
 
 Chart densities, then × 1.75. Not a weighing of the jars in this kitchen. Chili powder 8.2 g/Tbsp, ground cumin 5.9 g/Tbsp, ground coriander 2.4 g/tsp, crushed red pepper 1.5 g/tsp, leaf oregano 0.7 g/tsp, cayenne 2.5 g/tsp, minced garlic 12.6 g/Tbsp.
