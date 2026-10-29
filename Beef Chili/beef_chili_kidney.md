@@ -1,6 +1,8 @@
 # Beef Chili with Kidney Beans
 
-**About 5 L · Serves 14 · 8.5 qt enameled Dutch oven, about two-thirds full · Gas · Active ~45 min · Total ~3–3½ h**
+**About 5 L · Serves 14 · 8.5 qt enameled Dutch oven · Gas**
+
+Beans: about 2½ hours if you soak them the short way, or overnight plus about 1½ hours. Chili after that: about 3–3½ hours.
 
 Built on America's Test Kitchen's *Simple Beef Chili with Kidney Beans* (recipe 34, 2012: about 3 qt, serves 8–10). Same skeleton. Bigger pot, and the spices do their work on the enamel before the onions ever see them.
 
@@ -8,147 +10,176 @@ Built on America's Test Kitchen's *Simple Beef Chili with Kidney Beans* (recipe 
 
 ## Ingredients
 
-Whole anchos and guajillos, not a chili-powder blend. A blend is already salted and already contains cumin and oregano, and the salt ledger below assumes it does not. Beef at 85% lean. The pot is enamel: tomatoes and salt for two hours will pull a metallic note out of bare iron.
+Weigh each line once. The bloom is the chiles and seeds from the toast, not a second measure. Whole anchos and guajillos, not a chili-powder blend. Beef at 85% lean. Enamel pot.
 
-### Toast, then grind
-- Ancho chiles, stemmed and seeded — **40 g** (about 3)
-- Guajillo chiles, stemmed and seeded — **17 g** (about 3)
-- Cumin seed — **14 g**
-- Coriander seed — **8 g**
-
-### Bloom, in the beef fat
-- The ground ancho, the ground guajillo, the ground coriander, and **10 g** of the ground cumin
-- Mexican oregano, crumbled — **2 g**
-- Red pepper flakes — **3 g**
-- Cayenne — **1 g**
-- Natural cocoa, unsweetened — **8 g**
-- Black pepper — **2 g**
-
-### Beef
+### In the pot
+- Ancho chiles, stemmed and seeded — **40 g**. Toast, then all of it into the bloom
+- Guajillo chiles, stemmed and seeded — **17 g**. Same
+- Cumin seed — **14 g**. Toast, then **10 g** into the bloom and **4 g** held for the finish
+- Coriander seed — **8 g**. Toast, then all of it into the bloom
+- Mexican oregano, crumbled — **2 g**, into the bloom
+- Red pepper flakes — **3 g**, into the bloom
+- Cayenne — **1 g**, into the bloom
+- Natural cocoa, unsweetened — **8 g**, into the bloom
+- Black pepper — **2 g**, into the bloom
 - Ground beef, 85% lean — **1.6 kg**
-- Kosher salt, divided across the three sear batches — **6 g**
-
-### Aromatics
 - Yellow onion, small dice — **520 g**
 - Red bell pepper, 1 cm dice — **300 g**
 - Garlic, minced — **45 g**
 - Chipotle in adobo, minced — **12 g** (about 1 pepper)
-- Adobo sauce — **8 ml**
+- Adobo sauce — **8 ml**, with the chipotle
 - Tomato paste — **40 g**
+- Diced tomatoes, with their juice — **1.6 kg**. All of it
+- Tomato puree — **up to 1.6 kg**. Stop at the fill line
+- Kidney beans — one **454 g / 16 oz** dry bag, cooked. **950 g** into the pot, or the whole cooked pot if it weighs less
+- Kosher salt — **18 g** weighed now: **6 g** on the beef, **12 g** when the pot is loaded
+- Limes — **30 ml** juice into the pot at the end. Wedge the rest for the table
 
-### The pot
-- Diced tomatoes, with their juice — **1.6 kg** (2 × 794 g tins, all of it)
-- Tomato puree — **up to 1.6 kg** (2 × 794 g tins, to the fill line)
-- Red kidney beans, drained and rinsed — **950 g** (from 4 × 425 g cans; weigh them)
-- Kosher salt — **12 g**
-- Neutral oil — **30 ml**, only if the fat gate is dry
+### Leave in the cupboard until a step names it
+- Neutral oil — **30 ml**, only if the fat looks dry after the sear
+- Cayenne — **up to 2 g** more, only after the heat taste
+- Kosher salt — more, only after the salt taste, **3 g** at a time
+- Masa harina — **25 g**, only if the spoon says stop reducing
+- Water — **100 ml** if the chili went dry, or **250 ml** if the pot was too empty at the start
+- Lime juice — a second **30 ml**, only if the first still tastes heavy
 
-### Finish, off the heat
-- Ground cumin, the reserved — **4 g**
-- Cayenne — **0–2 g**, whatever the heat gate says
-- Lime juice — **30 ml**, up to **60 ml**
-- Masa harina — **25 g**, only if the thickness gate sends you there
-- Water — **100 ml**, only if the pot has gone dry
-
-### At the table
-- Lime wedges
-- White onion, small dice
-- Cilantro leaves
-- Softeners, if you want them: scallion, avocado, diced tomato, sour cream, Monterey Jack or cheddar
+### At the table, not in the pot
+- White onion, small dice — a little
+- Cilantro leaves — a handful
+- If you want it softer: scallion, avocado, diced tomato, sour cream, Monterey Jack or cheddar
 
 ---
+
+## The dry beans
+
+**16 oz is 454 g dry.** Cook the whole bag. Dry kidney beans usually come back at about **2.3×** their dry weight, so this bag should land around **1.0–1.1 kg** cooked. That figure is asserted, not a weighing of this bag. The chili wants **950 g** drained. If the pot comes in over that, hold the extra back. If it comes in under, the chili gets all of it.
+
+Cook the beans in a large pot. Do not use the Dutch oven. You need it clean for the chili.
+
+Kidney beans are not done when they are hot. A simmer does not destroy the lectin in the raw bean, and this chili never boils hard enough to do it later. They also stop softening once they hit tomatoes. So they are fully cooked, in fresh water, before they go near the pot.
+
+1. **Rinse and pick** the 454 g. Cover them by **8 cm** of cold water.
+2. **Soak.** Overnight is the even soak. The short path is for starting today. Neither one is the safety boil. If you have 8 hours: leave them covered in the cold water. No salt yet. If you are starting now: bring that water to a boil for **2 minutes**, kill the heat, and cover for **1 hour**. That 2 minutes is not the safety boil.
+3. **Drain and discard** the soak water and rinse the beans. The next water is fresh.
+4. **Cover with fresh water by 5 cm.** Salt that water at **10 g per litre**. Take this salt from the box. Do not use the **18 g** you weighed for the chili. That salt is thrown out with the cooking water. Bring the pot to a **rolling boil** and hold it there for **10 minutes**. Skim the foam. Do not shorten the boil. This is the step that makes raw kidney beans safe. A simmer does not do it, and the chili later never boils hard enough to substitute.
+5. **Drop to a simmer** and cook until a bean crushed on the side of the pot is creamy through, no chalky center. Start checking at **50 minutes**. Expect 50–90.
+6. **Read a bean** before you drain. Crush one on the side of the pot. The center is the tell. Do not pour these into the tomatoes until they are already tender.
+
+> Creamy through, skins mostly intact: drain. Discard the cooking water. Weigh out **950 g** for the chili, or keep the whole pot if it weighs less than that.
+> Chalky in the center: **15 more minutes** at a simmer, still in this pot. Do not move them into the chili to finish.
+> They never held a rolling boil: not ready, even if they seem soft. Fresh water, a hard boil for **10 minutes**, then simmer again if the centers are still chalky.
+
+The beans pick up some of that salt. When you salt the chili, taste first and add **3 g** at a time. Do not weigh out a 15 g pile.
 
 ## Method
 
 ### 1. Weigh, and read the tins
-Divide the beef into three batches of about **530 g**. Read the sodium on the diced tomatoes and the puree. Under 50 mg per 100 g is a low-salt tin, 150–250 is a standard one, over 300 is a salty one. That number is the salt gate, later. Rinse and drain the beans and weigh out **950 g**. Stem and seed the chiles.
+Divide the beef into three batches of about **530 g**. Put **2 g** salt on each batch when it hits the pot, not an hour before.
+
+Read the sodium on the diced tomatoes and the puree. Under 50 mg per 100 g is a low-salt tin. 150–250 is a standard tin. Over 300 is a salty tin. Remember which one you have. You do not add salt for it now.
+
+The beans are already cooked and drained. Stem and seed the chiles. The chili pot is enamel. Stay on the gas.
 
 ### 2. Toast the chiles
 Dry enameled Dutch oven, medium gas. Press one chile flat for **15–20 seconds a side**, until it smells like raisin and the flesh is flexible. Out onto a plate. Repeat through all of them. They scorch in the time it takes to answer a question.
 
-> Fragrant and pliable, go on. Black or sharp, that chile is bitter and it will fill the pot. Throw it out and toast a replacement. Do not grind a scorched one "to be thrifty."
+Smell them before they go in the mill. Bitter chile does not cook out. It fills the pot.
+
+> Raisin, pliable, no black patches: grind these. Ancho should smell sweet. Guajillo should smell tart and red.
+> Still stiff and dusty: back in the pot for a few seconds a side. A raw dried chile tastes like cardboard.
+> Black, or a sharp burnt smell: throw that one out. Toast a replacement. Do not grind a scorched chile to save it.
 
 ### 3. Toast the seeds, then split the cumin
-Same dry pot, **60–90 seconds**, stirring, until the cumin smells sweet and a shade darker. Out of the pot. Weigh **4 g** of the toasted cumin seed into a cup before it touches the chiles. Grind that **4 g** first, while the mill is empty, and leave it in the cup. Then grind the remaining cumin, the coriander, and the chiles together. That mix is the bloom. You cannot split cumin back out once it is ground into the chile.
+Same dry pot. Both seeds in. Stir for **60–90 seconds**, until the cumin smells sweet and a shade darker. Tip them out. Leave the pot. Any seed left behind will scorch under the meat. Weigh **4 g** of the toasted cumin seed into a cup before it touches the chiles. Grind that **4 g** first, while the mill is empty, and leave it in the cup. Then grind the remaining cumin, the coriander, and the chiles together. That mix is the bloom. You cannot split cumin back out once it is ground into the chile.
 
 ### 4. Sear in three batches
-Film the pot with a little of the rendered fat once the first batch starts to give some up; the pot is dry after the toast. **2 g salt** on each **530 g** batch, in the pot, not an hour ahead. Break the beef into walnut pieces and leave it. Stir only once it has a crust. Pull each batch when it has mahogany edges, **about 5 minutes**. Do not cook it gray and done.
+The pot is dry from the toast. Medium-high. **2 g** salt on each **530 g** batch, in the pot, not an hour ahead. Break the beef into walnut pieces and leave it. A little fat will render. That film is enough. Stir only once a piece has a crust. Pull each batch when the edges are mahogany, **about 5 minutes**. Do not cook it gray and done. On the last batch, leave whatever is stuck to the enamel. That fond is the base the spices fry on.
 
-> Dark fond on the enamel and browned edges: right. Pale meat in a wet pot: the batch was crowded or the pot was cold. Make the next one smaller and hotter, and let the juices cook off before you stir. Black, acrid fond: spoon the black flecks out before any spice goes in.
+If a batch comes out pale and wet, put less in the next time and let the juices cook off before you stir.
+
+> Dark brown fond, meat with mahogany edges: leave it. The bloom fries on it, and the onions will scrape up what is left.
+> Pale meat, wet pot, almost no fond: it steamed. You cannot brown it in the liquid later. Carry on. Salt and lime at the end will have to do more work.
+> Black fond, acrid: spoon the black flecks out before the spices. What will not come free, leave, and do not scrape it into the bloom.
 
 ### 5. Read the fat
-You want a **thin film** left in the pot, the bottom glistening, no pool.
+Tilt the pot. You want a **thin film** on the enamel, the bottom glistening, no pool and not a dry pan.
 
-> Dry and matte: add the **30 ml** oil. A pool you can tilt: spoon it off back to a film. A deep layer of fat fries the spices swimming and leaves an oil slick no lime will cut.
+> A thin film, the bottom glistening: on to the spices.
+> Dry and matte: add the **30 ml** oil. Heat it until it shimmers, then bloom.
+> A pool you can tilt: spoon it off until a film remains. A deep layer fries the spices swimming and leaves an oil slick lime will not cut.
 
 ### 6. Season the pot
-Heat the film until it shimmers. Add the bloom spices — ancho, guajillo, coriander, the **10 g** cumin, oregano, pepper flakes, the **1 g** cayenne, cocoa, black pepper. Stir. **45–75 seconds.** The fat turns brick red and the base of the pot takes a coat. This is the seasoning of the vessel. Stay on it.
+Heat the film until it shimmers. Add the ground mix from the mill, and nothing else from those jars. Then the oregano, pepper flakes, **1 g** cayenne, cocoa, and black pepper. Stir. **45–75 seconds.** The fat turns brick red and the base of the pot takes a coat. The **4 g** cumin stays in its cup. Stay on it.
 
-> Brick red and fragrant: onions in, now. Still dusty and pale: another 20 seconds. Black flecks and a sharp smell: that bloom is bitter. Scrape it out. A bitter chile paste cannot be buried under 5 L of chili. Start the bloom again with fresh spices.
+Smell it before the onions go in. Onions stop the cooking. They do not undo a burnt chile.
+
+> Brick-red fat, fragrant, base coated: onions and pepper in, now.
+> Still dusty, oil still pale: another 20 seconds, stirring. Then read it again.
+> Black flecks, sharp smell: scrape it out. A bitter paste cannot be buried under 5 L. Start the bloom again with fresh spices.
 
 ### 7. Sweat, then the garlic and the paste
-Onions and pepper in immediately, onto that red fat. Medium, **8–10 minutes**, until the onion is sweet and just starting to color, scraping the fond up as the vegetables give up water.
+Onions and pepper in immediately, onto that red fat. Medium, **8–10 minutes**, until the onion is sweet and just starting to color. Scrape as they give up water. That water lifts the fond. Garlic stays out until the last minute.
 
-Clear a space. Garlic, chipotle, the **8 ml** adobo, and the **40 g** tomato paste. Stir through and cook **about 2 minutes**, until the paste goes from bright red to brick and smells sweet.
+Clear a space. Garlic, chipotle, the **8 ml** adobo, and the **40 g** tomato paste. Stir through the vegetables and cook **about 2 minutes**, until the paste goes from bright red to brick and smells sweet. The paste has sugar in it. It goes from right to scorched in a minute.
 
-> Bright red paste: another minute. Brick and sweet: right. Black at the edges and acrid: the sugar scorched. If it is a few flecks and the pot still smells sweet, stir the onions over them and carry on. If the paste itself is black, scrape that patch out.
+> Brick red, smells sweet: load the pot.
+> Still bright red: another minute, stirring. Bright paste tastes raw and metallic.
+> Black at the edges, acrid: a few flecks and the pot still smells sweet: stir the onions over them and carry on. The paste itself black: scrape that patch out.
 
 ### 8. Load, then read the line
-Beef back in. All **1.6 kg** of diced tomatoes. Beans. The **12 g** salt. Tomato puree until the surface sits **about 4 cm below the rim**. Hold the rest of the puree in the tin. Bring to a **bare simmer**: small bubbles, not a roll. The clock starts here, not at the pour.
+Beef back in. All **1.6 kg** of diced tomatoes, juice included. The cooked beans. The **12 g** salt. Stir in tomato puree until you can see **about 4 cm of bare wall** above the chili. Leave the rest of the puree in the tin. Bring to a bare simmer: small bubbles, not a rolling boil. Start the hour when it is simmering, not when you pour.
 
-> Higher than 4 cm below the rim: you added puree too fast. It will climb the lid and stick where you cannot see it. Ladle back to the line. More than about 8 cm of bare wall: the uncovered hour will reduce too fast. Stir in held puree, and if the wall is still that tall, add **250 ml** water.
+Look at the wall above the chili. You want about **4 cm** of bare enamel. That is the room to stir, and the wall where the crust forms.
+
+> About 4 cm of bare wall: lid on. Start the hour once it is at a bare simmer.
+> Less than 4 cm of bare wall: too full. Ladle puree out until you can see about 4 cm of wall. A full pot climbs the lid and sticks where you cannot see it.
+> More than about 8 cm of bare wall: too empty. Stir in the puree you held back. If the wall is still that tall, add **250 ml** water.
 
 ### 9. Covered hour
-Lid on. Lowest gas that holds the bare simmer. **60 minutes**, stir once at 30, scraping the bottom. The beans should be soft through and still whole. A boil breaks them.
+Lid on. Lowest gas that holds the bare simmer. **60 minutes**, stir once at 30, scraping the bottom. The beans went in already tender. At the hour they should still be whole, not mush. A boil breaks them.
 
-> Chalky in the center: 15 more minutes, still covered, still a tremor. Falling apart: the simmer was a boil. Barely-there heat for the rest of the cook, and stir gently.
+Fish one out. You are checking that the simmer did not smash them. More time in this tomato pot will not soften a chalky bean.
+
+> Whole, still creamy: lid off.
+> Chalky in the center: they were undercooked before they came in. More time in the tomatoes will not soften them. Lid off and carry on.
+> Falling apart: the simmer was a boil. Barest heat for the rest of the cook, and stir gently.
 
 ### 10. Uncover
-Lid off. Keep the bare simmer. Scrape the bottom and the ring on the wall **every 15 minutes**. First read at **45 minutes**. The window is **45–90 minutes**, and it can run longer if most of the puree went in. This pot is deeper than the one the original hour was timed on. The spoon is the instrument, not the beep.
+Lid off. Keep the bare simmer. Every **15 minutes**, scrape the bottom and the crust on the wall above the chili. That crust should be deep red-brown and smell sweet. Scrape it in. Look at the spoon at **45 minutes**. Keep going until the chili is thick enough. That may be 45 minutes, or 90, or a bit longer if you used most of the puree.
 
-> The ring should be deep red-brown, sweet, and willing to be scraped in. That ring is flavor. Black, brittle, acrid: scorched. Off the black patches, drop the heat, and do not stir them through the pot.
+Look at the crust on the wall above the chili before you scrape it in.
+
+> Deep red-brown, sweet, comes off when scraped: stir it through. That crust is flavor.
+> No crust after 45 minutes: the simmer is too quiet, or the chili is still very wet. A slightly livelier bubble. Keep scraping.
+> Black, brittle, smells sharp: scorched. Leave the black patches where they are. Turn the heat down. Do not stir them into the chili.
 
 ### 11. Thickness
-Drag a spoon across the floor. Read it in the pot. A spoonful should **mound, then slump**.
+Drag a spoon across the bottom of the pot. Look at the path it leaves, in the pot, not in a little tasting spoon.
 
-> The line vanishes at once and the edge weeps: not there. Keep going, and keep scraping. If the bottom is starting to grab and you cannot safely reduce any further, whisk **25 g** masa harina with **80 ml** of the chili liquid, stir it in, and simmer **5 minutes**. Masa is the exit when the pot runs out of road. It is not a shortcut for a chili that has not concentrated. A channel that stays open, oil weeping, edges dry: too far. Stir in **100 ml** water.
+> The path fills in after a couple of seconds, and a spoonful sits up and then slowly flattens: it is ready. Heat off.
+> The path disappears at once and the edge looks watery: not ready. Keep simmering and keep scraping.
+> The bottom is starting to stick and you still have a watery path: stop reducing. Whisk **25 g** masa harina with **80 ml** of the chili, stir it in, and simmer **5 minutes**.
+> The path stays open, oil is pooling, and the edges look dry: too thick. Stir in **100 ml** water. Do not add masa.
 
 ### 12. Salt, then heat, then lime
-Off the heat. Taste before any finish salt. The early salt plus a standard tin lands near half of where this wants to be. Target is savory and clear, about **0.85%**, which cheese at the table will push further. Add in **3 g** steps.
+Heat off. Taste before any more salt. Add **3 g**, stir, and taste again. Stop when it tastes savory and clear. Cheese at the table will add more. The **15 g**, the **22 g**, and the **6 g** are guesses after that taste, for three different tins. They are not piles to weigh out.
 
-> Standard diced tomatoes, roughly 150–250 mg sodium per 100 g, and a low-salt puree: start with **15 g**. Low-salt tins, under 50 mg: start with **22 g**. A tin over 300 mg, or a salted chili powder if that is what you bloomed: taste first and start with **6 g**. The arithmetic is in the ledger. The spoon beats it.
+> Standard tins, about 150–250 mg sodium per 100 g: add **3 g**, taste, and repeat. You will probably stop near **15 g**. Stop when it tastes clear, even if you are short of that.
+> Low-salt tins, under 50 mg: same **3 g** steps. These tomatoes brought less salt, so you may go nearer **22 g**. Still stop on the taste.
+> A tin over 300 mg, or you bloomed salted chili powder: taste before any salt. You may be done at **6 g**, or before that.
 
-Then heat. The chipotle and the flakes are already in, and the reduction has concentrated them.
+Then heat. The chipotle, the flakes, and the **1 g** cayenne are already in, and the reduction has concentrated them. Taste a small spoon.
 
-> Warmth at the back of the throat: no more cayenne. Flat: **1 g** cayenne, taste, and stop by **2 g**. Already hot: nothing. Dairy at the table is the soften. Sugar will not fix it.
+> Warmth at the back of the throat: no more cayenne.
+> Already hot: nothing. Dairy at the table softens it. Sugar will not.
+> Flat, and you want it hotter: **1 g** cayenne. Taste. Stop by **2 g**.
 
-Stir in the reserved **4 g** cumin and **30 ml** lime juice. Taste. If the fat still sits heavy, up to another **30 ml**. Stop when it snaps. Do not boil this.
+Still off the heat. Stir in the reserved **4 g** cumin and **30 ml** lime juice. Taste. If the fat still sits heavy, up to another **30 ml**. Stop when it snaps into focus. Do not boil this. A boil spends the cumin and the lime you just put in.
 
 ### 13. Serve, or hold
-White onion and cilantro are the cut. Cheese and sour cream soften it, which is a different choice. Lime wedges on the side.
+Eating now: white onion and cilantro on top. Lime wedges on the side. Cheese or sour cream only if you want it softer.
 
-It is better the next day. If you can wait, stop before this finish, cool, and fridge. Salt, cayenne, cumin, and lime go on at the reheat, once it is hot, or the top notes die overnight and the salt taste will have shifted. Bare simmer to reheat, with a splash of water if it tightened. Fridge 5 days, freezer a month — those storage times are ATK's.
-
----
-
-## What is kept, and what changed
-
-Kept, because they tested it: the spices meet fat, the beans go in with the tomatoes and stay for the whole simmer, the lid is on for the first hour and off for the second, the pot is nonreactive, lime is the acid, and it improves overnight.
-
-| Change | Why |
-|---|---|
-| Scaled about **1.75×**, aimed at **5 L** in an **8.5 qt / 8.0 L** pot | Brim capacity is not a fill. Two-thirds leaves room to stir and leaves wall for the ring. The fill line overrides the puree |
-| Ancho and guajillo instead of chili powder | One blend was doing three jobs, and most blends are salted. Ancho is raisin and body. Guajillo is the tart red. Chipotle, added, is smoke |
-| Toast in the dry pot, then bloom in the beef fat **before** the onions | The original stirs the spices in with the onions, which protects them and also steams them. Frying them onto the enamel is the seasoning step. Onions go in the moment the fat is red, which is what stops the scorch |
-| Beef browned in three batches, to a crust | The original takes it to "no longer pink" in with the vegetables. That steams. The fond is also what the bloom fries on |
-| Garlic, chipotle, and the reserved cumin at the end of their stages | 45 g of garlic in the chile fry goes bitter. Cumin's top note does not survive the uncovered hour |
-| **40 g** tomato paste, cooked to brick | The puree never browns once the pot is wet. The paste is the tomato Maillard. One job |
-| **8 g** cocoa in the bloom | Bitter backbone, not sweetness. Untested in this pot. If the chili tastes dusty, this is the first thing to drop next time, not something to cover with sugar |
-| Salt gated, not 3 g for the pot | Their ½ tsp is a floor they then tell you to adjust. It does not survive the scale or the swing in tin sodium |
-| Masa only if reduction runs out of road | Their thickener is time. This pot is deeper, so the uncovered hour is a window, not a promise. Masa is the safety margin, not a second recipe |
-| Stays on the gas | A covered pot in the Miele boils, and a scorch stays hidden until you smell it. The bare simmer is a thing you look at |
-
-No beer and no coffee. Cocoa is already the bitter note. A second one muddies it.
+Holding it: stop before the salt, the extra cayenne, the cumin, and the lime. Cool it and fridge it. Do those four things after you reheat it, once it is hot. Bare simmer to reheat. Add a splash of water if it thickened in the fridge. Fridge 5 days. Freezer a month.
 
 ---
 
@@ -168,7 +199,7 @@ Chart densities, then × 1.75. Not a weighing of the jars in this kitchen. Chili
 | Beef, 2 lb | 907 g | 1.59 kg | 1.6 kg |
 | Onion, about 2 cups chopped | ~300 g, an estimate | ~525 g | 520 g |
 | One red pepper | ~170 g, an estimate | ~300 g | 300 g |
-| Kidney beans, 2 cans, drained weight not stated | — | — | 950 g drained, from 4 cans. The drained weight of a can is the estimate |
+| Kidney beans, 2 cans, drained weight not stated | — | — | 950 g cooked and drained, from a 454 g / 16 oz dry bag. The 2.3× yield is asserted |
 | Diced tomatoes, 28 oz, and tomato puree, 28 oz | 794 g each | 1.39 kg each | 1.6 kg diced, all in. Puree to the 4 cm line, from up to 1.6 kg. The extra is geometry, not a richer ratio |
 | Salt, ½ tsp table | 3 g | — | Not scaled. 6 g on the beef, 12 g in the pot, the rest at the gate |
 

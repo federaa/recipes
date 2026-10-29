@@ -211,12 +211,14 @@
     padding: 16px; background: var(--panel);
   }
   .branch.good { border-color: #4a5a2e; }
+  .branch.wait { border-color: var(--amber-deep); }
   .branch.bad { border-color: #7a3020; }
   .branch h4 {
     font-family: "JetBrains Mono", monospace; font-size: 12px; letter-spacing: .06em;
     margin: 0 0 8px; display: flex; align-items: center; gap: 8px; text-transform: uppercase;
   }
   .branch.good h4 { color: #a9c76a; }
+  .branch.wait h4 { color: var(--amber); }
   .branch.bad h4 { color: var(--chili-soft); }
   .branch p { margin: 0; font-size: 14px; color: var(--muted); }
   .branch .glyph { font-size: 15px; }
@@ -364,19 +366,23 @@
       <div class="grp">Tomato sugo</div>
       <ul>
         <li><span class="ing">Whole peeled San Marzano</span><span class="amt">800 g</span></li>
-        <li><span class="ing">Passata (opt., smooth)</span><span class="amt">200 g</span></li>
         <li><span class="ing">Olive oil</span><span class="amt">40 ml</span></li>
         <li><span class="ing">Garlic, sliced</span><span class="amt">3 cloves</span></li>
-        <li><span class="ing">Basil stems + leaves</span><span class="amt">—</span></li>
-        <li><span class="ing">Salt — to taste after</span><span class="amt">4–6 g</span></li>
-        <li><span class="ing">Sugar (only if sharp)</span><span class="amt">pinch</span></li>
+        <li><span class="ing">Basil stems, from the one bunch</span><span class="amt">stems</span></li>
       </ul>
       <div class="grp">Cheese · layers</div>
       <ul>
         <li><span class="ing">Low-moisture mozz / drained fior di latte</span><span class="amt">350 g</span></li>
         <li><span class="ing">Parmigiano-Reggiano</span><span class="amt">100 g</span></li>
-        <li><span class="ing">Pecorino (opt., edge)</span><span class="amt">20 g</span></li>
-        <li><span class="ing">Basil leaves</span><span class="amt">~20</span></li>
+        <li><span class="ing">Basil leaves, same bunch</span><span class="amt">~20</span></li>
+      </ul>
+      <div class="grp">Leave until a step names it</div>
+      <ul>
+        <li><span class="ing">Passata, only if the crush stays chunky</span><span class="amt">200 g</span></li>
+        <li><span class="ing">Sugo salt. Pinch now, rest only if shy</span><span class="amt">4–6 g</span></li>
+        <li><span class="ing">Sugar, only if the tin reads sharp</span><span class="amt">a pinch</span></li>
+        <li><span class="ing">Chili flakes, only if you want heat</span><span class="amt">a pinch</span></li>
+        <li><span class="ing">Pecorino, only with the parm</span><span class="amt">20 g</span></li>
       </ul>
     </div>
     <h2 style="margin-top:22px">Sequence</h2>
@@ -433,32 +439,34 @@ const STEPS = [
     title: "Roast doneness",
     body: `<p>Undercooked eggplant is the <strong>most common structural failure</strong> — pale, springy slices never meld and read leathery in the bake. Pull one and read it:</p>`,
     branches: [
-      { type:"good", glyph:"✓", head:"Deep gold, slumped, creamy", text:"Caramelised edges, soft all the way through. That's it — pull the lot." },
-      { type:"bad", glyph:"✕", head:"Pale / springy — or charred", text:"Pale and rubbery: not done, keep roasting. Acrid and blackened: gone bitter — pull those pieces now, the char telegraphs into the whole dish." }
+      { type:"good", glyph:"✓", head:"Deep gold, slumped, creamy", text:"Caramelised edges, soft all the way through. Pull the lot." },
+      { type:"wait", glyph:"!", head:"Pale and springy", text:"Not done. Keep roasting. Pale slices stay leathery in the bake." },
+      { type:"bad", glyph:"✕", head:"Charred and acrid", text:"Pull those pieces now. The black tastes bitter in the finished dish." }
     ]
   },
   {
     kind: "timed", timerName: "Sugo", defaultSec: 1800, minSec: 1500, maxSec: 2100,
     title: "Build the sugo",
-    body: `<p>Warm the <em>40 ml oil</em>, infuse the sliced garlic to <strong>pale gold only</strong> — any browning turns it bitter. Hand-crush the tomatoes in, light pinch of salt, basil stems.</p>
-    <p>Simmer <strong>25–35 min to a mounding nappe</strong>. This is the single biggest lever against soupy parmigiana: reduce it <em>past pourable</em>. Pull the garlic and basil stems at the end if you want a cleaner sauce.</p>`
+    body: `<p>Warm the <em>40 ml oil</em>. If you are using the pinch of chili flakes, they go in with the garlic. Infuse the sliced garlic to <strong>pale gold only</strong> — any browning turns it bitter. Hand-crush the tomatoes in, a light pinch from the <em>4–6 g</em> sugo salt, and the basil stems. If the crush stays chunky and you want it smoother, stir in the <em>200 g</em> passata.</p>
+    <p>Simmer <strong>25–35 min</strong>. Draw a spoon through the sauce on the bottom of the pan. You want a clear line, and no watery pool flooding back. Pull the garlic and basil stems at the end if you want a cleaner sauce.</p>`
   },
   {
     kind: "gate",
-    title: "Nappe, or watery?",
-    body: `<p>Before it goes anywhere near the bake, test the reduction — draw a spoon through the sauce across the pan bottom:</p>`,
+    title: "Does the line hold?",
+    body: `<p>Before it goes anywhere near the bake, draw a spoon through the sauce on the bottom of the pan:</p>`,
     branches: [
-      { type:"good", glyph:"✓", head:"Clean trail, mounds on the spoon", text:"The trail holds and no water floods back in. This sauce won't soak your layers. Good to build." },
-      { type:"bad", glyph:"!", head:"Pools / floods back / thin", text:"Watery sauce = soupy parm, guaranteed. Keep reducing on medium until the trail holds. Better to overshoot than serve soup." }
+      { type:"good", glyph:"✓", head:"Clear line, mounds on the spoon", text:"The line stays, and no water floods back in. This sauce will not soak the layers." },
+      { type:"wait", glyph:"!", head:"A watery pool floods back", text:"Not ready. Keep reducing on medium until the line stays clear." }
     ]
   },
   {
     kind: "gate",
     title: "The salt gate",
-    body: `<p>Taste the sugo now, <strong>with the cheese load in mind</strong>. Three salt sources are stacking: purge-salt residue, tinned-tomato salt, and a heavy parmigiano + pecorino finish.</p>`,
+    body: `<p>Taste the sugo. The <em>4–6 g</em> is the whole sugo salt. The pinch already in the pot came out of it. Purge salt, the tomatoes, and the parm are stacking, and the pecorino too if you are using the <em>20 g</em>.</p>
+    <p>If it still reads sharp once the salt is right, a pinch of sugar.</p>`,
     branches: [
-      { type:"good", glyph:"✓", head:"Just-under / headroom", text:"Right where you want it. Leave it — let the cheese carry the last of the salt." },
-      { type:"bad", glyph:"!", head:"Already fully seasoned", text:"Stop adding salt. With the parm and pecorino still to come, a fully-salted sauce lands over the line. If anything, stretch it with the passata." }
+      { type:"good", glyph:"✓", head:"Just under, or already seasoned", text:"Add no more salt. The cheese carries the rest." },
+      { type:"wait", glyph:"!", head:"Shy", text:"A pinch more from that same 4–6 g. Taste again. Stop while it is still a little under." }
     ]
   },
   {
@@ -466,7 +474,7 @@ const STEPS = [
     title: "Assemble",
     body: `<p>Thin film of sauce on the base (anti-stick). Then per layer, <strong>×3</strong>:</p>
     <p><em>Eggplant</em> (overlapping, no gaps) → <em>sauce</em> (spooned, not drowned) → <em>mozzarella</em> (torn, <strong>restrained</strong>) → <em>parm</em> → <em>torn basil</em>.</p>
-    <p>Finish the top with <strong>sauce + a heavy hand of parm, only a little mozzarella</strong> — surface mozz goes leathery and oily; parm browns beautifully.</p>`
+    <p>Finish the top with <strong>sauce + a heavy hand of parm, only a little mozzarella</strong> — surface mozz goes leathery and oily; parm browns beautifully. If you are using the <em>20 g</em> pecorino, it goes with the parm.</p>`
   },
   {
     kind: "timed", timerName: "Bake", defaultSec: 1920, minSec: 1800, maxSec: 2100,
@@ -493,7 +501,7 @@ const STEPS = [
   {
     kind: "plain",
     title: "Serve",
-    body: `<p>Fresh basil, a thread of good olive oil, a last dusting of <em>parm</em>.</p>
+    body: `<p>A few of the basil leaves, a thread of good olive oil, a last dusting of <em>parm</em>.</p>
     <p><em>That's the cook.</em></p>`
   }
 ];

@@ -22,12 +22,13 @@ physics**, then merges them.
 I got this wrong twice in earlier drafts, so it is now explicit.
 
 **The original** (verified against two independent verbatim transcriptions, since
-seriouseats.com can't be fetched directly): ¼ cup olive oil + 4 Tbsp butter, **8 cloves
-minced** garlic, 1 tsp pepper flakes, 1 Tbsp dried oregano, 4 × 28 oz whole peeled
-tomatoes, one halved onion and carrot chunks (discarded at the end), basil stems,
-**3 cups of the crushed tomato reserved raw** and stirred back at the end, 1 Tbsp fish
-sauce **optional, at the end**, minced parsley and basil to finish. **300 °F / 149 °C,
-lid slightly ajar, 5–6 hours, stirred every 1–2 hours, reduced by about half.**
+seriouseats.com can't be fetched directly): olive oil and butter, minced garlic sweated
+in the pot, dried oregano and pepper flakes, tinned whole tomatoes with some of that
+tomato stirred back raw at the end, one halved onion and carrot chunks (discarded at
+the end), basil stems, fish sauce **optional and only at the end**, minced parsley and
+basil to finish. Lid slightly ajar, a long cook, stirred along the way, reduced by
+about half. The cup and tablespoon measures from those transcriptions are filed under
+Confidence. They are not the doses in this pot.
 
 **Not in the original, whatever I said earlier: no anchovy, and no Parmigiano rind.**
 I attributed both to it. Both were mine.
@@ -40,8 +41,8 @@ I attributed both to it. Both were mine.
 | Roasted fresh as a separate stream | Your method. Tray geometry is the only way fresh tomato browns |
 | Parmigiano rind added | My addition. Glutamate + a little body |
 | **Lid off, not ajar** | Deliberate intensification: more wall fond, faster reduction. **Also more scorch risk.** Ajar is the safer original |
-| 135 °C **fan** ≈ 155 °C conventional | Fan runs ~20 °C hotter in effect than the same dial conventional. This is slightly above the original's 149 °C, and combined with one shallow wide vessel it does in ~1.5 h what the original does in 5–6 |
-| Reserved raw tomato at 19 % | The original reserves ~3 cups of 4 tins, about the same fraction. Kept |
+| **135 °C fan** | The dial to set. Fan runs about 20 °C hotter in effect than the same number on a conventional oven, a little above the original, and one shallow pot does in ~1.5 h what the original does in 5–6 |
+| Reserved raw tomato, about a fifth | The original holds back about the same fraction and stirs it in raw at the end. Kept |
 
 ---
 
@@ -87,7 +88,7 @@ you do at the finish. See the ledger.
 - Fine salt — **2 g**
 
 ### Oven braise
-- Whole peeled tomatoes — **1.6 kg** (2 × 800 g), **300 g held back raw**
+- Whole peeled tomatoes — **1.6 kg** (2 × 800 g tins). **1.3 kg** into the braise, **300 g** of that same tomato held raw until the merge
 - Olive oil — **30 ml**
 - Unsalted butter — **20 g** (+ **20 g** at the finish)
 - Onion, halved through the root — **1 large / ~250 g**
@@ -95,13 +96,13 @@ you do at the finish. See the ledger.
 - Parmigiano-Reggiano rind — **40 g** *(my addition)*
 - Dried oregano — **2.5 g**
 - Chili flakes — **1.5 g**
-- Basil — **1 bunch**; stems in, leaves at the end
+- Basil — **1 bunch**. Stems into the braise, leaves from that bunch at the end
 - Fine salt — **1.5 g up front only**
 
 ### Merge and finish
-- Fish sauce — **12 ml**, at the merge and finish, never the braise
-- Salt — **0–5 g**, see ledger
-- Sugar — **0–6 g**, only after reduction stops
+- Fish sauce — **12 ml**. **8 ml** at the merge, the last **4 ml** at the finish, none in the braise
+- Salt — **0–5 g**, 1 g at a time, only when the salt step names it
+- Sugar — **0–6 g**, only if it is still sharp after that salt
 
 ---
 
@@ -115,7 +116,7 @@ branded label) · parm rind **0.4 g** (Parmigiano-Reggiano DOP at 650 mg Na/100 
 Consorzio figure, partial leach) · tray salt **2.0 g** · braise salt **1.5 g**
 = **6.9 g before the tomatoes.**
 
-| Your tin | Na/100 g | From tin | Total | % | **Add at finish** |
+| Your tin | Na/100 g | From tin | Total | % | **Likely stop** |
 |---|---|---|---|---|---|
 | No-salt-added (Muir Glen etc.) | ~0 | 0 g | 6.9 g | 0.49 % | **~5 g** |
 | Cento San Marzano | ~33 | 1.3 g | 8.3 g | 0.58 % | **~4 g** |
@@ -123,9 +124,10 @@ Consorzio figure, partial leach) · tray salt **2.0 g** · braise salt **1.5 g**
 | Bianco DiNapoli | ~149 | 6.1 g | 13.0 g | 0.91 % | **0 g** |
 
 Most premium DOP tins sit near the bottom of this range — **Bianco DiNapoli is the
-outlier at roughly 4× Mutti or Cento.** If you don't know, assume you'll add ~4 g and
-taste. Note this is *Parmigiano-Reggiano* rind; generic grating "parmesan" runs ~2.5×
-the sodium.
+outlier at roughly 4× Mutti or Cento.** The last column is where that tin usually
+lands. Add **1 g** at a time and stop on the taste, even if you are short of it. If
+you don't know the tin, taste your way. You will probably land near 4 g. Note this is
+*Parmigiano-Reggiano* rind; generic grating "parmesan" runs ~2.5× the sodium.
 
 ---
 
@@ -210,14 +212,14 @@ original's endpoint and it's the right one. **First check at 60 min, then every 
 can't give you a reliable clock figure at this scale and vessel — anyone who does is
 guessing.
 
-**Every 20–30 min, scrape the ring** off the wall above the liquid line and stir it in.
-**This ring is the recipe** — Maillard on tomato solids, and the only step producing
-flavors tomatoes don't already contain.
+**Every 20–30 min, scrape the crust on the wall above the sauce** and stir it in.
+That crust is tomato cooked onto the enamel. **It is the recipe** — Maillard on tomato
+solids, and the only step producing flavors tomatoes don't already contain.
 
 - **Deep red-brown, releases when scraped, smells sweet and roasted** → right.
 - **Black, brittle, smells acrid or like burnt coffee** → scorched. Drop to 120 °C, stir
   every 15. Don't scrape the black in; sugar won't fix it.
-- **No ring after 45 min** → bump to 150 °C.
+- **No crust on the wall after 45 min** → bump to 150 °C.
 
 *If this makes you nervous, set the lid slightly ajar as the original does.* You'll get
 less fond and a longer cook, and you'll be much harder to burn.
@@ -227,26 +229,30 @@ less fond and a longer cook, and you'll be much harder to burn.
 Discard the **onion, carrot, basil stems**. Squeeze the **parm rind** against the pot
 side and discard.
 
-Stir in: the **milled roasted fresh** + deglaze · the **300 g reserved tinned tomato**,
-hand-crushed · the **confit garlic** (crush two-thirds against the wall, leave the rest
-whole) · the **50 ml garlic oil** · **8 ml of the fish sauce.**
+Stir in, all of it:
 
-*All four late additions do the same job.* Long oven time builds depth and destroys
-brightness in the same motion. These go last because their volatiles would have gone
-hours ago — which is also why the original adds its fish sauce at the end.
+1. The **milled roasted fresh** and its deglaze.
+2. The **300 g** reserved tinned tomato, hand-crushed. That is the tomato you held back, not another tin.
+3. The **confit garlic** (crush two-thirds against the wall, leave the rest whole).
+4. **50 ml** of the confit oil. The rest of the 200 ml stays in the jar.
+5. **8 ml** of the fish sauce. The last **4 ml** waits for the finish.
+
+*All five do the same job.* Long oven time builds depth and destroys brightness in the
+same motion. These go last because their volatiles would have gone hours ago — which
+is also why the original adds its fish sauce at the end.
 
 Back in, **135 °C, 20–30 min**, uncovered.
 
 ### 6. Reduction gate
 
-**Drag a spoon across the pot floor.** Test in the pot — a tasting spoon cools, thickens,
-and lies to you.
+**Drag a spoon across the bottom of the pot.** Look at the path it leaves, in the pot.
+A tasting spoon cools, thickens, and lies to you.
 
-- **Channel closes in ~2 s** → right for pasta.
-- **Closes instantly, or thin orange liquid weeps at the edge** → 15 more min. Don't
-  season yet.
-- **Channel holds open, sauce mounds** → over-reduced for pasta. Loosen with 50–100 ml
-  water.
+- **The path fills in after about 2 seconds** → right for pasta.
+- **The path disappears at once, or thin orange liquid sits at the edge** → 15 more min.
+  Don't season yet.
+- **The path stays open and the sauce sits in a mound** → over-reduced for pasta.
+  Loosen with 50–100 ml water.
 
 ### 7. Texture — off heat
 
@@ -261,15 +267,20 @@ about which blender. A surfacing immersion head does it just as readily as a jar
 
 1. **20 g cold butter**, cubed, stirred in. Texture and acid as much as richness:
    emulsified fat rounds perceived sharpness and gives the gloss that carries onto pasta.
-2. **The last 4 ml fish sauce.** Taste before and after.
-3. **Salt** per the ledger, in 1 g increments.
-4. **Acid.** *Order: salt → butter → sugar.* Under-salted reads sour before it reads
-   bland, so fix salt first or you'll over-sugar. Sugar in 2 g steps, ceiling ~6 g.
-   **Skip baking soda** — America's Test Kitchen blind-tasted it against sugar and found
-   it flat and one-dimensional even at ⅛ tsp. (It probably dulls color too, via pH-driven
-   browning, but I couldn't find a real test for that — treat it as mechanism, not
-   finding.)
-5. **Basil**, torn in off heat at the last moment.
+2. **The last 4 ml fish sauce.** Taste before and after. The salt ledger assumes this
+   4 ml is already in the pot.
+3. **Salt**, 1 g at a time. Taste between them. Stop when it tastes savory, even if you
+   are short of the likely stop.
+   - Mutti, Cento, most DOP → you will probably stop near **4 g**.
+   - No-salt-added → nearer **5 g**.
+   - Bianco DiNapoli → taste before any salt. You may be done at **none**.
+4. **Sugar**, only if it is still sharp after that salt. 2 g steps, ceiling ~6 g.
+   An under-salted sauce reads sour before it reads bland, so the salt is settled
+   before any sugar goes in. **Skip baking soda** — America's Test Kitchen
+   blind-tasted it against sugar and found it flat and one-dimensional even at ⅛ tsp.
+   (It probably dulls color too, via pH-driven browning, but I couldn't find a real
+   test for that — treat it as mechanism, not finding.)
+5. **Basil**, the leaves from the bunch, torn in off heat at the last moment.
 
 **If your Indigo Rose came in underripe**, expect the full sugar allowance and less
 perfume. That's the fruit, not the method.
@@ -296,7 +307,7 @@ pectin stabilizes a low-fat sauce like this one. Freeze it however you like.
 - **Scorched, generally.** Most likely at this small scale: a shallow layer in a wide
   pan at 135 °C fan can go from reducing to catching quickly. Use 24–26 cm, not 30, and
   set the lid ajar if you'd rather trade fond for margin.
-- **Thin on the plate.** Under-reduction. Spoon test in the pot.
+- **Thin on the plate.** Under-reduction. The path the spoon leaves still disappears at once.
 - **Flat despite the long cook.** You shorted the merge. Long cooking destroys brightness
   as it builds depth; step 5 is the counterweight.
 - **Over-salted.** Salt only after reduction stops.
@@ -329,7 +340,12 @@ pull bottles and windows from the cellar.
 
 **Verified against sources:** the original's ingredients, 300 °F, lid ajar, 5–6 h,
 reduce-by-half, fish-sauce-at-the-end (two independent verbatim transcriptions; the
-Serious Eats page itself is not fetchable) · Indigo Rose ripening behavior and reported
+Serious Eats page itself is not fetchable). Original measures, from those
+transcriptions, kept here so they are not on the cook's list: ¼ cup olive oil, 4 Tbsp
+butter, 8 cloves minced garlic, 1 tsp pepper flakes, 1 Tbsp dried oregano, 4 × 28 oz
+whole peeled tomatoes, about 3 cups of that tomato stirred back raw, 1 Tbsp fish sauce
+at the end, 300 °F / 149 °C, lid ajar, 5–6 hours. Those are the source's doses, not
+this pot's. Also verified: Indigo Rose ripening behavior and reported
 thick, tannic skin · anthocyanin in skin *and outer flesh*, leaching on cooking (Oregon
 State) · fan ≈ conventional − 20 °C · Red Boat 1,490 mg Na/Tbsp · Parmigiano-Reggiano
 650 mg Na/100 g (Consorzio) · tin sodium spread · surface-pinned-at-100 °C browning

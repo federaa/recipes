@@ -174,6 +174,13 @@
     padding: 8px 0;
   }
   .step-body .mise-page .amt { font-size: 15px; }
+  .page-note {
+    margin: 0 0 18px;
+    max-width: 62ch;
+    color: var(--muted);
+    font-size: 15.5px;
+  }
+  .rail .page-note { display: none; }
   body.on-mise .rail .mise,
   body.on-mise #miseToggle { display: none !important; }
 
@@ -486,8 +493,11 @@ function load() {
       if (id > timerSeq) timerSeq = id;
     });
   }
-  /* Older saves were indexed from the first cook step. The ingredients page now leads. */
+  /* Older saves were indexed from the first cook step. The ingredients page now leads.
+     An unstarted cook stays on that page. */
   if (!blob.ingredientsLead) {
+    const unstarted = current === 0 && done.size === 0 && !blob.finished && (!blob.timers || blob.timers.length === 0);
+    if (unstarted) return;
     current += 1;
     const shifted = [...done].map(i => i + 1);
     done.clear();
@@ -580,11 +590,14 @@ function fmt(sec) {
   return h > 0 ? (h + ":" + mm + ":" + ss) : (mm + ":" + ss);
 }
 function adjustSteps(st) {
-  return st.defaultSec >= 1200 ? [-300, -60, 60, 300] : [-60, -30, 30, 60];
+  if (st.defaultSec >= 3600) return [-3600, -300, 300, 3600];
+  if (st.defaultSec >= 1200) return [-300, -60, 60, 300];
+  return [-60, -30, 30, 60];
 }
 function adjLabel(delta) {
   const sign = delta > 0 ? "+" : "−";
   const a = Math.abs(delta);
+  if (a >= 3600 && a % 3600 === 0) return sign + (a / 3600) + "h";
   if (a >= 60 && a % 60 === 0) return sign + (a / 60) + "m";
   return sign + a + "s";
 }

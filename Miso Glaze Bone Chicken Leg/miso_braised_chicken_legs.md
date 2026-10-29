@@ -39,19 +39,22 @@ restore the fresh fermented top note.
 - Awase (barley) miso — **25 g**
 - Ginger, sliced — **20 g**
 - Garlic, smashed — **3 cloves**
-- Scallion whites — **3 scallions** (greens saved to finish)
-- Dried chili — **1 chili** (optional)
+- Scallion whites — **3 scallions** (greens saved for the plate)
 
 > **No soy.** The seafood stock is a seasoned base (복합조미식품) and carries its own salt — soy
 > would push it over. If you sub in pure kombu-katsuo dashi instead, add back **10 ml soy**.
 
+### Leave in the cupboard until a step names it
+- Dried chili — **1 chili**, only if you want it in the sweat
+
 ### Finish (off the boil)
+Weigh the finishing miso once. The salt gate may send only part of it into the pot.
 - Juwari kōji miso — **30 g**
 - White sweet miso — **15 g**
 - Cold butter — **8 g**
 - Rice vinegar or yuzu — a few drops
 
-### To serve
+### At the table, not in the pot
 - Scallion greens — from the **3 scallions**
 - Toasted sesame — **to taste**
 - Shichimi — **to taste**
@@ -72,21 +75,23 @@ restore the fresh fermented top note.
    until the skin releases on its own and reads deep gold (a nudge with tongs tells you: glued =
    wait, slides = go). Flip ~1 min to set the flesh side, then transfer all legs to a plate.
 
+   > **Read the fond before any of it goes into the braiser.** Brown bits that will dissolve are
+   > flavor. Leave them. Hard black flecks that will not budge are scorched. Off the heat, splash a
+   > little of the **80 ml** sake, scrape, and strain the black solids out. Keep the liquid. The sake
+   > in the next step is what remains of that 80 ml.
+
    > **Why split pans:** the sear wants a release surface (seasoned metal); the braise wants an inert
    > one (enamel/ceramic) so the salty, acidic liquid doesn't pick up metallic notes over 45–60 min.
    > Each pan does the job it's good at. The render's fond stays in the metal pan — deglaze it into
    > the base below so none of that flavor is lost.
 
 3. **Base.** In the enameled/ceramic braising vessel, warm a thin film of the rendered fat (spooned
-   from the sear pan). Sweat aromatics ~1 min, fragrant, no browning on the garlic. Add sake, then
-   pour it into the *sear pan* too and scrape up that fond, returning it all to the braiser — reduce
+   from the sear pan). Sweat the **20 g** ginger, the **3** smashed garlic cloves, the scallion
+   whites, and the chili if you are using it, about 1 min. Fragrant, no browning on the garlic.
+   Add the **80 ml** sake, or what remains of it if the fond check already took a splash.
+   Pour it into the *sear pan* too and scrape up that fond, returning it all to the braiser — reduce
    by half (~1–2 min) to cook off the alcohol.
    Add stock + mirin, whisk in the **25 g awase miso** until dissolved. Bring to a *bare* simmer.
-
-   > **Fond vs. scorch check:** if bits stick and darken during the render, deglaze with a splash
-   > of sake off-heat first. Brown bits that dissolve = flavor, keep them. Hard black flecks that
-   > won't dissolve = scorched, strain them out before building the base — bitterness telegraphs
-   > loudly in a delicate miso braise.
 
 4. **Braise.** Legs back in skin-up, liquid to **mid-thigh with the skin proud** of the surface.
    Lid on, into the oven **45–60 min**, to **82–85 °C** in the thickest part of the thigh. Chase
@@ -94,17 +99,17 @@ restore the fresh fermented top note.
 
 5. **Salt gate (critical).** Pull the legs to rest, tented. Put the pot on low; reduce a couple
    minutes only if the liquid looks thin. **Taste the liquid before any finishing miso.** With the
-   seasoned stock and no soy, this reading decides everything:
-   - Savory/balanced → commit the full finishing slurry.
-   - Assertively salty → start with half (~20 g), taste, add more only for body.
+   seasoned stock and no soy, this reading decides the next step. Nothing goes in yet.
+   - Savory, with room → the next step takes the full **30 g** kōji and **15 g** white.
+   - Already salty → the next step starts with **20 g** of that same miso. Taste. More of it only for body.
 
 6. **Finish off the boil.** Heat off or barest tremble — **do not boil the finishing miso** or you
-   flatten the kōji/white aromatics. Whisk in the slurry (kōji + white, loosened with a ladle of
-   hot liquid), mount the cold butter for gloss, finish with a few drops of vinegar/yuzu for lift.
-   Taste and stop the moment it snaps into focus.
+   flatten the kōji/white aromatics. Whisk in the one dose the salt gate just set, loosened with a
+   ladle of hot liquid. Mount the **8 g** cold butter for gloss, finish with a few drops of
+   vinegar or yuzu for lift. Taste and stop the moment it snaps into focus.
 
-7. **Plate.** Optional broiler re-crisp, legs skin-up 2–3 min. **Nap the sauce *under* the legs**,
-   not over, so the skin stays dry on top. Scallion greens, sesame, shichimi.
+7. **Plate.** Optional broiler re-crisp, legs skin-up 2–3 min. **Spoon the sauce under the legs**,
+   so the skin stays dry on top. Scallion greens, sesame, and shichimi go on the plate.
 
 ---
 

@@ -51,7 +51,7 @@ Each dish keeps its own copy, because these files move to the phone one at a tim
 
 A timed step's default is the first check or the typical duration, and `minSec` / `maxSec` are the honest window. Say so in the body when the endpoint is a temperature, a weight, or a texture rather than the beep. The timer is a backstop.
 
-Long steps (default of 20 minutes or more) adjust by 5 minutes and 1 minute. Shorter steps adjust by 1 minute and 30 seconds.
+Long steps (default of 20 minutes or more) adjust by 5 minutes and 1 minute. Steps of an hour or more also adjust by the hour, so an overnight soak can be set down to a one-hour quick soak. Shorter steps adjust by 1 minute and 30 seconds.
 
 ## What the engine already does
 
@@ -87,4 +87,4 @@ Timers counted down with `setInterval`. A phone throttles or freezes that when t
 
 Gates grew a `wait` branch, distinct from `bad`, because "not yet" and "ruined" were sharing one color. The probe badge takes a label, so an oven setpoint is no longer printed as a pull temperature. Steps of 20 minutes or more adjust by minutes. A step can name what is still running on another burner. Start over asks twice.
 
-The page used to open on the first action, with the ingredients tucked in the rail. A cook standing at the stove wants the whole list before anything is lit. The opening page is now that list, taken from the mise so it is typed once. A saved cook from before this change shifts forward one step instead of landing on the ingredients.
+The page used to open on the first action, with the ingredients tucked in the rail. A cook standing at the stove wants the whole list before anything is lit. The opening page is now that list, taken from the mise so it is typed once. A saved cook that had already moved past the first step shifts forward one step. An unstarted cook stays on the ingredient list.
