@@ -404,7 +404,7 @@
   <div class="legend" id="legend">
     <div class="legend-item"><span class="swatch" style="background:var(--mushroom)"></span><div><b>Cremini</b> <span>· sear hard, single layer, before any liquid</span></div></div>
     <div class="legend-item"><span class="swatch" style="background:var(--pepper)"></span><div><b>Pepper</b> <span>· 6 g cracked, bloomed in the fat</span></div></div>
-    <div class="legend-item"><span class="swatch" style="background:var(--cream)"></span><div><b>Cream</b> <span>· 160 ml · lemon off the heat</span></div></div>
+    <div class="legend-item"><span class="swatch" style="background:var(--cream)"></span><div><b>Cream</b> <span>· 160 ml · lemon, then 30 g cold butter, off the heat</span></div></div>
   </div>
 </header>
 
@@ -429,10 +429,10 @@
         <li><span class="ing">Cognac or brandy if that bottle is open; otherwise a dry white</span><span class="amt">50 ml</span></li>
         <li><span class="ing">Heavy cream, 36% or higher</span><span class="amt">160 ml</span></li>
         <li><span class="ing">Lemon juice. 15 ml off the heat. Up to 10 ml more from the same lemon, only if the first still tastes heavy</span><span class="amt">15 ml</span></li>
+        <li><span class="ing">Unsalted butter, cold. 30 g. Off the heat, after the lemon, whisk it in until the sauce looks glossy and coats a spoon</span><span class="amt">30 g</span></li>
       </ul>
       <div class="grp">Leave in the cupboard until a step names it</div>
       <ul>
-        <li class="cut"><span class="ing">Unsalted butter, cold, only if the sauce is matte and the lemon has already lifted it</span><span class="amt">15 g</span></li>
         <li class="cut"><span class="ing">Water, only if the sauce tightened while it waited</span><span class="amt">15 ml</span></li>
       </ul>
     </div>
@@ -755,28 +755,35 @@ const STEPS = [
     "kind": "gate",
     "phase": "Finish",
     "where": "Enameled saucepan",
-    "title": "Mount, or leave it",
-    "body": "<p><strong>Look</strong> at the surface, still off the heat.</p>",
+    "title": "Read the lemon",
+    "body": "<p><strong>Taste</strong> the sauce, still off the heat. The lemon is already in.</p>",
     "branches": [
       {
         "type": "good",
         "glyph": "✓",
-        "head": "Glossy, already lifted",
-        "text": "The 15 g butter stays in the cupboard."
-      },
-      {
-        "type": "good",
-        "glyph": "✓",
-        "head": "Matte or grainy, flavor lifted",
-        "text": "Whisk in the 15 g cold butter until it disappears. That is the whole mount."
+        "head": "Lifted",
+        "text": "Go on."
       },
       {
         "type": "wait",
         "glyph": "!",
         "head": "Still heavy and dull",
-        "text": "Add up to 10 ml more lemon, from the same lemon, off the heat. Taste again. Not yet. The butter stays in the cupboard."
+        "text": "Add up to 10 ml more lemon, from the same lemon, off the heat. Taste again. Not yet."
       }
     ]
+  },
+  {
+    "kind": "plain",
+    "phase": "Finish",
+    "where": "Enameled saucepan",
+    "title": "Mount the butter",
+    "uses": [
+      {
+        "amt": "30 g",
+        "name": "cold unsalted butter"
+      }
+    ],
+    "body": "<p><strong>Off the heat, after the lemon, whisk</strong> in the <em>30 g</em> cold butter until the sauce looks glossy and coats a spoon. Leave it off the boil.</p>\n    <p>The <em>30 g</em> goes in every time. That is the whole mount.</p>"
   },
   {
     "kind": "gate",

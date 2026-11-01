@@ -1,6 +1,6 @@
 # Cremini Mushroom Cream Pepper
 
-**Enough for 2 steaks.** Cremini seared hard, in a single layer, before any liquid. Cracked black pepper bloomed in the fat. Cream. Lemon off the heat. A small cold-butter mount only if the surface is matte and the lemon has already lifted it.
+**Enough for 2 steaks.** Cremini seared hard, in a single layer, before any liquid. Cracked black pepper bloomed in the fat. Cream. Lemon off the heat. Off the heat, after the lemon, whisk in the 30 g cold butter until the sauce looks glossy and coats a spoon.
 
 Spoon it beside the steak, or under it, once the crust has set. Do not pour it over while the crust is still setting. Do not put the steak in this sauce. Do not boil the finish.
 
@@ -19,9 +19,9 @@ Weigh each line once. Split the mushrooms into two piles before the pan is hot. 
 - Cognac, brandy, or dry white — **50 ml**. Cognac or brandy if that bottle is already open; otherwise the dry white
 - Heavy cream, 36% or higher — **160 ml**
 - Lemon juice — **15 ml** off the heat. Up to **10 ml** more from the same lemon, only if the first still tastes heavy
+- Unsalted butter, cold — **30 g**. Off the heat, after the lemon, whisk it in until the sauce looks glossy and coats a spoon
 
 ### Leave in the cupboard until a step names it
-- Unsalted butter, cold — **15 g**, only if the finished sauce looks matte and the lemon has already lifted it
 - Water — **15 ml**, only if the sauce tightened while it waited
 
 ---
@@ -102,14 +102,18 @@ Lemon goes in next. The sauce is salted and it may have to wait, and bare iron i
 > Already salty: do not add salt. Go on.
 > Flat: *1 g* from the box, stir, taste again. Not yet.
 
-### 15. Mount, or leave it
-**Look** at the surface, still off the heat.
+### 15. Read the lemon
+**Taste** the sauce, still off the heat. The lemon is already in.
 
-> Glossy, and the lemon has already lifted it: the *15 g* butter stays in the cupboard.
-> Matte, or the lemon made it look grainy, and the flavor is already lifted: **whisk** in the *15 g* cold butter until it disappears. That is the whole mount.
-> Still heavy and dull: **add** up to *10 ml* more lemon, from the same lemon, off the heat. Taste again. Not yet. The butter stays in the cupboard.
+> Lifted: go on.
+> Still heavy and dull: **add** up to *10 ml* more lemon, from the same lemon, off the heat. Taste again. Not yet.
 
-### 16. Hold
+### 16. Mount the butter
+**Off the heat, after the lemon, whisk** in the *30 g* cold butter until the sauce looks glossy and coats a spoon. Leave it off the boil.
+
+The *30 g* goes in every time. That is the whole mount.
+
+### 17. Hold
 **Hold** the sauce off the boil until you spoon it.
 
 > It spoons and shines: spoon it beside the steak, or under it.
@@ -122,7 +126,7 @@ Do not pour it over a crust that is still setting. Do not simmer a steak in it.
 
 ## The call
 
-Sear the cremini hard, in a single layer, before any liquid. Bloom *6 g* cracked pepper in that fat. Pour in *50 ml* cognac, or brandy if that is the open bottle, otherwise *50 ml* dry white. The body is *160 ml* cream. Lemon goes in off the heat. Butter only if the sauce is matte and the lemon has already lifted it. Do not boil the finish.
+Sear the cremini hard, in a single layer, before any liquid. Bloom *6 g* cracked pepper in that fat. Pour in *50 ml* cognac, or brandy if that is the open bottle, otherwise *50 ml* dry white. The body is *160 ml* cream. Lemon goes in off the heat. Off the heat, after the lemon, whisk in the *30 g* cold butter until the sauce looks glossy and coats a spoon. Do not boil the finish.
 
 Spoon it beside the steak, or under it, once the crust has set. Do not put the steak in this sauce.
 
@@ -134,13 +138,13 @@ Spoon it beside the steak, or under it, once the crust has set. Do not put the s
 
 **Acid.** The counted acid is the 15 ml lemon, off the heat, after the deglaze has boiled until the raw alcohol smell is gone. A second 10 ml, from the same lemon, is only if that first taste is still heavy. Cognac and brandy leave almost no acid once the raw spirit is gone. A dry white, reduced to a glaze, leaves a little. The first 15 ml still goes in either way. The second pour is the control, and it stays in the lemon when the sauce is already lifted. Do not boil after the lemon.
 
-**Fat.** The sauce fat is the cream, about 58 g of fat in 160 ml at 36%, plus 15 g of butter only when the surface is matte and the lemon has already lifted the flavor. Oil that stays in the mushroom fond is part of the sauce. A glossy sauce does not get the butter. Butter on a sauce that still tastes heavy makes the heaviness worse. That path takes more lemon, then a second look. The butter still has to earn the matte surface. 15 g is the whole mount.
+**Fat.** The sauce fat is the cream, about 58 g of fat in 160 ml at 36%, plus 30 g of cold butter every time, about 24 g of fat if the stick is near 80%. The 20 ml of oil is only the sear film, 10 ml on each layer, not a second pour beside the butter. Oil that stays in the mushroom fond is already in the sauce. Off the heat, after the lemon, whisk in the 30 g cold butter until the sauce looks glossy and coats a spoon. Do not boil after the butter. If the first 15 ml of lemon still tastes heavy, the extra lemon goes in before this mount. The 30 g is the whole mount.
 
-**Heat.** The mushrooms take a seasoned skillet, in two layers, so the fond sits under the cream. One crowded layer steams. The 17" paella pan would hold them in one layer and then spread 160 ml of cream too thin to finish. The hold is enamel: the sauce is salted, sharpened with lemon, and has to wait, and bare iron is the wrong pan for that wait. Cream simmers short of a rolling boil. Pepper blooms in the fat before any liquid, or it stays dusty. After the mushrooms return, after the lemon, and after the butter, the sauce does not boil. A boil dumps mushroom water into the cream and spends the lemon.
+**Heat.** The mushrooms take a seasoned skillet, in two layers, so the fond sits under the cream. One crowded layer steams. The 17" paella pan would hold them in one layer and then spread 160 ml of cream too thin to finish. The hold is enamel: the sauce is salted, sharpened with lemon, and has to wait, and bare iron is the wrong pan for that wait. Cream simmers short of a rolling boil. Pepper blooms in the fat before any liquid, or it stays dusty. After the mushrooms return, after the lemon, and after the butter, the sauce does not boil. A boil dumps mushroom water into the cream, spends the lemon, and breaks the mount.
 
 **Wine.** The 50 ml is a deglaze, boiled until the raw alcohol smell is gone, before the cream. Cognac or brandy if a bottle is open; otherwise a dry white. Same volume. The white can take longer to glaze because it is mostly water. The nose is the end of the step.
 
-**Quantity.** Mushrooms 300 g, oil 10 ml a layer, shallot 30 g, pepper 6 g, deglaze 50 ml, cream 160 ml, lemon 15 ml plus up to 10 ml from the same lemon, and butter 15 g are sized for two steaks and have not been plated from this pan. The 6 g of cracked pepper is the pepper in the name, against 160 ml of cream. It cannot be taken back out. Cracked, and bloomed about 30 seconds, is how that weight stays sweet. A fresh 30 g shallot and 6 g pepper are only if the bloom scorches, weighed then. Cream at 160 ml is the body. Finished volume, mushrooms included, is asserted around 200 ml. The water is 15 ml, and only if the hold tightened the sauce.
+**Quantity.** Mushrooms 300 g, oil 10 ml a layer, shallot 30 g, pepper 6 g, deglaze 50 ml, cream 160 ml, lemon 15 ml plus up to 10 ml from the same lemon, and butter 30 g are sized for two steaks and have not been plated from this pan. The 30 g cold butter is the whole mount for this batch, 160 ml of cream for two steaks, and it goes in every time. The 6 g of cracked pepper is the pepper in the name, against 160 ml of cream. It cannot be taken back out. Cracked, and bloomed about 30 seconds, is how that weight stays sweet. A fresh 30 g shallot and 6 g pepper are only if the bloom scorches, weighed then. Cream at 160 ml is the body. Finished volume, mushrooms included, is asserted around 200 ml. The water is 15 ml, and only if the hold tightened the sauce.
 
 ---
 
@@ -148,4 +152,6 @@ Spoon it beside the steak, or under it, once the crust has set. Do not put the s
 
 **Computed from a label.** Cream fat is about 58 g from 160 ml at 36% and a density near 1.01. The sauce-salt prior is about 0.5% if 2 g lands in about 400 g of mushrooms plus sauce. The 400 g is asserted, so the percentage is a prior, and the taste is the instrument.
 
-**Asserted, not measured in this kitchen.** Mushroom weight 300 g, oil 10 ml a layer, shallot 30 g, pepper 6 g, deglaze 50 ml, cream 160 ml, lemon 15 ml plus up to 10 ml, butter 15 g, water 15 ml, mushroom salt 2 g. First looks: mushrooms 3 minutes undisturbed, shallot 2 minutes, pepper 30 seconds, deglaze 60–90 seconds and longer when it is wine, cream 4–6 minutes, mushrooms back 30 seconds. A finished sauce, mushrooms included, roughly 200 ml. None of these were timed or weighed out of this pan.
+**Computed from a typical stick, not weighed here.** Butter near 80% fat puts about 24 g of fat in the 30 g.
+
+**Asserted, not measured in this kitchen.** Mushroom weight 300 g, oil 10 ml a layer, shallot 30 g, pepper 6 g, deglaze 50 ml, cream 160 ml, lemon 15 ml plus up to 10 ml, butter 30 g, water 15 ml, mushroom salt 2 g. First looks: mushrooms 3 minutes undisturbed, shallot 2 minutes, pepper 30 seconds, deglaze 60–90 seconds and longer when it is wine, cream 4–6 minutes, mushrooms back 30 seconds. A finished sauce, mushrooms included, roughly 200 ml. None of these were timed or weighed out of this pan.
