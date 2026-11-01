@@ -1,26 +1,23 @@
-**DRAFT.** The cook has since said the steak is 3 cm cremini, pan-sear only, so this draft may still say reverse sear and must not be cooked as final.
+# Ribeye with Mushroom Cream Pepper
 
-# Ribeye with Mushroom Cream Pepper Sauce
+**Serves 2.** Two boneless ribeyes, fat cap on, 3 cm thick, seared in ripping-hot cast iron or carbon steel on the gas. Mushroom cream pepper, finished with lemon, napped along the cut face.
 
-**Serves 2.** Two boneless ribeyes, about 4 cm thick. Miele at **100 °C fan**, then a hard sear on gas. Sauce in a wide seasoned skillet, held in a small enameled saucepan. The steak takes the other seasoned skillet.
-
-Salt the steaks, then about an hour before the oven if you are starting now. The oven is usually 25–40 minutes once they go in. The sauce is built during that oven time.
+Salt the steaks about an hour ahead if you are starting now. Finish the sauce and take it off the heat before the steak pan is lit.
 
 ---
 
 ## Ingredients
 
-Weigh the salt once and split it. Split the mushrooms into two piles before the pan is hot. Cupboard items stay there until a step names them. Flaky salt never goes in the pan.
+Weigh the salt once and split it. Split the mushrooms into two piles before the pan is hot. A struck line stays in the cupboard until a step names it. Flaky salt stays at the table.
 
 ### In the pan
-- Boneless ribeye, fat cap on, about 4 cm thick — **2 steaks, about 800 g**
-- Kosher salt — **1 g per 100 g** of each steak, about **8 g** at 800 g, plus **2 g** in its own cup for the mushrooms
+- Boneless ribeye, fat cap on, 3 cm thick — **2 steaks**. Weigh them
+- Kosher salt — **1 g per 100 g** of each steak, plus **2 g** in its own cup for the mushrooms
 - Cremini, wiped, 1 cm slices — **300 g**, as two piles of about **150 g**
 - Neutral oil — **30 ml**: **10 ml** for each mushroom layer, **10 ml** for the steak pan
 - Shallot, fine dice — **30 g**
-- Black pepper, cracked, not ground fine — **6 g**
-- Cognac — **50 ml**. Brandy is the same dose if that is the open bottle
-- Unsalted beef stock — **80 ml**
+- Black pepper, cracked — **6 g**
+- Cognac, brandy, or dry white — **50 ml**. Cognac or brandy if that bottle is already open; otherwise the dry white
 - Heavy cream, 36% or higher — **160 ml**
 - Lemon juice — **15 ml**
 
@@ -40,199 +37,194 @@ Weigh the salt once and split it. Split the mushrooms into two piles before the 
 ### 1. Salt the steaks
 **Pat** the steaks dry. **Weigh** them. **Salt** each steak at *1 g per 100 g*, on every face, including the fat cap. **Put** the mushroom *2 g* in a cup.
 
-The 1 g per 100 g is the kitchen's short-brine target. Weigh it from the steaks in front of you. Two steaks that don't match do not split one 8 g pile in half.
+The 1 g per 100 g is the short brine. Weigh it from the steaks in front of you. Salt each steak from its own weight.
+
+In this hour, if you are starting now: wipe and slice the cremini and split them into two piles of about *150 g*, dice the shallot, crack the pepper, and measure the *50 ml*, the cream, and the lemon. One pour for the deglaze. The pans stay cold until the surface is matte.
 
 ### 2. Dry the surface
 **Leave** them uncovered on a wire rack in the fridge for *1 hour*.
 
-Salted last night, and the surface already matte: do not wait another hour. A wet shine means the salt is still pulling water out, and that face will steam in the oven.
+Salted last night, and the face already matte: leave the timer off and go on. A wet shine means the salt is still pulling water, and that face will steam on the steel.
 
 ### 3. Read the surface
-**Look** at the face of each steak before the oven.
+**Look** at the face of each steak.
 
-> Matte, the salt gone into the meat: into the oven.
-> Wet and shiny: leave them uncovered. Not yet. A wet face will not crust in a minute.
+> Matte, the salt gone into the meat: they stay in the fridge until the steak pan is lit. Light the mushroom pan.
+> Wet and shiny: leave them uncovered. Not yet.
 
-### 4. Into the oven
-**Heat** the Miele to *100 °C fan*. **Set** the steaks on a wire rack over a sheet tray, center of the oven, a finger of air between them. **Probe** the first time at *20 minutes*.
+### 4. Sear the first layer
+**Split** the *300 g* into two piles of about *150 g*. **Heat** a wide seasoned skillet, cast iron or carbon steel, until it is ripping. **Add** *10 ml* oil. **Lay** one pile in a single layer, bare metal between the slices. **Leave** them. First look at *3 minutes*.
 
-Fan temperature. A conventional 120 °C card was lowered 20 °C for this oven. The beep is the first probe, not the pull. Build the sauce while they are in. When the timer rings, probe the eye. Under 44 °C, give them another 5 minutes. At 44–47 °C, take them out even if the sauce is mid-step. They rest uncovered.
+The pan is hot enough when the oil smokes as it goes in. Wet slices steam. The *2 g* stays in the cup until a layer comes off browned.
 
-### 5. Sear the first layer
-**Split** the *300 g* into two piles of about *150 g*. **Heat** the wide seasoned skillet, cast iron or carbon steel, until it is ripping. **Add** *10 ml* oil. **Lay** one pile in a single layer, bare metal between the slices. **Leave** them *3 minutes*.
+### 5. Read the mushrooms
+**Look** at the down face and at the metal. Salt the layer only when it comes off browned.
 
-The pan is hot enough when the oil smokes as it goes in. Salt too early pulls water and the layer steams. The *1 g* goes on as they come off the pan, from the mushroom cup.
+> Deep brown, edges darkened, bare metal still showing: onto a plate. *1 g* salt on that layer, from the cup.
+> Pale, or the pan is wet: leave them. Not yet. If you cannot see metal, take half out.
+> Black and bitter, or sitting in a gray puddle: those slices stay out of the cream. Pour the puddle off. If the fond smells bitter, wipe it. Leave that layer's salt in the cup.
 
-### 6. Read the mushrooms
-**Look** at the down face and at the metal.
+### 6. Sear the second layer
+**Add** *10 ml* oil to the same hot pan. **Lay** in the second *150 g*, single layer, bare metal between the slices. **Leave** them. First look at *3 minutes*.
 
-> Deep brown, edges darkened, bare metal still showing: onto a plate. *1 g* salt on that layer.
-> Pale, or the pan is wet: leave them. Not yet. If you cannot see metal, take half out. Do not stir a pale mushroom.
-> Black and bitter, or sitting in a gray puddle: those slices do not go into the cream. Pour the puddle off and discard it. A steamed mushroom's liquid thins the sauce and tastes like the sink. Dry the pan out before the next layer.
+### 7. Read the second layer
+**Use** the same read. Salt this layer only when it comes off browned.
 
-### 7. Sear the second layer
-**Add** *10 ml* oil to the same hot pan. **Lay** in the second *150 g*, single layer, bare metal between the slices. **Leave** them *3 minutes*.
+> Deep brown, bare metal still showing: onto the plate. The second *1 g*, from the same cup.
+> Pale or wet: leave them. Not yet. If you cannot see metal, take half out.
+> Black, or a gray puddle: that layer stays out of the cream. Pour the puddle off. If the fond smells bitter, wipe it. Leave that layer's salt in the cup.
 
-### 8. Read the second layer
-**Use** the same read as the first layer.
-
-> Deep brown, bare metal still showing: onto the plate with the first layer. The second *1 g* salt, from the same cup.
-> Pale or wet: leave them. Not yet.
-> Black, or a gray puddle: that layer stays out of the cream. Discard the liquid. Do not reduce it.
-
-### 9. Soften the shallot
+### 8. Soften the shallot
 **Drop** the heat to medium. **Cook** the *30 g* shallot in the fat for *2 minutes*, until soft and still pale.
 
-The shallot is the aromatic. Garlic crowds the mushroom and the pepper. If the pan looks dry, tip the fat on the mushroom plate back in. That is the same oil, not a new pour. Leave the fond.
+If the pan looks dry, tip the fat on the mushroom plate back in. That is the same oil. Leave the fond.
 
-### 10. Bloom the pepper
-**Add** the *6 g* cracked pepper to that fat. **Stir** for *30 seconds*, until it smells sweet and sharp.
+### 9. Bloom the pepper
+**Add** the *6 g* cracked pepper to that fat. **Stir** *30 seconds*, until it smells sweet and sharp.
 
-Fine dust scorches in this window. Cracked pepper, pieces you can see.
-
-### 11. Read the pepper
+### 10. Read the pepper
 **Smell** it before any liquid goes in.
 
-> Fragrant, the pieces brown-black rather than charcoal: cognac, now. Liquid is what stops the cooking.
-> Still dusty and raw: another 15 seconds. Not yet.
-> Black, acrid: do not deglaze this into the cream. Wipe the pan. The shallot in that fat goes with it. Start the shallot and the pepper again. Burnt pepper stays bitter under cream.
+> Fragrant, the pieces brown-black: deglaze. Liquid stops the cooking.
+> Still dusty and raw: another *15 seconds*. Not yet.
+> Black, acrid: wipe the pan. The shallot in that fat goes with it. Weigh a fresh *30 g* shallot and *6 g* pepper and start those two steps again.
 
-### 12. Deglaze with cognac
-**Pour** in the *50 ml* cognac. **Scrape**. **Boil** until the raw spirit smell is gone and the shallot looks glazed, *about 60–90 seconds*.
+### 11. Deglaze
+**Pour** in *50 ml* cognac, or brandy if that is the open bottle, otherwise *50 ml* dry white, **scrape**, and **boil** until the raw alcohol smell is gone and the shallot looks glazed, *about 60–90 seconds*.
 
-Cognac, or the brandy that is the same job. Stock and cream are the body of this sauce, so the spirit is a short deglaze, boiled off before they go in. The lemon at the end is the acid. Keep the heat high enough that the pan is almost dry, not boiling a puddle.
+A dry white is mostly water, so the glaze can take longer. The nose is the end. Keep the heat high enough that the pan is almost dry.
 
-### 13. Reduce the stock
-**Pour** in the *80 ml* unsalted beef stock. **Boil** until a tilt of the pan shows a dark, syrupy spoonful rather than a puddle, *about 2 minutes*.
+### 12. Reduce the cream
+**Pour** in the *160 ml* cream. **Simmer**, lively and short of a rolling boil, *4–6 minutes*, until it coats a spoon.
 
-A salted carton still goes in. The salt gate at the end starts from a taste.
+The pan should be glazed, not smoking. If it is still smoking, off the heat for a few seconds, then the cream. Take the sauce a shade thicker than you want to spoon. The mushrooms loosen it when they come back.
 
-### 14. Reduce the cream
-**Pour** in the *160 ml* cream. **Simmer**, lively but short of a rolling boil, for *4–6 minutes*, until it coats a spoon.
-
-A hard boil breaks the fat. Take the reduction a shade thicker than the sauce you want to spoon. The mushrooms loosen it when they come back.
-
-### 15. Read the spoon
+### 13. Read the spoon
 **Drag** a finger through the sauce on the spoon.
 
 > The line holds for a second, then slowly fills: the mushrooms go back in.
 > The line floods at once: another minute at the same simmer. Not yet.
-> Brown patches on the metal, a cooked sweet-burnt smell: off the heat. Pour the sauce off the black. Do not scrape it in.
+> Brown patches on the metal, a cooked sweet-burnt smell: off the heat. Pour the sauce off the black. Leave the black in the pan.
 
-### 16. Return the mushrooms
-**Slide** the seared mushrooms back into the sauce. **Warm** them *30 seconds*. Do not boil.
+### 14. Return the mushrooms
+**Slide** the seared mushrooms back into the sauce. **Warm** them *30 seconds*. Keep it off a boil.
 
 They are already cooked. A boil here dumps their water into the cream.
 
-### 17. Decant to enamel
-**Pour** the sauce into the small enameled saucepan.
+### 15. Decant to enamel
+**Pour** the sauce into a small enameled saucepan, off the heat.
 
-Lemon and salt are about to go in, and this sauce has to wait through the sear. Bare iron is the wrong hold for that. The seasoned skillet is now free to be wiped only if you have no second pan. The steak wants its own dry skillet, already hot.
+Lemon and salt go in next, and the sauce waits through the sear. The seasoned skillet is free for the steaks. If it is the only one, wipe it dry. Cream left on the metal burns onto the crust.
 
-### 18. Add the lemon
-**Off the heat, stir** in the *15 ml* lemon juice. **Taste**.
+### 16. Add the lemon
+**Off the heat, stir** in the *15 ml* lemon juice. Leave it off the boil.
 
-This is the acid that keeps the cream from sitting heavy. Do not boil it.
-
-### 19. Taste for salt
-**Taste** the sauce. The *2 g* on the mushrooms is already in it.
+### 17. Taste for salt
+**Taste** the sauce. The mushroom salt is already in it.
 
 > Savory and clear: no more salt.
-> Flat: *1 g* from the box, stir, taste again. Not yet seasoned. Stop when it clears.
-> Already salty: do not add salt. Water will not fix it.
+> Flat: *1 g* from the box, stir, taste again. Not yet.
+> Already salty: do not add salt.
 
-### 20. Mount, or not
+### 18. Mount, or leave it
 **Look** at the surface, still off the heat.
 
 > Glossy, and the richness already snaps into focus: the *15 g* butter stays in the cupboard.
-> Matte, or the lemon made it look grainy, and the flavor is already lifted: **whisk** in the *15 g* cold butter until it disappears.
-> Still heavy and dull: do not mount the butter. **Add** up to *10 ml* more lemon, off the heat, and stop. Butter would make the heaviness worse.
+> Matte, or the lemon made it look grainy, and the flavor is already lifted: not yet glossy. **Whisk** in the *15 g* cold butter until it disappears.
+> Still heavy and dull: **add** up to *10 ml* more lemon, off the heat. The butter stays in the cupboard.
 
-### 21. Pull the steaks
-**Probe** the center of the eye on each steak. Not the spinalis. Not a fat pocket.
+### 19. Heat the steak pan
+**Heat** a seasoned skillet, cast iron or carbon steel, on high gas until it is ripping. **Add** the *10 ml* oil. It should smoke as it goes in. **Take** the steaks from the fridge and leave them uncovered.
 
-About 4 cm: the pull is *44–47 °C*. Under 3.5 cm: the pull is *40 °C*, because the same sear climbs further in a thinner steak.
+The smoke is the tell. The sauce stays in the enamel, off a boil. At 3 cm the steak stays on this pan. An oven start brings the center up, and the sear that follows takes the eye through *56 °C*.
 
-> 44–47 °C in the eye, or 40 °C if the steak is under 3.5 cm: out, onto the rack, uncovered.
-> Under 44 °C on a 4 cm steak: five more minutes in the oven. Not yet.
-> 48 °C or over: out. When you sear, *30 seconds* a side and stop. A minute a side from here takes the eye through 55 °C. Do not put it back in the oven.
+### 20. Render the fat cap
+**Hold** the fat caps on the metal until the edge is browned and fat has rendered into the pan. First look at *45 seconds*.
 
-The sauce can still be finishing. Pull anyway. They rest uncovered, not tented. A tent wets the face the oven just dried.
+The eye is still cold, which is why the cap goes now. If the edge is still pale, another *20 seconds*, then the face goes down. A steak with no real cap goes straight to the face. The oil is already in the pan.
 
-### 22. Heat the steak pan
-**Heat** the second seasoned skillet on high gas until a film of oil smokes. **Add** the *10 ml* oil once it is that hot. **Leave** the steaks uncovered on the rack while the pan heats, *about 4 minutes*, longer if the sauce is still catching up.
+### 21. Sear the first face
+**Lay** the steaks down. Both only if bare metal shows between them. If it does not, one at a time, and the other waits on the rack. **Leave** the down face until it releases and is deep brown. First look at *90 seconds*.
 
-The smoke is the tell. The beep is only the backstop. Do not tent the steaks. The sauce stays in the enamel, off a boil. A simmer now dulls the lemon.
+Straight from the rack. The cold eye is the time the crust has.
 
-### 23. Sear the first side
-**Lay** the steaks in. Both only if bare metal shows between them. If it does not, one at a time, and the other waits on the rack, not in the oven. **Leave** the down face *45–60 seconds*.
+### 22. Read the crust
+**Look** at the down face, then **probe** the eye once it is free.
 
-A hot pan crusts in that minute. The minute is the longest this side stays down, not a target to hit. If the pull was already 48 °C or over, this side is *30 seconds*.
+> Deep brown, and it releases: flip. Probe the eye. At *50 °C* already, the second face is color only, then off.
+> Blond at *90 seconds*, or still stuck: steaks onto the rack. Heat the pan until the oil smokes. Back on the pale side.
+> Black and bitter: that face is done. Probe the eye and pull on the number below. Keep that face off the metal.
 
-### 24. Render the fat cap
-**Hold** the fat caps on the metal for *30 seconds*.
+### 23. Sear the second face
+**Sear** the second face. **Probe** the center of the eye as soon as you flip, and again while it cooks. First look at *60 seconds*.
 
-Thirty seconds sets the cap. A long render here is how the eye passes 55 °C.
+The spinalis and the fat pocket both read hot. The eye is the steak. If the eye is already *50 °C* at the flip, this face gets color and comes off.
 
-### 25. Read the eye
-**Probe** the eye again, after the first side and the cap.
+### 24. Pull
+**Probe** the eye on each steak. **Pull** at *50 °C*.
 
-> Brown, and the eye is under 54 °C: under 50 °C, the second side is *50–60 seconds*. At 50–53 °C, the second side is *30–40 seconds*.
-> Blond at 60 seconds: the pan was not hot enough. Steaks off. Heat the pan until the oil smokes. *30 seconds* more on the pale side. Do not stand on a cool pan for minutes.
-> Eye already at 54 °C: the second side is *20 seconds*, enough to color, then off. Do not give it a minute.
+> *50–52 °C* in the eye: off the pan, onto a rack, uncovered.
+> Under *50 °C*, crust still brown: *20 seconds* more, then probe again.
+> *53 °C* or over, or the crust is black: off now.
 
-### 26. Sear the second side
-**Sear** the second side for the time the last gate set. **Probe** as it comes off the metal.
+Off at the first reading of *50 °C*. A *51* or *52* as it leaves the metal is still the pull. The uncovered rest is what carries the eye to *54–56 °C*. The prior for that climb is about *4–6 °C* over the next few minutes. It has not been measured on this pan. The probe at *4 minutes* is the check. Two steaks will not match. The hotter one comes off first. The other stays until its own eye hits *50 °C*. If they would not fit together, the first rests uncovered while the second sears.
 
-### 27. Off the pan
-**Read** the eye.
+### 25. Rest
+**Rest** uncovered. **Probe** the eye at *4 minutes*. The landed target is *54–56 °C*.
 
-> 52–55 °C: off the pan, onto a warm plate. No tent.
-> Under 52 °C, and the crust is not black: *20 seconds* more on the paler side, then probe again. Not yet.
-> 56 °C or over: off now. Do not give it another side. Slice it and serve it.
+Rest uncovered, so the crust stays dry. The sauce stays off the boil.
 
-No rest after the sear beyond the time it takes to plate. The oven already evened the eye. A tent here softens the crust.
+### 26. Read the eye
+**Probe** the eye. The landed target is *54–56 °C*.
 
-### 28. Read the sauce
-**Look** at the enamel before you spoon.
+> *54–56 °C*: slice.
+> Under *54 °C*: still climbing, another minute, then probe. The climb has stopped: back on the hot pan until the eye reads *53 °C*, then one minute uncovered and probe again. Keep the steak out of the sauce.
+> *57 °C* or over: slice now.
 
-> It spoons and shines: beside the steak. The *15 ml* water stays in the cupboard.
-> Tight and sluggish from waiting: **stir** in the *15 ml* water, off the boil.
-> Broken into a slick, or boiling: off the heat. **Whisk** it. Do not boil it back together. Leave any black bits in the saucepan.
+### 27. Read the sauce
+**Look** at the enamel.
 
-### 29. Spoon it beside
-**Spoon** the sauce beside the steaks, mushrooms in the sauce. **Leave** the crust bare.
+> It spoons and shines: nap.
+> Tight, or cool and dull: tight gets the *15 ml* water, off the boil. Cool and still fluid gets a warm burner, short of a simmer. Look again.
+> Broken into a slick, or boiling: off the heat. **Whisk**. Leave it off the boil.
 
-The cut face is what goes through the sauce. Sauce under the steak wets the crust from below. A nap softens the top. Flaky salt goes on a slice that tastes shy. It does not go in the sauce, and it does not go on before you taste.
+### 28. Nap the cut face
+**Slice** across the grain, in thick pieces. **Nap** the cut faces with the sauce. **Leave** the seared face bare.
+
+The mushrooms come with the sauce. Flaky salt goes on a slice that tastes shy, after you taste it.
 
 ---
 
 ## The call
 
-Bloom the pepper in the mushroom fat, boil the cognac off, and build the body from a little unsalted beef stock and cream. Lemon goes in off the heat, and butter only if the sauce looks matte. The sauce is spooned beside the steak.
+Sear the cremini hard, in a single layer, before any liquid. Bloom *6 g* cracked pepper in that fat. Pour in *50 ml* cognac, or brandy if that is the open bottle, otherwise *50 ml* dry white. The body is *160 ml* cream. Lemon goes in off the heat. Butter only if the sauce is matte and the lemon has already lifted it. Nap the cut faces. Leave the seared face bare.
 
-The cream is the richness, so the lemon is the structure that keeps it from sitting heavy. Stock and cream are the base, which is why a short cognac reduction belongs here. The crust stays because the steak is seared dry and never sits in the sauce.
+The steak is pan-only. At 3 cm an oven start brings the center up, and the sear that follows takes the eye through *56 °C*. Pull at *50 °C* in the eye so the uncovered rest lands at *54–56 °C*. The probe is the cook. The clock is the first look.
 
 ---
 
 ## Red team
 
-**Salt.** The steak is salted at 1 g per 100 g and that salt stays on the meat. The sauce gets the 2 g on the mushrooms, which is about 0.5% if the mushrooms and sauce together land near 400 g. That 400 g is not a weighed finish, so 0.5% is a prior. The sauce is meant to taste a little under the steak, because a bite takes both. Extra salt is 1 g at a time from the box, after a taste. A salted stock carton spends part of that headroom. Flaky salt is only for a slice that still tastes shy. It is not a third weigh.
+**Salt.** The steak is salted at 1 g per 100 g, and that salt stays on the meat. Weigh each steak. The sauce gets the 2 g on the mushrooms, which is about 0.5% if the mushrooms and sauce together land near 400 g. That 400 g is not a weighed finish, so 0.5% is a prior. The sauce is meant to sit a little under the steak, because a bite takes both. Extra salt is 1 g at a time from the box, after a taste. A scorched mushroom layer leaves its gram in the cup, and the taste gate covers the shortfall. Flaky salt is a pinch on a shy slice. It is a third salt only after the plate is tasted.
 
-**Acid.** The counted acid is the 15 ml lemon, off the heat, after the cognac has been boiled until the raw spirit smell is gone. A second 10 ml is only if that first taste is still heavy. The sauce does not also carry wine, vinegar, or mustard. Cognac is the deglaze, not the acid.
+**Acid.** The counted acid is the 15 ml lemon, off the heat, after the deglaze has boiled until the raw alcohol smell is gone. A second 10 ml is only if that first taste is still heavy. Cognac and brandy leave almost no acid once the raw spirit is gone. A dry white, reduced to a glaze, leaves a little. The first 15 ml still goes in either way. The second pour is the control, and it is the one that stays in the cupboard when the deglaze was wine.
 
-**Fat.** The ribeye is the main fat. The sauce fat is the cream, about 58 g of fat in 160 ml at 36%, plus 15 g of butter only when the surface is matte. The steak-pan oil stays in the steak pan. Steak drippings do not get poured into the cream. A glossy sauce does not get the butter. That mount is gloss for a matte surface, and on a plate that already has a fat cap it is easy to overshoot.
+**Fat.** The ribeye is the main fat on the plate. The sauce fat is the cream, about 58 g of fat in 160 ml at 36%, plus 15 g of butter only when the surface is matte and the lemon has already lifted the flavor. Oil that stays in the mushroom fond is part of the sauce. Steak-pan oil and the rendered cap stay in the steak pan. A glossy sauce does not get the butter. Butter on a sauce that still tastes heavy makes the heaviness worse. That path takes lemon.
 
-**Heat and doneness.** The load-bearing number is the eye temperature, not the clock. The tested chart this follows pulls a steak about 4 cm thick at 46 °C from a 120 °C conventional oven and finishes at 54 °C after about 45 seconds a side. This dial is 100 °C fan, that same oven with 20 °C taken off. The pull here starts at 44 °C and runs to 47 °C, two degrees under that chart, because the steaks sit uncovered while the steak pan heats and the first side can run to a minute. Those two degrees are not a measurement from this oven. The probe after the first side is the control: under 50 °C gets a full second side, 50–53 °C gets a shorter one, 54 °C gets color only. The serve window is 52–55 °C. At 56 °C you stop. A pan that is merely hot, not smoking, leaves the crust blond at 60 seconds. More minutes in that pan are how the eye goes through 55 °C. Reheat the pan. A steak under 3.5 cm pulls at 40 °C. Probe both steaks. The hotter one comes out first. The spinalis and the fat pocket both lie.
+**Heat and doneness.** The load-bearing number is the eye after the rest: 54–56 °C. The pull is 50 °C. A ripping sear on a fridge-cold 3 cm steak leaves a hot outer ring. The prior for the climb, over about four to six minutes uncovered, is 4–6 °C. That carryover has not been measured on this pan. Pulling at 50 °C aims the band from the low side: a degree past 56 cannot be walked back, and a degree under 54 can go back on the pan for seconds. Under 50 °C stays on the heat. 50–52 °C comes off. 53 °C or over comes off immediately. At 4 minutes, 54–56 °C is the serve. Still climbing and under 54 °C waits a minute. Stopped under 54 °C goes back on the hot pan until the eye reads 53 °C, then a minute, then the probe. At 57 °C, slice. Probe the eye. The spinalis and a fat pocket both read high. A pan that is hot and not smoking leaves the crust blond at 90 seconds. Heat it until the oil smokes. Minutes on a cool pan are how the eye arrives before the crust.
 
-The sauce pan is seasoned metal because the mushrooms need a ripping sear. The hold is enamel because the finished sauce is salted and sharpened with lemon and has to wait. The steak pan is a second dry seasoned skillet so the crust happens in about a minute. One pan can do both jobs only if the sauce is already in the enamel and the skillet is wiped and smoking before the steaks go in. That wait is what the rest is for.
+At 3 cm the steak stays on the gas the whole way. An oven start at this thickness brings the center up, and the sear that follows takes the eye through 56 °C. The crust is built while the eye is still cold.
+
+The mushrooms take a seasoned skillet, in two layers, so the fond sits under the cream. One crowded layer steams. The 17" paella pan would hold them in one layer and then spread 160 ml of cream too thin to finish. The hold is enamel: the sauce is salted, sharpened with lemon, and has to wait, and bare iron is the wrong pan for that wait. The steak pan is dry seasoned metal, smoking, so the crust sets while the eye is cold. One skillet does both jobs only after the sauce is in the enamel and the metal is wiped and smoking again.
+
+**Wine.** The 50 ml is a deglaze, boiled until the raw alcohol smell is gone, before the cream. Cognac or brandy if a bottle is open; otherwise a dry white. Same volume. The white can take longer to glaze because it is mostly water. The nose is the end of the step.
+
+**Quantity.** Steak weight is whatever the scale says at 3 cm. Salt is a rate. Mushrooms 300 g, oil 10 ml a layer and 10 ml for the steak, shallot 30 g, pepper 6 g, deglaze 50 ml, cream 160 ml, lemon 15 ml plus up to 10 ml, and butter 15 g are sized for two plates and have not been plated from this pan. The 6 g of cracked pepper is the pepper in the name, against 160 ml of cream. It cannot be taken back out. Cracked, and bloomed about 30 seconds, is how that weight stays sweet. A fresh 30 g shallot and 6 g pepper are only if the bloom scorches, weighed then. Cream at 160 ml is the body. There is no stock under it. The fond is the savoriness, and a carton would spend the mushroom salt before the taste. Finished volume, mushrooms included, is asserted around 200 ml.
 
 ---
 
 ## Numbers
 
-**From a tested chart, then a fan correction.** Kenji López-Alt's reverse sear, for a steak about 4 cm thick: pull at 46 °C from a 120 °C conventional oven, finish at 54 °C, sear about 45 seconds a side. The Miele dial is **100 °C fan**, computed as 120 − 20. The serve window **52–55 °C** is his 54 °C as a range this kitchen can hold. The pull band **44–47 °C** uses his 46 °C and starts two degrees earlier. That offset is asserted.
+**Computed from a rule or a label.** Steak salt is 1 g per 100 g. The rate is the short-brine judgment. The grams are the scale. Cream fat is about 58 g from 160 ml at 36% and a density near 1.01. The sauce-salt prior is about 0.5% if 2 g lands in about 400 g of mushrooms plus sauce. The 400 g is asserted, so the percentage is a prior, and the taste is the instrument.
 
-**Computed from a rule or a label.** Steak salt is 1 g per 100 g. On 800 g that is 8 g. The 1% is a judgment, the grams are the scale. Cream fat is about 58 g from 160 ml at 36% and a density near 1.01. The sauce-salt prior is about 0.5% if 2 g lands in about 400 g of mushrooms plus sauce. The 400 g is asserted, so the percentage is a prior, and the taste gate is the instrument.
-
-**Asserted, not measured in this kitchen.** Mushroom weight 300 g, oil 10 ml a layer, shallot 30 g, pepper 6 g, cognac 50 ml, stock 80 ml, cream 160 ml, lemon 15 ml plus up to 10 ml, butter 15 g, water 15 ml, mushroom salt 2 g. The 6 g of pepper and the 15 ml of lemon are sized for this amount of cream. They have not been plated here. Times: mushroom layers about 3 minutes undisturbed, shallot 2 minutes, pepper 30 seconds, cognac 60–90 seconds, stock about 2 minutes, cream 4–6 minutes, mushrooms back 30 seconds, fat cap 30 seconds, steak-pan heat about 4 minutes. Oven first probe at 20 minutes, often 25–40 from the fridge. Carryover during the uncovered rest, about 1–2 °C. The sear's climb on a 4 cm eye. The thin-steak pull at 40 °C. A finished sauce roughly 170–200 ml. None of these were timed or weighed out of this pan.
+**Asserted, not measured in this kitchen.** Mushroom weight 300 g, oil 10 ml a layer and 10 ml for the steak pan, shallot 30 g, pepper 6 g, deglaze 50 ml, cream 160 ml, lemon 15 ml plus up to 10 ml, butter 15 g, water 15 ml, mushroom salt 2 g. Pull at 50 °C. Carryover of about 4–6 °C across an uncovered rest, aimed at a landed eye of 54–56 °C. First looks: mushrooms 3 minutes undisturbed, shallot 2 minutes, pepper 30 seconds, deglaze 60–90 seconds and longer when it is wine, cream 4–6 minutes, mushrooms back 30 seconds, fat cap 45 seconds, first face 90 seconds, second face 60 seconds, rest probe at 4 minutes. A finished sauce, mushrooms included, roughly 200 ml. None of these were timed or weighed out of this pan.

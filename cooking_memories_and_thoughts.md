@@ -172,6 +172,7 @@ Every recipe from here is a markdown file and a cook-it-live HTML copied from th
 
 ## Open threads
 
+- Ribeye with mushroom cream pepper is written, not cooked. 3 cm, pan-sear only, pull at 50 °C. The carryover and the sauce doses have not been through this kitchen.
 - Finish the interrupted eggplant parmigiana cook-live HTML transfer to iCloud.
 - Decide whether the 6-leg miso braise (two enameled braisers, braise-in-two / finish-as-one) gets
   promoted to the canonical recipe and propagated to its cook-live HTML.
