@@ -9,23 +9,25 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Cook It Live · Pan-Seared Ribeye</title>
+<title>Cook It Live · Ribeye with Mushroom Cream Pepper</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
   :root {
-    --ground: #120e0c;
-    --panel: #1c1410;
-    --panel-2: #2a1c16;
-    --line: #4a3328;
-    --ivory: #f6efe6;
-    --muted: #c4a894;
-    --faint: #8a7064;
-    --amber: #e08a45;
-    --amber-deep: #b85e28;
-    --chili: #c4482c;
-    --chili-soft: #e07055;
+    --ground: #14110e;
+    --panel: #1e1814;
+    --panel-2: #2a221c;
+    --line: #3f342b;
+    --ivory: #f4efe6;
+    --muted: #b7a794;
+    --faint: #7d7268;
+    --amber: #e2b56a;
+    --amber-deep: #a67c32;
+    --chili: #c4473a;
+    --chili-soft: #e07a68;
+    --crust: #9a4034;
+    --cream: #efd7ad;
     --radius: 4px;
     --dock-h: 108px;
   }
@@ -391,14 +393,17 @@
       <button class="btn-tiny" id="resetBtn" type="button">Start over</button>
     </div>
   </div>
-  <h1>Pan-Seared Ribeye</h1>
+  <h1>Ribeye with Mushroom Cream Pepper</h1>
   <div class="meta">
     <span><b>Serves 2</b></span>
-    <span>3 cm · medium-rare</span>
-    <span>Cast iron or carbon steel · high gas</span>
+    <span>3 cm ribeye · cast iron or carbon steel</span>
+    <span>Gas · pan only</span>
     <span>Pull <b>50 °C</b> · land <b>54–56 °C</b></span>
   </div>
-  <div class="legend" id="legend"></div>
+  <div class="legend" id="legend">
+    <div class="legend-item"><span class="swatch" style="background:var(--crust)"></span><div><b>Ribeye</b> <span>· pan on gas · pull 50 °C · land 54–56 °C</span></div></div>
+    <div class="legend-item"><span class="swatch" style="background:var(--cream)"></span><div><b>Sauce</b> <span>· mushroom cream pepper · along the cut face</span></div></div>
+  </div>
 </header>
 
 <div class="wrap">
@@ -411,16 +416,29 @@
     <button class="mise-toggle" id="miseToggle" type="button" aria-expanded="false">▸ Mise / ingredients</button>
     <div class="mise" id="mise">
       <h2>Mise en place</h2>
-      <p class="page-note">Weigh each steak. Salt is 1 g per 100 g of that steak. The mushroom cream pepper sauce is a separate recipe. Spoon it beside the steak, or under it, once the crust has set. Do not cook the steak in it.</p>
+      <p class="page-note">Weigh the salt once. The 2 g for the mushrooms is its own cup. Split the cremini into two piles before the pan is hot. A struck line stays in the cupboard until a step names it. Flaky salt stays at the table.</p>
       <div class="grp">In the pan</div>
       <ul>
         <li><span class="ing">Boneless ribeye, fat cap on, 3 cm. Weigh them</span><span class="amt">2 steaks</span></li>
-        <li><span class="ing">Kosher salt. 1 g per 100 g of each steak, every face including the fat cap</span><span class="amt">1 g / 100 g</span></li>
-        <li><span class="ing">Neutral oil, for the pan</span><span class="amt">10 ml</span></li>
+        <li><span class="ing">Kosher salt. 1 g per 100 g of each steak, plus 2 g in a cup for the mushrooms</span><span class="amt">1 g / 100 g + 2 g</span></li>
+        <li><span class="ing">Cremini, wiped, 1 cm slices. Two piles before the pan is hot</span><span class="amt">300 g</span></li>
+        <li><span class="ing">Neutral oil. 10 ml each mushroom layer, 10 ml for the steak pan</span><span class="amt">30 ml</span></li>
+        <li><span class="ing">Shallot, fine dice</span><span class="amt">30 g</span></li>
+        <li><span class="ing">Black pepper, cracked</span><span class="amt">6 g</span></li>
+        <li><span class="ing">Cognac or brandy if that bottle is open; otherwise a dry white</span><span class="amt">50 ml</span></li>
+        <li><span class="ing">Heavy cream, 36% or higher</span><span class="amt">160 ml</span></li>
+        <li><span class="ing">Lemon juice</span><span class="amt">15 ml</span></li>
+      </ul>
+      <div class="grp">Leave in the cupboard until a step names it</div>
+      <ul>
+        <li class="cut"><span class="ing">Unsalted butter, cold, only if the finished sauce looks matte</span><span class="amt">15 g</span></li>
+        <li class="cut"><span class="ing">Lemon juice, from the same lemon, only if the first 15 ml still tastes heavy</span><span class="amt">up to 10 ml</span></li>
+        <li class="cut"><span class="ing">Kosher salt, from the box, 1 g at a time, only after the sauce taste</span><span class="amt">1 g</span></li>
+        <li class="cut"><span class="ing">Water, only if the sauce tightened while it waited</span><span class="amt">15 ml</span></li>
       </ul>
       <div class="grp">At the table, not in the pan</div>
       <ul>
-        <li><span class="ing">Flaky salt, a pinch on a shy slice, after you taste it. If the sauce is on the plate, taste the slice with the sauce first</span><span class="amt">a pinch</span></li>
+        <li><span class="ing">Flaky salt, on a slice that tastes shy</span><span class="amt">a pinch</span></li>
       </ul>
     </div>
   </aside>
@@ -445,268 +463,425 @@
 "use strict";
 
 /* Unique per dish. The restore key is cook-live:<RECIPE_ID>. */
-const RECIPE_ID = "pan-seared-ribeye-3cm";
+const RECIPE_ID = "ribeye-mushroom-cream-pepper";
 const ENGINE = "2026-10-23";
 
+/* Replace with the dish. Shape is documented in cook-it-live/SKILL.md. */
 const STEPS = [
   {
-    "kind": "plain",
-    "phase": "Dry",
-    "where": "Board",
-    "title": "Salt the steaks",
-    "uses": [
-      {
-        "amt": "1 g / 100 g",
-        "name": "kosher salt, on each steak"
-      }
+    kind: "plain",
+    phase: "Dry",
+    where: "Rack",
+    title: "Salt the steaks",
+    uses: [
+      { amt: "1 g / 100 g", name: "kosher salt, on each steak" },
+      { amt: "2 g", name: "kosher salt, in a cup for the mushrooms" }
     ],
-    "body": "<p><strong>Pat</strong> the steaks dry. <strong>Weigh</strong> them. <strong>Salt</strong> each steak at <em>1 g per 100 g</em>, on every face, including the fat cap.</p>\n    <p>The rate is the short brine. Weigh it from the steaks in front of you. Salt each steak from its own weight. Pepper stays off this meat. It is in the sauce.</p>"
+    body: `<p><strong>Pat</strong> the steaks dry. <strong>Weigh</strong> them. <strong>Salt</strong> each steak at <em>1 g per 100 g</em>, on every face, including the fat cap. <strong>Put</strong> the mushroom <em>2 g</em> in a cup.</p>
+    <p>Weigh it from the steaks in front of you. Salt each steak from its own weight. Pepper stays off the steak. It blooms in the sauce. In this hour, if you are starting now: wipe and slice the cremini, split them into two piles of about <em>150 g</em>, dice the shallot, crack the pepper, and measure the <em>50 ml</em>, the cream, and the lemon. One pour. The pans stay cold until the surface is matte.</p>`
   },
   {
-    "kind": "timed",
-    "timerName": "Dry",
-    "defaultSec": 3600,
-    "minSec": 3600,
-    "maxSec": 7200,
-    "timerNote": "The face is the end, not the beep. Already matte from last night: leave this timer off.",
-    "phase": "Dry",
-    "where": "Fridge",
-    "title": "Dry the surface",
-    "uses": [
-      {
-        "amt": "1 hour",
-        "name": "uncovered on a rack"
-      }
+    kind: "timed",
+    timerName: "Dry",
+    defaultSec: 3600,
+    minSec: 3600,
+    maxSec: 7200,
+    timerNote: "The face is the end, not the beep. Already matte from last night: leave this timer off.",
+    phase: "Dry",
+    where: "Fridge",
+    title: "Dry the surface",
+    uses: [
+      { amt: "1 hour", name: "uncovered on a rack" }
     ],
-    "body": "<p><strong>Leave</strong> them uncovered on a wire rack in the fridge for <em>1 hour</em>.</p>\n    <p>Salted last night, and the face already matte: leave the timer off and go on. A wet shine means the salt is still pulling water, and that face will steam. If you are making the sauce, this hour is when. That work is the other card.</p>"
+    body: `<p><strong>Leave</strong> them uncovered on a wire rack in the fridge for <em>1 hour</em>.</p>
+    <p>Salted last night, and the face already matte: leave the timer off and go on. A wet shine means the salt is still pulling water, and that face will steam on the steel.</p>`
   },
   {
-    "kind": "gate",
-    "phase": "Dry",
-    "where": "Fridge",
-    "title": "Read the surface",
-    "body": "<p><strong>Look</strong> at the face of each steak.</p>",
-    "branches": [
-      {
-        "type": "good",
-        "glyph": "✓",
-        "head": "Matte, the salt gone in",
-        "text": "They stay in the fridge until the pan is lit."
-      },
-      {
-        "type": "wait",
-        "glyph": "!",
-        "head": "Wet and shiny",
-        "text": "Leave them uncovered. Not yet."
-      }
+    kind: "gate",
+    phase: "Dry",
+    where: "Fridge",
+    title: "Read the surface",
+    body: `<p><strong>Look</strong> at the face of each steak.</p>`,
+    branches: [
+      { type: "good", glyph: "✓", head: "Matte, the salt gone in", text: "They stay in the fridge until the steak pan is lit. Light the mushroom pan." },
+      { type: "wait", glyph: "!", head: "Wet and shiny", text: "Leave them uncovered. Not yet." }
     ]
   },
   {
-    "kind": "timed",
-    "timerName": "Pan",
-    "defaultSec": 120,
-    "minSec": 45,
-    "maxSec": 300,
-    "timerNote": "The beep is a backstop. The oil smoking is the tell.",
-    "phase": "Sear",
-    "where": "Seasoned skillet",
-    "title": "Heat the pan",
-    "uses": [
-      {
-        "amt": "10 ml",
-        "name": "neutral oil"
-      }
+    kind: "timed",
+    timerName: "Mushrooms",
+    defaultSec: 180,
+    minSec: 90,
+    maxSec: 300,
+    timerNote: "First look at 3 minutes. Color is the end. Leave them undisturbed.",
+    phase: "Mushrooms",
+    where: "Seasoned skillet",
+    title: "Sear the first layer",
+    also: [ "Steaks stay uncovered in the fridge" ],
+    uses: [
+      { amt: "150 g", name: "cremini, one pile, single layer" },
+      { amt: "10 ml", name: "neutral oil" }
     ],
-    "body": "<p><strong>Heat</strong> a seasoned skillet, cast iron or carbon steel, on high gas until it is ripping. <strong>Add</strong> the <em>10 ml</em> oil. <strong>Take</strong> the steaks from the fridge and leave them uncovered.</p>\n    <p>They come out as the pan heats. A long temper warms the eye, and the sear that follows takes it through <em>56 °C</em>. The smoke is the tell. At 3 cm the steak stays on this pan. If the sauce is on, it stays off the boil, in its own pan.</p>"
+    body: `<p><strong>Split</strong> the <em>300 g</em> into two piles of about <em>150 g</em>. <strong>Heat</strong> a wide seasoned skillet, cast iron or carbon steel, until it is ripping. <strong>Add</strong> <em>10 ml</em> oil. <strong>Lay</strong> one pile in a single layer, bare metal between the slices. <strong>Leave</strong> them.</p>
+    <p>The pan is hot enough when the oil smokes as it goes in. Wet slices steam. The <em>2 g</em> stays in the cup until a layer comes off browned.</p>`
   },
   {
-    "kind": "gate",
-    "phase": "Sear",
-    "where": "Seasoned skillet",
-    "title": "Read the pan",
-    "body": "<p><strong>Look</strong> at the oil.</p>",
-    "branches": [
-      {
-        "type": "good",
-        "glyph": "✓",
-        "head": "It smokes",
-        "text": "The fat cap, or the face if there is no real cap."
-      },
-      {
-        "type": "wait",
-        "glyph": "!",
-        "head": "No smoke",
-        "text": "Leave the pan on high. Not yet. Do not lay the steak in."
-      }
+    kind: "gate",
+    phase: "Mushrooms",
+    where: "Seasoned skillet",
+    title: "Read the mushrooms",
+    also: [ "Steaks stay uncovered in the fridge" ],
+    uses: [
+      { amt: "1 g", name: "kosher salt, from the mushroom cup, on this layer once it is browned" }
+    ],
+    body: `<p><strong>Look</strong> at the down face and at the metal. Salt the layer only when it comes off browned.</p>`,
+    branches: [
+      { type: "good", glyph: "✓", head: "Deep brown, bare metal showing", text: "Onto a plate. 1 g salt on that layer, from the cup." },
+      { type: "wait", glyph: "!", head: "Pale, or the pan is wet", text: "Leave them. Not yet. If you cannot see metal, take half out." },
+      { type: "bad", glyph: "✕", head: "Black, or a gray puddle", text: "Those slices stay out of the cream. Pour the puddle off. If the fond smells bitter, wipe it. Leave that layer's salt in the cup." }
     ]
   },
   {
-    "kind": "timed",
-    "timerName": "Fat cap",
-    "defaultSec": 45,
-    "minSec": 20,
-    "maxSec": 90,
-    "timerNote": "First look at 45 seconds. A browned edge is the end. The eye is still cold.",
-    "phase": "Sear",
-    "where": "Seasoned skillet",
-    "title": "Render the fat cap",
-    "uses": [
-      {
-        "amt": "45 s",
-        "name": "first look, fat cap on the metal"
-      }
+    kind: "timed",
+    timerName: "Second layer",
+    defaultSec: 180,
+    minSec: 90,
+    maxSec: 300,
+    timerNote: "First look at 3 minutes. Same read as the first layer.",
+    phase: "Mushrooms",
+    where: "Seasoned skillet",
+    title: "Sear the second layer",
+    also: [ "Steaks stay uncovered in the fridge" ],
+    uses: [
+      { amt: "150 g", name: "cremini, second pile, single layer" },
+      { amt: "10 ml", name: "neutral oil" }
     ],
-    "body": "<p><strong>Hold</strong> the fat caps on the metal until the edge is browned and fat has rendered into the pan. First look at <em>45 seconds</em>.</p>\n    <p>The eye is still cold, which is why the cap goes now. Both caps only if they fit. The steak that waits gets its cap when it takes the pan. Pale at <em>45 seconds</em>: another <em>20 seconds</em>, then the face. A steak with no real cap skips this and goes to the face. The oil is already in the pan. Do not add more.</p>"
+    body: `<p><strong>Add</strong> <em>10 ml</em> oil to the same hot pan. <strong>Lay</strong> in the second <em>150 g</em>, single layer, bare metal between the slices. <strong>Leave</strong> them.</p>`
   },
   {
-    "kind": "timed",
-    "timerName": "First face",
-    "defaultSec": 90,
-    "minSec": 45,
-    "maxSec": 180,
-    "timerNote": "First look at 90 seconds. Deep brown and released is the end.",
-    "phase": "Sear",
-    "where": "Seasoned skillet",
-    "title": "Sear the first face",
-    "uses": [
-      {
-        "amt": "90 s",
-        "name": "first look, down face undisturbed"
-      }
+    kind: "gate",
+    phase: "Mushrooms",
+    where: "Seasoned skillet",
+    title: "Read the second layer",
+    also: [ "Steaks stay uncovered in the fridge" ],
+    uses: [
+      { amt: "1 g", name: "kosher salt, from the same cup, on this layer once it is browned" }
     ],
-    "body": "<p><strong>Lay</strong> the steaks down. Both only if bare metal shows between them. If they touch, one at a time, and the other waits on the rack. <strong>Leave</strong> the down face until it releases and is deep brown. First look at <em>90 seconds</em>.</p>\n    <p>Straight from the rack. The cold eye is the time the crust has.</p>"
-  },
-  {
-    "kind": "gate",
-    "phase": "Sear",
-    "where": "Seasoned skillet",
-    "title": "Read the crust",
-    "body": "<p><strong>Look</strong> at the down face, then <strong>probe</strong> the eye once it is free.</p>",
-    "branches": [
-      {
-        "type": "good",
-        "glyph": "✓",
-        "head": "Deep brown, it releases",
-        "text": "Flip. Probe the eye. At 50 °C already, the second face is color only, then off."
-      },
-      {
-        "type": "wait",
-        "glyph": "!",
-        "head": "Blond at 90 seconds, or stuck",
-        "text": "Steaks onto the rack. Heat the pan until the oil smokes. Back on the pale side."
-      },
-      {
-        "type": "bad",
-        "glyph": "✕",
-        "head": "Black and bitter",
-        "text": "That face is done. Probe the eye and pull on the number below. Keep that face off the metal."
-      }
+    body: `<p><strong>Use</strong> the same read. Salt this layer only when it comes off browned.</p>`,
+    branches: [
+      { type: "good", glyph: "✓", head: "Deep brown, bare metal showing", text: "Onto the plate. The second 1 g, from the same cup." },
+      { type: "wait", glyph: "!", head: "Pale, or wet", text: "Leave them. Not yet. If you cannot see metal, take half out." },
+      { type: "bad", glyph: "✕", head: "Black, or a gray puddle", text: "That layer stays out of the cream. Pour the puddle off. If the fond smells bitter, wipe it. Leave that layer's salt in the cup." }
     ]
   },
   {
-    "kind": "timed",
-    "timerName": "Second face",
-    "defaultSec": 60,
-    "minSec": 20,
-    "maxSec": 150,
-    "timerNote": "First look at 60 seconds. Off at 50 °C in the eye.",
-    "phase": "Sear",
-    "where": "Seasoned skillet",
-    "title": "Sear the second face",
-    "probe": "50 °C",
-    "probeLabel": "Pull at",
-    "uses": [
-      {
-        "amt": "60 s",
-        "name": "first look, then the probe"
-      }
+    kind: "timed",
+    timerName: "Shallot",
+    defaultSec: 120,
+    minSec: 60,
+    maxSec: 180,
+    timerNote: "Soft and still pale. Leave the fond.",
+    phase: "Sauce",
+    where: "Seasoned skillet",
+    title: "Soften the shallot",
+    also: [ "Steaks stay uncovered in the fridge" ],
+    uses: [
+      { amt: "30 g", name: "shallot, fine dice" }
     ],
-    "body": "<p><strong>Sear</strong> the second face. <strong>Probe</strong> the center of the eye as soon as you flip, and again while it cooks. First look at <em>60 seconds</em>.</p>\n    <p>The spinalis and the fat pocket both read hot. The eye is the steak. If the eye is already <em>50 °C</em> at the flip, this face gets color and comes off. No second dose of oil. The rendered fat is the film.</p>"
+    body: `<p><strong>Drop</strong> the heat to medium. <strong>Cook</strong> the <em>30 g</em> shallot in the fat for <em>2 minutes</em>, until soft and still pale.</p>
+    <p>If the pan looks dry, tip the fat on the mushroom plate back in. That is the same oil. Leave the fond.</p>`
   },
   {
-    "kind": "gate",
-    "phase": "Sear",
-    "where": "Seasoned skillet",
-    "title": "Pull",
-    "probe": "50 °C",
-    "probeLabel": "Pull at",
-    "body": "<p><strong>Probe</strong> the eye on each steak. <strong>Pull</strong> at <em>50 °C</em>.</p>\n    <p>Off at the first reading of <em>50 °C</em>. A <em>51</em> or <em>52</em> as it leaves the metal is still the pull. The uncovered rest is what carries the eye to <em>54–56 °C</em>. The prior for that climb is about <em>4–6 °C</em>. It has not been measured on this pan. The probe at <em>4 minutes</em> is the check. The hotter steak comes off first. The other stays until its own eye hits <em>50 °C</em>. If they would not fit together, the first rests uncovered while the second sears. Each steak's <em>4 minutes</em> starts when that steak leaves the pan. Do not sauce them on the rack.</p>",
-    "branches": [
-      {
-        "type": "good",
-        "glyph": "✓",
-        "head": "50–52 °C in the eye",
-        "text": "Off the pan, onto a rack, uncovered."
-      },
-      {
-        "type": "wait",
-        "glyph": "!",
-        "head": "Under 50 °C, crust still brown",
-        "text": "20 seconds more, then probe again."
-      },
-      {
-        "type": "bad",
-        "glyph": "✕",
-        "head": "53 °C or over, or black",
-        "text": "Off now."
-      }
+    kind: "timed",
+    timerName: "Pepper",
+    defaultSec: 30,
+    minSec: 15,
+    maxSec: 90,
+    timerNote: "Until it smells sweet and sharp. The nose is the end.",
+    phase: "Sauce",
+    where: "Seasoned skillet",
+    title: "Bloom the pepper",
+    also: [ "Steaks stay uncovered in the fridge" ],
+    uses: [
+      { amt: "6 g", name: "black pepper, cracked" }
+    ],
+    body: `<p><strong>Add</strong> the <em>6 g</em> cracked pepper to that fat. <strong>Stir</strong> <em>30 seconds</em>, until it smells sweet and sharp.</p>`
+  },
+  {
+    kind: "gate",
+    phase: "Sauce",
+    where: "Seasoned skillet",
+    title: "Read the pepper",
+    also: [ "Steaks stay uncovered in the fridge" ],
+    body: `<p><strong>Smell</strong> it before any liquid goes in.</p>`,
+    branches: [
+      { type: "good", glyph: "✓", head: "Fragrant, brown-black", text: "Deglaze. Liquid stops the cooking." },
+      { type: "wait", glyph: "!", head: "Still dusty and raw", text: "Another 15 seconds. Not yet." },
+      { type: "bad", glyph: "✕", head: "Black, acrid", text: "Wipe the pan. The shallot in that fat goes with it. Weigh a fresh 30 g shallot and 6 g pepper and start those two steps again." }
     ]
   },
   {
-    "kind": "timed",
-    "timerName": "Rest",
-    "defaultSec": 240,
-    "minSec": 120,
-    "maxSec": 600,
-    "timerNote": "First probe at 4 minutes from that steak's pull. Landed 54–56 °C in the eye is the end.",
-    "phase": "Rest",
-    "where": "Rack",
-    "title": "Rest",
-    "probe": "54–56 °C",
-    "probeLabel": "Landed",
-    "uses": [
-      {
-        "amt": "4 min",
-        "name": "first probe, uncovered, from that steak's pull"
-      }
+    kind: "timed",
+    timerName: "Deglaze",
+    defaultSec: 90,
+    minSec: 45,
+    maxSec: 180,
+    timerNote: "First look around 60–90 seconds. The raw alcohol smell gone is the end. Wine can run longer.",
+    phase: "Sauce",
+    where: "Seasoned skillet",
+    title: "Deglaze",
+    also: [ "Steaks stay uncovered in the fridge" ],
+    uses: [
+      { amt: "50 ml", name: "cognac, or brandy if that bottle is open, otherwise dry white" }
     ],
-    "body": "<p><strong>Rest</strong> uncovered. <strong>Probe</strong> the eye at <em>4 minutes</em> from that steak's pull. The landed target is <em>54–56 °C</em>.</p>\n    <p>Rest uncovered, so the crust stays dry. The sauce, if it is on, stays off the boil and off the meat.</p>"
+    body: `<p><strong>Pour</strong> in <em>50 ml</em> cognac, or brandy if that is the open bottle, otherwise <em>50 ml</em> dry white, <strong>scrape</strong>, and <strong>boil</strong> until the raw alcohol smell is gone and the shallot looks glazed, <em>about 60–90 seconds</em>.</p>
+    <p>A dry white is mostly water, so the glaze can take longer. The nose is the end. Keep the heat high enough that the pan is almost dry.</p>`
   },
   {
-    "kind": "gate",
-    "phase": "Rest",
-    "where": "Rack",
-    "title": "Read the eye",
-    "probe": "54–56 °C",
-    "probeLabel": "Landed",
-    "body": "<p><strong>Probe</strong> the eye. The landed target is <em>54–56 °C</em>.</p>",
-    "branches": [
-      {
-        "type": "good",
-        "glyph": "✓",
-        "head": "54–56 °C",
-        "text": "Slice."
-      },
-      {
-        "type": "wait",
-        "glyph": "!",
-        "head": "Under 54 °C",
-        "text": "Still climbing: another minute, then probe. The climb has stopped: back on the hot pan until the eye reads 53 °C, then one minute uncovered and probe again. Keep the steak out of the sauce."
-      },
-      {
-        "type": "bad",
-        "glyph": "✕",
-        "head": "57 °C or over",
-        "text": "Slice now."
-      }
+    kind: "timed",
+    timerName: "Cream",
+    defaultSec: 240,
+    minSec: 180,
+    maxSec: 420,
+    timerNote: "First look at 4 minutes. The spoon is the end. Often 4–6. Short of a rolling boil.",
+    phase: "Sauce",
+    where: "Seasoned skillet",
+    title: "Reduce the cream",
+    also: [ "Steaks stay uncovered in the fridge" ],
+    uses: [
+      { amt: "160 ml", name: "heavy cream, 36% or higher" }
+    ],
+    body: `<p><strong>Pour</strong> in the <em>160 ml</em> cream. <strong>Simmer</strong>, lively and short of a rolling boil, <em>4–6 minutes</em>, until it coats a spoon.</p>
+    <p>The pan should be glazed, not smoking. If it is still smoking, off the heat for a few seconds, then the cream. Take the sauce a shade thicker than you want to spoon. The mushrooms loosen it when they come back.</p>`
+  },
+  {
+    kind: "gate",
+    phase: "Sauce",
+    where: "Seasoned skillet",
+    title: "Read the spoon",
+    also: [ "Steaks stay uncovered in the fridge" ],
+    body: `<p><strong>Drag</strong> a finger through the sauce on the spoon.</p>`,
+    branches: [
+      { type: "good", glyph: "✓", head: "The line holds, then fills", text: "The mushrooms go back in." },
+      { type: "wait", glyph: "!", head: "The line floods at once", text: "Another minute at the same simmer. Not yet." },
+      { type: "bad", glyph: "✕", head: "Brown patches, sweet-burnt", text: "Off the heat. Pour the sauce off the black. Leave the black in the pan." }
     ]
   },
   {
-    "kind": "plain",
-    "phase": "Plate",
-    "where": "Board",
-    "title": "Slice",
-    "body": "<p><strong>Slice</strong> across the grain, in thick pieces. <strong>Leave</strong> the seared faces bare.</p>\n    <p>Spoon the mushroom cream pepper sauce beside the slices, or under them, once the crust has set. Do not pour it over while the crust is still setting. Do not set the slices in the sauce. Flaky salt goes on a slice that tastes shy, after you taste it. If the sauce is on the plate, taste the slice with the sauce before the pinch.</p>"
+    kind: "timed",
+    timerName: "Mushrooms back",
+    defaultSec: 30,
+    minSec: 15,
+    maxSec: 45,
+    timerNote: "Warm through. Off a boil.",
+    phase: "Sauce",
+    where: "Seasoned skillet",
+    title: "Return the mushrooms",
+    also: [ "Steaks stay uncovered in the fridge" ],
+    uses: [
+      { amt: "the plate", name: "seared cremini" }
+    ],
+    body: `<p><strong>Slide</strong> the seared mushrooms back into the sauce. <strong>Warm</strong> them <em>30 seconds</em>. Keep it off a boil.</p>
+    <p>They are already cooked. A boil here dumps their water into the cream.</p>`
+  },
+  {
+    kind: "plain",
+    phase: "Sauce",
+    where: "Enameled saucepan",
+    title: "Decant to enamel",
+    also: [ "Steaks stay uncovered in the fridge" ],
+    body: `<p><strong>Pour</strong> the sauce into a small enameled saucepan, off the heat.</p>
+    <p>Lemon and salt go in next, and the sauce waits through the sear. The seasoned skillet is free for the steaks. If it is the only one, wipe it dry. Cream left on the metal burns onto the crust.</p>`
+  },
+  {
+    kind: "plain",
+    phase: "Sauce",
+    where: "Enameled saucepan",
+    title: "Add the lemon",
+    also: [ "Steaks stay uncovered in the fridge" ],
+    uses: [
+      { amt: "15 ml", name: "lemon juice" }
+    ],
+    body: `<p><strong>Off the heat, stir</strong> in the <em>15 ml</em> lemon juice. Leave it off the boil.</p>`
+  },
+  {
+    kind: "gate",
+    phase: "Sauce",
+    where: "Enameled saucepan",
+    title: "Taste for salt",
+    also: [ "Steaks stay uncovered in the fridge" ],
+    body: `<p><strong>Taste</strong> the sauce. The mushroom salt is already in it.</p>`,
+    branches: [
+      { type: "good", glyph: "✓", head: "Savory and clear", text: "No more salt." },
+      { type: "wait", glyph: "!", head: "Flat", text: "1 g from the box, stir, taste again. Not yet." },
+      { type: "bad", glyph: "✕", head: "Already salty", text: "Do not add salt. Go on." }
+    ]
+  },
+  {
+    kind: "gate",
+    phase: "Sauce",
+    where: "Enameled saucepan",
+    title: "Mount, or leave it",
+    also: [ "Steaks stay uncovered in the fridge" ],
+    body: `<p><strong>Look</strong> at the surface, still off the heat.</p>`,
+    branches: [
+      { type: "good", glyph: "✓", head: "Glossy, and already lifted", text: "The 15 g butter stays in the cupboard." },
+      { type: "good", glyph: "✓", head: "Matte or grainy, flavor lifted", text: "Whisk in the 15 g cold butter until it disappears. Then go on." },
+      { type: "bad", glyph: "✕", head: "Still heavy and dull", text: "Add up to 10 ml more lemon, off the heat. The butter stays in the cupboard." }
+    ]
+  },
+  {
+    kind: "timed",
+    timerName: "Steak pan",
+    defaultSec: 120,
+    minSec: 45,
+    maxSec: 300,
+    timerNote: "The beep is a backstop. The oil smoking is the tell.",
+    phase: "Steak",
+    where: "Seasoned skillet",
+    title: "Heat the steak pan",
+    also: [ "Sauce is in the enamel, off the boil" ],
+    uses: [
+      { amt: "10 ml", name: "neutral oil" }
+    ],
+    body: `<p><strong>Heat</strong> a seasoned skillet, cast iron or carbon steel, on high gas until it is ripping. <strong>Add</strong> the <em>10 ml</em> oil. It should smoke as it goes in. <strong>Take</strong> the steaks from the fridge and leave them uncovered.</p>
+    <p>The smoke is the tell. The sauce stays in the enamel, off a boil. At 3 cm the steak stays on this pan. An oven start brings the center up, and the sear that follows takes the eye through <em>56 °C</em>.</p>`
+  },
+  {
+    kind: "timed",
+    timerName: "Fat cap",
+    defaultSec: 45,
+    minSec: 20,
+    maxSec: 90,
+    timerNote: "First look at 45 seconds. A browned edge is the end. The eye is still cold.",
+    phase: "Steak",
+    where: "Seasoned skillet",
+    title: "Render the fat cap",
+    also: [ "Sauce is in the enamel, off the boil" ],
+    uses: [
+      { amt: "45 s", name: "first look, fat cap on the metal" }
+    ],
+    body: `<p><strong>Hold</strong> the fat caps on the metal until the edge is browned and fat has rendered into the pan. First look at <em>45 seconds</em>.</p>
+    <p>The eye is still cold, which is why the cap goes now. Both caps only if they fit. The steak that waits gets its cap when it takes the pan. If the edge is still pale, another <em>20 seconds</em>, then the face goes down. A steak with no real cap goes straight to the face. The oil is already in the pan.</p>`
+  },
+  {
+    kind: "timed",
+    timerName: "First face",
+    defaultSec: 90,
+    minSec: 45,
+    maxSec: 180,
+    timerNote: "First look at 90 seconds. Deep brown and released is the end.",
+    phase: "Steak",
+    where: "Seasoned skillet",
+    title: "Sear the first face",
+    also: [ "Sauce is in the enamel, off the boil" ],
+    uses: [
+      { amt: "90 s", name: "first look, down face undisturbed" }
+    ],
+    body: `<p><strong>Lay</strong> the steaks down. Both only if bare metal shows between them. If it does not, one at a time, and the other waits on the rack. <strong>Leave</strong> the down face until it releases and is deep brown. First look at <em>90 seconds</em>.</p>
+    <p>Straight from the rack. The cold eye is the time the crust has.</p>`
+  },
+  {
+    kind: "gate",
+    phase: "Steak",
+    where: "Seasoned skillet",
+    title: "Read the crust",
+    also: [ "Sauce is in the enamel, off the boil" ],
+    body: `<p><strong>Look</strong> at the down face, then <strong>probe</strong> the eye once it is free.</p>`,
+    branches: [
+      { type: "good", glyph: "✓", head: "Deep brown, it releases", text: "Flip. Probe the eye. At 50 °C already, the second face is color only, then off." },
+      { type: "wait", glyph: "!", head: "Blond at 90 seconds, or stuck", text: "Steaks onto the rack. Heat the pan until the oil smokes. Back on the pale side." },
+      { type: "bad", glyph: "✕", head: "Black and bitter", text: "That face is done. Probe the eye and pull on the number below. Keep that face off the metal." }
+    ]
+  },
+  {
+    kind: "timed",
+    timerName: "Second face",
+    defaultSec: 60,
+    minSec: 20,
+    maxSec: 150,
+    timerNote: "First look at 60 seconds. Off at 50 °C in the eye.",
+    phase: "Steak",
+    where: "Seasoned skillet",
+    title: "Sear the second face",
+    probe: "50 °C",
+    probeLabel: "Pull at",
+    also: [ "Sauce is in the enamel, off the boil" ],
+    uses: [
+      { amt: "60 s", name: "first look, then the probe" }
+    ],
+    body: `<p><strong>Sear</strong> the second face. <strong>Probe</strong> the center of the eye as soon as you flip, and again while it cooks. First look at <em>60 seconds</em>.</p>
+    <p>The spinalis and the fat pocket both read hot. The eye is the steak. If the eye is already <em>50 °C</em> at the flip, this face gets color and comes off. The oil already in the pan is the film.</p>`
+  },
+  {
+    kind: "gate",
+    phase: "Steak",
+    where: "Seasoned skillet",
+    title: "Pull",
+    probe: "50 °C",
+    probeLabel: "Pull at",
+    also: [ "Sauce is in the enamel, off the boil" ],
+    body: `<p><strong>Probe</strong> the eye on each steak. <strong>Pull</strong> at <em>50 °C</em>.</p>
+    <p>Off at the first reading of <em>50 °C</em>. A <em>51</em> or <em>52</em> as it leaves the metal is still the pull. The uncovered rest is what carries the eye to <em>54–56 °C</em>. The prior for that climb is about <em>4–6 °C</em> over the next few minutes. It has not been measured on this pan. The probe at <em>4 minutes</em> is the check. Each steak's <em>4 minutes</em> starts when that steak leaves the pan. Two steaks will not match. The hotter one comes off first. The other stays until its own eye hits <em>50 °C</em>. If they would not fit together, the first rests uncovered while the second sears. The sauce stays off the meat.</p>`,
+    branches: [
+      { type: "good", glyph: "✓", head: "50–52 °C in the eye", text: "Off the pan, onto a rack, uncovered." },
+      { type: "wait", glyph: "!", head: "Under 50 °C, crust still brown", text: "20 seconds more, then probe again." },
+      { type: "bad", glyph: "✕", head: "53 °C or over, or black", text: "Off now." }
+    ]
+  },
+  {
+    kind: "timed",
+    timerName: "Rest",
+    defaultSec: 240,
+    minSec: 120,
+    maxSec: 600,
+    timerNote: "First probe at 4 minutes. Landed 54–56 °C in the eye is the end.",
+    phase: "Steak",
+    where: "Rack",
+    title: "Rest",
+    probe: "54–56 °C",
+    probeLabel: "Landed",
+    also: [ "Sauce is in the enamel, off the boil" ],
+    uses: [
+      { amt: "4 min", name: "first probe, uncovered" }
+    ],
+    body: `<p><strong>Rest</strong> uncovered. <strong>Probe</strong> the eye at <em>4 minutes</em>. The landed target is <em>54–56 °C</em>.</p>
+    <p>Rest uncovered, so the crust stays dry. The sauce stays off the boil and off the meat.</p>`
+  },
+  {
+    kind: "gate",
+    phase: "Steak",
+    where: "Rack",
+    title: "Read the eye",
+    probe: "54–56 °C",
+    probeLabel: "Landed",
+    also: [ "Sauce is in the enamel, off the boil" ],
+    body: `<p><strong>Probe</strong> the eye. The landed target is <em>54–56 °C</em>.</p>`,
+    branches: [
+      { type: "good", glyph: "✓", head: "54–56 °C", text: "Slice." },
+      { type: "wait", glyph: "!", head: "Under 54 °C", text: "Still climbing: another minute, then probe. The climb has stopped: back on the hot pan until the eye reads 53 °C, then one minute uncovered and probe again. Keep the steak out of the sauce." },
+      { type: "bad", glyph: "✕", head: "57 °C or over", text: "Slice now." }
+    ]
+  },
+  {
+    kind: "gate",
+    phase: "Plate",
+    where: "Enameled saucepan",
+    title: "Read the sauce",
+    body: `<p><strong>Look</strong> at the enamel.</p>`,
+    branches: [
+      { type: "good", glyph: "✓", head: "Spoons and shines", text: "Nap." },
+      { type: "wait", glyph: "!", head: "Tight, or cool and dull", text: "Tight: stir in the 15 ml water, off the boil. Cool and still fluid: a warm burner, short of a simmer. Look again." },
+      { type: "bad", glyph: "✕", head: "Broken, or boiling", text: "Off the heat. Whisk. Leave it off the boil." }
+    ]
+  },
+  {
+    kind: "plain",
+    phase: "Plate",
+    where: "Board",
+    title: "Nap the cut face",
+    body: `<p><strong>Slice</strong> across the grain, in thick pieces. <strong>Nap</strong> the cut faces with the sauce. <strong>Leave</strong> the seared face bare.</p>
+    <p>The mushrooms come with the sauce. Flaky salt goes on a slice that tastes shy, after you taste it.</p>`
   }
 ];
 
