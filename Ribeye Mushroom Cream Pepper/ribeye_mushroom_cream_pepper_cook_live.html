@@ -1,0 +1,1430 @@
+<!DOCTYPE html>
+<!--
+  Cook It Live engine 2026-10-23.
+  Copy this file per dish. Replace the header, the mise, RECIPE_ID, and STEPS.
+  Leave the script below STEPS alone unless you are fixing the engine.
+  Engine fixes go back into this file and into cook-it-live/SKILL.md.
+-->
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cook It Live · Ribeye with Mushroom Cream Pepper Sauce</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ground: #14110e;
+    --panel: #211b16;
+    --panel-2: #2b241d;
+    --line: #40362c;
+    --ivory: #f3eee6;
+    --muted: #b6a694;
+    --faint: #7c7266;
+    --amber: #d4a45c;
+    --amber-deep: #a67b36;
+    --chili: #c4473a;
+    --chili-soft: #e07a68;
+    --radius: 4px;
+    --dock-h: 108px;
+  }
+
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+
+  body {
+    margin: 0;
+    background: var(--ground);
+    color: var(--ivory);
+    font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+    line-height: 1.5;
+    padding-bottom: calc(var(--dock-h) + env(safe-area-inset-bottom));
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .mono { font-family: "JetBrains Mono", ui-monospace, monospace; font-feature-settings: "tnum"; }
+
+  header {
+    border-bottom: 1px solid var(--line);
+    padding: 18px 20px 18px;
+    background: linear-gradient(180deg, #1c1510 0%, var(--ground) 100%);
+  }
+  .head-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 8px;
+  }
+  .head-actions { display: flex; gap: 8px; flex: 0 0 auto; }
+  .eyebrow {
+    font-family: "JetBrains Mono", monospace;
+    font-size: 11px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--amber);
+    margin: 0;
+  }
+  h1 {
+    font-family: "Fraunces", Georgia, serif;
+    font-weight: 500;
+    font-size: clamp(26px, 5vw, 40px);
+    line-height: 1.04;
+    margin: 0 0 10px;
+    letter-spacing: -0.01em;
+  }
+  .meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px 18px;
+    font-family: "JetBrains Mono", monospace;
+    font-size: 12px;
+    color: var(--muted);
+  }
+  .meta b { color: var(--ivory); font-weight: 500; }
+
+  .legend { display: flex; gap: 16px; flex-wrap: wrap; margin-top: 16px; }
+  .legend:empty { display: none; }
+  .legend-item { display: flex; align-items: center; gap: 8px; font-size: 12px; color: var(--muted); }
+  .swatch {
+    width: 14px; height: 14px; border-radius: 50%;
+    flex: 0 0 auto;
+    box-shadow: inset 0 0 0 1px rgba(0,0,0,0.35);
+  }
+  .legend-item b { color: var(--ivory); font-weight: 500; }
+  .legend-item span { color: var(--faint); }
+
+  .wrap {
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: 20px;
+    display: grid;
+    grid-template-columns: 268px 1fr;
+    gap: 26px;
+    align-items: start;
+  }
+
+  .rail { position: sticky; top: 16px; }
+  .rail h2, .mise h2 {
+    font-family: "JetBrains Mono", monospace;
+    font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--faint); margin: 0 0 12px; font-weight: 500;
+  }
+  .steplist { list-style: none; margin: 0 0 26px; padding: 0; }
+  .steplist li {
+    display: flex; align-items: baseline; gap: 11px;
+    padding: 7px 10px; border-radius: var(--radius);
+    cursor: pointer; color: var(--muted);
+    font-size: 13.5px; line-height: 1.3;
+    border: 1px solid transparent;
+  }
+  .steplist li:hover { background: var(--panel); color: var(--ivory); }
+  .steplist li.active { background: var(--panel-2); color: var(--ivory); border-color: var(--line); }
+  .steplist li.done .idx { color: var(--amber-deep); }
+  .steplist li.done .s-name { color: var(--faint); text-decoration: line-through; text-decoration-color: var(--line); }
+  .steplist li.phase {
+    cursor: default; pointer-events: none;
+    font-family: "JetBrains Mono", monospace;
+    font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase;
+    color: var(--faint); padding: 14px 10px 2px;
+  }
+  .steplist li.phase:hover { background: transparent; color: var(--faint); }
+  .idx { font-family: "JetBrains Mono", monospace; font-size: 11px; color: var(--faint); flex: 0 0 20px; }
+  .active .idx { color: var(--amber); }
+  .s-tag {
+    margin-left: auto; font-family: "JetBrains Mono", monospace;
+    font-size: 10px; letter-spacing: 0.05em;
+    padding: 1px 6px; border-radius: 20px; flex: 0 0 auto; align-self: center;
+  }
+  .s-tag.timed { color: var(--amber); border: 1px solid var(--amber-deep); }
+  .s-tag.gate { color: var(--chili-soft); border: 1px solid #7a3020; }
+
+  .mise {
+    background: var(--panel); border: 1px solid var(--line);
+    border-radius: var(--radius); padding: 16px 16px 6px;
+  }
+  .mise ul { list-style: none; margin: 0 0 14px; padding: 0; }
+  .mise li {
+    display: flex; justify-content: space-between; gap: 12px;
+    font-size: 13px; padding: 5px 0; border-bottom: 1px solid #2a2018;
+  }
+  .mise li:last-child { border-bottom: none; }
+  .mise .ing { color: var(--ivory); }
+  .mise .amt { font-family: "JetBrains Mono", monospace; font-size: 12.5px; color: var(--amber); white-space: nowrap; }
+  .mise .grp { font-family: "JetBrains Mono", monospace; font-size: 10.5px; letter-spacing: .12em; text-transform: uppercase; color: var(--faint); margin: 12px 0 4px; }
+  .cut { color: var(--faint); text-decoration: line-through; text-decoration-color: var(--chili); }
+  .cut .amt { color: var(--faint); }
+
+  /* The opening page is the full mise, not the narrow rail card. */
+  .step-body .mise-page {
+    display: block;
+    max-width: 40rem;
+    background: transparent;
+    border: none;
+    padding: 0;
+  }
+  .step-body .mise-page .grp {
+    font-size: 11px;
+    margin: 22px 0 6px;
+  }
+  .step-body .mise-page .grp:first-child { margin-top: 0; }
+  .step-body .mise-page li {
+    font-size: 16.5px;
+    padding: 8px 0;
+  }
+  .step-body .mise-page .amt { font-size: 15px; }
+  .page-note {
+    margin: 0 0 18px;
+    max-width: 62ch;
+    color: var(--muted);
+    font-size: 15.5px;
+  }
+  .rail .page-note { display: none; }
+  body.on-mise .rail .mise,
+  body.on-mise #miseToggle { display: none !important; }
+
+  .stage { min-height: 60vh; }
+  .step-head { display: flex; align-items: baseline; gap: 14px; margin-bottom: 4px; flex-wrap: wrap; }
+  .step-num { font-family: "JetBrains Mono", monospace; font-size: 13px; color: var(--amber); letter-spacing: .1em; }
+  .step-kind {
+    font-family: "JetBrains Mono", monospace; font-size: 10.5px; letter-spacing: .14em; text-transform: uppercase;
+    padding: 2px 9px; border-radius: 20px;
+  }
+  .step-kind.timed { color: var(--amber); border: 1px solid var(--amber-deep); }
+  .step-kind.gate { color: var(--chili-soft); border: 1px solid #7a3020; background: rgba(210,73,43,.08); }
+  .step-kind.plain { color: var(--faint); border: 1px solid var(--line); }
+  .step-kind.mise { color: var(--amber); border: 1px solid var(--amber-deep); }
+  .where {
+    font-family: "JetBrains Mono", monospace; font-size: 10.5px; letter-spacing: .14em;
+    text-transform: uppercase; color: var(--ivory);
+    border: 1px solid var(--amber-deep); background: rgba(224,160,62,.08);
+    border-radius: 20px; padding: 2px 9px;
+  }
+  .phase-kicker {
+    font-family: "JetBrains Mono", monospace; font-size: 11px; letter-spacing: .18em;
+    text-transform: uppercase; color: var(--amber); margin: 12px 0 0;
+  }
+
+  .uses { display: flex; flex-wrap: wrap; gap: 6px; margin: 0 0 16px; }
+  .use {
+    font-family: "JetBrains Mono", monospace; font-size: 12.5px; line-height: 1.35;
+    color: var(--muted); background: var(--panel); border: 1px solid var(--line);
+    border-radius: 999px; padding: 5px 10px;
+  }
+  .use b { color: var(--amber); font-weight: 500; }
+
+  .step-title {
+    font-family: "Fraunces", Georgia, serif; font-weight: 500;
+    font-size: clamp(24px, 4vw, 34px); line-height: 1.08; margin: 8px 0 18px;
+    letter-spacing: -0.01em;
+  }
+  .step-title:focus { outline: none; }
+  .step-body { font-size: 16px; color: #ded2c1; max-width: 62ch; }
+  .step-body p { margin: 0 0 14px; }
+  .step-body strong { color: var(--ivory); font-weight: 600; }
+  .step-body em { color: var(--amber); font-style: normal; }
+
+  .also {
+    border: 1px solid var(--amber-deep);
+    background: rgba(224,160,62,.06);
+    border-radius: var(--radius);
+    padding: 10px 14px;
+    margin: 0 0 16px;
+    max-width: 62ch;
+  }
+  .also-k {
+    font-family: "JetBrains Mono", monospace;
+    font-size: 10px; letter-spacing: .16em; text-transform: uppercase; color: var(--amber);
+  }
+  .also ul { margin: 6px 0 0; padding-left: 18px; color: var(--muted); font-size: 14.5px; }
+
+  .probe {
+    display: inline-flex; align-items: center; gap: 10px;
+    background: var(--panel-2); border: 1px solid var(--line);
+    border-radius: var(--radius); padding: 10px 16px; margin: 4px 0 18px;
+  }
+  .probe .lab { font-size: 11px; letter-spacing: .12em; text-transform: uppercase; color: var(--faint); font-family: "JetBrains Mono", monospace; }
+  .probe .val { font-family: "JetBrains Mono", monospace; font-size: 22px; color: var(--amber); font-weight: 500; }
+
+  .gate-branches { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 14px; margin: 20px 0; }
+  .branch { border: 1px solid var(--line); border-radius: var(--radius); padding: 16px; background: var(--panel); }
+  .branch.good { border-color: #4a5a2e; }
+  .branch.wait { border-color: var(--amber-deep); }
+  .branch.bad { border-color: #7a3020; }
+  .branch h4 {
+    font-family: "JetBrains Mono", monospace; font-size: 12px; letter-spacing: .06em;
+    margin: 0 0 8px; display: flex; align-items: center; gap: 8px; text-transform: uppercase;
+  }
+  .branch.good h4 { color: #a9c76a; }
+  .branch.wait h4 { color: var(--amber); }
+  .branch.bad h4 { color: var(--chili-soft); }
+  .branch p { margin: 0; font-size: 14px; color: var(--muted); }
+
+  .timer-launch {
+    display: flex; align-items: center; gap: 12px; flex-wrap: wrap;
+    margin: 22px 0 6px; padding: 16px; border: 1px dashed var(--amber-deep);
+    border-radius: var(--radius); background: rgba(224,160,62,.04);
+  }
+  .timer-launch .tl-time { font-family: "JetBrains Mono", monospace; font-size: 30px; color: var(--amber); font-weight: 500; }
+  .timer-launch .tl-lab { font-size: 13px; color: var(--muted); flex: 1 1 180px; }
+  .adj { display: inline-flex; gap: 6px; }
+  .adj button {
+    min-width: 44px; height: 44px; padding: 0 8px;
+    font-family: "JetBrains Mono", monospace; font-size: 14px;
+    background: var(--panel-2); color: var(--ivory); border: 1px solid var(--line);
+    border-radius: var(--radius); cursor: pointer;
+  }
+  .adj button:hover { border-color: var(--amber-deep); color: var(--amber); }
+
+  button { font-family: inherit; }
+  .btn {
+    border: none; border-radius: var(--radius); cursor: pointer;
+    font-family: "JetBrains Mono", monospace; font-size: 13px; letter-spacing: .04em;
+    padding: 12px 20px; min-height: 44px;
+  }
+  .btn:disabled { opacity: 0.4; cursor: default; }
+  .btn-amber { background: var(--amber); color: #1c1207; font-weight: 700; }
+  .btn-amber:hover:not(:disabled) { filter: brightness(1.08); }
+  .btn-ghost { background: var(--panel-2); color: var(--ivory); border: 1px solid var(--line); }
+  .btn-ghost:hover:not(:disabled) { border-color: var(--amber-deep); color: var(--amber); }
+  .btn-tiny {
+    background: var(--panel-2); border: 1px solid var(--line); color: var(--muted);
+    border-radius: var(--radius); padding: 7px 12px; cursor: pointer;
+    font-family: "JetBrains Mono", monospace; font-size: 11px; letter-spacing: .05em;
+    min-height: 36px;
+  }
+  .btn-tiny:hover { color: var(--amber); border-color: var(--amber-deep); }
+  .btn-tiny.armed { color: var(--chili-soft); border-color: #7a3020; }
+
+  .nav { display: flex; justify-content: space-between; gap: 12px; margin-top: 34px; padding-top: 20px; border-top: 1px solid var(--line); }
+
+  .dock {
+    position: fixed; left: 0; right: 0; bottom: 0; z-index: 40;
+    min-height: var(--dock-h);
+    background: rgba(20,15,11,.94); backdrop-filter: blur(8px);
+    border-top: 1px solid var(--line);
+    padding: 12px 16px calc(12px + env(safe-area-inset-bottom));
+    display: flex; align-items: center; gap: 12px; overflow-x: auto;
+  }
+  .dock-label {
+    font-family: "JetBrains Mono", monospace; font-size: 10px; letter-spacing: .16em;
+    text-transform: uppercase; color: var(--faint); writing-mode: vertical-rl; transform: rotate(180deg);
+    flex: 0 0 auto; padding-right: 2px;
+  }
+  .dock-empty { color: var(--faint); font-size: 13px; font-family: "JetBrains Mono", monospace; }
+  .chip {
+    flex: 0 0 auto; display: flex; align-items: center; gap: 12px;
+    background: var(--panel-2); border: 1px solid var(--line);
+    border-radius: var(--radius); padding: 8px 8px 8px 14px; min-width: 200px;
+  }
+  .chip.ringing { border-color: var(--chili); animation: flash .7s steps(1) infinite; }
+  @keyframes flash { 50% { background: rgba(210,73,43,.22); } }
+  .chip .c-info { display: flex; flex-direction: column; gap: 1px; }
+  .chip .c-name { font-size: 11px; color: var(--muted); font-family: "JetBrains Mono", monospace; letter-spacing: .04em; }
+  .chip .c-time { font-family: "JetBrains Mono", monospace; font-size: 24px; font-weight: 500; color: var(--amber); line-height: 1; }
+  .chip.ringing .c-time { color: var(--chili-soft); }
+  .chip .c-btns { display: flex; gap: 6px; margin-left: auto; }
+  .chip .c-btns button {
+    width: 44px; height: 44px; border-radius: var(--radius);
+    background: var(--panel); border: 1px solid var(--line); color: var(--muted);
+    cursor: pointer; font-size: 14px; display: grid; place-items: center;
+  }
+  .chip .c-btns button:hover { color: var(--amber); border-color: var(--amber-deep); }
+
+  .empty-stage { color: var(--muted); max-width: 52ch; }
+  .sr {
+    position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+    overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0;
+  }
+
+  :focus-visible { outline: 2px solid var(--amber); outline-offset: 2px; }
+
+  @media (max-width: 860px) {
+    .wrap { grid-template-columns: 1fr; gap: 18px; }
+    .rail { position: static; order: 2; }
+    .seq h2, .rail .steplist { display: none; }
+    .seq.open h2, .seq.open .steplist { display: block; }
+    .mise-toggle {
+      display: block; width: 100%; text-align: left;
+      background: var(--panel); border: 1px solid var(--line); color: var(--ivory);
+      border-radius: var(--radius); padding: 12px 14px; margin-bottom: 12px;
+      font-family: "JetBrains Mono", monospace; font-size: 12px; letter-spacing: .06em; cursor: pointer;
+      min-height: 44px;
+    }
+    .mise { display: none; }
+    .mise.open { display: block; }
+    .stage { order: 1; }
+    .progress-mini { display: flex; }
+  }
+  @media (min-width: 861px) {
+    .progress-mini { display: none; }
+    .mise-toggle { display: none; }
+    .rail {
+      max-height: calc(100vh - 20px - var(--dock-h));
+      overflow: auto;
+      padding-right: 6px;
+    }
+    .rail .mise { margin-top: 6px; }
+  }
+
+  .progress-mini { gap: 4px; margin-bottom: 14px; flex-wrap: wrap; }
+  .progress-mini .pip {
+    height: 8px; flex: 1 1 16px; border-radius: 2px; background: var(--line); cursor: pointer;
+  }
+  .progress-mini .pip.done { background: var(--amber-deep); }
+  .progress-mini .pip.active { background: var(--amber); }
+
+  @media (prefers-reduced-motion: reduce) {
+    * { animation: none !important; transition: none !important; }
+    .chip.ringing { background: rgba(210,73,43,.22); }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="head-row">
+    <p class="eyebrow">Cook It Live</p>
+    <div class="head-actions">
+      <button class="btn-tiny" id="soundToggle" type="button" aria-pressed="true">Sound on</button>
+      <button class="btn-tiny" id="resetBtn" type="button">Start over</button>
+    </div>
+  </div>
+  <h1>Ribeye with Mushroom Cream Pepper Sauce</h1>
+  <div class="meta">
+    <span><b>Serves 2</b></span>
+    <span>100 °C fan · then a hard sear</span>
+    <span>Sauce beside the steak</span>
+  </div>
+  <div class="legend" id="legend">
+    <div class="legend-item"><span class="swatch" style="background:var(--chili)"></span><div><b>Ribeye</b> <span>· reverse sear · 52–55 °C</span></div></div>
+    <div class="legend-item"><span class="swatch" style="background:var(--amber)"></span><div><b>Sauce</b> <span>· beside the steak, crust bare</span></div></div>
+  </div>
+</header>
+
+<div class="wrap">
+  <aside class="rail" id="rail">
+    <button class="mise-toggle" id="seqToggle" type="button" aria-expanded="false">▸ Sequence</button>
+    <div class="seq" id="seq">
+      <h2>Sequence</h2>
+      <ol class="steplist" id="steplist"></ol>
+    </div>
+    <button class="mise-toggle" id="miseToggle" type="button" aria-expanded="false">▸ Mise / ingredients</button>
+    <div class="mise" id="mise">
+      <h2>Mise en place</h2>
+      <p class="page-note">Weigh the salt once and split it. Split the mushrooms into two piles of about 150 g before the pan is hot. Cupboard items stay there until a step names them. Flaky salt never goes in the pan.</p>
+      <div class="grp">In the pan</div>
+      <ul>
+        <li><span class="ing">Boneless ribeye, fat cap on, about 4 cm thick. 2 steaks</span><span class="amt">about 800 g</span></li>
+        <li><span class="ing">Kosher salt. 1 g per 100 g of each steak, about 8 g at 800 g, plus 2 g in its own cup for the mushrooms</span><span class="amt">1 g / 100 g + 2 g</span></li>
+        <li><span class="ing">Cremini, wiped, 1 cm slices. Two piles of about 150 g</span><span class="amt">300 g</span></li>
+        <li><span class="ing">Neutral oil. 10 ml for each mushroom layer, 10 ml for the steak pan</span><span class="amt">30 ml</span></li>
+        <li><span class="ing">Shallot, fine dice</span><span class="amt">30 g</span></li>
+        <li><span class="ing">Black pepper, cracked, not ground fine</span><span class="amt">6 g</span></li>
+        <li><span class="ing">Cognac. Brandy is the same dose if that is the open bottle</span><span class="amt">50 ml</span></li>
+        <li><span class="ing">Unsalted beef stock</span><span class="amt">80 ml</span></li>
+        <li><span class="ing">Heavy cream, 36% or higher</span><span class="amt">160 ml</span></li>
+        <li><span class="ing">Lemon juice, into the sauce at the end</span><span class="amt">15 ml</span></li>
+      </ul>
+      <div class="grp">Leave in the cupboard until a step names it</div>
+      <ul>
+        <li><span class="ing">Unsalted butter, cold. Only if the finished sauce looks matte</span><span class="amt">15 g</span></li>
+        <li><span class="ing">Lemon juice, from the same lemon. Only if the first 15 ml still tastes heavy</span><span class="amt">up to 10 ml</span></li>
+        <li><span class="ing">Kosher salt, from the box, 1 g at a time. Only after the sauce taste. Not from the piles already weighed</span><span class="amt">to taste</span></li>
+        <li><span class="ing">Water. Only if the sauce tightened while it waited</span><span class="amt">15 ml</span></li>
+      </ul>
+      <div class="grp">At the table, not in the pan</div>
+      <ul>
+        <li><span class="ing">Flaky salt. A pinch, on a slice that tastes shy</span><span class="amt">a pinch</span></li>
+      </ul>
+    </div>
+  </aside>
+
+  <main class="stage" id="stage">
+    <div class="progress-mini" id="progressMini"></div>
+    <div id="stepView"></div>
+    <div class="nav">
+      <button class="btn btn-ghost" id="prevBtn" type="button">← Back</button>
+      <button class="btn btn-amber" id="nextBtn" type="button">Next step →</button>
+    </div>
+  </main>
+</div>
+
+<div class="dock" id="dock">
+  <span class="dock-label">Timers</span>
+  <span class="dock-empty" id="dockEmpty">No timers running. Start one from a timed step.</span>
+</div>
+<div id="live" class="sr" aria-live="assertive"></div>
+
+<script>
+"use strict";
+
+/* Unique per dish. The restore key is cook-live:<RECIPE_ID>. */
+const RECIPE_ID = "ribeye-mushroom-cream-pepper";
+const ENGINE = "2026-10-23";
+
+/* Replace with the dish. Shape is documented in cook-it-live/SKILL.md. */
+const STEPS = [
+  {
+    kind: "plain",
+    phase: "Steak",
+    where: "Rack",
+    title: "Salt the steaks",
+    uses: [
+      { amt: "1 g / 100 g", name: "kosher salt, on each steak" },
+      { amt: "2 g", name: "kosher salt, into the mushroom cup" }
+    ],
+    body: `<p><strong>Pat</strong> the steaks dry. <strong>Weigh</strong> them. <strong>Salt</strong> each steak at <em>1 g per 100 g</em>, on every face, including the fat cap. Put the mushroom <em>2 g</em> in a cup.</p>
+    <p>Two steaks that do not match do not split one 8 g pile in half. About 800 g of steak is about 8 g of salt. Weigh the steaks in front of you.</p>`
+  },
+  {
+    kind: "timed",
+    timerName: "Dry",
+    defaultSec: 3600,
+    minSec: 2700,
+    maxSec: 64800,
+    timerNote: "1 hour from a fresh salt. Skip it if they were salted last night and the surface is already matte.",
+    phase: "Steak",
+    where: "Fridge",
+    title: "Dry the surface",
+    body: `<p><strong>Leave</strong> them uncovered on the rack in the fridge for <em>1 hour</em>.</p>
+    <p>Salted last night, and the surface already matte: do not start this timer. A wet shine means the salt is still pulling water out.</p>`
+  },
+  {
+    kind: "gate",
+    phase: "Steak",
+    where: "Rack",
+    title: "Read the surface",
+    body: `<p><strong>Look</strong> at the face of each steak before the oven.</p>`,
+    branches: [
+      { type: "good", glyph: "✓", head: "Matte, the salt gone into the meat", text: "Into the oven." },
+      { type: "wait", glyph: "!", head: "Wet and shiny", text: "Leave them uncovered. Not yet. A wet face will not crust in a minute." }
+    ]
+  },
+  {
+    kind: "timed",
+    timerName: "Oven",
+    defaultSec: 1200,
+    minSec: 300,
+    maxSec: 3600,
+    timerNote: "First probe at 20 minutes. Not the pull. Under 44 °C, start another 5 minutes.",
+    phase: "Steak",
+    where: "Wire rack",
+    title: "Into the oven",
+    probe: "100 °C fan",
+    probeLabel: "Oven",
+    body: `<p><strong>Heat</strong> the Miele to <em>100 °C fan</em>. <strong>Set</strong> the steaks on the wire rack over a sheet tray, center of the oven, a finger of air between them.</p>
+    <p><strong>Start</strong> the timer and build the sauce. The beep is the first probe. Under <em>44 °C</em>, come back and start another <em>5 minutes</em>. At <em>44–47 °C</em>, take them out even if the sauce is mid-step. They rest uncovered.</p>`
+  },
+  {
+    kind: "timed",
+    timerName: "First layer",
+    defaultSec: 180,
+    minSec: 120,
+    maxSec: 300,
+    timerNote: "First look. Deep brown, not the beep.",
+    phase: "Sauce",
+    where: "Sauce pan",
+    title: "Sear the first layer",
+    also: ["Steaks are in the oven. Probe when the oven timer rings. Pull at 44–47 °C in the eye, then rest them uncovered."],
+    uses: [
+      { amt: "10 ml", name: "neutral oil" },
+      { amt: "150 g", name: "cremini, one pile" }
+    ],
+    body: `<p><strong>Split</strong> the <em>300 g</em> into two piles of about <em>150 g</em>. <strong>Heat</strong> the wide seasoned skillet until it is ripping. <strong>Add</strong> <em>10 ml</em> oil. <strong>Lay</strong> one pile in a single layer, bare metal between the slices. <strong>Leave</strong> them <em>3 minutes</em>.</p>
+    <p>The pan is hot enough when the oil smokes as it goes in. The salt waits until the layer comes off.</p>`
+  },
+  {
+    kind: "gate",
+    phase: "Sauce",
+    where: "Sauce pan",
+    title: "Read the mushrooms",
+    also: ["Steaks are in the oven. Probe when the oven timer rings. Pull at 44–47 °C in the eye, then rest them uncovered."],
+    uses: [
+      { amt: "1 g", name: "from the mushroom cup, already weighed" }
+    ],
+    body: `<p><strong>Look</strong> at the down face and at the metal.</p>`,
+    branches: [
+      { type: "good", glyph: "✓", head: "Deep brown, edges darkened, bare metal showing", text: "Onto a plate. 1 g salt on that layer, from the mushroom cup." },
+      { type: "wait", glyph: "!", head: "Pale, or the pan is wet", text: "Leave them. Not yet. If you cannot see metal, take half out. Do not stir a pale mushroom." },
+      { type: "bad", glyph: "✕", head: "Black, or sitting in a gray puddle", text: "Those slices do not go into the cream. Pour the puddle off and discard it. Do not reduce it. Dry the pan out before the next layer." }
+    ]
+  },
+  {
+    kind: "timed",
+    timerName: "Second layer",
+    defaultSec: 180,
+    minSec: 120,
+    maxSec: 300,
+    timerNote: "First look. Same read as the last layer.",
+    phase: "Sauce",
+    where: "Sauce pan",
+    title: "Sear the second layer",
+    also: ["Steaks are in the oven. Probe when the oven timer rings. Pull at 44–47 °C in the eye, then rest them uncovered."],
+    uses: [
+      { amt: "10 ml", name: "neutral oil" },
+      { amt: "150 g", name: "cremini, the second pile" }
+    ],
+    body: `<p><strong>Add</strong> <em>10 ml</em> oil to the same hot pan. <strong>Lay</strong> in the second <em>150 g</em>, single layer, bare metal between the slices. <strong>Leave</strong> them <em>3 minutes</em>.</p>`
+  },
+  {
+    kind: "gate",
+    phase: "Sauce",
+    where: "Sauce pan",
+    title: "Read the second layer",
+    also: ["Steaks are in the oven. Probe when the oven timer rings. Pull at 44–47 °C in the eye, then rest them uncovered."],
+    uses: [
+      { amt: "1 g", name: "the rest of the mushroom cup" }
+    ],
+    body: `<p><strong>Use</strong> the same read as the first layer.</p>`,
+    branches: [
+      { type: "good", glyph: "✓", head: "Deep brown, bare metal still showing", text: "Onto the plate with the first layer. The second 1 g salt, from the same cup." },
+      { type: "wait", glyph: "!", head: "Pale or wet", text: "Leave them. Not yet." },
+      { type: "bad", glyph: "✕", head: "Black, or a gray puddle", text: "That layer stays out of the cream. Discard the liquid. Do not reduce it." }
+    ]
+  },
+  {
+    kind: "timed",
+    timerName: "Shallot",
+    defaultSec: 120,
+    minSec: 90,
+    maxSec: 180,
+    timerNote: "Soft and pale. Not the beep.",
+    phase: "Sauce",
+    where: "Sauce pan",
+    title: "Soften the shallot",
+    also: ["Steaks are in the oven. Probe when the oven timer rings. Pull at 44–47 °C in the eye, then rest them uncovered."],
+    uses: [
+      { amt: "30 g", name: "shallot, fine dice" }
+    ],
+    body: `<p><strong>Drop</strong> the heat to medium. <strong>Cook</strong> the <em>30 g</em> shallot in the fat for <em>2 minutes</em>, until soft and still pale.</p>
+    <p>The shallot is the aromatic. Garlic crowds the mushroom and the pepper. If the pan looks dry, tip the fat on the mushroom plate back in. Leave the fond.</p>`
+  },
+  {
+    kind: "timed",
+    timerName: "Pepper",
+    defaultSec: 30,
+    minSec: 15,
+    maxSec: 60,
+    timerNote: "Stay here. This is the one that turns bitter.",
+    phase: "Sauce",
+    where: "Sauce pan",
+    title: "Bloom the pepper",
+    also: ["Steaks are in the oven. Probe when the oven timer rings. Pull at 44–47 °C in the eye, then rest them uncovered."],
+    uses: [
+      { amt: "6 g", name: "cracked black pepper" }
+    ],
+    body: `<p><strong>Add</strong> the <em>6 g</em> cracked pepper to that fat. <strong>Stir</strong> for <em>30 seconds</em>, until it smells sweet and sharp.</p>
+    <p>Cracked pepper, pieces you can see. Fine dust scorches in this window.</p>`
+  },
+  {
+    kind: "gate",
+    phase: "Sauce",
+    where: "Sauce pan",
+    title: "Read the pepper",
+    also: ["Steaks are in the oven. Probe when the oven timer rings. Pull at 44–47 °C in the eye, then rest them uncovered."],
+    body: `<p><strong>Smell</strong> it before any liquid goes in.</p>`,
+    branches: [
+      { type: "good", glyph: "✓", head: "Fragrant, pieces brown-black rather than charcoal", text: "Cognac, now. Liquid is what stops the cooking." },
+      { type: "wait", glyph: "!", head: "Still dusty and raw", text: "Another 15 seconds. Not yet." },
+      { type: "bad", glyph: "✕", head: "Black, acrid", text: "Do not deglaze this into the cream. Wipe the pan. The shallot in that fat goes with it. Start the shallot and the pepper again." }
+    ]
+  },
+  {
+    kind: "timed",
+    timerName: "Cognac",
+    defaultSec: 90,
+    minSec: 45,
+    maxSec: 150,
+    timerNote: "The raw spirit smell is the endpoint.",
+    phase: "Sauce",
+    where: "Sauce pan",
+    title: "Deglaze with cognac",
+    also: ["Steaks are in the oven. Probe when the oven timer rings. Pull at 44–47 °C in the eye, then rest them uncovered."],
+    uses: [
+      { amt: "50 ml", name: "cognac, or brandy" }
+    ],
+    body: `<p><strong>Pour</strong> in the <em>50 ml</em> cognac. <strong>Scrape</strong>. <strong>Boil</strong> until the raw spirit smell is gone and the shallot looks glazed, <em>about 60–90 seconds</em>.</p>
+    <p>Stock and cream are the body. The spirit is a short deglaze, boiled off before they go in. The lemon at the end is the acid.</p>`
+  },
+  {
+    kind: "timed",
+    timerName: "Stock",
+    defaultSec: 120,
+    minSec: 60,
+    maxSec: 180,
+    timerNote: "A syrupy spoonful when you tilt the pan.",
+    phase: "Sauce",
+    where: "Sauce pan",
+    title: "Reduce the stock",
+    also: ["Steaks are in the oven. Probe when the oven timer rings. Pull at 44–47 °C in the eye, then rest them uncovered."],
+    uses: [
+      { amt: "80 ml", name: "unsalted beef stock" }
+    ],
+    body: `<p><strong>Pour</strong> in the <em>80 ml</em> unsalted beef stock. <strong>Boil</strong> until a tilt of the pan shows a dark, syrupy spoonful rather than a puddle, <em>about 2 minutes</em>.</p>
+    <p>A salted carton still goes in. The salt gate at the end starts from a taste.</p>`
+  },
+  {
+    kind: "timed",
+    timerName: "Cream",
+    defaultSec: 300,
+    minSec: 240,
+    maxSec: 480,
+    timerNote: "First check at 4 minutes. The spoon decides.",
+    phase: "Sauce",
+    where: "Sauce pan",
+    title: "Reduce the cream",
+    also: ["Steaks are in the oven. Probe when the oven timer rings. Pull at 44–47 °C in the eye, then rest them uncovered."],
+    uses: [
+      { amt: "160 ml", name: "heavy cream" }
+    ],
+    body: `<p><strong>Pour</strong> in the <em>160 ml</em> cream. <strong>Simmer</strong>, lively but short of a rolling boil, for <em>4–6 minutes</em>, until it coats a spoon.</p>
+    <p>Take it a shade thicker than the sauce you want to spoon. The mushrooms loosen it when they come back.</p>`
+  },
+  {
+    kind: "gate",
+    phase: "Sauce",
+    where: "Sauce pan",
+    title: "Read the spoon",
+    also: ["Steaks are in the oven. Probe when the oven timer rings. Pull at 44–47 °C in the eye, then rest them uncovered."],
+    body: `<p><strong>Drag</strong> a finger through the sauce on the spoon.</p>`,
+    branches: [
+      { type: "good", glyph: "✓", head: "The line holds, then slowly fills", text: "The mushrooms go back in." },
+      { type: "wait", glyph: "!", head: "The line floods at once", text: "Another minute at the same simmer. Not yet." },
+      { type: "bad", glyph: "✕", head: "Brown patches, a sweet-burnt smell", text: "Off the heat. Pour the sauce off the black. Do not scrape it in." }
+    ]
+  },
+  {
+    kind: "timed",
+    timerName: "Mushrooms back",
+    defaultSec: 30,
+    minSec: 15,
+    maxSec: 60,
+    timerNote: "Heat through. Do not boil.",
+    phase: "Sauce",
+    where: "Sauce pan",
+    title: "Return the mushrooms",
+    also: ["Steaks are in the oven. Probe when the oven timer rings. Pull at 44–47 °C in the eye, then rest them uncovered."],
+    body: `<p><strong>Slide</strong> the seared mushrooms back into the sauce. <strong>Warm</strong> them <em>30 seconds</em>. Do not boil.</p>
+    <p>They are already cooked. A boil here dumps their water into the cream.</p>`
+  },
+  {
+    kind: "plain",
+    phase: "Sauce",
+    where: "Enamel",
+    title: "Decant to enamel",
+    also: ["Steaks are in the oven. Probe when the oven timer rings. Pull at 44–47 °C in the eye, then rest them uncovered."],
+    body: `<p><strong>Pour</strong> the sauce into the small enameled saucepan.</p>
+    <p>Lemon and salt are about to go in, and this sauce has to wait through the sear. The seasoned skillet is wiped and reused only if there is no second pan. The steak wants its own dry skillet, already hot.</p>`
+  },
+  {
+    kind: "plain",
+    phase: "Sauce",
+    where: "Enamel",
+    title: "Add the lemon",
+    also: ["Steaks are in the oven. Probe when the oven timer rings. Pull at 44–47 °C in the eye, then rest them uncovered."],
+    uses: [
+      { amt: "15 ml", name: "lemon juice" }
+    ],
+    body: `<p><strong>Off the heat, stir</strong> in the <em>15 ml</em> lemon juice. <strong>Taste</strong>.</p>
+    <p>This is the acid that keeps the cream from sitting heavy. Do not boil it.</p>`
+  },
+  {
+    kind: "gate",
+    phase: "Sauce",
+    where: "Enamel",
+    title: "Taste for salt",
+    also: ["Steaks are in the oven. Probe when the oven timer rings. Pull at 44–47 °C in the eye, then rest them uncovered."],
+    uses: [
+      { amt: "1 g", name: "kosher salt, from the box, only if it tastes flat" }
+    ],
+    body: `<p><strong>Taste</strong> the sauce. The <em>2 g</em> on the mushrooms is already in it.</p>`,
+    branches: [
+      { type: "good", glyph: "✓", head: "Savory and clear", text: "No more salt." },
+      { type: "wait", glyph: "!", head: "Flat", text: "1 g from the box, stir, taste again. Not yet seasoned. Stop when it clears." },
+      { type: "bad", glyph: "✕", head: "Already salty", text: "Do not add salt. Water will not fix it." }
+    ]
+  },
+  {
+    kind: "gate",
+    phase: "Sauce",
+    where: "Enamel",
+    title: "Mount, or not",
+    also: ["Steaks are in the oven. Probe when the oven timer rings. Pull at 44–47 °C in the eye, then rest them uncovered."],
+    uses: [
+      { amt: "15 g", name: "cold butter, only if the surface is matte" }
+    ],
+    body: `<p><strong>Look</strong> at the surface, still off the heat.</p>`,
+    branches: [
+      { type: "good", glyph: "✓", head: "Glossy, and the richness already snaps", text: "The 15 g butter stays in the cupboard." },
+      { type: "wait", glyph: "!", head: "Matte, or grainy from the lemon", text: "The flavor is already lifted. Whisk in the 15 g cold butter until it disappears." },
+      { type: "bad", glyph: "✕", head: "Still heavy and dull", text: "Do not mount the butter. Add up to 10 ml more lemon, off the heat, and stop." }
+    ]
+  },
+  {
+    kind: "gate",
+    phase: "Sear",
+    where: "Wire rack",
+    title: "Pull the steaks",
+    probe: "44–47 °C",
+    probeLabel: "Pull at",
+    also: ["Sauce belongs in the enamel, off a boil. Pull even if a sauce step is unfinished."],
+    body: `<p><strong>Probe</strong> the center of the eye on each steak. Not the spinalis. Not a fat pocket.</p>
+    <p>About 4 cm: the pull is <em>44–47 °C</em>. Under 3.5 cm: the pull is <em>40 °C</em>.</p>`,
+    branches: [
+      { type: "good", glyph: "✓", head: "44–47 °C, or 40 °C if under 3.5 cm", text: "Out, onto the rack, uncovered." },
+      { type: "wait", glyph: "!", head: "Under 44 °C on a 4 cm steak", text: "Five more minutes in the oven. Not yet." },
+      { type: "bad", glyph: "✕", head: "48 °C or over", text: "Out. When you sear, 30 seconds a side and stop. Do not put it back in the oven." }
+    ]
+  },
+  {
+    kind: "timed",
+    timerName: "Steak pan",
+    defaultSec: 240,
+    minSec: 120,
+    maxSec: 480,
+    timerNote: "The oil smoking is the tell. Thick cast iron can take longer than 4 minutes.",
+    phase: "Sear",
+    where: "Steak pan",
+    title: "Heat the steak pan",
+    also: ["Sauce is in the enamel, off a boil."],
+    uses: [
+      { amt: "10 ml", name: "neutral oil, once the pan smokes" }
+    ],
+    body: `<p><strong>Heat</strong> the second seasoned skillet on high gas until a film of oil smokes. <strong>Add</strong> the <em>10 ml</em> oil once it is that hot. <strong>Leave</strong> the steaks uncovered on the rack while the pan heats, <em>about 4 minutes</em>, longer if the sauce is still catching up.</p>
+    <p>Do not tent the steaks. A simmer in the enamel now dulls the lemon.</p>`
+  },
+  {
+    kind: "timed",
+    timerName: "First side",
+    defaultSec: 50,
+    minSec: 30,
+    maxSec: 60,
+    timerNote: "45–60 seconds. 30 if the pull was already 48 °C or over.",
+    phase: "Sear",
+    where: "Steak pan",
+    title: "Sear the first side",
+    also: ["Sauce is in the enamel, off a boil."],
+    body: `<p><strong>Lay</strong> the steaks in. Both only if bare metal shows between them. If it does not, one at a time, and the other waits on the rack, not in the oven. <strong>Leave</strong> the down face <em>45–60 seconds</em>.</p>
+    <p>The minute is the longest this side stays down. If the pull was already <em>48 °C</em> or over, this side is <em>30 seconds</em>.</p>`
+  },
+  {
+    kind: "timed",
+    timerName: "Fat cap",
+    defaultSec: 30,
+    minSec: 20,
+    maxSec: 45,
+    timerNote: "30 seconds. Then probe.",
+    phase: "Sear",
+    where: "Steak pan",
+    title: "Render the fat cap",
+    also: ["Sauce is in the enamel, off a boil."],
+    body: `<p><strong>Hold</strong> the fat caps on the metal for <em>30 seconds</em>.</p>
+    <p>Thirty seconds sets the cap. A long render here is how the eye passes 55 °C.</p>`
+  },
+  {
+    kind: "gate",
+    phase: "Sear",
+    where: "Steak pan",
+    title: "Read the eye",
+    also: ["Sauce is in the enamel, off a boil."],
+    body: `<p><strong>Probe</strong> the eye again, after the first side and the cap.</p>`,
+    branches: [
+      { type: "good", glyph: "✓", head: "Brown, and the eye is under 54 °C", text: "Under 50 °C, the second side is 50–60 seconds. At 50–53 °C, the second side is 30–40 seconds." },
+      { type: "wait", glyph: "!", head: "Blond at 60 seconds", text: "The pan was not hot enough. Steaks off. Heat the pan until the oil smokes. 30 seconds more on the pale side. Do not stand on a cool pan for minutes." },
+      { type: "bad", glyph: "✕", head: "Eye already at 54 °C", text: "The second side is 20 seconds, enough to color, then off. Do not give it a minute." }
+    ]
+  },
+  {
+    kind: "timed",
+    timerName: "Second side",
+    defaultSec: 45,
+    minSec: 20,
+    maxSec: 60,
+    timerNote: "Set this to the time the last gate gave you.",
+    phase: "Sear",
+    where: "Steak pan",
+    title: "Sear the second side",
+    also: ["Sauce is in the enamel, off a boil."],
+    body: `<p><strong>Sear</strong> the second side for the time the last gate set. <strong>Probe</strong> as it comes off the metal.</p>`
+  },
+  {
+    kind: "gate",
+    phase: "Sear",
+    where: "Steak pan",
+    title: "Off the pan",
+    probe: "52–55 °C",
+    probeLabel: "Target",
+    also: ["Sauce is in the enamel, off a boil."],
+    body: `<p><strong>Read</strong> the eye.</p>`,
+    branches: [
+      { type: "good", glyph: "✓", head: "52–55 °C", text: "Off the pan, onto a warm plate. No tent." },
+      { type: "wait", glyph: "!", head: "Under 52 °C, crust not black", text: "20 seconds more on the paler side, then probe again. Not yet." },
+      { type: "bad", glyph: "✕", head: "56 °C or over", text: "Off now. Do not give it another side. Slice it and serve it." }
+    ]
+  },
+  {
+    kind: "gate",
+    phase: "Sear",
+    where: "Enamel",
+    title: "Read the sauce",
+    uses: [
+      { amt: "15 ml", name: "water, only if the sauce tightened" }
+    ],
+    body: `<p><strong>Look</strong> at the enamel before you spoon.</p>`,
+    branches: [
+      { type: "good", glyph: "✓", head: "It spoons and shines", text: "Beside the steak. The 15 ml water stays in the cupboard." },
+      { type: "wait", glyph: "!", head: "Tight and sluggish", text: "Stir in the 15 ml water, off the boil." },
+      { type: "bad", glyph: "✕", head: "Broken into a slick, or boiling", text: "Off the heat. Whisk it. Do not boil it back together. Leave any black bits in the saucepan." }
+    ]
+  },
+  {
+    kind: "plain",
+    phase: "Sear",
+    where: "Plate",
+    title: "Spoon it beside",
+    body: `<p><strong>Spoon</strong> the sauce beside the steaks, mushrooms in the sauce. <strong>Leave</strong> the crust bare.</p>
+    <p>The cut face is what goes through the sauce. Flaky salt goes on a slice that tastes shy. It does not go in the sauce, and it does not go on before you taste.</p>`
+  }
+];
+
+
+/* ---------------- state ---------------- */
+const storageKey = "cook-live:" + RECIPE_ID;
+let current = 0;
+const done = new Set();
+let finished = false;
+let soundOn = true;
+const timers = {};
+let timerSeq = 0;
+const timedDraft = {};
+let wakeLock = null;
+let audioCtx = null;
+let resetArm = 0;
+
+function load() {
+  let blob = null;
+  try { blob = JSON.parse(localStorage.getItem(storageKey) || "null"); } catch (e) { blob = null; }
+  if (!blob || typeof blob !== "object") return;
+  if (Number.isInteger(blob.current)) current = blob.current;
+  if (current < 0 || current >= Math.max(STEPS.length, 1)) current = 0;
+  if (STEPS.length && current >= STEPS.length) current = 0;
+  if (Array.isArray(blob.done)) blob.done.forEach(i => { if (Number.isInteger(i)) done.add(i); });
+  if (typeof blob.soundOn === "boolean") soundOn = blob.soundOn;
+  if (blob.finished) finished = true;
+  if (blob.timedDraft && typeof blob.timedDraft === "object") {
+    Object.keys(blob.timedDraft).forEach(k => { timedDraft[k] = blob.timedDraft[k]; });
+  }
+  if (Number.isInteger(blob.timerSeq)) timerSeq = blob.timerSeq;
+  if (Array.isArray(blob.timers)) {
+    blob.timers.forEach(raw => {
+      if (!raw || typeof raw.name !== "string") return;
+      const t = {
+        name: raw.name,
+        endsAt: typeof raw.endsAt === "number" ? raw.endsAt : null,
+        remaining: typeof raw.remaining === "number" ? raw.remaining : 0,
+        running: !!raw.running,
+        ringing: !!raw.ringing,
+        announced: !!raw.announced
+      };
+      if (t.running && t.endsAt) {
+        const left = Math.round((t.endsAt - Date.now()) / 1000);
+        if (left <= 0) {
+          t.remaining = 0; t.running = false; t.ringing = true;
+        } else {
+          t.remaining = left;
+        }
+      }
+      const id = Number.isInteger(raw.id) ? raw.id : ++timerSeq;
+      timers[id] = t;
+      if (id > timerSeq) timerSeq = id;
+    });
+  }
+  /* Older saves were indexed from the first cook step. The ingredients page now leads.
+     An unstarted cook stays on that page. */
+  if (!blob.ingredientsLead) {
+    const unstarted = current === 0 && done.size === 0 && !blob.finished && (!blob.timers || blob.timers.length === 0);
+    if (unstarted) return;
+    current += 1;
+    const shifted = [...done].map(i => i + 1);
+    done.clear();
+    shifted.forEach(i => { if (i < STEPS.length) done.add(i); });
+    const drafts = {};
+    Object.keys(timedDraft).forEach(k => {
+      const m = /^pending_(\d+)$/.exec(k);
+      if (m) drafts["pending_" + (Number(m[1]) + 1)] = timedDraft[k];
+      else drafts[k] = timedDraft[k];
+    });
+    Object.keys(timedDraft).forEach(k => delete timedDraft[k]);
+    Object.keys(drafts).forEach(k => { timedDraft[k] = drafts[k]; });
+    if (current >= STEPS.length) current = Math.max(0, STEPS.length - 1);
+  }
+}
+
+function save() {
+  const blob = {
+    engine: ENGINE,
+    ingredientsLead: true,
+    current,
+    done: [...done],
+    finished,
+    soundOn,
+    timerSeq,
+    timedDraft,
+    timers: Object.keys(timers).map(id => {
+      const t = timers[id];
+      return {
+        id: Number(id), name: t.name, endsAt: t.endsAt, remaining: t.remaining,
+        running: t.running, ringing: t.ringing, announced: t.announced
+      };
+    })
+  };
+  try { localStorage.setItem(storageKey, JSON.stringify(blob)); } catch (e) { /* private mode */ }
+}
+
+/* ---------------- audio + alerts ---------------- */
+function unlockAudio() {
+  try {
+    audioCtx = audioCtx || new (window.AudioContext || window.webkitAudioContext)();
+    if (audioCtx.state === "suspended") audioCtx.resume();
+  } catch (e) { /* audio unavailable */ }
+}
+function beep() {
+  if (!soundOn) return;
+  try {
+    unlockAudio();
+    if (!audioCtx) return;
+    const now = audioCtx.currentTime;
+    [0, 0.28, 0.56].forEach(off => {
+      const o = audioCtx.createOscillator();
+      const g = audioCtx.createGain();
+      o.frequency.value = 880;
+      o.type = "sine";
+      o.connect(g); g.connect(audioCtx.destination);
+      g.gain.setValueAtTime(0.0001, now + off);
+      g.gain.exponentialRampToValueAtTime(0.32, now + off + 0.02);
+      g.gain.exponentialRampToValueAtTime(0.0001, now + off + 0.22);
+      o.start(now + off); o.stop(now + off + 0.24);
+    });
+  } catch (e) { /* audio unavailable */ }
+}
+function announce(name) {
+  const live = document.getElementById("live");
+  if (live) live.textContent = name + " timer done";
+  if ("Notification" in window && Notification.permission === "granted") {
+    try { new Notification(name + " · done", { body: "Timer finished." }); } catch (e) { /* blocked */ }
+  }
+}
+function askNotify() {
+  if (!("Notification" in window)) return;
+  if (Notification.permission !== "default") return;
+  try { Notification.requestPermission(); } catch (e) { /* no permission API */ }
+}
+
+/* ---------------- helpers ---------------- */
+function esc(s) {
+  return String(s == null ? "" : s).replace(/[&<>"']/g, c => ({
+    "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;"
+  }[c]));
+}
+function fmt(sec) {
+  sec = Math.max(0, Math.round(sec));
+  const h = Math.floor(sec / 3600);
+  const m = Math.floor((sec % 3600) / 60);
+  const s = sec % 60;
+  const mm = String(m).padStart(2, "0");
+  const ss = String(s).padStart(2, "0");
+  return h > 0 ? (h + ":" + mm + ":" + ss) : (mm + ":" + ss);
+}
+function adjustSteps(st) {
+  if (st.defaultSec >= 3600) return [-3600, -300, 300, 3600];
+  if (st.defaultSec >= 1200) return [-300, -60, 60, 300];
+  return [-60, -30, 30, 60];
+}
+function adjLabel(delta) {
+  const sign = delta > 0 ? "+" : "−";
+  const a = Math.abs(delta);
+  if (a >= 3600 && a % 3600 === 0) return sign + (a / 3600) + "h";
+  if (a >= 60 && a % 60 === 0) return sign + (a / 60) + "m";
+  return sign + a + "s";
+}
+const kindLabel = { timed: "Timed", gate: "Decision", plain: "Step", mise: "Ingredients" };
+
+/* ---------------- rail + progress ---------------- */
+function renderRail() {
+  const ol = document.getElementById("steplist");
+  ol.innerHTML = "";
+  STEPS.forEach((st, i) => {
+    if (st.phase && (i === 0 || STEPS[i - 1].phase !== st.phase)) {
+      const ph = document.createElement("li");
+      ph.className = "phase";
+      ph.textContent = st.phase;
+      ol.appendChild(ph);
+    }
+    const li = document.createElement("li");
+    li.className = (i === current ? "active " : "") + (done.has(i) ? "done" : "");
+    let tag = "";
+    if (st.kind === "timed") tag = `<span class="s-tag timed">timer</span>`;
+    if (st.kind === "gate") tag = `<span class="s-tag gate">gate</span>`;
+    li.innerHTML = `<span class="idx mono">${String(i + 1).padStart(2, "0")}</span><span class="s-name">${esc(st.title)}</span>${tag}`;
+    li.addEventListener("click", () => goto(i));
+    ol.appendChild(li);
+  });
+
+  const mini = document.getElementById("progressMini");
+  mini.innerHTML = "";
+  STEPS.forEach((st, i) => {
+    const p = document.createElement("div");
+    p.className = "pip" + (i === current ? " active" : done.has(i) ? " done" : "");
+    p.title = st.title || "";
+    p.addEventListener("click", () => goto(i));
+    mini.appendChild(p);
+  });
+
+  const active = ol.querySelector("li.active");
+  const rail = document.getElementById("rail");
+  if (active && rail.scrollHeight > rail.clientHeight + 4) {
+    const railRect = rail.getBoundingClientRect();
+    const aRect = active.getBoundingClientRect();
+    if (aRect.bottom > railRect.bottom - 8) rail.scrollTop += aRect.bottom - railRect.bottom + 16;
+    else if (aRect.top < railRect.top + 8) rail.scrollTop -= railRect.top - aRect.top + 16;
+  }
+}
+
+/* ---------------- step view ---------------- */
+function renderStep() {
+  const v = document.getElementById("stepView");
+  const prev = document.getElementById("prevBtn");
+  const next = document.getElementById("nextBtn");
+  if (!STEPS.length) {
+    v.innerHTML = `<p class="empty-stage">This is the cook-it-live engine. Copy the file, then fill the header, the mise, and STEPS. The shape is in cook-it-live/SKILL.md.</p>`;
+    prev.disabled = true;
+    next.disabled = true;
+    return;
+  }
+  const st = STEPS[current];
+  const uses = (st.uses && st.uses.length)
+    ? `<div class="uses">` + st.uses.map(u => `<span class="use"><b>${esc(u.amt)}</b> ${esc(u.name)}</span>`).join("") + `</div>`
+    : "";
+  const also = (st.also && st.also.length)
+    ? `<div class="also"><div class="also-k">Still running</div><ul>` + st.also.map(a => `<li>${esc(a)}</li>`).join("") + `</ul></div>`
+    : "";
+  let html = `<div class="step-head">
+      <span class="step-num mono">${String(current + 1).padStart(2, "0")} / ${String(STEPS.length).padStart(2, "0")}</span>
+      <span class="step-kind ${esc(st.kind)}">${kindLabel[st.kind] || "Step"}</span>
+      ${st.where ? `<span class="where">${esc(st.where)}</span>` : ""}
+    </div>
+    ${st.phase ? `<p class="phase-kicker">${esc(st.phase)}</p>` : ""}
+    <h2 class="step-title" id="stepTitle" tabindex="-1">${esc(st.title)}</h2>
+    ${uses}
+    ${also}
+    ${st.probe ? `<div class="probe"><span class="lab">${esc(st.probeLabel || "Pull at")}</span><span class="val mono">${esc(st.probe)}</span></div>` : ""}
+    <div class="step-body">${st.body || ""}</div>`;
+
+  if (st.kind === "gate" && st.branches) {
+    html += `<div class="gate-branches">`;
+    st.branches.forEach(b => {
+      const type = (b.type === "good" || b.type === "wait" || b.type === "bad") ? b.type : "wait";
+      html += `<div class="branch ${type}">
+        <h4><span class="glyph">${esc(b.glyph || "")}</span> ${esc(b.head)}</h4>
+        <p>${esc(b.text)}</p></div>`;
+    });
+    html += `</div>`;
+  }
+
+  if (finished) {
+    html += `<div class="also"><div class="also-k">Done</div><ul><li>That is the cook. Start over clears the timers and the place.</li></ul></div>`;
+  }
+
+  if (st.kind === "timed") {
+    const pending = "pending_" + current;
+    if (!(pending in timedDraft)) timedDraft[pending] = st.defaultSec;
+    const buttons = adjustSteps(st).map(d =>
+      `<button type="button" data-adj="${d}">${adjLabel(d)}</button>`
+    ).join("");
+    const note = st.timerNote
+      ? esc(st.timerNote)
+      : "Wall clock. Holds while the screen is locked, as long as this tab stays loaded. Reopening this file restores the end time.";
+    html += `<div class="timer-launch">
+        <span class="tl-time mono" id="draft_${current}">${fmt(timedDraft[pending])}</span>
+        <span class="adj">${buttons}</span>
+        <span class="tl-lab">${esc(st.timerName)}. ${note}</span>
+        <button class="btn btn-amber" id="launch_${current}" type="button">▶ Start ${esc(st.timerName)}</button>
+      </div>`;
+  }
+
+  v.innerHTML = html;
+
+  if (st.kind === "timed") {
+    v.querySelectorAll("[data-adj]").forEach(btn => {
+      btn.addEventListener("click", () => {
+        const key = "pending_" + current;
+        let val = timedDraft[key] + parseInt(btn.dataset.adj, 10);
+        val = Math.min(st.maxSec, Math.max(st.minSec, val));
+        timedDraft[key] = val;
+        document.getElementById("draft_" + current).textContent = fmt(val);
+        save();
+      });
+    });
+    document.getElementById("launch_" + current).addEventListener("click", () => {
+      addTimer(st.timerName, timedDraft["pending_" + current]);
+    });
+  }
+
+  prev.disabled = current === 0;
+  next.disabled = authoredCount === 0;
+  next.textContent = finished ? "Cook again"
+    : (current === STEPS.length - 1 ? "Finish"
+    : (st.kind === "mise" ? "Start cooking →" : "Next step →"));
+  document.body.classList.toggle("on-mise", st.kind === "mise");
+
+  const title = document.getElementById("stepTitle");
+  if (title) title.focus({ preventScroll: true });
+}
+
+/* ---------------- navigation ---------------- */
+function goto(i) {
+  if (!STEPS.length || i < 0 || i >= STEPS.length) return;
+  finished = false;
+  current = i;
+  save();
+  renderRail();
+  renderStep();
+  const reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  window.scrollTo({ top: 0, behavior: reduce ? "auto" : "smooth" });
+}
+function advance() {
+  if (!STEPS.length) return;
+  if (finished) { resetCook(); return; }
+  done.add(current);
+  if (current < STEPS.length - 1) goto(current + 1);
+  else { finished = true; save(); renderRail(); renderStep(); }
+}
+document.getElementById("nextBtn").addEventListener("click", advance);
+document.getElementById("prevBtn").addEventListener("click", () => goto(current - 1));
+
+/* ---------------- timers / dock ---------------- */
+function addTimer(name, sec) {
+  unlockAudio();
+  askNotify();
+  const id = ++timerSeq;
+  timers[id] = {
+    name,
+    endsAt: Date.now() + sec * 1000,
+    remaining: sec,
+    running: true,
+    ringing: false,
+    announced: false
+  };
+  save();
+  renderDock();
+  syncWake();
+}
+function sweepTimers() {
+  let changed = false;
+  Object.keys(timers).forEach(id => {
+    const t = timers[id];
+    if (t.running && t.endsAt) {
+      const left = Math.round((t.endsAt - Date.now()) / 1000);
+      if (left <= 0) {
+        t.remaining = 0;
+        t.running = false;
+        t.ringing = true;
+        changed = true;
+      } else {
+        t.remaining = left;
+      }
+    }
+    if (t.ringing && !t.announced) {
+      t.announced = true;
+      changed = true;
+      beep();
+      announce(t.name);
+    }
+    updateChip(id);
+  });
+  if (changed) { save(); syncWake(); }
+}
+function toggleTimer(id) {
+  const t = timers[id];
+  if (!t) return;
+  if (t.ringing) { removeTimer(id); return; }
+  if (t.running) {
+    t.remaining = Math.max(0, Math.round((t.endsAt - Date.now()) / 1000));
+    t.running = false;
+    t.endsAt = null;
+  } else if (t.remaining > 0) {
+    unlockAudio();
+    t.running = true;
+    t.endsAt = Date.now() + t.remaining * 1000;
+  }
+  save();
+  updateChip(id);
+  syncWake();
+}
+function removeTimer(id) {
+  if (!timers[id]) return;
+  delete timers[id];
+  save();
+  renderDock();
+  syncWake();
+}
+function renderDock() {
+  const dock = document.getElementById("dock");
+  dock.querySelectorAll(".chip").forEach(c => c.remove());
+  const ids = Object.keys(timers);
+  document.getElementById("dockEmpty").style.display = ids.length ? "none" : "";
+  ids.forEach(id => dock.appendChild(buildChip(id)));
+}
+function buildChip(id) {
+  const t = timers[id];
+  const el = document.createElement("div");
+  el.className = "chip" + (t.ringing ? " ringing" : "");
+  el.id = "chip_" + id;
+  el.innerHTML = `
+    <div class="c-info">
+      <span class="c-name">${esc(t.name)}${t.ringing ? " · done" : (t.running ? "" : " · paused")}</span>
+      <span class="c-time mono">${fmt(t.remaining)}</span>
+    </div>
+    <div class="c-btns">
+      <button type="button" title="${t.ringing ? "dismiss" : (t.running ? "pause" : "resume")}" data-act="toggle">${t.ringing ? "✓" : (t.running ? "❚❚" : "▶")}</button>
+      <button type="button" title="dismiss" data-act="remove">✕</button>
+    </div>`;
+  el.querySelector('[data-act="toggle"]').addEventListener("click", () => toggleTimer(id));
+  el.querySelector('[data-act="remove"]').addEventListener("click", () => removeTimer(id));
+  return el;
+}
+function updateChip(id) {
+  const t = timers[id];
+  const el = document.getElementById("chip_" + id);
+  if (!el || !t) { renderDock(); return; }
+  el.className = "chip" + (t.ringing ? " ringing" : "");
+  el.querySelector(".c-time").textContent = fmt(t.remaining);
+  el.querySelector(".c-name").textContent = t.name + (t.ringing ? " · done" : (t.running ? "" : " · paused"));
+  const toggle = el.querySelector('[data-act="toggle"]');
+  toggle.textContent = t.ringing ? "✓" : (t.running ? "❚❚" : "▶");
+  toggle.title = t.ringing ? "dismiss" : (t.running ? "pause" : "resume");
+}
+
+async function syncWake() {
+  const any = Object.keys(timers).some(id => timers[id].running);
+  if (any && "wakeLock" in navigator) {
+    try {
+      if (!wakeLock) wakeLock = await navigator.wakeLock.request("screen");
+    } catch (e) { /* unsupported or hidden tab */ }
+  } else if (wakeLock) {
+    try { await wakeLock.release(); } catch (e) { /* already released */ }
+    wakeLock = null;
+  }
+}
+document.addEventListener("visibilitychange", () => {
+  if (document.visibilityState !== "visible") return;
+  sweepTimers();
+  syncWake();
+});
+setInterval(sweepTimers, 250);
+
+/* ---------------- toggles ---------------- */
+function paintSound() {
+  const b = document.getElementById("soundToggle");
+  b.textContent = soundOn ? "Sound on" : "Sound off";
+  b.setAttribute("aria-pressed", soundOn ? "true" : "false");
+}
+document.getElementById("soundToggle").addEventListener("click", (e) => {
+  soundOn = !soundOn;
+  paintSound();
+  save();
+  if (soundOn) { unlockAudio(); beep(); }
+});
+document.getElementById("seqToggle").addEventListener("click", (e) => {
+  const seq = document.getElementById("seq");
+  const open = seq.classList.toggle("open");
+  e.currentTarget.textContent = (open ? "▾ " : "▸ ") + "Sequence";
+  e.currentTarget.setAttribute("aria-expanded", open ? "true" : "false");
+  if (open) seq.scrollIntoView({ block: "start" });
+});
+document.getElementById("miseToggle").addEventListener("click", (e) => {
+  const m = document.getElementById("mise");
+  const open = m.classList.toggle("open");
+  e.currentTarget.textContent = (open ? "▾ " : "▸ ") + "Mise / ingredients";
+  e.currentTarget.setAttribute("aria-expanded", open ? "true" : "false");
+  if (open) m.scrollIntoView({ block: "start" });
+});
+document.getElementById("resetBtn").addEventListener("click", (e) => {
+  const now = Date.now();
+  if (now - resetArm > 4000) {
+    resetArm = now;
+    e.currentTarget.textContent = "Clear this cook?";
+    e.currentTarget.classList.add("armed");
+    setTimeout(() => {
+      if (Date.now() - resetArm >= 3900) {
+        const b = document.getElementById("resetBtn");
+        b.textContent = "Start over";
+        b.classList.remove("armed");
+      }
+    }, 4000);
+    return;
+  }
+  resetCook();
+});
+function resetCook() {
+  current = 0;
+  done.clear();
+  finished = false;
+  Object.keys(timers).forEach(id => delete timers[id]);
+  Object.keys(timedDraft).forEach(k => delete timedDraft[k]);
+  timerSeq = 0;
+  resetArm = 0;
+  const b = document.getElementById("resetBtn");
+  b.textContent = "Start over";
+  b.classList.remove("armed");
+  try { localStorage.removeItem(storageKey); } catch (e) { /* private mode */ }
+  renderRail();
+  renderStep();
+  renderDock();
+  syncWake();
+}
+
+document.addEventListener("keydown", (e) => {
+  if (e.metaKey || e.ctrlKey || e.altKey) return;
+  const tag = e.target && e.target.tagName;
+  if (tag === "BUTTON" || tag === "INPUT" || tag === "TEXTAREA") return;
+  if (e.key === "ArrowRight") { e.preventDefault(); advance(); }
+  if (e.key === "ArrowLeft") { e.preventDefault(); goto(current - 1); }
+});
+
+/* The opening page is the mise. Built from the sidebar list so a dish types it once. */
+function buildIngredientsStep() {
+  const mise = document.getElementById("mise");
+  const clone = mise.cloneNode(true);
+  clone.removeAttribute("id");
+  clone.classList.add("mise-page");
+  const h2 = clone.querySelector("h2");
+  if (h2) h2.remove();
+  let note = "";
+  if (!authoredCount) {
+    note = `<p class="empty-stage">Copy this file, then replace the mise and STEPS. The shape is in cook-it-live/SKILL.md.</p>`;
+  }
+  return {
+    kind: "mise",
+    phase: "Mise",
+    where: "Counter",
+    title: "Ingredients",
+    body: clone.outerHTML + note
+  };
+}
+const authoredCount = STEPS.length;
+STEPS.unshift(buildIngredientsStep());
+
+/* ---------------- init ---------------- */
+load();
+paintSound();
+renderRail();
+renderStep();
+renderDock();
+sweepTimers();
+syncWake();
+</script>
+</body>
+</html>
