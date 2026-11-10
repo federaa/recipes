@@ -1,12 +1,19 @@
 <!DOCTYPE html>
+<!--
+  Cook It Live engine 2026-11-10.
+  Copy this file per dish. Replace the header, the mise, RECIPE_ID, and STEPS.
+  A page in another language also fills UI and sets lang.
+  Leave the script below UI alone unless you are fixing the engine.
+  Engine fixes go back into this file and into cook-it-live/SKILL.md.
+-->
 <html lang="ko">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>라이브 쿠킹 — 슬로 오븐 레드 소스</title>
+<title>라이브 쿠킹 · 슬로 오븐 레드 소스</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=JetBrains+Mono:wght@400;500;700&family=Noto+Sans+KR:wght@400;500;600;700&family=Noto+Serif+KR:wght@500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
   :root {
     --ground: #170e0b;
@@ -25,46 +32,50 @@
     --s-fresh: #843c68;
     --s-braise: #a83a20;
     --radius: 4px;
-    --dock-h: 92px;
+    --dock-h: 108px;
   }
 
   * { box-sizing: border-box; }
-
   html { -webkit-text-size-adjust: 100%; }
 
   body {
     margin: 0;
     background: var(--ground);
     color: var(--ivory);
-    font-family: "Noto Sans KR", system-ui, -apple-system, "Apple SD Gothic Neo", "Segoe UI", sans-serif;
-    line-height: 1.7;
-    word-break: keep-all;
-    overflow-wrap: break-word;
+    font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+    line-height: 1.5;
     padding-bottom: calc(var(--dock-h) + env(safe-area-inset-bottom));
     -webkit-font-smoothing: antialiased;
   }
 
-  .mono { font-family: "JetBrains Mono", "Noto Sans KR", ui-monospace, monospace; font-feature-settings: "tnum"; }
+  .mono { font-family: "JetBrains Mono", ui-monospace, monospace; font-feature-settings: "tnum"; }
 
-  /* ---------- header ---------- */
   header {
     border-bottom: 1px solid var(--line);
-    padding: 22px 20px 18px;
+    padding: 18px 20px 18px;
     background: linear-gradient(180deg, #1c1510 0%, var(--ground) 100%);
   }
+  .head-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 8px;
+  }
+  .head-actions { display: flex; gap: 8px; flex: 0 0 auto; }
   .eyebrow {
-    font-family: "JetBrains Mono", "Noto Sans KR", monospace;
+    font-family: "JetBrains Mono", monospace;
     font-size: 11px;
-    letter-spacing: 0.06em;
+    letter-spacing: 0.22em;
     text-transform: uppercase;
     color: var(--amber);
-    margin: 0 0 6px;
+    margin: 0;
   }
   h1 {
-    font-family: "Fraunces", "Noto Serif KR", "Apple SD Gothic Neo", Georgia, serif;
+    font-family: "Fraunces", Georgia, serif;
     font-weight: 500;
     font-size: clamp(26px, 5vw, 40px);
-    line-height: 1.25;
+    line-height: 1.04;
     margin: 0 0 10px;
     letter-spacing: -0.01em;
   }
@@ -72,25 +83,15 @@
     display: flex;
     flex-wrap: wrap;
     gap: 6px 18px;
-    font-family: "JetBrains Mono", "Noto Sans KR", monospace;
+    font-family: "JetBrains Mono", monospace;
     font-size: 12px;
     color: var(--muted);
   }
   .meta b { color: var(--ivory); font-weight: 500; }
 
-  .legend {
-    display: flex;
-    gap: 16px;
-    flex-wrap: wrap;
-    margin-top: 16px;
-  }
-  .legend-item {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    font-size: 12px;
-    color: var(--muted);
-  }
+  .legend { display: flex; gap: 16px; flex-wrap: wrap; margin-top: 16px; }
+  .legend:empty { display: none; }
+  .legend-item { display: flex; align-items: center; gap: 8px; font-size: 12px; color: var(--muted); }
   .swatch {
     width: 14px; height: 14px; border-radius: 50%;
     flex: 0 0 auto;
@@ -99,7 +100,6 @@
   .legend-item b { color: var(--ivory); font-weight: 500; }
   .legend-item span { color: var(--faint); }
 
-  /* ---------- layout ---------- */
   .wrap {
     max-width: 1080px;
     margin: 0 auto;
@@ -110,11 +110,10 @@
     align-items: start;
   }
 
-  /* ---------- rail ---------- */
   .rail { position: sticky; top: 16px; }
   .rail h2, .mise h2 {
-    font-family: "JetBrains Mono", "Noto Sans KR", monospace;
-    font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase;
+    font-family: "JetBrains Mono", monospace;
+    font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase;
     color: var(--faint); margin: 0 0 12px; font-weight: 500;
   }
   .steplist { list-style: none; margin: 0 0 26px; padding: 0; }
@@ -122,32 +121,30 @@
     display: flex; align-items: baseline; gap: 11px;
     padding: 7px 10px; border-radius: var(--radius);
     cursor: pointer; color: var(--muted);
-    font-size: 13.5px; line-height: 1.45;
+    font-size: 13.5px; line-height: 1.3;
     border: 1px solid transparent;
-    transition: background .15s, color .15s;
   }
   .steplist li:hover { background: var(--panel); color: var(--ivory); }
-  .steplist li.active {
-    background: var(--panel-2); color: var(--ivory);
-    border-color: var(--line);
-  }
+  .steplist li.active { background: var(--panel-2); color: var(--ivory); border-color: var(--line); }
   .steplist li.done .idx { color: var(--amber-deep); }
   .steplist li.done .s-name { color: var(--faint); text-decoration: line-through; text-decoration-color: var(--line); }
-  .idx {
+  .steplist li.phase {
+    cursor: default; pointer-events: none;
     font-family: "JetBrains Mono", monospace;
-    font-size: 11px; color: var(--faint); flex: 0 0 20px;
+    font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase;
+    color: var(--faint); padding: 14px 10px 2px;
   }
+  .steplist li.phase:hover { background: transparent; color: var(--faint); }
+  .idx { font-family: "JetBrains Mono", monospace; font-size: 11px; color: var(--faint); flex: 0 0 20px; }
   .active .idx { color: var(--amber); }
   .s-tag {
-    margin-left: auto; font-family: "JetBrains Mono", "Noto Sans KR", monospace;
-    font-size: 10px; letter-spacing: 0.02em;
-    padding: 1px 6px; border-radius: 20px; flex: 0 0 auto;
-    align-self: center;
+    margin-left: auto; font-family: "JetBrains Mono", monospace;
+    font-size: 10px; letter-spacing: 0.05em;
+    padding: 1px 6px; border-radius: 20px; flex: 0 0 auto; align-self: center;
   }
   .s-tag.timed { color: var(--amber); border: 1px solid var(--amber-deep); }
   .s-tag.gate { color: var(--chili-soft); border: 1px solid #7a3020; }
 
-  /* ---------- mise ---------- */
   .mise {
     background: var(--panel); border: 1px solid var(--line);
     border-radius: var(--radius); padding: 16px 16px 6px;
@@ -160,104 +157,153 @@
   .mise li:last-child { border-bottom: none; }
   .mise .ing { color: var(--ivory); }
   .mise .amt { font-family: "JetBrains Mono", monospace; font-size: 12.5px; color: var(--amber); white-space: nowrap; }
-  .mise .grp { font-family: "JetBrains Mono", "Noto Sans KR", monospace; font-size: 10.5px; letter-spacing: .04em; text-transform: uppercase; color: var(--faint); margin: 12px 0 4px; }
+  .mise .grp { font-family: "JetBrains Mono", monospace; font-size: 10.5px; letter-spacing: .12em; text-transform: uppercase; color: var(--faint); margin: 12px 0 4px; }
   .cut { color: var(--faint); text-decoration: line-through; text-decoration-color: var(--chili); }
   .cut .amt { color: var(--faint); }
 
-  /* ---------- main step ---------- */
+  /* The opening page is the full mise, not the narrow rail card. */
+  .step-body .mise-page {
+    display: block;
+    max-width: 40rem;
+    background: transparent;
+    border: none;
+    padding: 0;
+  }
+  .step-body .mise-page .grp {
+    font-size: 11px;
+    margin: 22px 0 6px;
+  }
+  .step-body .mise-page .grp:first-child { margin-top: 0; }
+  .step-body .mise-page li {
+    font-size: 16.5px;
+    padding: 8px 0;
+  }
+  .step-body .mise-page .amt { font-size: 15px; }
+  .page-note {
+    margin: 0 0 18px;
+    max-width: 62ch;
+    color: var(--muted);
+    font-size: 15.5px;
+  }
+  .rail .page-note { display: none; }
+  body.on-mise .rail .mise,
+  body.on-mise #miseToggle { display: none !important; }
+
   .stage { min-height: 60vh; }
   .step-head { display: flex; align-items: baseline; gap: 14px; margin-bottom: 4px; flex-wrap: wrap; }
-  .step-num {
-    font-family: "JetBrains Mono", monospace; font-size: 13px; color: var(--amber);
-    letter-spacing: .1em;
-  }
+  .step-num { font-family: "JetBrains Mono", monospace; font-size: 13px; color: var(--amber); letter-spacing: .1em; }
   .step-kind {
-    font-family: "JetBrains Mono", "Noto Sans KR", monospace; font-size: 10.5px; letter-spacing: .04em; text-transform: uppercase;
+    font-family: "JetBrains Mono", monospace; font-size: 10.5px; letter-spacing: .14em; text-transform: uppercase;
     padding: 2px 9px; border-radius: 20px;
   }
   .step-kind.timed { color: var(--amber); border: 1px solid var(--amber-deep); }
   .step-kind.gate { color: var(--chili-soft); border: 1px solid #7a3020; background: rgba(210,73,43,.08); }
   .step-kind.plain { color: var(--faint); border: 1px solid var(--line); }
+  .step-kind.mise { color: var(--amber); border: 1px solid var(--amber-deep); }
+  .where {
+    font-family: "JetBrains Mono", monospace; font-size: 10.5px; letter-spacing: .14em;
+    text-transform: uppercase; color: var(--ivory);
+    border: 1px solid var(--amber-deep); background: rgba(224,160,62,.08);
+    border-radius: 20px; padding: 2px 9px;
+  }
+  .phase-kicker {
+    font-family: "JetBrains Mono", monospace; font-size: 11px; letter-spacing: .18em;
+    text-transform: uppercase; color: var(--amber); margin: 12px 0 0;
+  }
+
+  .uses { display: flex; flex-wrap: wrap; gap: 6px; margin: 0 0 16px; }
+  .use {
+    font-family: "JetBrains Mono", monospace; font-size: 12.5px; line-height: 1.35;
+    color: var(--muted); background: var(--panel); border: 1px solid var(--line);
+    border-radius: 999px; padding: 5px 10px;
+  }
+  .use b { color: var(--amber); font-weight: 500; }
 
   .step-title {
-    font-family: "Fraunces", "Noto Serif KR", "Apple SD Gothic Neo", Georgia, serif; font-weight: 500;
-    font-size: clamp(24px, 4vw, 34px); line-height: 1.3; margin: 8px 0 18px;
+    font-family: "Fraunces", Georgia, serif; font-weight: 500;
+    font-size: clamp(24px, 4vw, 34px); line-height: 1.08; margin: 8px 0 18px;
     letter-spacing: -0.01em;
   }
+  .step-title:focus { outline: none; }
   .step-body { font-size: 16px; color: #ded2c1; max-width: 62ch; }
   .step-body p { margin: 0 0 14px; }
   .step-body strong { color: var(--ivory); font-weight: 600; }
   .step-body em { color: var(--amber); font-style: normal; }
 
-  .callout {
-    border-left: 3px solid var(--amber-deep);
-    background: var(--panel);
-    padding: 12px 16px; border-radius: 0 var(--radius) var(--radius) 0;
-    margin: 18px 0; font-size: 14.5px; color: var(--muted);
+  .also {
+    border: 1px solid var(--amber-deep);
+    background: rgba(224,160,62,.06);
+    border-radius: var(--radius);
+    padding: 10px 14px;
+    margin: 0 0 16px;
+    max-width: 62ch;
   }
-  .callout b { color: var(--ivory); }
+  .also-k {
+    font-family: "JetBrains Mono", monospace;
+    font-size: 10px; letter-spacing: .16em; text-transform: uppercase; color: var(--amber);
+  }
+  .also ul { margin: 6px 0 0; padding-left: 18px; color: var(--muted); font-size: 14.5px; }
 
-  /* temp badge */
   .probe {
     display: inline-flex; align-items: center; gap: 10px;
     background: var(--panel-2); border: 1px solid var(--line);
     border-radius: var(--radius); padding: 10px 16px; margin: 4px 0 18px;
   }
-  .probe .lab { font-size: 11px; letter-spacing: .04em; text-transform: uppercase; color: var(--faint); font-family: "JetBrains Mono", "Noto Sans KR", monospace; }
-  .probe .val { font-family: "JetBrains Mono", "Noto Sans KR", monospace; font-size: 22px; color: var(--amber); font-weight: 500; }
+  .probe .lab { font-size: 11px; letter-spacing: .12em; text-transform: uppercase; color: var(--faint); font-family: "JetBrains Mono", monospace; }
+  .probe .val { font-family: "JetBrains Mono", monospace; font-size: 22px; color: var(--amber); font-weight: 500; }
 
-  /* ---------- gate ---------- */
-  .gate-branches { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin: 20px 0; }
-  .branch {
-    border: 1px solid var(--line); border-radius: var(--radius);
-    padding: 16px; background: var(--panel);
-  }
+  .gate-branches { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 14px; margin: 20px 0; }
+  .branch { border: 1px solid var(--line); border-radius: var(--radius); padding: 16px; background: var(--panel); }
   .branch.good { border-color: #4a5a2e; }
   .branch.wait { border-color: var(--amber-deep); }
   .branch.bad { border-color: #7a3020; }
   .branch h4 {
-    font-family: "JetBrains Mono", "Noto Sans KR", monospace; font-size: 12px; letter-spacing: .02em;
+    font-family: "JetBrains Mono", monospace; font-size: 12px; letter-spacing: .06em;
     margin: 0 0 8px; display: flex; align-items: center; gap: 8px; text-transform: uppercase;
-    line-height: 1.45;
   }
   .branch.good h4 { color: #a9c76a; }
   .branch.wait h4 { color: var(--amber); }
   .branch.bad h4 { color: var(--chili-soft); }
-  .branch p { margin: 0; font-size: 14px; color: var(--muted); line-height: 1.65; }
-  .branch .glyph { font-size: 15px; }
+  .branch p { margin: 0; font-size: 14px; color: var(--muted); }
 
-  /* ---------- timer controls in step ---------- */
   .timer-launch {
     display: flex; align-items: center; gap: 12px; flex-wrap: wrap;
     margin: 22px 0 6px; padding: 16px; border: 1px dashed var(--amber-deep);
     border-radius: var(--radius); background: rgba(224,160,62,.04);
   }
   .timer-launch .tl-time { font-family: "JetBrains Mono", monospace; font-size: 30px; color: var(--amber); font-weight: 500; }
-  .timer-launch .tl-lab { font-size: 13px; color: var(--muted); flex: 1 1 140px; }
+  .timer-launch .tl-lab { font-size: 13px; color: var(--muted); flex: 1 1 180px; }
   .adj { display: inline-flex; gap: 6px; }
   .adj button {
-    min-width: 34px; height: 34px; padding: 0 8px; width: auto;
-    font-family: "JetBrains Mono", "Noto Sans KR", ui-monospace, monospace; font-size: 14px;
+    min-width: 44px; height: 44px; padding: 0 8px;
+    font-family: "JetBrains Mono", monospace; font-size: 14px;
     background: var(--panel-2); color: var(--ivory); border: 1px solid var(--line);
     border-radius: var(--radius); cursor: pointer;
   }
   .adj button:hover { border-color: var(--amber-deep); color: var(--amber); }
 
-  /* buttons */
   button { font-family: inherit; }
   .btn {
     border: none; border-radius: var(--radius); cursor: pointer;
-    font-family: "JetBrains Mono", "Noto Sans KR", monospace; font-size: 13px; letter-spacing: .02em;
-    padding: 12px 20px; transition: filter .15s, background .15s;
+    font-family: "JetBrains Mono", monospace; font-size: 13px; letter-spacing: .04em;
+    padding: 12px 20px; min-height: 44px;
   }
+  .btn:disabled { opacity: 0.4; cursor: default; }
   .btn-amber { background: var(--amber); color: #1c1207; font-weight: 700; }
-  .btn-amber:hover { filter: brightness(1.08); }
+  .btn-amber:hover:not(:disabled) { filter: brightness(1.08); }
   .btn-ghost { background: var(--panel-2); color: var(--ivory); border: 1px solid var(--line); }
-  .btn-ghost:hover { border-color: var(--amber-deep); color: var(--amber); }
+  .btn-ghost:hover:not(:disabled) { border-color: var(--amber-deep); color: var(--amber); }
+  .btn-tiny {
+    background: var(--panel-2); border: 1px solid var(--line); color: var(--muted);
+    border-radius: var(--radius); padding: 7px 12px; cursor: pointer;
+    font-family: "JetBrains Mono", monospace; font-size: 11px; letter-spacing: .05em;
+    min-height: 36px;
+  }
+  .btn-tiny:hover { color: var(--amber); border-color: var(--amber-deep); }
+  .btn-tiny.armed { color: var(--chili-soft); border-color: #7a3020; }
 
   .nav { display: flex; justify-content: space-between; gap: 12px; margin-top: 34px; padding-top: 20px; border-top: 1px solid var(--line); }
 
-  /* ---------- timer dock ---------- */
   .dock {
     position: fixed; left: 0; right: 0; bottom: 0; z-index: 40;
     min-height: var(--dock-h);
@@ -267,81 +313,107 @@
     display: flex; align-items: center; gap: 12px; overflow-x: auto;
   }
   .dock-label {
-    font-family: "JetBrains Mono", "Noto Sans KR", monospace; font-size: 10px; letter-spacing: .08em;
+    font-family: "JetBrains Mono", monospace; font-size: 10px; letter-spacing: .16em;
     text-transform: uppercase; color: var(--faint); writing-mode: vertical-rl; transform: rotate(180deg);
     flex: 0 0 auto; padding-right: 2px;
   }
-  .dock-empty { color: var(--faint); font-size: 13px; font-family: "JetBrains Mono", "Noto Sans KR", monospace; }
+  .dock-empty { color: var(--faint); font-size: 13px; font-family: "JetBrains Mono", monospace; }
   .chip {
     flex: 0 0 auto; display: flex; align-items: center; gap: 12px;
     background: var(--panel-2); border: 1px solid var(--line);
-    border-radius: var(--radius); padding: 10px 12px 10px 14px; min-width: 210px;
+    border-radius: var(--radius); padding: 8px 8px 8px 14px; min-width: 200px;
   }
   .chip.ringing { border-color: var(--chili); animation: flash .7s steps(1) infinite; }
   @keyframes flash { 50% { background: rgba(210,73,43,.22); } }
   .chip .c-info { display: flex; flex-direction: column; gap: 1px; }
-  .chip .c-name { font-size: 11px; color: var(--muted); font-family: "JetBrains Mono", "Noto Sans KR", monospace; letter-spacing: .02em; }
+  .chip .c-name { font-size: 11px; color: var(--muted); font-family: "JetBrains Mono", monospace; letter-spacing: .04em; }
   .chip .c-time { font-family: "JetBrains Mono", monospace; font-size: 24px; font-weight: 500; color: var(--amber); line-height: 1; }
   .chip.ringing .c-time { color: var(--chili-soft); }
-  .chip .c-btns { display: flex; gap: 5px; margin-left: auto; }
+  .chip .c-btns { display: flex; gap: 6px; margin-left: auto; }
   .chip .c-btns button {
-    width: 30px; height: 30px; border-radius: var(--radius);
+    width: 44px; height: 44px; border-radius: var(--radius);
     background: var(--panel); border: 1px solid var(--line); color: var(--muted);
-    cursor: pointer; font-size: 13px; display: grid; place-items: center;
+    cursor: pointer; font-size: 14px; display: grid; place-items: center;
   }
   .chip .c-btns button:hover { color: var(--amber); border-color: var(--amber-deep); }
 
-  .sound-toggle {
-    position: absolute; top: 22px; right: 20px;
-    background: var(--panel-2); border: 1px solid var(--line); color: var(--muted);
-    border-radius: var(--radius); padding: 7px 12px; cursor: pointer;
-    font-family: "JetBrains Mono", "Noto Sans KR", monospace; font-size: 11px; letter-spacing: .02em;
+  .empty-stage { color: var(--muted); max-width: 52ch; }
+  .sr {
+    position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+    overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0;
   }
-  .sound-toggle:hover { color: var(--amber); }
-
-  .mise-toggle { display: none; }
 
   :focus-visible { outline: 2px solid var(--amber); outline-offset: 2px; }
 
-  /* ---------- responsive ---------- */
   @media (max-width: 860px) {
     .wrap { grid-template-columns: 1fr; gap: 18px; }
     .rail { position: static; order: 2; }
-    .rail .steplist { display: none; }
-    .rail.open .steplist { display: block; }
+    .seq h2, .rail .steplist { display: none; }
+    .seq.open h2, .seq.open .steplist { display: block; }
     .mise-toggle {
       display: block; width: 100%; text-align: left;
       background: var(--panel); border: 1px solid var(--line); color: var(--ivory);
       border-radius: var(--radius); padding: 12px 14px; margin-bottom: 12px;
-      font-family: "JetBrains Mono", "Noto Sans KR", monospace; font-size: 12px; letter-spacing: .04em; cursor: pointer;
+      font-family: "JetBrains Mono", monospace; font-size: 12px; letter-spacing: .06em; cursor: pointer;
+      min-height: 44px;
     }
     .mise { display: none; }
     .mise.open { display: block; }
     .stage { order: 1; }
-    .gate-branches { grid-template-columns: 1fr; }
     .progress-mini { display: flex; }
   }
-  @media (min-width: 861px) { .progress-mini { display: none; } }
-
-  .progress-mini {
-    gap: 4px; margin-bottom: 14px; flex-wrap: wrap;
+  @media (min-width: 861px) {
+    .progress-mini { display: none; }
+    .mise-toggle { display: none; }
+    .rail {
+      max-height: calc(100vh - 20px - var(--dock-h));
+      overflow: auto;
+      padding-right: 6px;
+    }
+    .rail .mise { margin-top: 6px; }
   }
+
+  .progress-mini { gap: 4px; margin-bottom: 14px; flex-wrap: wrap; }
   .progress-mini .pip {
-    height: 4px; flex: 1 1 12px; border-radius: 2px; background: var(--line); cursor: pointer;
+    height: 8px; flex: 1 1 16px; border-radius: 2px; background: var(--line); cursor: pointer;
   }
   .progress-mini .pip.done { background: var(--amber-deep); }
   .progress-mini .pip.active { background: var(--amber); }
 
   @media (prefers-reduced-motion: reduce) {
     * { animation: none !important; transition: none !important; }
+    .chip.ringing { background: rgba(210,73,43,.22); }
   }
+</style>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;600;700&family=Noto+Serif+KR:wght@500;600&display=swap" rel="stylesheet">
+<style>
+  /* Korean type. Same layout. The Latin faces carry no Hangul, so each stack falls back to Noto. */
+  body { font-family: "Noto Sans KR", system-ui, -apple-system, "Apple SD Gothic Neo", "Segoe UI", sans-serif; line-height: 1.7; word-break: keep-all; overflow-wrap: break-word; }
+  .mono, .eyebrow, .meta, .rail h2, .mise h2, .steplist li.phase, .idx, .s-tag, .mise .amt, .mise .grp,
+  .step-num, .step-kind, .where, .phase-kicker, .use, .also-k, .probe .lab, .probe .val, .branch h4,
+  .timer-launch .tl-time, .adj button, .btn, .btn-tiny, .mise-toggle, .dock-label, .dock-empty,
+  .chip .c-name, .chip .c-time { font-family: "JetBrains Mono", "Noto Sans KR", ui-monospace, monospace; }
+  h1, .step-title { font-family: "Fraunces", "Noto Serif KR", "Apple SD Gothic Neo", Georgia, serif; line-height: 1.3; }
+  .eyebrow, .rail h2, .mise h2, .steplist li.phase, .mise .grp, .step-kind, .where, .phase-kicker,
+  .also-k, .probe .lab { letter-spacing: .04em; }
+  .steplist li, .branch h4 { line-height: 1.45; }
+  .branch h4 { letter-spacing: .02em; }
+  .branch p { line-height: 1.65; }
+  .chip { min-width: 210px; }
+  /* Hangul set vertical and turned 180 degrees reads upside down. */
+  .dock-label { writing-mode: horizontal-tb; transform: none; }
 </style>
 </head>
 <body>
 
 <header>
-  <button class="sound-toggle" id="soundToggle" aria-pressed="true">🔔 소리 켬</button>
-  <p class="eyebrow">라이브 쿠킹</p>
+  <div class="head-row">
+    <p class="eyebrow">라이브 쿠킹</p>
+    <div class="head-actions">
+      <button class="btn-tiny" id="soundToggle" type="button" aria-pressed="true">소리 켬</button>
+      <button class="btn-tiny" id="resetBtn" type="button">Start over</button>
+    </div>
+  </div>
   <h1>슬로 오븐 레드 소스</h1>
   <div class="meta">
     <span><b>~1.35 L</b> · 6–8인분</span>
@@ -350,7 +422,7 @@
     <span>브레이즈 <b class="mono">135 °C</b> 컨벡션, 뚜껑 없이</span>
     <span>끝점: <b>절반으로 졸이기</b>, 시간이 기준이 아님</span>
   </div>
-  <div class="legend">
+  <div class="legend" id="legend">
     <div class="legend-item"><span class="swatch" style="background:var(--s-garlic)"></span><div><b>갈릭 콩피</b> <span>· 단 마늘 맛과 향이 밴 기름</span></div></div>
     <div class="legend-item"><span class="swatch" style="background:var(--s-fresh)"></span><div><b>구운 인디고 로즈</b> <span>· 캐러멜화와 잼</span></div></div>
     <div class="legend-item"><span class="swatch" style="background:var(--s-braise)"></span><div><b>오븐 브레이즈</b> <span>· 벽 퐁(눌은 맛)과 바디</span></div></div>
@@ -359,7 +431,12 @@
 
 <div class="wrap">
   <aside class="rail" id="rail">
-    <button class="mise-toggle" id="miseToggle">▸ 재료 준비</button>
+    <button class="mise-toggle" id="seqToggle" type="button" aria-expanded="false">▸ Sequence</button>
+    <div class="seq" id="seq">
+      <h2>Sequence</h2>
+      <ol class="steplist" id="steplist"></ol>
+    </div>
+    <button class="mise-toggle" id="miseToggle" type="button" aria-expanded="false">▸ Mise / ingredients</button>
     <div class="mise" id="mise">
       <h2>재료 준비</h2>
       <div class="grp">갈릭 콩피</div>
@@ -401,37 +478,39 @@
       <ul>
         <li><span class="ing">차가운 버터, 깍둑</span><span class="amt">20 g</span></li>
         <li><span class="ing">바질 잎, 그 단에서</span><span class="amt">잎</span></li>
-        <li class="cut"><span class="ing">베이킹소다. ATK: 밋밋하고 단조로움</span><span class="amt">—</span></li>
-        <li class="cut"><span class="ing">앤초비. 원본에 없음</span><span class="amt">—</span></li>
       </ul>
     </div>
-    <h2 style="margin-top:22px">순서</h2>
-    <ol class="steplist" id="steplist"></ol>
   </aside>
 
   <main class="stage" id="stage">
     <div class="progress-mini" id="progressMini"></div>
-    <!-- step renders here -->
     <div id="stepView"></div>
     <div class="nav">
-      <button class="btn btn-ghost" id="prevBtn">← 이전</button>
-      <button class="btn btn-amber" id="nextBtn">다음 단계 →</button>
+      <button class="btn btn-ghost" id="prevBtn" type="button">← Back</button>
+      <button class="btn btn-amber" id="nextBtn" type="button">Next step →</button>
     </div>
   </main>
 </div>
 
 <div class="dock" id="dock">
-  <span class="dock-label">타이머</span>
-  <span class="dock-empty" id="dockEmpty">돌아가는 타이머가 없습니다. 시간 단계에서 시작하세요.</span>
+  <span class="dock-label">Timers</span>
+  <span class="dock-empty" id="dockEmpty">No timers running. Start one from a timed step.</span>
 </div>
+<div id="live" class="sr" aria-live="assertive"></div>
 
 <script>
 "use strict";
 
-/* ---------------- recipe data ---------------- */
+/* Unique per dish. The restore key is cook-live:<RECIPE_ID>. */
+const RECIPE_ID = "slow-oven-red-sauce-ko";
+const ENGINE = "2026-11-10";
+
+/* Replace with the dish. Shape is documented in cook-it-live/SKILL.md. */
 const STEPS = [
   {
     kind: "gate",
+    phase: "준비",
+    where: "조리대",
     title: "무엇보다 먼저: 토마토 상태",
     body: `<p><strong>인디고 로즈는 속이 익기 전에 보라색이 됩니다.</strong> 색소는 숙성과 상관없이 올라오고, 덜 익은 과일은 물기가 많고 거의 맛이 없습니다. 구워도 살리지 못합니다. 이 레시피에서 가장 큰 실패 지점이고, 오븐을 켜는 시점에는 이미 결정되어 있습니다.</p>`,
     branches: [
@@ -441,22 +520,54 @@ const STEPS = [
   },
   {
     kind: "plain",
+    phase: "준비",
+    where: "조리대",
+    probe: "160 °C 컨벡션",
+    probeLabel: "오븐",
     title: "준비",
+    uses: [
+      { amt: "65 g", name: "마늘, 깐 쪽" },
+      { amt: "1 kg", name: "인디고 로즈, 반으로" },
+      { amt: "300 g", name: "통조림 토마토, 냉장고에" }
+    ],
     body: `<p>오븐을 <strong>160 °C 컨벡션</strong>으로.</p>
     <p><strong>지금 통조림 나트륨을 확인하고, 어떤 통조림인지 기억하세요.</strong> 프리미엄 홀토마토는 나트륨이 5배까지 벌어집니다. Mutti, Cento, 대부분의 DOP 통조림은 100 g당 나트륨 약 33–40 mg입니다. Bianco DiNapoli는 약 149 mg입니다. 마무리 소금은 졸임이 멈춘 뒤에 갑니다. 지금 재지 마세요.</p>
     <p>통조림 두 캔을 엽니다. <strong>토마토 300 g은 냉장고에 남겨 둡니다.</strong> 마지막에 다시 넣어 밝기를 되돌리는 분량입니다. 마늘 <em>65 g</em>은 쪽으로 깝니다. 인디고 로즈 <em>1 kg</em>은 가운데를 가로질러 반으로 가릅니다.</p>`
   },
   {
-    kind: "timed", timerName: "마늘+트레이", defaultSec: 2100, minSec: 1500, maxSec: 3300,
+    kind: "timed", timerName: "마늘", defaultSec: 2100, minSec: 1500, maxSec: 3300,
     probe: "160 °C 컨벡션",
+    probeLabel: "오븐",
+    phase: "마늘과 트레이",
+    where: "오븐",
     title: "마늘과 트레이, 함께",
+    uses: [
+      { amt: "65 g", name: "마늘" },
+      { amt: "200 ml", name: "올리브유, 잠기게" },
+      { amt: "1 kg", name: "인디고 로즈" },
+      { amt: "25 ml", name: "올리브유" },
+      { amt: "2 g", name: "고운 소금" }
+    ],
     body: `<p><strong>마늘:</strong> 쪽마늘 통째, 한 층, <strong>올리브유 200 ml에 완전히 잠기고, 포일로 단단히 덮습니다.</strong></p>
     <p>잠기면 노출된 수분 표면이 거의 없어 고르게 색이 납니다. 덮개가 중요한 이유는 <strong>160 °C가 콩피에는 뜨거운 온도이기 때문</strong>입니다. 마늘은 토마토와 오븐을 같이 쓰려고 토마토 온도에서 가고, 포일이 그걸 안전하게 만듭니다.</p>
     <p><strong>토마토:</strong> <em>올리브유 25 ml</em>와 <em>소금 2 g</em>에 버무립니다. <strong>자른 면이 위로, 한 층, 서로 닿지 않게.</strong> 1 kg은 트레이 하나에 여유 있게 들어갑니다. 붙여 담는 것이 이 단계를 망치는 유일한 길입니다. 닿은 반쪽은 김을 가두고 쪄집니다.</p>
-    <p>타이머는 트레이가 아니라 <em>마늘 첫 확인</em>인 35분에 맞춰져 있습니다.</p>`
+    <p>이 타이머는 35분 <em>마늘 첫 확인</em>입니다. 트레이 시계는 다음 단계입니다.</p>`
+  },
+  {
+    kind: "timed", timerName: "트레이 160", defaultSec: 4500, minSec: 3600, maxSec: 5400,
+    probe: "160 °C 컨벡션",
+    probeLabel: "오븐",
+    phase: "마늘과 트레이",
+    where: "오븐",
+    title: "트레이 시계 시작",
+    body: `<p>마늘과 트레이가 다 들어갔으면, 트레이 시계를 <em>75분</em>으로 <strong>시작</strong>합니다.</p>
+    <p>마늘 타이머는 마늘 첫 확인일 뿐입니다. 이건 트레이입니다. 울리면 색을 내려고 오븐을 <strong>210 °C</strong>로 올립니다.</p>`
   },
   {
     kind: "gate",
+    phase: "마늘과 트레이",
+    where: "오븐",
+    also: ["트레이는 160 °C, 75분 시계로 굽는 중"],
     title: "마늘 판단",
     body: `<p>알림이 울리면 확인하고, 그다음은 8분마다 봅니다. 한 방향입니다. 쓴 마늘은 완성된 소스에서 빼낼 수 없습니다.</p>`,
     branches: [
@@ -467,7 +578,22 @@ const STEPS = [
   },
   {
     kind: "plain",
+    phase: "브레이저",
+    where: "브레이저 24–26 cm",
+    also: ["트레이는 160 °C, 75분 시계로 굽는 중", "마늘이 아직 안에 있으면 8분마다 확인"],
     title: "브레이저 만들기 (트레이가 구워지는 동안)",
+    uses: [
+      { amt: "30 ml", name: "올리브유" },
+      { amt: "20 g", name: "버터" },
+      { amt: "2.5 g", name: "건조 오레가노" },
+      { amt: "1.5 g", name: "칠리 플레이크" },
+      { amt: "1.3 kg", name: "통조림 토마토" },
+      { amt: "1개", name: "양파, 반으로" },
+      { amt: "1개", name: "당근, 통째" },
+      { amt: "40 g", name: "파르미지아노 껍질" },
+      { amt: "줄기", name: "바질" },
+      { amt: "1.5 g", name: "고운 소금" }
+    ],
     body: `<p><strong>24–26 cm 브레이저 하나.</strong> 이 분량이면 층이 약 2.5–3 cm이고, 그게 맞는 깊이입니다. 벽에 퐁이 생길 만큼 얕고, 졸임이 손을 벗어날 만큼 얇지는 않습니다. 30 cm 팬이면 2 cm가 안 되고, 보는 속도보다 빨리 졸아듭니다.</p>
     <p><em>올리브유 30 ml</em>와 <em>버터 20 g</em>을 중불에 데웁니다. <em>건조 오레가노 2.5 g</em>과 <em>칠리 플레이크 1.5 g</em>을 넣고 <strong>30초</strong> 향을 냅니다. 향이 나되, 색이 나면 안 됩니다.</p>
     <p>통조림 토마토 <strong>1.3 kg</strong>을 손으로 으깨 넣습니다. <em>반으로 가른 양파 1개</em>, <em>통 당근 1개</em>, <em>파르미지아노 껍질 40 g</em>, <em>바질 줄기</em>, 그리고 <strong>소금은 1.5 g만. 피시 소스는 아직 넣지 않습니다.</strong> 원본처럼 마지막에 들어갑니다.</p>
@@ -477,12 +603,19 @@ const STEPS = [
   {
     kind: "timed", timerName: "트레이 210", defaultSec: 900, minSec: 720, maxSec: 1080,
     probe: "210 °C 컨벡션",
+    probeLabel: "오븐",
+    phase: "트레이",
+    where: "오븐",
+    also: ["브레이저는 불을 끄고 뚜껑을 덮어 기다리는 중"],
     title: "색을 내려고 트레이 온도를 올린다",
     body: `<p><strong>오븐을 210 °C로.</strong> 뜨거운 구간을 일부러 마지막에 둡니다. 자른 면에 물기가 남아 있는 동안 그 표면은 약 100 °C에 묶여 갈변하지 못합니다. 약 75분 말린 뒤에야 210 °C가 실제로 일을 합니다.</p>
     <p><strong>지켜보세요.</strong> 15분은 시작값이지, 약속이 아닙니다.</p>`
   },
   {
     kind: "gate",
+    phase: "트레이",
+    where: "오븐 트레이",
+    also: ["브레이저는 불을 끄고 뚜껑을 덮어 기다리는 중"],
     title: "트레이 상태를 보고, 무게를 잰다",
     body: `<p>토마토 로스팅 감량에 대한 공개 수치는 제각각이라, 이 레시피는 숫자 하나를 못 박지 않습니다. <strong>시작 토마토 무게의 대략 절반이 되면 꺼냅니다.</strong> 추측이 아니라 측정입니다. 그다음 트레이 바닥을 봅니다. 과일보다 더 많은 것을 말해 줍니다.</p>`,
     branches: [
@@ -493,7 +626,13 @@ const STEPS = [
   },
   {
     kind: "plain",
+    phase: "트레이",
+    where: "트레이, 푸드 밀",
+    also: ["브레이저는 불을 끄고 뚜껑을 덮어 기다리는 중"],
     title: "데글레이즈한 다음 푸드 밀",
+    uses: [
+      { amt: "약 40 ml", name: "물" }
+    ],
     body: `<p>물 약 40 ml로 <strong>트레이를 데글레이즈</strong>하고, 세게 긁습니다. 건너뛰지 마세요. 이 요리에서 가장 좋은 맛의 일부가 금속에 붙어 있습니다.</p>
     <p><strong>푸드 밀, 중간 원판.</strong> 껍질과 씨는 뒤에 남습니다. 데글레이즈한 액을 과육에 섞습니다.</p>
     <p><em>왜 푸드 밀인가:</em> 인디고 로즈는 껍질이 유난히 두껍다고 알려져 있고, 공개된 시식 평가 적어도 한 곳은 껍질이 두껍고 탄닌이 있다고 했습니다. 근거는 평가 하나이지, 증명은 아닙니다. 다만 갈면 캐러멜화된 껍질을 조금 잃고, 반대로 틀리면 은은한 쓴맛으로 한 솥을 잃습니다. <strong>색은 어느 쪽이든 남습니다.</strong> 안토시아닌은 굽는 동안 이미 껍질에서 과육으로 빠져나왔기 때문입니다.</p>`
@@ -501,6 +640,9 @@ const STEPS = [
   {
     kind: "timed", timerName: "브레이즈", defaultSec: 3600, minSec: 2700, maxSec: 7200,
     probe: "135 °C 컨벡션",
+    probeLabel: "오븐",
+    phase: "브레이즈",
+    where: "오븐",
     title: "오븐에, 뚜껑 없이",
     body: `<p><strong>오븐을 135 °C 컨벡션으로 내립니다</strong> (210에서 내려오는 데 약 10분). 브레이저를 넣고, <strong>뚜껑 없이</strong>.</p>
     <p><strong>끝점은 시간이 아니라 양입니다. 약 절반으로 졸고, 깊은 빨강으로 어두워집니다.</strong> 원본의 끝점이고, 맞는 끝점입니다. 여기 타이머는 <em>60분 첫 확인</em>이고, 그다음 20분마다 봅니다. 1시간 15분에서 2시간 사이를 예상하세요. 이 냄비, 이 양에 정확한 시간을 주는 사람은 짐작하는 것입니다.</p>
@@ -508,6 +650,8 @@ const STEPS = [
   },
   {
     kind: "gate",
+    phase: "브레이즈",
+    where: "브레이저",
     title: "퐁인가, 눌음인가",
     body: `<p>20–30분마다, 소스 위 벽에 말라 붙은 것을 납작한 나무 주걱으로 긁어 내립니다. 토마토가 법랑에 익어 붙은 것입니다. <strong>이것이 이 레시피입니다.</strong> 토마토 고형분의 마이야르이고, 토마토가 원래 갖지 않은 맛을 만드는 과정의 유일한 단계입니다. 저어 넣기 전에 상태를 보세요.</p>`,
     branches: [
@@ -518,7 +662,16 @@ const STEPS = [
   },
   {
     kind: "plain",
+    phase: "합치기",
+    where: "브레이저",
     title: "합치기",
+    uses: [
+      { amt: "전부", name: "간 구운 토마토와 데글레이즈" },
+      { amt: "300 g", name: "따로 둔 통조림 토마토" },
+      { amt: "전부", name: "콩피 마늘" },
+      { amt: "50 ml", name: "콩피 기름" },
+      { amt: "8 ml", name: "피시 소스" }
+    ],
     body: `<p><strong>양파, 당근, 바질 줄기</strong>를 건져 버립니다. <strong>파르미지아노 껍질</strong>은 냄비 벽에 눌러 짜고 버립니다.</p>
     <p>넣어 젓습니다.</p>
     <p>1. <strong>간 구운 생토마토</strong>와 그 데글레이즈.<br>
@@ -531,11 +684,16 @@ const STEPS = [
   {
     kind: "timed", timerName: "마무리", defaultSec: 1500, minSec: 1200, maxSec: 2400,
     probe: "135 °C 컨벡션",
+    probeLabel: "오븐",
+    phase: "합치기",
+    where: "오븐",
     title: "다시 넣어 어우르기",
     body: `<p><strong>135 °C, 20–30분, 뚜껑 없이.</strong> 세 갈래를 어우르고, 생토마토가 방금 더한 수분을 날립니다.</p>`
   },
   {
     kind: "gate",
+    phase: "마무리",
+    where: "브레이저",
     title: "졸임 판단",
     body: `<p>숟가락으로 냄비 바닥을 긋고, 숟가락이 남긴 자국을 냄비 안에서 봅니다. <strong>맛보기 숟가락은 식으면서 걸쭉해지고, 거짓말을 합니다.</strong></p>
     <p>파스타용으로 맞추면 <em>오븐에 굽는 소스보다 묽어야</em> 합니다. 전분 있는 파스타 물과 유화되어 면을 감쌀 만큼 잘 흘러야 합니다.</p>`,
@@ -547,6 +705,8 @@ const STEPS = [
   },
   {
     kind: "plain",
+    phase: "마무리",
+    where: "브레이저 · 불 끈 뒤",
     title: "질감, 불 끈 뒤",
     body: `<p><strong>핸드 블렌더로 짧게 4–5번, 약 절반만 갈아 줍니다.</strong> 달라붙고 유화될 만큼 매끈하되, 토마토 조각은 보이게. 완전히 매끈하면 시판 소스 같고, 완전히 거칠면 파스타에서 미끄러집니다.</p>
     <p><strong>헤드를 완전히 잠그고, 속도는 중간으로.</strong> 토마토 소스에 공기를 넣으면 주황 쪽으로 밝아집니다. 기록된 효과이고, 어느 블렌더냐의 문제가 아니라 공기 혼입의 문제입니다. 수면 위로 나온 핸드 블렌더 헤드도 병 블렌더만큼 쉽게 그렇게 만듭니다.</p>
@@ -554,13 +714,24 @@ const STEPS = [
   },
   {
     kind: "plain",
+    phase: "마무리",
+    where: "브레이저 · 불 끈 뒤",
     title: "버터와 남은 피시 소스",
+    uses: [
+      { amt: "20 g", name: "차가운 버터, 깍둑" },
+      { amt: "4 ml", name: "피시 소스" }
+    ],
     body: `<p><strong>버터.</strong> 차가운 것 20 g을 깍둑썰기해, 녹아 없어질 때까지 젓습니다. 고소함만큼 질감과 산입니다. 유화된 지방이 느껴지는 신맛을 둥글게 하고, 파스타에 묻어가는 윤기를 줍니다.</p>
     <p><strong>남은 피시 소스 4 ml.</strong> 넣기 전과 후를 맛봅니다. 12 ml 중 나머지입니다. 소금은 이것이 들어간 다음입니다.</p>`
   },
   {
     kind: "gate",
+    phase: "마무리",
+    where: "브레이저",
     title: "소금 판단",
+    uses: [
+      { amt: "1 g씩", name: "고운 소금" }
+    ],
     body: `<p>남은 피시 소스 4 ml는 이미 들어 있습니다. 졸임이 멈췄으니, 이제야 간을 해도 안전합니다. <strong>지금까지 고정으로 들어간 소금 환산은 약 6.9 g</strong>입니다 (피시 소스 3.0, 파르미지아노 껍질 0.4, 트레이 2.0, 브레이즈 1.5). 소스 약 1.42 kg 기준입니다. 나머지는 토마토가 결정합니다. 목표는 약 0.85%입니다. <em>1 g</em>씩 넣고 맛봅니다. 맛이 맞으면, 통조림 숫자보다 적어도 멈춥니다.</p>`,
     branches: [
       { type:"good", glyph:"✓", head:"Mutti / Cento / 대부분의 DOP (100 g당 Na 약 33–40 mg)", text:"1 g씩 넣습니다. 대략 4 g 근처에서 멈출 때가 많습니다. 이미 맛이 맞으면 그 전에 멈춥니다." },
@@ -570,34 +741,221 @@ const STEPS = [
   },
   {
     kind: "plain",
+    phase: "마무리",
+    where: "브레이저 · 불 끈 뒤",
     title: "설탕, 그리고 바질",
+    uses: [
+      { amt: "2 g씩", name: "설탕, 아직 실 때만" },
+      { amt: "잎", name: "바질" }
+    ],
     body: `<p><strong>설탕</strong>은 소금이 맞은 뒤에만, 아직 실 때. <em>2 g</em>씩, 상한은 <em>약 6 g</em>입니다. 간이 덜 된 소스는 싱겁게 느껴지기 전에 시게 느껴집니다. 소금을 먼저 잡지 않으면 설탕을 과하게 넣게 됩니다.</p>
-    <p><strong>베이킹소다는 넣지 않습니다.</strong> America's Test Kitchen이 설탕과 블라인드 비교했고, 티스푼의 8분의 1에서도 밋밋하고 단조로웠습니다.</p>
     <p><strong>바질.</strong> 그 단의 잎을 <em>불 끈 뒤, 마지막 순간에</em> 찢어 넣습니다.</p>
     <p>인디고 로즈가 덜 익은 채 들어왔다면, 설탕은 상한까지 가고 향은 덜합니다. 방법이 아니라 과일 때문입니다.</p>`
   },
   {
     kind: "plain",
+    phase: "담기",
+    where: "파스타 팬",
     title: "담고, 보관",
+    uses: [
+      { amt: "50–70 ml", name: "파스타 물" }
+    ],
     body: `<p><strong>파스타:</strong> <em>2분 덜</em> 삶아, 소스와 <em>파스타 물 50–70 ml</em>가 담긴 팬에 넣고, 중불에서 60–90초 세게 뒤섞어 면에 조여 붙을 때까지. 이 양은 건면 약 <strong>1.3–1.6 kg</strong>, 6–8인분입니다.</p>
     <p><strong>보관:</strong> 냉장 5일, 냉동 6개월. 버터까지 넣어서 얼립니다. Kenji는 바로 이 소스를 얼리고, 물을 조금 넣어 약하게 데웁니다. 해동하면 분리될 수 있습니다. 물 50 ml와 함께 약한 불에서 휘저어 되돌립니다.</p>
     <p><em>여기까지가 조리입니다.</em></p>`
   }
 ];
 
+/* Interface text. English is built in. A page in another language overrides keys here. */
+const UI = {
+  back: "← 이전",
+  next: "다음 단계 →",
+  startCooking: "조리 시작 →",
+  finish: "완료",
+  cookAgain: "다시 조리",
+  soundOn: "소리 켬",
+  soundOff: "소리 꺼짐",
+  startOver: "처음부터",
+  clearCook: "이 조리를 지울까요?",
+  sequence: "순서",
+  miseToggle: "재료 준비",
+  timers: "타이머",
+  noTimers: "돌아가는 타이머가 없습니다. 시간 단계에서 시작하세요.",
+  kindTimed: "타이머",
+  kindGate: "판단",
+  kindPlain: "단계",
+  kindMise: "재료",
+  tagTimed: "타이머",
+  tagGate: "판단",
+  misePhase: "재료 준비",
+  miseWhere: "조리대",
+  miseTitle: "재료",
+  stillRunning: "아직 진행 중",
+  pullAt: "꺼낼 온도",
+  doneHead: "끝",
+  doneText: "여기까지가 조리입니다. 처음부터를 누르면 타이머와 진행 위치가 지워집니다.",
+  wallClock: "실제 시계 기준입니다. 이 탭이 열려 있는 한 화면이 잠겨도 계속 갑니다. 이 파일을 다시 열면 끝나는 시각이 복원됩니다.",
+  startTimer: name => "▶ " + name + " 시작",
+  chipDone: " · 끝",
+  chipPaused: " · 일시정지",
+  pause: "일시정지",
+  resume: "재개",
+  dismiss: "지우기",
+  unitH: "시간",
+  unitM: "분",
+  unitS: "초",
+  liveDone: name => name + " 타이머 끝",
+  notifyTitle: name => name + " · 끝",
+  notifyBody: "타이머가 끝났습니다."
+};
+
 /* ---------------- state ---------------- */
+const T = Object.assign({
+  back: "← Back",
+  next: "Next step →",
+  startCooking: "Start cooking →",
+  finish: "Finish",
+  cookAgain: "Cook again",
+  soundOn: "Sound on",
+  soundOff: "Sound off",
+  startOver: "Start over",
+  clearCook: "Clear this cook?",
+  sequence: "Sequence",
+  miseToggle: "Mise / ingredients",
+  timers: "Timers",
+  noTimers: "No timers running. Start one from a timed step.",
+  kindTimed: "Timed",
+  kindGate: "Decision",
+  kindPlain: "Step",
+  kindMise: "Ingredients",
+  tagTimed: "timer",
+  tagGate: "gate",
+  misePhase: "Mise",
+  miseWhere: "Counter",
+  miseTitle: "Ingredients",
+  stillRunning: "Still running",
+  pullAt: "Pull at",
+  doneHead: "Done",
+  doneText: "That is the cook. Start over clears the timers and the place.",
+  wallClock: "Wall clock. Holds while the screen is locked, as long as this tab stays loaded. Reopening this file restores the end time.",
+  startTimer: name => "▶ Start " + name,
+  chipDone: " · done",
+  chipPaused: " · paused",
+  pause: "pause",
+  resume: "resume",
+  dismiss: "dismiss",
+  unitH: "h",
+  unitM: "m",
+  unitS: "s",
+  liveDone: name => name + " timer done",
+  notifyTitle: name => name + " · done",
+  notifyBody: "Timer finished."
+}, UI);
+
+const storageKey = "cook-live:" + RECIPE_ID;
 let current = 0;
 const done = new Set();
+let finished = false;
 let soundOn = true;
-const timers = {}; // id -> {name, remaining, total, running, intervalId, ringing}
+const timers = {};
 let timerSeq = 0;
-
-/* ---------------- audio ---------------- */
+const timedDraft = {};
+let wakeLock = null;
 let audioCtx = null;
+let resetArm = 0;
+
+function load() {
+  let blob = null;
+  try { blob = JSON.parse(localStorage.getItem(storageKey) || "null"); } catch (e) { blob = null; }
+  if (!blob || typeof blob !== "object") return;
+  if (Number.isInteger(blob.current)) current = blob.current;
+  if (current < 0 || current >= Math.max(STEPS.length, 1)) current = 0;
+  if (STEPS.length && current >= STEPS.length) current = 0;
+  if (Array.isArray(blob.done)) blob.done.forEach(i => { if (Number.isInteger(i)) done.add(i); });
+  if (typeof blob.soundOn === "boolean") soundOn = blob.soundOn;
+  if (blob.finished) finished = true;
+  if (blob.timedDraft && typeof blob.timedDraft === "object") {
+    Object.keys(blob.timedDraft).forEach(k => { timedDraft[k] = blob.timedDraft[k]; });
+  }
+  if (Number.isInteger(blob.timerSeq)) timerSeq = blob.timerSeq;
+  if (Array.isArray(blob.timers)) {
+    blob.timers.forEach(raw => {
+      if (!raw || typeof raw.name !== "string") return;
+      const t = {
+        name: raw.name,
+        endsAt: typeof raw.endsAt === "number" ? raw.endsAt : null,
+        remaining: typeof raw.remaining === "number" ? raw.remaining : 0,
+        running: !!raw.running,
+        ringing: !!raw.ringing,
+        announced: !!raw.announced
+      };
+      if (t.running && t.endsAt) {
+        const left = Math.round((t.endsAt - Date.now()) / 1000);
+        if (left <= 0) {
+          t.remaining = 0; t.running = false; t.ringing = true;
+        } else {
+          t.remaining = left;
+        }
+      }
+      const id = Number.isInteger(raw.id) ? raw.id : ++timerSeq;
+      timers[id] = t;
+      if (id > timerSeq) timerSeq = id;
+    });
+  }
+  /* Older saves were indexed from the first cook step. The ingredients page now leads.
+     An unstarted cook stays on that page. */
+  if (!blob.ingredientsLead) {
+    const unstarted = current === 0 && done.size === 0 && !blob.finished && (!blob.timers || blob.timers.length === 0);
+    if (unstarted) return;
+    current += 1;
+    const shifted = [...done].map(i => i + 1);
+    done.clear();
+    shifted.forEach(i => { if (i < STEPS.length) done.add(i); });
+    const drafts = {};
+    Object.keys(timedDraft).forEach(k => {
+      const m = /^pending_(\d+)$/.exec(k);
+      if (m) drafts["pending_" + (Number(m[1]) + 1)] = timedDraft[k];
+      else drafts[k] = timedDraft[k];
+    });
+    Object.keys(timedDraft).forEach(k => delete timedDraft[k]);
+    Object.keys(drafts).forEach(k => { timedDraft[k] = drafts[k]; });
+    if (current >= STEPS.length) current = Math.max(0, STEPS.length - 1);
+  }
+}
+
+function save() {
+  const blob = {
+    engine: ENGINE,
+    ingredientsLead: true,
+    current,
+    done: [...done],
+    finished,
+    soundOn,
+    timerSeq,
+    timedDraft,
+    timers: Object.keys(timers).map(id => {
+      const t = timers[id];
+      return {
+        id: Number(id), name: t.name, endsAt: t.endsAt, remaining: t.remaining,
+        running: t.running, ringing: t.ringing, announced: t.announced
+      };
+    })
+  };
+  try { localStorage.setItem(storageKey, JSON.stringify(blob)); } catch (e) { /* private mode */ }
+}
+
+/* ---------------- audio + alerts ---------------- */
+function unlockAudio() {
+  try {
+    audioCtx = audioCtx || new (window.AudioContext || window.webkitAudioContext)();
+    if (audioCtx.state === "suspended") audioCtx.resume();
+  } catch (e) { /* audio unavailable */ }
+}
 function beep() {
   if (!soundOn) return;
   try {
-    audioCtx = audioCtx || new (window.AudioContext || window.webkitAudioContext)();
+    unlockAudio();
+    if (!audioCtx) return;
     const now = audioCtx.currentTime;
     [0, 0.28, 0.56].forEach(off => {
       const o = audioCtx.createOscillator();
@@ -612,26 +970,65 @@ function beep() {
     });
   } catch (e) { /* audio unavailable */ }
 }
+function announce(name) {
+  const live = document.getElementById("live");
+  if (live) live.textContent = T.liveDone(name);
+  if ("Notification" in window && Notification.permission === "granted") {
+    try { new Notification(T.notifyTitle(name), { body: T.notifyBody }); } catch (e) { /* blocked */ }
+  }
+}
+function askNotify() {
+  if (!("Notification" in window)) return;
+  if (Notification.permission !== "default") return;
+  try { Notification.requestPermission(); } catch (e) { /* no permission API */ }
+}
 
 /* ---------------- helpers ---------------- */
+function esc(s) {
+  return String(s == null ? "" : s).replace(/[&<>"']/g, c => ({
+    "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;"
+  }[c]));
+}
 function fmt(sec) {
   sec = Math.max(0, Math.round(sec));
-  const m = Math.floor(sec / 60), s = sec % 60;
-  return String(m).padStart(2,"0") + ":" + String(s).padStart(2,"0");
+  const h = Math.floor(sec / 3600);
+  const m = Math.floor((sec % 3600) / 60);
+  const s = sec % 60;
+  const mm = String(m).padStart(2, "0");
+  const ss = String(s).padStart(2, "0");
+  return h > 0 ? (h + ":" + mm + ":" + ss) : (mm + ":" + ss);
 }
-const kindLabel = { timed: "타이머", gate: "판단", plain: "단계" };
+function adjustSteps(st) {
+  if (st.defaultSec >= 3600) return [-3600, -300, 300, 3600];
+  if (st.defaultSec >= 1200) return [-300, -60, 60, 300];
+  return [-60, -30, 30, 60];
+}
+function adjLabel(delta) {
+  const sign = delta > 0 ? "+" : "−";
+  const a = Math.abs(delta);
+  if (a >= 3600 && a % 3600 === 0) return sign + (a / 3600) + T.unitH;
+  if (a >= 60 && a % 60 === 0) return sign + (a / 60) + T.unitM;
+  return sign + a + T.unitS;
+}
+const kindLabel = { timed: T.kindTimed, gate: T.kindGate, plain: T.kindPlain, mise: T.kindMise };
 
 /* ---------------- rail + progress ---------------- */
 function renderRail() {
   const ol = document.getElementById("steplist");
   ol.innerHTML = "";
   STEPS.forEach((st, i) => {
+    if (st.phase && (i === 0 || STEPS[i - 1].phase !== st.phase)) {
+      const ph = document.createElement("li");
+      ph.className = "phase";
+      ph.textContent = st.phase;
+      ol.appendChild(ph);
+    }
     const li = document.createElement("li");
     li.className = (i === current ? "active " : "") + (done.has(i) ? "done" : "");
     let tag = "";
-    if (st.kind === "timed") tag = `<span class="s-tag timed">타이머</span>`;
-    if (st.kind === "gate") tag = `<span class="s-tag gate">판단</span>`;
-    li.innerHTML = `<span class="idx mono">${String(i+1).padStart(2,"0")}</span><span class="s-name">${st.title}</span>${tag}`;
+    if (st.kind === "timed") tag = `<span class="s-tag timed">${esc(T.tagTimed)}</span>`;
+    if (st.kind === "gate") tag = `<span class="s-tag gate">${esc(T.tagGate)}</span>`;
+    li.innerHTML = `<span class="idx mono">${String(i + 1).padStart(2, "0")}</span><span class="s-name">${esc(st.title)}</span>${tag}`;
     li.addEventListener("click", () => goto(i));
     ol.appendChild(li);
   });
@@ -641,49 +1038,80 @@ function renderRail() {
   STEPS.forEach((st, i) => {
     const p = document.createElement("div");
     p.className = "pip" + (i === current ? " active" : done.has(i) ? " done" : "");
+    p.title = st.title || "";
     p.addEventListener("click", () => goto(i));
     mini.appendChild(p);
   });
+
+  const active = ol.querySelector("li.active");
+  const rail = document.getElementById("rail");
+  if (active && rail.scrollHeight > rail.clientHeight + 4) {
+    const railRect = rail.getBoundingClientRect();
+    const aRect = active.getBoundingClientRect();
+    if (aRect.bottom > railRect.bottom - 8) rail.scrollTop += aRect.bottom - railRect.bottom + 16;
+    else if (aRect.top < railRect.top + 8) rail.scrollTop -= railRect.top - aRect.top + 16;
+  }
 }
 
 /* ---------------- step view ---------------- */
 function renderStep() {
-  const st = STEPS[current];
   const v = document.getElementById("stepView");
-  let html = `<div class="step-head">
-      <span class="step-num mono">${String(current+1).padStart(2,"0")} / ${String(STEPS.length).padStart(2,"0")}</span>
-      <span class="step-kind ${st.kind}">${kindLabel[st.kind]}</span>
-    </div>
-    <h2 class="step-title">${st.title}</h2>
-    <div class="step-body">${st.body}</div>`;
-
-  if (st.probe) {
-    html += `<div class="probe"><span class="lab">오븐</span><span class="val mono">${st.probe}</span></div>`;
+  const prev = document.getElementById("prevBtn");
+  const next = document.getElementById("nextBtn");
+  if (!STEPS.length) {
+    v.innerHTML = `<p class="empty-stage">This is the cook-it-live engine. Copy the file, then fill the header, the mise, and STEPS. The shape is in cook-it-live/SKILL.md.</p>`;
+    prev.disabled = true;
+    next.disabled = true;
+    return;
   }
+  const st = STEPS[current];
+  const uses = (st.uses && st.uses.length)
+    ? `<div class="uses">` + st.uses.map(u => `<span class="use"><b>${esc(u.amt)}</b> ${esc(u.name)}</span>`).join("") + `</div>`
+    : "";
+  const also = (st.also && st.also.length)
+    ? `<div class="also"><div class="also-k">${esc(T.stillRunning)}</div><ul>` + st.also.map(a => `<li>${esc(a)}</li>`).join("") + `</ul></div>`
+    : "";
+  let html = `<div class="step-head">
+      <span class="step-num mono">${String(current + 1).padStart(2, "0")} / ${String(STEPS.length).padStart(2, "0")}</span>
+      <span class="step-kind ${esc(st.kind)}">${esc(kindLabel[st.kind] || T.kindPlain)}</span>
+      ${st.where ? `<span class="where">${esc(st.where)}</span>` : ""}
+    </div>
+    ${st.phase ? `<p class="phase-kicker">${esc(st.phase)}</p>` : ""}
+    <h2 class="step-title" id="stepTitle" tabindex="-1">${esc(st.title)}</h2>
+    ${uses}
+    ${also}
+    ${st.probe ? `<div class="probe"><span class="lab">${esc(st.probeLabel || T.pullAt)}</span><span class="val mono">${esc(st.probe)}</span></div>` : ""}
+    <div class="step-body">${st.body || ""}</div>`;
 
-  if (st.kind === "gate") {
+  if (st.kind === "gate" && st.branches) {
     html += `<div class="gate-branches">`;
     st.branches.forEach(b => {
-      html += `<div class="branch ${b.type}">
-        <h4><span class="glyph">${b.glyph}</span> ${b.head}</h4>
-        <p>${b.text}</p></div>`;
+      const type = (b.type === "good" || b.type === "wait" || b.type === "bad") ? b.type : "wait";
+      html += `<div class="branch ${type}">
+        <h4><span class="glyph">${esc(b.glyph || "")}</span> ${esc(b.head)}</h4>
+        <p>${esc(b.text)}</p></div>`;
     });
     html += `</div>`;
   }
 
+  if (finished) {
+    html += `<div class="also"><div class="also-k">${esc(T.doneHead)}</div><ul><li>${esc(T.doneText)}</li></ul></div>`;
+  }
+
   if (st.kind === "timed") {
-    const pending = `pending_${current}`;
+    const pending = "pending_" + current;
     if (!(pending in timedDraft)) timedDraft[pending] = st.defaultSec;
+    const buttons = adjustSteps(st).map(d =>
+      `<button type="button" data-adj="${d}">${adjLabel(d)}</button>`
+    ).join("");
+    const note = st.timerNote
+      ? esc(st.timerNote)
+      : esc(T.wallClock);
     html += `<div class="timer-launch">
         <span class="tl-time mono" id="draft_${current}">${fmt(timedDraft[pending])}</span>
-        <span class="adj">
-          <button data-adj="-60" data-step="${current}">−1분</button>
-          <button data-adj="-30" data-step="${current}">−30초</button>
-          <button data-adj="30" data-step="${current}">+30초</button>
-          <button data-adj="60" data-step="${current}">+1분</button>
-        </span>
-        <span class="tl-lab">${st.timerName} 타이머. 아래 막대로 보냅니다.</span>
-        <button class="btn btn-amber" id="launch_${current}">▶ ${st.timerName} 시작</button>
+        <span class="adj">${buttons}</span>
+        <span class="tl-lab">${esc(st.timerName)}. ${note}</span>
+        <button class="btn btn-amber" id="launch_${current}" type="button">${esc(T.startTimer(st.timerName))}</button>
       </div>`;
   }
 
@@ -692,75 +1120,122 @@ function renderStep() {
   if (st.kind === "timed") {
     v.querySelectorAll("[data-adj]").forEach(btn => {
       btn.addEventListener("click", () => {
-        const key = `pending_${current}`;
+        const key = "pending_" + current;
         let val = timedDraft[key] + parseInt(btn.dataset.adj, 10);
         val = Math.min(st.maxSec, Math.max(st.minSec, val));
         timedDraft[key] = val;
-        document.getElementById(`draft_${current}`).textContent = fmt(val);
+        document.getElementById("draft_" + current).textContent = fmt(val);
+        save();
       });
     });
-    document.getElementById(`launch_${current}`).addEventListener("click", () => {
-      addTimer(st.timerName, timedDraft[`pending_${current}`]);
+    document.getElementById("launch_" + current).addEventListener("click", () => {
+      addTimer(st.timerName, timedDraft["pending_" + current]);
     });
   }
 
-  document.getElementById("prevBtn").disabled = current === 0;
-  document.getElementById("nextBtn").textContent = current === STEPS.length - 1 ? "완료 ✓" : "다음 단계 →";
+  prev.disabled = current === 0;
+  next.disabled = authoredCount === 0;
+  next.textContent = finished ? T.cookAgain
+    : (current === STEPS.length - 1 ? T.finish
+    : (st.kind === "mise" ? T.startCooking : T.next));
+  document.body.classList.toggle("on-mise", st.kind === "mise");
+
+  const title = document.getElementById("stepTitle");
+  if (title) title.focus({ preventScroll: true });
 }
-const timedDraft = {};
 
 /* ---------------- navigation ---------------- */
 function goto(i) {
-  if (i < 0 || i >= STEPS.length) return;
+  if (!STEPS.length || i < 0 || i >= STEPS.length) return;
+  finished = false;
   current = i;
-  renderRail(); renderStep();
-  window.scrollTo({ top: 0, behavior: "smooth" });
+  save();
+  renderRail();
+  renderStep();
+  const reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  window.scrollTo({ top: 0, behavior: reduce ? "auto" : "smooth" });
 }
-document.getElementById("nextBtn").addEventListener("click", () => {
+function advance() {
+  if (!STEPS.length) return;
+  if (finished) { resetCook(); return; }
   done.add(current);
   if (current < STEPS.length - 1) goto(current + 1);
-  else { renderRail(); renderStep(); }
-});
+  else { finished = true; save(); renderRail(); renderStep(); }
+}
+document.getElementById("nextBtn").addEventListener("click", advance);
 document.getElementById("prevBtn").addEventListener("click", () => goto(current - 1));
 
 /* ---------------- timers / dock ---------------- */
 function addTimer(name, sec) {
+  unlockAudio();
+  askNotify();
   const id = ++timerSeq;
-  timers[id] = { name, remaining: sec, total: sec, running: true, ringing: false, intervalId: null };
-  timers[id].intervalId = setInterval(() => tick(id), 1000);
+  timers[id] = {
+    name,
+    endsAt: Date.now() + sec * 1000,
+    remaining: sec,
+    running: true,
+    ringing: false,
+    announced: false
+  };
+  save();
   renderDock();
+  syncWake();
 }
-function tick(id) {
-  const t = timers[id];
-  if (!t || !t.running) return;
-  t.remaining -= 1;
-  if (t.remaining <= 0) {
-    t.remaining = 0; t.running = false; t.ringing = true;
-    clearInterval(t.intervalId);
-    beep();
-  }
-  updateChip(id);
+function sweepTimers() {
+  let changed = false;
+  Object.keys(timers).forEach(id => {
+    const t = timers[id];
+    if (t.running && t.endsAt) {
+      const left = Math.round((t.endsAt - Date.now()) / 1000);
+      if (left <= 0) {
+        t.remaining = 0;
+        t.running = false;
+        t.ringing = true;
+        changed = true;
+      } else {
+        t.remaining = left;
+      }
+    }
+    if (t.ringing && !t.announced) {
+      t.announced = true;
+      changed = true;
+      beep();
+      announce(t.name);
+    }
+    updateChip(id);
+  });
+  if (changed) { save(); syncWake(); }
 }
 function toggleTimer(id) {
-  const t = timers[id]; if (!t) return;
+  const t = timers[id];
+  if (!t) return;
   if (t.ringing) { removeTimer(id); return; }
-  t.running = !t.running;
-  if (t.running && !t.intervalId) { /* restart interval */ }
-  if (t.running) { t.intervalId = setInterval(() => tick(id), 1000); }
-  else { clearInterval(t.intervalId); t.intervalId = null; }
+  if (t.running) {
+    t.remaining = Math.max(0, Math.round((t.endsAt - Date.now()) / 1000));
+    t.running = false;
+    t.endsAt = null;
+  } else if (t.remaining > 0) {
+    unlockAudio();
+    t.running = true;
+    t.endsAt = Date.now() + t.remaining * 1000;
+  }
+  save();
   updateChip(id);
+  syncWake();
 }
 function removeTimer(id) {
-  const t = timers[id]; if (!t) return;
-  clearInterval(t.intervalId);
+  if (!timers[id]) return;
   delete timers[id];
+  save();
   renderDock();
+  syncWake();
 }
 function renderDock() {
   const dock = document.getElementById("dock");
   dock.querySelectorAll(".chip").forEach(c => c.remove());
   const ids = Object.keys(timers);
-  document.getElementById("dockEmpty").style.display = ids.length ? "none" : "block";
+  document.getElementById("dockEmpty").style.display = ids.length ? "none" : "";
   ids.forEach(id => dock.appendChild(buildChip(id)));
 }
 function buildChip(id) {
@@ -770,12 +1245,12 @@ function buildChip(id) {
   el.id = "chip_" + id;
   el.innerHTML = `
     <div class="c-info">
-      <span class="c-name">${t.name}${t.ringing ? " · 끝" : ""}</span>
+      <span class="c-name">${esc(t.name + (t.ringing ? T.chipDone : (t.running ? "" : T.chipPaused)))}</span>
       <span class="c-time mono">${fmt(t.remaining)}</span>
     </div>
     <div class="c-btns">
-      <button title="일시정지/재개" data-act="toggle">${t.ringing ? "✓" : (t.running ? "❚❚" : "▶")}</button>
-      <button title="지우기" data-act="remove">✕</button>
+      <button type="button" title="${esc(t.ringing ? T.dismiss : (t.running ? T.pause : T.resume))}" data-act="toggle">${t.ringing ? "✓" : (t.running ? "❚❚" : "▶")}</button>
+      <button type="button" title="${esc(T.dismiss)}" data-act="remove">✕</button>
     </div>`;
   el.querySelector('[data-act="toggle"]').addEventListener("click", () => toggleTimer(id));
   el.querySelector('[data-act="remove"]').addEventListener("click", () => removeTimer(id));
@@ -784,38 +1259,147 @@ function buildChip(id) {
 function updateChip(id) {
   const t = timers[id];
   const el = document.getElementById("chip_" + id);
-  if (!el) { renderDock(); return; }
-  if (!t) { el.remove(); return; }
+  if (!el || !t) { renderDock(); return; }
   el.className = "chip" + (t.ringing ? " ringing" : "");
   el.querySelector(".c-time").textContent = fmt(t.remaining);
-  el.querySelector(".c-name").textContent = t.name + (t.ringing ? " · 끝" : "");
-  el.querySelector('[data-act="toggle"]').textContent = t.ringing ? "✓" : (t.running ? "❚❚" : "▶");
+  el.querySelector(".c-name").textContent = t.name + (t.ringing ? T.chipDone : (t.running ? "" : T.chipPaused));
+  const toggle = el.querySelector('[data-act="toggle"]');
+  toggle.textContent = t.ringing ? "✓" : (t.running ? "❚❚" : "▶");
+  toggle.title = t.ringing ? T.dismiss : (t.running ? T.pause : T.resume);
 }
 
+async function syncWake() {
+  const any = Object.keys(timers).some(id => timers[id].running);
+  if (any && "wakeLock" in navigator) {
+    try {
+      if (!wakeLock) wakeLock = await navigator.wakeLock.request("screen");
+    } catch (e) { /* unsupported or hidden tab */ }
+  } else if (wakeLock) {
+    try { await wakeLock.release(); } catch (e) { /* already released */ }
+    wakeLock = null;
+  }
+}
+document.addEventListener("visibilitychange", () => {
+  if (document.visibilityState !== "visible") return;
+  sweepTimers();
+  syncWake();
+});
+setInterval(sweepTimers, 250);
+
 /* ---------------- toggles ---------------- */
+function paintSound() {
+  const b = document.getElementById("soundToggle");
+  b.textContent = soundOn ? T.soundOn : T.soundOff;
+  b.setAttribute("aria-pressed", soundOn ? "true" : "false");
+}
 document.getElementById("soundToggle").addEventListener("click", (e) => {
   soundOn = !soundOn;
-  e.target.textContent = soundOn ? "🔔 소리 켬" : "🔕 소리 꺼짐";
-  e.target.setAttribute("aria-pressed", soundOn);
-  if (soundOn) beep();
+  paintSound();
+  save();
+  if (soundOn) { unlockAudio(); beep(); }
+});
+document.getElementById("seqToggle").addEventListener("click", (e) => {
+  const seq = document.getElementById("seq");
+  const open = seq.classList.toggle("open");
+  e.currentTarget.textContent = (open ? "▾ " : "▸ ") + T.sequence;
+  e.currentTarget.setAttribute("aria-expanded", open ? "true" : "false");
+  if (open) seq.scrollIntoView({ block: "start" });
 });
 document.getElementById("miseToggle").addEventListener("click", (e) => {
   const m = document.getElementById("mise");
-  m.classList.toggle("open");
-  e.target.textContent = (m.classList.contains("open") ? "▾ " : "▸ ") + "재료 준비";
+  const open = m.classList.toggle("open");
+  e.currentTarget.textContent = (open ? "▾ " : "▸ ") + T.miseToggle;
+  e.currentTarget.setAttribute("aria-expanded", open ? "true" : "false");
+  if (open) m.scrollIntoView({ block: "start" });
+});
+document.getElementById("resetBtn").addEventListener("click", (e) => {
+  const now = Date.now();
+  if (now - resetArm > 4000) {
+    resetArm = now;
+    e.currentTarget.textContent = T.clearCook;
+    e.currentTarget.classList.add("armed");
+    setTimeout(() => {
+      if (Date.now() - resetArm >= 3900) {
+        const b = document.getElementById("resetBtn");
+        b.textContent = T.startOver;
+        b.classList.remove("armed");
+      }
+    }, 4000);
+    return;
+  }
+  resetCook();
+});
+function resetCook() {
+  current = 0;
+  done.clear();
+  finished = false;
+  Object.keys(timers).forEach(id => delete timers[id]);
+  Object.keys(timedDraft).forEach(k => delete timedDraft[k]);
+  timerSeq = 0;
+  resetArm = 0;
+  const b = document.getElementById("resetBtn");
+  b.textContent = T.startOver;
+  b.classList.remove("armed");
+  try { localStorage.removeItem(storageKey); } catch (e) { /* private mode */ }
+  renderRail();
+  renderStep();
+  renderDock();
+  syncWake();
+}
+
+document.addEventListener("keydown", (e) => {
+  if (e.metaKey || e.ctrlKey || e.altKey) return;
+  const tag = e.target && e.target.tagName;
+  if (tag === "BUTTON" || tag === "INPUT" || tag === "TEXTAREA") return;
+  if (e.key === "ArrowRight") { e.preventDefault(); advance(); }
+  if (e.key === "ArrowLeft") { e.preventDefault(); goto(current - 1); }
 });
 
-/* keyboard: left/right arrows */
-document.addEventListener("keydown", (e) => {
-  if (e.target.tagName === "BUTTON") return;
-  if (e.key === "ArrowRight") { done.add(current); goto(Math.min(STEPS.length-1, current+1)); }
-  if (e.key === "ArrowLeft") goto(Math.max(0, current-1));
-});
+/* The opening page is the mise. Built from the sidebar list so a dish types it once. */
+function buildIngredientsStep() {
+  const mise = document.getElementById("mise");
+  const clone = mise.cloneNode(true);
+  clone.removeAttribute("id");
+  clone.classList.add("mise-page");
+  const h2 = clone.querySelector("h2");
+  if (h2) h2.remove();
+  let note = "";
+  if (!authoredCount) {
+    note = `<p class="empty-stage">Copy this file, then replace the mise and STEPS. The shape is in cook-it-live/SKILL.md.</p>`;
+  }
+  return {
+    kind: "mise",
+    phase: T.misePhase,
+    where: T.miseWhere,
+    title: T.miseTitle,
+    body: clone.outerHTML + note
+  };
+}
+const authoredCount = STEPS.length;
+STEPS.unshift(buildIngredientsStep());
+
+/* Static chrome takes its words from T, so a translated page needs no engine edits. */
+function paintChrome() {
+  document.getElementById("prevBtn").textContent = T.back;
+  document.getElementById("resetBtn").textContent = T.startOver;
+  document.getElementById("seqToggle").textContent = "▸ " + T.sequence;
+  document.getElementById("miseToggle").textContent = "▸ " + T.miseToggle;
+  const seqHead = document.querySelector("#seq h2");
+  if (seqHead) seqHead.textContent = T.sequence;
+  const dockLabel = document.querySelector("#dock .dock-label");
+  if (dockLabel) dockLabel.textContent = T.timers;
+  document.getElementById("dockEmpty").textContent = T.noTimers;
+}
 
 /* ---------------- init ---------------- */
+load();
+paintChrome();
+paintSound();
 renderRail();
 renderStep();
 renderDock();
+sweepTimers();
+syncWake();
 </script>
 </body>
 </html>

@@ -11,7 +11,7 @@ Each dish keeps its own copy, because these files move to the phone one at a tim
 1. Copy `cook-it-live/template.html` to `<Dish Folder>/<slug>_cook_live.html`.
 2. Set the title, the `<h1>`, the meta line, and `RECIPE_ID` (a stable slug, unique per dish). The restore key is `cook-live:<RECIPE_ID>`. Two dishes that share an id will share a half-finished cook.
 3. Replace the mise list. Group it the way the cook reaches for it. A quantity that is conditional stays in the list and is marked, the way the miso file strikes the soy that only goes in for unsalted stock. The opening page is built from this list. Do not also type the ingredients into `STEPS`.
-4. Replace `STEPS`. Leave the script below `STEPS` alone unless you are fixing the engine.
+4. Replace `STEPS`. Leave `UI` as `{}` for an English page. Leave the script below `UI` alone unless you are fixing the engine. The engine is identical in every dish file, from the `state` marker down, so a diff against the template shows any drift.
 5. Retint the `:root` colors and, when the dish has non-overlapping components, add a legend. Do not restyle the layout.
 6. If you changed the engine because something actually failed, put the same change in `template.html` and add a changelog entry below. The template is the base the next dish copies.
 
@@ -66,6 +66,12 @@ Do not re-implement these, and do not drop them while editing a dish.
 - Arrow keys move steps. Tap targets on the timer are 44 px.
 - The page stands alone. Fonts are the only network request. It has to work from a phone that opened the file out of a sync folder.
 
+## Another language
+
+Set `lang` on `<html>`. Translate the header, the mise, and `STEPS`. Fill `UI` with the words the engine prints: the keys and their English defaults are the `T` table at the top of the engine, and a key you leave out stays English. Add a second `<style>` block after the template's for that script's type: font stacks that reach a face carrying it, line height, word breaking. Layout stays as it is.
+
+The Korean red sauce is the worked example. Hangul set in the vertical dock label reads upside down, so that page sets the label horizontal.
+
 ## Writing the steps
 
 Same rules as the markdown, applied to a screen that is being read with wet hands.
@@ -78,6 +84,12 @@ Same rules as the markdown, applied to a screen that is being read with wet hand
 - Metric only.
 
 ## Changelog
+
+### 2026-11-10
+
+The words the engine prints moved into one table, `T`, which a dish overrides through `UI`. English output is unchanged. The Korean red sauce forced it: its old engine had the Korean typed into the code, so moving it onto the template would have put English buttons on a Korean page. Static chrome (Back, the toggles, the dock) is now painted from the same table at load.
+
+Every dish now runs this engine. The miso braise, the eggplant parmigiana, and both red sauce pages were still on the pre-template engine: `setInterval` timers with no end timestamp, no wake lock, no restore. Moving them exposed four faults in the pages, all fixed. The opening page builds itself from the mise, so the red sauce's struck source comparisons (baking soda, anchovy) showed up as ingredients. The red sauce tray had no clock for its 75 minutes at 160 °C. The Korean dock label rendered upside down. The eggplant's "not set yet, 15 more minutes" was painted `bad`. The red sauce probes are oven setpoints and now carry `probeLabel: "Oven"`.
 
 ### 2026-10-23
 

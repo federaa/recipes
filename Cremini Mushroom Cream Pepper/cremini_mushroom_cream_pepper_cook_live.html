@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <!--
-  Cook It Live engine 2026-10-23.
+  Cook It Live engine 2026-11-10.
   Copy this file per dish. Replace the header, the mise, RECIPE_ID, and STEPS.
-  Leave the script below STEPS alone unless you are fixing the engine.
+  A page in another language also fills UI and sets lang.
+  Leave the script below UI alone unless you are fixing the engine.
   Engine fixes go back into this file and into cook-it-live/SKILL.md.
 -->
 <html lang="en">
@@ -459,7 +460,7 @@
 
 /* Unique per dish. The restore key is cook-live:<RECIPE_ID>. */
 const RECIPE_ID = "cremini-mushroom-cream-pepper";
-const ENGINE = "2026-10-23";
+const ENGINE = "2026-11-10";
 
 const STEPS = [
   {
@@ -814,7 +815,52 @@ const STEPS = [
   }
 ];
 
+/* Interface text. English is built in. A page in another language overrides keys here. */
+const UI = {};
+
 /* ---------------- state ---------------- */
+const T = Object.assign({
+  back: "← Back",
+  next: "Next step →",
+  startCooking: "Start cooking →",
+  finish: "Finish",
+  cookAgain: "Cook again",
+  soundOn: "Sound on",
+  soundOff: "Sound off",
+  startOver: "Start over",
+  clearCook: "Clear this cook?",
+  sequence: "Sequence",
+  miseToggle: "Mise / ingredients",
+  timers: "Timers",
+  noTimers: "No timers running. Start one from a timed step.",
+  kindTimed: "Timed",
+  kindGate: "Decision",
+  kindPlain: "Step",
+  kindMise: "Ingredients",
+  tagTimed: "timer",
+  tagGate: "gate",
+  misePhase: "Mise",
+  miseWhere: "Counter",
+  miseTitle: "Ingredients",
+  stillRunning: "Still running",
+  pullAt: "Pull at",
+  doneHead: "Done",
+  doneText: "That is the cook. Start over clears the timers and the place.",
+  wallClock: "Wall clock. Holds while the screen is locked, as long as this tab stays loaded. Reopening this file restores the end time.",
+  startTimer: name => "▶ Start " + name,
+  chipDone: " · done",
+  chipPaused: " · paused",
+  pause: "pause",
+  resume: "resume",
+  dismiss: "dismiss",
+  unitH: "h",
+  unitM: "m",
+  unitS: "s",
+  liveDone: name => name + " timer done",
+  notifyTitle: name => name + " · done",
+  notifyBody: "Timer finished."
+}, UI);
+
 const storageKey = "cook-live:" + RECIPE_ID;
 let current = 0;
 const done = new Set();
@@ -935,9 +981,9 @@ function beep() {
 }
 function announce(name) {
   const live = document.getElementById("live");
-  if (live) live.textContent = name + " timer done";
+  if (live) live.textContent = T.liveDone(name);
   if ("Notification" in window && Notification.permission === "granted") {
-    try { new Notification(name + " · done", { body: "Timer finished." }); } catch (e) { /* blocked */ }
+    try { new Notification(T.notifyTitle(name), { body: T.notifyBody }); } catch (e) { /* blocked */ }
   }
 }
 function askNotify() {
@@ -969,11 +1015,11 @@ function adjustSteps(st) {
 function adjLabel(delta) {
   const sign = delta > 0 ? "+" : "−";
   const a = Math.abs(delta);
-  if (a >= 3600 && a % 3600 === 0) return sign + (a / 3600) + "h";
-  if (a >= 60 && a % 60 === 0) return sign + (a / 60) + "m";
-  return sign + a + "s";
+  if (a >= 3600 && a % 3600 === 0) return sign + (a / 3600) + T.unitH;
+  if (a >= 60 && a % 60 === 0) return sign + (a / 60) + T.unitM;
+  return sign + a + T.unitS;
 }
-const kindLabel = { timed: "Timed", gate: "Decision", plain: "Step", mise: "Ingredients" };
+const kindLabel = { timed: T.kindTimed, gate: T.kindGate, plain: T.kindPlain, mise: T.kindMise };
 
 /* ---------------- rail + progress ---------------- */
 function renderRail() {
@@ -989,8 +1035,8 @@ function renderRail() {
     const li = document.createElement("li");
     li.className = (i === current ? "active " : "") + (done.has(i) ? "done" : "");
     let tag = "";
-    if (st.kind === "timed") tag = `<span class="s-tag timed">timer</span>`;
-    if (st.kind === "gate") tag = `<span class="s-tag gate">gate</span>`;
+    if (st.kind === "timed") tag = `<span class="s-tag timed">${esc(T.tagTimed)}</span>`;
+    if (st.kind === "gate") tag = `<span class="s-tag gate">${esc(T.tagGate)}</span>`;
     li.innerHTML = `<span class="idx mono">${String(i + 1).padStart(2, "0")}</span><span class="s-name">${esc(st.title)}</span>${tag}`;
     li.addEventListener("click", () => goto(i));
     ol.appendChild(li);
@@ -1032,18 +1078,18 @@ function renderStep() {
     ? `<div class="uses">` + st.uses.map(u => `<span class="use"><b>${esc(u.amt)}</b> ${esc(u.name)}</span>`).join("") + `</div>`
     : "";
   const also = (st.also && st.also.length)
-    ? `<div class="also"><div class="also-k">Still running</div><ul>` + st.also.map(a => `<li>${esc(a)}</li>`).join("") + `</ul></div>`
+    ? `<div class="also"><div class="also-k">${esc(T.stillRunning)}</div><ul>` + st.also.map(a => `<li>${esc(a)}</li>`).join("") + `</ul></div>`
     : "";
   let html = `<div class="step-head">
       <span class="step-num mono">${String(current + 1).padStart(2, "0")} / ${String(STEPS.length).padStart(2, "0")}</span>
-      <span class="step-kind ${esc(st.kind)}">${kindLabel[st.kind] || "Step"}</span>
+      <span class="step-kind ${esc(st.kind)}">${esc(kindLabel[st.kind] || T.kindPlain)}</span>
       ${st.where ? `<span class="where">${esc(st.where)}</span>` : ""}
     </div>
     ${st.phase ? `<p class="phase-kicker">${esc(st.phase)}</p>` : ""}
     <h2 class="step-title" id="stepTitle" tabindex="-1">${esc(st.title)}</h2>
     ${uses}
     ${also}
-    ${st.probe ? `<div class="probe"><span class="lab">${esc(st.probeLabel || "Pull at")}</span><span class="val mono">${esc(st.probe)}</span></div>` : ""}
+    ${st.probe ? `<div class="probe"><span class="lab">${esc(st.probeLabel || T.pullAt)}</span><span class="val mono">${esc(st.probe)}</span></div>` : ""}
     <div class="step-body">${st.body || ""}</div>`;
 
   if (st.kind === "gate" && st.branches) {
@@ -1058,7 +1104,7 @@ function renderStep() {
   }
 
   if (finished) {
-    html += `<div class="also"><div class="also-k">Done</div><ul><li>That is the cook. Start over clears the timers and the place.</li></ul></div>`;
+    html += `<div class="also"><div class="also-k">${esc(T.doneHead)}</div><ul><li>${esc(T.doneText)}</li></ul></div>`;
   }
 
   if (st.kind === "timed") {
@@ -1069,12 +1115,12 @@ function renderStep() {
     ).join("");
     const note = st.timerNote
       ? esc(st.timerNote)
-      : "Wall clock. Holds while the screen is locked, as long as this tab stays loaded. Reopening this file restores the end time.";
+      : esc(T.wallClock);
     html += `<div class="timer-launch">
         <span class="tl-time mono" id="draft_${current}">${fmt(timedDraft[pending])}</span>
         <span class="adj">${buttons}</span>
         <span class="tl-lab">${esc(st.timerName)}. ${note}</span>
-        <button class="btn btn-amber" id="launch_${current}" type="button">▶ Start ${esc(st.timerName)}</button>
+        <button class="btn btn-amber" id="launch_${current}" type="button">${esc(T.startTimer(st.timerName))}</button>
       </div>`;
   }
 
@@ -1098,9 +1144,9 @@ function renderStep() {
 
   prev.disabled = current === 0;
   next.disabled = authoredCount === 0;
-  next.textContent = finished ? "Cook again"
-    : (current === STEPS.length - 1 ? "Finish"
-    : (st.kind === "mise" ? "Start cooking →" : "Next step →"));
+  next.textContent = finished ? T.cookAgain
+    : (current === STEPS.length - 1 ? T.finish
+    : (st.kind === "mise" ? T.startCooking : T.next));
   document.body.classList.toggle("on-mise", st.kind === "mise");
 
   const title = document.getElementById("stepTitle");
@@ -1208,12 +1254,12 @@ function buildChip(id) {
   el.id = "chip_" + id;
   el.innerHTML = `
     <div class="c-info">
-      <span class="c-name">${esc(t.name)}${t.ringing ? " · done" : (t.running ? "" : " · paused")}</span>
+      <span class="c-name">${esc(t.name + (t.ringing ? T.chipDone : (t.running ? "" : T.chipPaused)))}</span>
       <span class="c-time mono">${fmt(t.remaining)}</span>
     </div>
     <div class="c-btns">
-      <button type="button" title="${t.ringing ? "dismiss" : (t.running ? "pause" : "resume")}" data-act="toggle">${t.ringing ? "✓" : (t.running ? "❚❚" : "▶")}</button>
-      <button type="button" title="dismiss" data-act="remove">✕</button>
+      <button type="button" title="${esc(t.ringing ? T.dismiss : (t.running ? T.pause : T.resume))}" data-act="toggle">${t.ringing ? "✓" : (t.running ? "❚❚" : "▶")}</button>
+      <button type="button" title="${esc(T.dismiss)}" data-act="remove">✕</button>
     </div>`;
   el.querySelector('[data-act="toggle"]').addEventListener("click", () => toggleTimer(id));
   el.querySelector('[data-act="remove"]').addEventListener("click", () => removeTimer(id));
@@ -1225,10 +1271,10 @@ function updateChip(id) {
   if (!el || !t) { renderDock(); return; }
   el.className = "chip" + (t.ringing ? " ringing" : "");
   el.querySelector(".c-time").textContent = fmt(t.remaining);
-  el.querySelector(".c-name").textContent = t.name + (t.ringing ? " · done" : (t.running ? "" : " · paused"));
+  el.querySelector(".c-name").textContent = t.name + (t.ringing ? T.chipDone : (t.running ? "" : T.chipPaused));
   const toggle = el.querySelector('[data-act="toggle"]');
   toggle.textContent = t.ringing ? "✓" : (t.running ? "❚❚" : "▶");
-  toggle.title = t.ringing ? "dismiss" : (t.running ? "pause" : "resume");
+  toggle.title = t.ringing ? T.dismiss : (t.running ? T.pause : T.resume);
 }
 
 async function syncWake() {
@@ -1252,7 +1298,7 @@ setInterval(sweepTimers, 250);
 /* ---------------- toggles ---------------- */
 function paintSound() {
   const b = document.getElementById("soundToggle");
-  b.textContent = soundOn ? "Sound on" : "Sound off";
+  b.textContent = soundOn ? T.soundOn : T.soundOff;
   b.setAttribute("aria-pressed", soundOn ? "true" : "false");
 }
 document.getElementById("soundToggle").addEventListener("click", (e) => {
@@ -1264,14 +1310,14 @@ document.getElementById("soundToggle").addEventListener("click", (e) => {
 document.getElementById("seqToggle").addEventListener("click", (e) => {
   const seq = document.getElementById("seq");
   const open = seq.classList.toggle("open");
-  e.currentTarget.textContent = (open ? "▾ " : "▸ ") + "Sequence";
+  e.currentTarget.textContent = (open ? "▾ " : "▸ ") + T.sequence;
   e.currentTarget.setAttribute("aria-expanded", open ? "true" : "false");
   if (open) seq.scrollIntoView({ block: "start" });
 });
 document.getElementById("miseToggle").addEventListener("click", (e) => {
   const m = document.getElementById("mise");
   const open = m.classList.toggle("open");
-  e.currentTarget.textContent = (open ? "▾ " : "▸ ") + "Mise / ingredients";
+  e.currentTarget.textContent = (open ? "▾ " : "▸ ") + T.miseToggle;
   e.currentTarget.setAttribute("aria-expanded", open ? "true" : "false");
   if (open) m.scrollIntoView({ block: "start" });
 });
@@ -1279,12 +1325,12 @@ document.getElementById("resetBtn").addEventListener("click", (e) => {
   const now = Date.now();
   if (now - resetArm > 4000) {
     resetArm = now;
-    e.currentTarget.textContent = "Clear this cook?";
+    e.currentTarget.textContent = T.clearCook;
     e.currentTarget.classList.add("armed");
     setTimeout(() => {
       if (Date.now() - resetArm >= 3900) {
         const b = document.getElementById("resetBtn");
-        b.textContent = "Start over";
+        b.textContent = T.startOver;
         b.classList.remove("armed");
       }
     }, 4000);
@@ -1301,7 +1347,7 @@ function resetCook() {
   timerSeq = 0;
   resetArm = 0;
   const b = document.getElementById("resetBtn");
-  b.textContent = "Start over";
+  b.textContent = T.startOver;
   b.classList.remove("armed");
   try { localStorage.removeItem(storageKey); } catch (e) { /* private mode */ }
   renderRail();
@@ -1332,17 +1378,31 @@ function buildIngredientsStep() {
   }
   return {
     kind: "mise",
-    phase: "Mise",
-    where: "Counter",
-    title: "Ingredients",
+    phase: T.misePhase,
+    where: T.miseWhere,
+    title: T.miseTitle,
     body: clone.outerHTML + note
   };
 }
 const authoredCount = STEPS.length;
 STEPS.unshift(buildIngredientsStep());
 
+/* Static chrome takes its words from T, so a translated page needs no engine edits. */
+function paintChrome() {
+  document.getElementById("prevBtn").textContent = T.back;
+  document.getElementById("resetBtn").textContent = T.startOver;
+  document.getElementById("seqToggle").textContent = "▸ " + T.sequence;
+  document.getElementById("miseToggle").textContent = "▸ " + T.miseToggle;
+  const seqHead = document.querySelector("#seq h2");
+  if (seqHead) seqHead.textContent = T.sequence;
+  const dockLabel = document.querySelector("#dock .dock-label");
+  if (dockLabel) dockLabel.textContent = T.timers;
+  document.getElementById("dockEmpty").textContent = T.noTimers;
+}
+
 /* ---------------- init ---------------- */
 load();
+paintChrome();
 paintSound();
 renderRail();
 renderStep();
