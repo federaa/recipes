@@ -65,7 +65,7 @@ Weigh the finishing miso once. The salt gate may send only part of it into the p
 
 1. **Prep.** Pat legs bone-dry, salt *lightly* only (the two-stage miso + seasoned stock bring
    most of the salt; a braise concentrates it). Reconstitute the stock and taste it — savory,
-   lightly saline. Oven to **160 °C / 325 °F**.
+   lightly saline. Oven to **160 °C**.
 
 2. **Render in seasoned metal, not the braising vessel.** Use a seasoned cast-iron or carbon-steel
    pan for the sear — its seasoning is a release layer that ceramic and enamel don't have, so the

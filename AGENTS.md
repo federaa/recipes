@@ -6,6 +6,8 @@ The cook is semi-professional and can hold a complex sequence and its timing. Wr
 
 This is a sole-user repo. Commit the work, merge it into `main`, and push `main`. Do not open a pull request. A bad merge can be rewound.
 
+The only clone is `~/Developer/recipes`. The cook reads from iCloud Drive, `Vibes/Recipes`, which is a plain copy with no `.git`. After pushing, copy the working tree there. Never edit the iCloud copy, and never clone into it.
+
 ## The kitchen
 
 Assume the tool is already here. Name the vessel by the job it does.

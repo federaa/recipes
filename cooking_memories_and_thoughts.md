@@ -20,8 +20,7 @@ acid.** It shows up again and again below.
 
 **Eggplant parmigiana, Neapolitan-style.** Roasted, not breaded — the whole dish organized around
 moisture control as the central problem. Purge, roast, a proper sugo, bake, and a real rest before
-cutting so it sets into slices instead of sliding into slop. *Open thread: the markdown made it to
-iCloud but the cook-live HTML transfer was interrupted and never finished. Worth completing.*
+cutting so it sets into slices instead of sliding into slop.
 
 **Beef bourguignon.** The most instructive thing we've done, because it failed. Full post-mortem
 below — it earned its own section.
@@ -168,16 +167,23 @@ The engine change that earned the filing: the timers counted down with `setInter
 
 Every recipe from here is a markdown file and a cook-it-live HTML copied from that template. An engine change goes back into the template and the changelog. A reskin does not count.
 
+On 2026-11-10 every cook-it-live page moved onto that one engine, including a Korean red sauce that needed the engine's own words in Korean. Moving a page onto a new engine turned out to be a content audit as well. The opening page builds itself from the mise, so the red sauce's struck source comparisons became ingredients on the first screen. The red sauce had never had a clock for the tray's 75 minutes at 160 °C. The old page admitted that in a note instead of giving it a timer. The Korean dock label had been rendering upside down. The eggplant's "not set yet" was painted the color of "ruined." **A page that has been cooked from can still be wrong in ways the cook worked around.**
+
+The repo is the only clone, at `~/Developer/recipes`. `Vibes/Recipes` in iCloud is a plain copy for the phone. Edit the repo, push, then copy.
+
 ---
 
 ## Open threads
 
 - Pan-seared ribeye and cremini mushroom cream pepper are written, not cooked, as two cards. The steak is 3 cm, pan only. Pull at 50 °C so the uncovered rest lands the eye at 54–56 °C. That carryover, and the sauce doses, have not been through this kitchen.
-- Finish the interrupted eggplant parmigiana cook-live HTML transfer to iCloud.
+- Morel pappardelle is still a static card, not a cook-it-live page.
+- The red sauce card says its 1.3–1.6 kg of dry pasta is 6–8 servings. That is 160–270 g a
+  head, about twice a usual portion. One of the two numbers is off. The cook decides which.
 - Decide whether the 6-leg miso braise (two enameled braisers, braise-in-two / finish-as-one) gets
   promoted to the canonical recipe and propagated to its cook-live HTML.
-- Keep the CellarTracker export fresh. Last pulled 2026-09-16. A `cellartracker` MCP is now
-  wired into Claude Code, so a live pull no longer needs a manual download.
+- Keep the CellarTracker export fresh. Last pulled 2026-09-16. A `cellartracker` MCP was said
+  to be wired into Claude Code, but on 2026-11-10 none was configured on the Mac checked. Confirm
+  it is there before counting on a live pull.
 - Beef chili for the 8.5 qt has been cooked; what it taught is above. The uncovered window and the
   8 g of cocoa still have no report from that pot. If it tastes dusty, drop the cocoa before
   reaching for sugar.

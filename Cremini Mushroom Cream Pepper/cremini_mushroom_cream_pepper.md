@@ -134,7 +134,7 @@ Spoon it beside the steak, or under it, once the crust has set. Do not put the s
 
 ## Red team
 
-**Salt.** The sauce gets the 2 g on the mushrooms, about 0.5% if the mushrooms and sauce together land near 400 g. That 400 g is not a weighed finish, so 0.5% is a prior. The steak is salted on its own card. This sauce is meant to sit a little under that, because a bite takes both. Extra salt is 1 g at a time from the box, after a taste, and it is not a second weighed pile. A scorched mushroom layer leaves its gram in the cup. The taste covers the shortfall. There is no stock in this sauce. A carton would spend salt before that taste, and the fond is the savor.
+**Salt.** The sauce gets the 2 g on the mushrooms, about 0.5–0.6% if the mushrooms and sauce together land at 350–400 g. That weight is an estimate, not a weighed finish, so the percentage is a prior. The steak is salted on its own card. This sauce is meant to sit a little under that, because a bite takes both. Extra salt is 1 g at a time from the box, after a taste, and it is not a second weighed pile. A scorched mushroom layer leaves its gram in the cup. The taste covers the shortfall. There is no stock in this sauce. A carton would spend salt before that taste, and the fond is the savor.
 
 **Acid.** The counted acid is the 15 ml lemon, off the heat, after the deglaze has boiled until the raw alcohol smell is gone. A second 10 ml, from the same lemon, is only if that first taste is still heavy. Cognac and brandy leave almost no acid once the raw spirit is gone. A dry white, reduced to a glaze, leaves a little. The first 15 ml still goes in either way. The second pour is the control, and it stays in the lemon when the sauce is already lifted. Do not boil after the lemon.
 
@@ -144,14 +144,16 @@ Spoon it beside the steak, or under it, once the crust has set. Do not put the s
 
 **Wine.** The 50 ml is a deglaze, boiled until the raw alcohol smell is gone, before the cream. Cognac or brandy if a bottle is open; otherwise a dry white. Same volume. The white can take longer to glaze because it is mostly water. The nose is the end of the step.
 
-**Quantity.** Mushrooms 300 g, oil 10 ml a layer, shallot 30 g, pepper 6 g, deglaze 50 ml, cream 160 ml, lemon 15 ml plus up to 10 ml from the same lemon, and butter 30 g are sized for two steaks and have not been plated from this pan. The 30 g cold butter is the whole mount for this batch, 160 ml of cream for two steaks, and it goes in every time. The 6 g of cracked pepper is the pepper in the name, against 160 ml of cream. It cannot be taken back out. Cracked, and bloomed about 30 seconds, is how that weight stays sweet. A fresh 30 g shallot and 6 g pepper are only if the bloom scorches, weighed then. Cream at 160 ml is the body. Finished volume, mushrooms included, is asserted around 200 ml. The water is 15 ml, and only if the hold tightened the sauce.
+**Quantity.** Mushrooms 300 g, oil 10 ml a layer, shallot 30 g, pepper 6 g, deglaze 50 ml, cream 160 ml, lemon 15 ml plus up to 10 ml from the same lemon, and butter 30 g are sized for two steaks and have not been plated from this pan. The 30 g cold butter is the whole mount for this batch, 160 ml of cream for two steaks, and it goes in every time. The 6 g of cracked pepper is the pepper in the name, against 160 ml of cream. It cannot be taken back out. Cracked, and bloomed about 30 seconds, is how that weight stays sweet. A fresh 30 g shallot and 6 g pepper are only if the bloom scorches, weighed then. Cream at 160 ml is the body. The finished sauce, mushrooms included, is estimated at 350–400 g. The water is 15 ml, and only if the hold tightened the sauce.
 
 ---
 
 ## Numbers
 
-**Computed from a label.** Cream fat is about 58 g from 160 ml at 36% and a density near 1.01. The sauce-salt prior is about 0.5% if 2 g lands in about 400 g of mushrooms plus sauce. The 400 g is asserted, so the percentage is a prior, and the taste is the instrument.
+**Computed from a label.** Cream fat is about 58 g from 160 ml at 36% and a density near 1.01. The sauce-salt prior is about 0.5–0.6%: 2 g in 350–400 g of mushrooms plus sauce. That weight is the estimate below, so the percentage is a prior, and the taste is the instrument.
 
 **Computed from a typical stick, not weighed here.** Butter near 80% fat puts about 24 g of fat in the 30 g.
 
-**Asserted, not measured in this kitchen.** Mushroom weight 300 g, oil 10 ml a layer, shallot 30 g, pepper 6 g, deglaze 50 ml, cream 160 ml, lemon 15 ml plus up to 10 ml, butter 30 g, water 15 ml, mushroom salt 2 g. First looks: mushrooms 3 minutes undisturbed, shallot 2 minutes, pepper 30 seconds, deglaze 60–90 seconds and longer when it is wine, cream 4–6 minutes, mushrooms back 30 seconds. A finished sauce, mushrooms included, roughly 200 ml. None of these were timed or weighed out of this pan.
+**Estimated from typical losses, not weighed here.** The finished sauce, mushrooms included, is 350–400 g. The 300 g of cremini, seared hard, keep about 165–195 g. The 160 ml of cream, reduced until it coats a spoon, keeps about 105–120 g. The shallot, the glazed deglaze, the lemon, the 30 g butter, and the oil film left in the pan add about 85–100 g. An earlier draft said 200 ml, which did not match the salt prior.
+
+**Asserted, not measured in this kitchen.** Mushroom weight 300 g, oil 10 ml a layer, shallot 30 g, pepper 6 g, deglaze 50 ml, cream 160 ml, lemon 15 ml plus up to 10 ml, butter 30 g, water 15 ml, mushroom salt 2 g. First looks: mushrooms 3 minutes undisturbed, shallot 2 minutes, pepper 30 seconds, deglaze 60–90 seconds and longer when it is wine, cream 4–6 minutes, mushrooms back 30 seconds. None of these were timed or weighed out of this pan.

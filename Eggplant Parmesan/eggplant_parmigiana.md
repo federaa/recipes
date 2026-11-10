@@ -1,6 +1,6 @@
 # Melanzane alla Parmigiana — Roasted Build
 
-**Serves 4–6 · ~2.5 L baking dish · Miele convection + one wide pot for sugo**
+**Serves 4–6 · ~2.5 L baking dish · Miele convection + one wide enameled pot for the sugo**
 
 A Neapolitan-style parmigiana: **roasted, not breaded**. Roasting (vs. the
 Italian-American fry-and-bread cutlet) is the deliberate choice here — it avoids
@@ -35,6 +35,9 @@ control**, so the method is organised around that.
 - Sugar — a pinch, only if the tin reads sharp
 - Chili flakes — a pinch, only if you want heat in the sugo
 - Pecorino Romano — **20 g**, only if you want it with the parm
+
+### At the table, not in the dish
+- Good olive oil — a thread on each plate
 
 ---
 
