@@ -6,7 +6,9 @@ The cook is semi-professional and can hold a complex sequence and its timing. Wr
 
 This is a sole-user repo. Commit the work, merge it into `main`, and push `main`. Do not open a pull request. A bad merge can be rewound.
 
-The only clone is `~/Developer/recipes`. The cook reads from iCloud Drive, `Vibes/Recipes`, which is a plain copy with no `.git`. After pushing, copy the working tree there. Never edit the iCloud copy, and never clone into it.
+There are two clones. `~/Developer/recipes` is on Austin's Mac. `/home/dev/Developer/recipes` is on devbox, as the Orca project there. Pull `main` before you start, because the other clone may have pushed.
+
+The cook reads from iCloud Drive, `Vibes/Recipes`, which is a plain copy with no `.git`. On the Mac, after pushing, copy the working tree there. Devbox has no iCloud, so after pushing from devbox, say in your reply that the iCloud copy still needs refreshing from a Mac. Never edit the iCloud copy, and never clone into it.
 
 ## The kitchen
 
