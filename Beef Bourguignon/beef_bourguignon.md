@@ -120,7 +120,7 @@ Everything else — pre-reduced wine, no flour, separated sauce reduction, low-t
 
 This card, as written above, has been cooked in this kitchen, and it was good. It is the tested version. Do not depart from it on arithmetic alone.
 
-Open: which oven mode the 175 °C was set in. The house convention is that oven numbers are fan numbers, so the card reads as fan. If it was a conventional mode on the Miele, write that onto the card, because the next cook will otherwise set fan.
+The 175 °C was set on the Miele, which is convection, like every oven number in this kitchen.
 
 ---
 
@@ -144,7 +144,7 @@ That comes to about 1% of the finished stew, which is where the salt gate is mea
 
 ## Numbers
 
-**Measured in this kitchen, by cooking it:** the card as a whole: 175 °C, 90 minutes, a lid, the flour, and the four changes.
+**Measured in this kitchen, by cooking it:** the card as a whole: 175 °C convection, 90 minutes, a lid, the flour, and the four changes.
 
 **Computed from a rule:** salt at 1% is 14 g.
 
@@ -158,7 +158,7 @@ That comes to about 1% of the finished stew, which is where the salt gate is mea
 
 These came from a red team done on 2026-11-20, before it was known that this card had been cooked. They are proposals for a later cook, one at a time. None of them is part of the recipe.
 
-- **Oven.** The red team read 175 °C as a conventional number carried onto the fan dial and moved it to 155 °C fan. That is withdrawn. The cook was good at 175 °C, and the cook's result beats the arithmetic. What remains is the question of the oven mode, above.
+- **Oven.** The red team read 175 °C as a conventional number carried onto the convection oven, and moved it to 155 °C. That is withdrawn. The cook was good at 175 °C convection, and the cook's result beats the arithmetic.
 - **Salt window.** At 30 minutes the brine is still sitting on the surface. Overnight uncovered on a rack, or searing within 10 minutes of salting, gives a drier sear.
 - **Stock.** Unsalted stock leaves room for any reduction before the salt gate.
 - **Skim.** Lift the fat off before the salt gate, because fat hides salt.
