@@ -1,202 +1,130 @@
-# Beef Bourguignon
+# Beef Bourguignon — Working Version
 
-**Serves 4–6.** 1.36 kg chuck in 5 cm cubes, braised with the lid on in an enameled Dutch oven at *155 °C fan*. The pearl onions and the mushrooms each go in their own pan. Doneness is a texture: a fork goes in with light resistance and the cube holds together when lifted.
+**Serves 4–6 · ~2 h 15 min · 90 min hands-off**
 
-About 2 h 45 from lighting the pot, plus the overnight salt.
+Adapted from the NYT recipe, with four changes and nothing else touched. The base recipe is tested and tuned; this is not a rebuild.
 
 Companion file: `beef_bourguignon_cook_live.html`
 
 ---
 
-## Departures from the source
+## The four changes
 
-The base is the NYT recipe as the working version recorded it, after the July rebuild failed (see the post-mortem in `cooking_memories_and_thoughts.md`). The source's own quantities have not been re-checked against the NYT page. They are the working version's.
-
-There are four changes and no fifth.
-
-| # | Change | Why |
+| # | Change | Reason |
 |---|---|---|
-| 1 | Salt at **1%**: 14 g for 1.36 kg | The source runs about 0.5–0.8%, which reads under-seasoned once the liquid reduces |
+| 1 | Salt to **1%** — 14 g for 1.36 kg | Original runs ~0.5–0.8%, under-seasoned once the liquid reduces |
 | 2 | Tomato paste **5 g → 30 g**, fried to brick | A teaspoon disappears in 750 ml of liquid |
-| 3 | **250 ml stock** in place of a third of the wine | All wine gives no savory floor. More than a third starts costing the wine |
-| 4 | Mushrooms and pearl onions in **separate pans** | They cook on different curves. Together, the mushrooms waterlog before the onions are tender |
+| 3 | **250 ml stock** replacing a third of the wine | All-wine gives no savory floor |
+| 4 | Mushrooms and pearl onions in **separate pans** | Different cooking curves — together, the mushrooms waterlog before the onions are tender |
 
-**Converted, not changed.** The source's 175 °C is a conventional oven, so on the Miele it is *155 °C fan*, 20 °C lower. The working version carried 175 °C straight onto the fan dial. That runs a lidded pot at a hard boil, which is the overshoot July already paid for.
-
-**Not changed, deliberately:** the flour, the 90-minute floor, the wine going into the pot as wine with no pre-reduction, and one pot from the sear to the oven.
-
-**Completed, not changed.** The working card left these open, and they are now on the card:
-
-- The stock is unsalted.
-- The oven heats during the render.
-- The pot comes to a simmer on the gas before it goes into the oven.
-- The liquid comes at least halfway up the beef.
-- There is a look at the simmer at 30 minutes.
-- The fat is skimmed and the herbs come out.
-- There is a sauce-body gate, with beurre manié as the fallback.
-- The mushroom butter and salt are quantified.
-- The held lardons re-crisp in the mushroom pan.
-- The garnishes cook during the last half hour of the braise, not after it.
+**Not changed, deliberately:** the flour, the 175°C oven, the 90-minute braise, the whole-bottle wine approach. Those work.
 
 ---
 
 ## Ingredients
 
 ### Beef
-- Beef chuck, 5 cm cubes — **1.36 kg**. Weigh after cubing
-- Fine sea salt — **14 g** (1% of the cubed weight)
-- Black pepper — **2 g**
+- 1.36 kg beef chuck, 5 cm cubes
+- 14 g fine sea salt *(1% of meat weight)*
+- 2 g black pepper
 
-### Base · enameled Dutch oven, 5 L or larger
-- Lardons, pancetta or slab bacon, diced — **140 g**
-- Neutral oil — **15 ml**, only if the lardons leave less than a film
-- Onion, finely chopped — **150 g**
-- Carrot, sliced — **100 g**
-- Garlic, minced — **2 cloves**
-- Tomato paste — **30 g**
-- Flour — **16 g**
+### Base
+- 140 g lardons, pancetta, or slab bacon, diced
+- 150 g onion, finely chopped
+- 100 g carrot, sliced
+- 2 garlic cloves, minced
+- 30 g tomato paste
+- 16 g flour
 
 ### Braise liquid
-- Dry red wine — **500 ml**. See *Wine* below
-- Beef stock, unsalted or low-sodium — **250 ml**
-- Bay leaf — **1**
-- Thyme — **1 sprig**
-- Water — only enough to bring the liquid halfway up the beef
+- 500 ml red wine
+- 250 ml beef stock
+- 1 bay leaf
+- 1 thyme sprig
 
-### Pearl onions · lidded sauté pan
-- Pearl onions, peeled — **225 g**
-- Olive oil — **15 ml**
-- Water — **60 ml**
-- Sugar — **2 g**
-- Salt — **1 g**, plus pepper
-
-### Mushrooms · carbon steel
-- Cremini, halved — **225 g**
-- Butter — **15 g**
-- Salt — **1 g**
-- The held half of the lardons
-
-### Only if the sauce is still thin after reducing
-- Beurre manié — **15 g** butter mashed into **15 g** flour
-
-### Finish
-- Flat-leaf parsley, chopped — **10 g**
-- Egg noodles or crushed potatoes, to serve
+### Garnish
+- 225 g pearl onions, peeled
+- 225 g cremini, halved
+- 15 ml olive oil
+- Pinch of sugar
+- Chopped flat-leaf parsley
 
 ---
 
 ## Method
 
-### 1. Salt the beef
-**Pat** the cubes dry and **weigh** them. **Salt** at *1%* (*14 g*) and **pepper** with *2 g*. **Leave** them uncovered on a rack in the fridge overnight.
+**1. Salt the beef.** Cube, weigh, salt at 1%, add pepper. Rest 30 minutes at room temperature, or up to 24 hours uncovered in the fridge.
 
-The overnight rack gives the dry surface the sear wants. If you are starting today, either sear within 10 minutes of salting or wait a full hour. Do not use the source's 30 minutes. At that point the salt has pulled brine to the surface and has not yet taken it back, so those cubes steam.
+**2. Render the lardons.** Dutch oven, medium-low, until the fat is out and the edges crisp. Slotted spoon them onto a plate. **Leave all the fat in the pot.**
 
-### 2. Render the lardons
-**Heat** the oven to *155 °C fan*. **Render** *140 g* lardons in the Dutch oven over medium-low until the fat is out and the edges are crisp, about *13 minutes*. **Lift** them to a plate and **split** them in half.
+**3. Sear the beef in two batches.** Heat the fat until it threads smoke. Single layer, space around every cube, don't move anything until it releases cleanly. Deep brown on three faces. Both batches out.
 
-Every drop of fat stays in the pot, because it is the searing medium. If there is less than a film across the base, add the *15 ml* oil. Half the lardons go into the braise. The other half wait for the mushroom pan.
+> **Fond check.** Brown and glossy, lifts when you drag a spoon through — good, carry on. Black, dry, welded to the base — pour off the fat, wipe the pot, restart the aromatics on fresh fat. A bitter wine braise can't be fixed later.
 
-### 3. Sear the beef
-**Pat** the cubes dry. **Heat** the fat until it threads smoke. **Sear** in a single layer with a finger's gap between the cubes until three faces are deep brown, about *13 minutes* a batch. **Lift** each batch to a tray and keep the juices.
+**4. Aromatics.** Onion and carrot in the fat over medium, ~10 minutes, until the edges brown. Garlic for the last minute.
 
-The prior for a 28 cm pot is two batches. Use three if the gap closes. A cube moves only when it releases. Lower the heat after the last batch, because the fond is at its most fragile now. The sear stays in the enameled pot because the fond belongs in the braise.
+**5. Tomato paste, then flour.** Paste in, **fry a full 2–3 minutes** until it darkens to brick and smells sweet. Then the flour, stirred through, one minute.
 
-### 4. Read the fond
+**6. Braise.** Wine and stock in, scrape the base clean. Bay, thyme, the beef, and half the lardons. Lid on, 175°C, 90 minutes, turning the beef once halfway.
 
-> Brown and glossy, and it lifts when you drag a spoon through it: carry on.
-> Black, dry, and welded on: pour off the fat, wipe the pot, and start the aromatics in *20 ml* neutral oil. You lose some depth, but a bitter wine braise cannot be fixed later.
+> The liquid simmers at this setting and that's intended — it's a fast-hot braise, and the speed is what makes 90 minutes work.
 
-### 5. Brown the onion and carrot
-**Cook** *150 g* onion and *100 g* carrot over medium until the edges brown, about *10 minutes*. **Add** the *2 cloves* of garlic for the last minute.
+> **Doneness gate.** Ninety minutes is a floor. A fork should enter with light resistance and the cube should hold its shape when lifted. Still springy — another 20 minutes, test again. Falling apart when lifted has gone too far.
 
-### 6. Fry the paste, then the flour
-**Fry** *30 g* tomato paste over medium for *2–3 minutes*, scraping the base, until it turns from red to brick and smells sweet. **Stir** in *16 g* flour for *1 minute*.
+**7. Mushrooms, own pan.** Dry, hot skillet, no fat. They go quiet, release liquid, reabsorb it, then brown. Wait out the wet phase. Butter and salt at the end.
 
-Medium heat, not high. Paste scorches at the base before it caramelizes. The flour is the safety margin that let July's sauce be rescued, so it stays.
+**8. Pearl onions, own pan.** Olive oil, 60 ml water, pinch of sugar, salt, pepper. Simmer covered ~15 minutes until tender. Uncover, high heat, ~6 minutes to a dark syrup that coats them. Shake the pan rather than stirring.
 
-### 7. Build the braise
-**Pour** in *500 ml* wine and *250 ml* stock and **scrape** the base clean. **Add** the bay leaf, the thyme, the beef with its juices, and half the lardons. **Bring** it to a simmer on the gas.
+> **Salt gate.** Taste the braising liquid before adding anything. The 1% brine, the cured lardons, and 90 minutes of reduction have all contributed. If it needs lifting, salt in 2 g steps. If it's already salty, loosen with unsalted stock and lean on pepper and parsley.
 
-The liquid should come at least halfway up the beef. If a wide pot leaves it lower, add water to halfway, not more stock. Simmer it on the gas first, because a cold pot spends the first half hour in the oven coming up to temperature, and the 90-minute floor assumes it is already simmering.
-
-### 8. Into the oven
-**Cover** the pot and **braise** at *155 °C fan*. **Look** at *30 minutes*.
-
-### 9. Read the simmer
-
-> A lazy bubble breaking at the surface now and then: turn the beef, put the lid back on, and carry on.
-> Rolling boil: turn the beef, drop the oven by *10 °C*, and look again in *20 minutes*.
-> Still, with no bubbles: raise the oven by *10 °C* and look again in *20 minutes*.
-
-This look is the control loop the source never needed on its own oven. The turn the source puts at halfway happens here, so the oven door opens once.
-
-### 10. Braise on
-**Braise** for *60 more minutes*, to the 90-minute floor. **Start** the pearl onions when this timer reads *30 minutes*.
-
-### 11. Cook the pearl onions, covered
-**Bring** *225 g* pearl onions, *15 ml* olive oil, *60 ml* water, *2 g* sugar, *1 g* salt and pepper to a simmer in the sauté pan. **Cover** it and cook at medium until a knife slides through, about *15 minutes*.
-
-### 12. Glaze the onions
-**Uncover** the pan and turn the heat to high. **Shake** the pan until the liquid is a dark syrup that coats the onions, about *6 minutes*.
-
-Shake rather than stir. They should finish glossy and browned in patches.
-
-### 13. Sear the mushrooms
-**Sear** *225 g* cremini in a dry, hot carbon steel pan until they release their liquid, take it back, and brown, about *8 minutes*. **Add** *15 g* butter, *1 g* salt, and the held lardons for the last minute.
-
-Wait out the wet phase. Salt added earlier draws more water and stalls the browning. The held lardons go leathery after two hours on a plate and re-crisp here.
-
-### 14. Read the beef
-When the braise timer ends, **lift** a cube with a fork.
-
-> A fork goes in with light resistance and the cube holds when lifted: out of the oven.
-> Springy: lid back on, *20 more minutes*, then test again. The garnishes wait off the heat.
-> It shreds when lifted: out now, and lift the beef out of the liquid so the sauce work does not cook it further. You cannot take that back.
-
-Ninety minutes is the floor. Chuck varies with where in the shoulder it came from.
-
-### 15. Skim
-**Fish** out the bay leaf and the thyme stem. **Tilt** the pot and **ladle** off the fat that pools at the edge.
-
-Chuck sheds fat through the braise, on top of the lardon fat. Skim before you taste, because fat coats the tongue and hides salt.
-
-### 16. Read the sauce
-**Dip** a spoon and **draw** a finger across the back.
-
-> It coats and the line holds: on to salt.
-> Thin, and it runs back: lift the beef out with a slotted spoon, then simmer the liquid uncovered on the gas until it coats, with a first look at *10 minutes*. If it is still thin, whisk in the beurre manié a piece at a time and simmer *3 minutes*. Put the beef back in.
-> Gluey, or a skin forms: loosen it with water, *50 ml* at a time.
-
-Reduce before you salt, because reducing concentrates the salt already in there. Beurre manié is what rescued July's sauce.
-
-### 17. Taste for salt
-**Taste** a spoon of sauce with a piece of beef.
-
-> It snaps into focus: nothing more.
-> Flat: add *2 g* salt, stir, wait a minute, and taste again.
-> Already salty: no salt. Loosen with water, *50 ml* at a time. Lean on pepper and parsley for definition, and serve the noodles unsalted.
-
-The 1% brine, the cured lardons, the stock, and any reduction have all contributed. Taste it with a cube, because the beef carries its own 1% inside.
-
-### 18. Plate
-**Scatter** the mushrooms and lardons and the glazed onions over the stew, and **leave** them on top without stirring them in. **Finish** with *10 g* parsley. **Serve** it over egg noodles or crushed potatoes.
-
-Stirring the garnishes in undoes the separate pans. If they have sat, give them a minute back in their own pans first.
+**9. Plate.** Scatter mushrooms, glazed onions, and the reserved lardons over the top. **Don't stir them in** — that undoes the point of separate pans. Parsley over. Egg noodles or crushed potatoes underneath.
 
 ---
 
-## The call
+# Post-mortem: the rebuild that failed
 
-Braise with the lid on at *155 °C fan* in an enameled Dutch oven, at a lazy simmer that is checked at 30 minutes and adjusted 10 °C at a time. Test for doneness from 90 minutes, by fork, not by clock. The wine goes in as wine. The flour stays, and beurre manié stands behind it. Salt the beef at 1%, use unsalted stock, and let the gate decide the rest.
+Recorded because the failure is more instructive than the recipe.
+
+## What was attempted
+
+A restructured version replacing flour with gelatinous stock, pre-reducing the wine, separating and reducing the sauce off the meat, and cooking every garnish apart. Executed 26 July. Result: over-tender meat, a sauce that wouldn't set, and no wine flavor at all.
+
+## What went wrong
+
+**1. The braise spec was physically impossible.** Lid plus a parchment cartouche, 150°C oven, claimed 88°C liquid. Sealing the pot eliminates the evaporative cooling that keeps braise liquid below boiling — at that ambient it goes to 96–100°C. The recovery instruction, "drop to 140°C if boiling," wouldn't have worked either.
+
+**2. Worse, it was two incompatible systems welded together.** 88°C is a low-temperature braise target, where chuck needs 6–8 hours. Three hours is a classical-braise duration, which only works at simmer temperatures. Either system is coherent. The hybrid isn't. Lowering the oven alone wouldn't have fixed it.
+
+**3. Pre-reducing the wine destroyed the dish's defining flavor.** Reducing 1125 ml to 350 ml, then diluting that into 1.2 L of stock for three hours. The stated justification — braising destroys wine's top notes, so concentrate first — is not reasoning. Reduction destroys top notes by the same mechanism. It front-loads the loss rather than avoiding it. The finished sauce tasted like thick stock.
+
+> Reducing wine first is a real technique — for pan sauces and bordelaise, where wine is one component and stock is the base. In a braise where the wine *is* the flavor, it removes the point of the dish.
+
+**4. Removing the flour eliminated the safety margin.** The gelatin-instead-of-flour architecture only pays off with stock that sets to a jelly. With ordinary stock there's no fallback, and powdered gelatin added late failed to rescue it. Beurre manié — the flour — is what finally worked.
+
+## What the failure actually taught
+
+- **A self-audit that misses the load-bearing assumptions is worse than none.** The red-team sections covered salt load and acid balance. The braise temperature and the wine handling — the two decisions that determined the outcome — were never examined. The audit bought confidence it hadn't earned.
+- **Technique stacking is not improvement.** Five sophisticated changes at once, none tested, each adding failure modes.
+- **A tested recipe carries information that reasoning can't reconstruct.** The NYT version has been cooked thousands of times. Changes should be small, few, and individually justified.
+- **Where a number can't be stated with confidence, give a target and a control loop.** "Probe at 20 minutes and adjust the oven ±15°C to hold 93–96°C" survives contact with a real kitchen. "150°C" does not.
+
+## Retained from the rebuild
+
+Only what earned its place, and it's already folded into the four changes above: salt at 1%, meaningful tomato paste, some stock in the liquid, garnishes in separate pans.
+
+Everything else — pre-reduced wine, no flour, separated sauce reduction, low-temperature braise, added shank — is discarded.
 
 ---
 
-## Red team
+# Cooked
 
-**Heat and vessel.** This is the assumption that sank July, and the working card got it wrong again. It took the source's 175 °C, which is conventional, and put it on the Miele fan dial. That is about 195 °C in effect, so a lidded pot hard-boils and the chuck overshoots to stringy. The fix is *155 °C fan*, plus a look at 30 minutes, because a lidded pot's liquid temperature depends on the pot, the lid fit, and the fill, not only the dial. Bring it to a simmer on the gas first so the oven time is braising time. The pot is the enameled Dutch oven, because 500 ml of wine and tomato are wet and acidic for two hours, and cast iron or carbon steel would throw metal. The sear happens in the same pot because the fond is the sauce. An enameled pot with a stainless or ceramic knob is fine at 155 °C.
+This card, as written above, has been cooked in this kitchen, and it was good. It is the tested version. Do not depart from it on arithmetic alone.
 
-**Wine.** The wine is the flavor, so it goes in as wine: no pre-reduction and no swap toward more stock. Ninety minutes under a lid costs it some top notes. The source accepts that, and nothing is added to win them back. Cook with a dry, low-oak, moderate-tannin red, because oak and tannin both concentrate in the pot. From the cellar, cook with the **2022 Tissot D.D.** and pour it at the table. The export lists 40 bottles, it is the deepest red in this light Pinot, Poulsard and Trousseau register, and pouring the wine you cooked with ties the plate together. The cook's own count beats the export's.
+Open: which oven mode the 175 °C was set in. The house convention is that oven numbers are fan numbers, so the card reads as fan. If it was a conventional mode on the Miele, write that onto the card, because the next cook will otherwise set fan.
+
+---
+
+## Salt and acid audit
 
 **Salt, stacked.**
 
@@ -205,34 +133,35 @@ Braise with the lid on at *155 °C fan* in an enameled Dutch oven, at a lazy sim
 | Beef brine | 14 g | Computed, 1% of 1.36 kg |
 | Lardons, half in the braise | about 2–3 g | Asserted, from pancetta at about 3–4% salt |
 | Lardons, the held half | about 2–3 g | Same, eaten on top |
-| Stock, 250 ml | under 0.4 g if unsalted or low-sodium; about 2 g if standard | Asserted from typical labels. Read yours |
-| Onions and mushrooms | 2 g | Measured |
-| **Total** | **about 21–23 g** | |
+| Beef stock, 250 ml | about 2 g if standard boxed; under 0.4 g if unsalted | Asserted from typical labels |
+| Onions and mushrooms | unmeasured, to taste | The card says salt without a number |
 
-That lands at about 1.0% of an asserted 2.3 kg finished mass, before the noodles. The swing is the sauce reduction in step 16, which concentrates whatever is in the liquid. Unsalted stock leaves room for it, so that is the recommendation. Standard stock is survivable, and the gate catches it. The gate comes after reduction and after skimming, and you taste it with a cube.
+That comes to about 1% of the finished stew, which is where the salt gate is meant to land it. The swing factor is how far the liquid reduces.
 
-**Acid, stacked.** The wine is the acid. 500 ml under a lid barely reduces, and 30 g of paste fried to brick adds a little more with its sharp edge blunted. There is no lemon and no vinegar. Every other rich dish here wanted acid at the pass, but here the wine already is the counterweight, and a squeeze would stack on it. If the dish tastes flat at the gate, it needs salt, not acid.
-
-**Fat.** The lardon fat is the searing medium, and the oil is only a fallback. The chuck adds more fat across the braise, which is why step 15 skims it. Butter appears only on the mushrooms, at 15 g, and in the conditional beurre manié. There is no butter mount, because flour and gelatin carry the body.
-
-**Technique gaps the working card had.** Its 30-minute salt rest was the worst point in the brine curve. It had no oven preheat, and it sent a cold pot into the oven. It never said how high the liquid should come. It never skimmed and never pulled the herbs. The held lardons sat on a plate for two hours. It started the garnishes after the braise, which leaves the stew waiting about 30 minutes. It had no sauce gate, so a thin sauce could only be found at the table, which is how July went.
-
-**Quantity.** 1.36 kg of raw chuck for 4–6 people is 225–340 g a head, which is right for a stew with garnish and noodles. 750 ml of liquid against 1.36 kg reaches halfway in a 26–28 cm pot. In a wider one the water tops it up. 16 g of flour in 750 ml gives a light body. The source tested it, and step 16 catches it if it comes out thin.
+**Acid.** The wine is the acid: 500 ml, under a lid, barely reduced. The 30 g of tomato paste is fried to brick, which blunts its edge. Nothing is added at the pass, and nothing needs to be.
 
 ---
 
 ## Numbers
 
-**Computed from a rule.** Beef salt is 14 g, at 1%. The oven is 155 °C fan, from 175 °C conventional minus 20 °C.
+**Measured in this kitchen, by cooking it:** the card as a whole: 175 °C, 90 minutes, a lid, the flour, and the four changes.
 
-**From the source, through the working version, not re-checked against the NYT page.** These are the beef, lardons, onion, carrot, garlic, flour, the wine and stock split (750 ml total), the garnish weights, the 60 ml of water for the onions, the 90-minute floor, and the 20-minute retest.
+**Computed from a rule:** salt at 1% is 14 g.
 
-**Asserted, not measured in this kitchen:**
-- The 30-minute look and the 10 °C nudges.
-- The first looks: render 13 minutes, sear 13 minutes a batch, aromatics 10 minutes, onions covered 15 minutes then glazed 6, mushrooms 8, sauce reduction 10.
-- Liquid at least halfway up the beef.
-- The salt in the lardons and the stock.
-- The finished mass of about 2.3 kg.
-- Butter 15 g, sugar 2 g, garnish salt 1 g each, parsley 10 g, beurre manié 15 g + 15 g, and the 20 ml oil for a restart.
+**From the source, not re-checked against the NYT page:** the beef, lardon, aromatic, flour, wine, and garnish quantities.
 
-**Not yet cooked.** Nothing in this repo records a cook of the working version, and the 155 °C fan braise has not been cooked at all. After the first cook, report what the 30-minute look showed and where the doneness landed.
+**Asserted:** the step timers, and the salt in the lardons and the stock.
+
+---
+
+## Red team, not applied
+
+These came from a red team done on 2026-11-20, before it was known that this card had been cooked. They are proposals for a later cook, one at a time. None of them is part of the recipe.
+
+- **Oven.** The red team read 175 °C as a conventional number carried onto the fan dial and moved it to 155 °C fan. That is withdrawn. The cook was good at 175 °C, and the cook's result beats the arithmetic. What remains is the question of the oven mode, above.
+- **Salt window.** At 30 minutes the brine is still sitting on the surface. Overnight uncovered on a rack, or searing within 10 minutes of salting, gives a drier sear.
+- **Stock.** Unsalted stock leaves room for any reduction before the salt gate.
+- **Skim.** Lift the fat off before the salt gate, because fat hides salt.
+- **Lardons.** Re-crisp the held half in the mushroom pan for the last minute.
+- **Garnish timing.** Start the onions during the last 30 minutes of the braise, so the stew does not wait for them.
+- **Sauce body.** If the sauce runs thin, reduce it before the salt gate, with beurre manié (15 g butter, 15 g flour) as the fallback.

@@ -103,11 +103,13 @@ What it taught, beyond the specifics:
 The working version reverted to the NYT base with four changes only: salt at 1%, 30 g tomato paste
 properly caramelized, a third of the liquid as stock, garnishes cooked in separate pans.
 
-When it was filed on 2026-11-20, its red team found the same class of bug again. The card had put
-the source's 175 °C, a conventional number, straight onto the Miele fan dial. That is about 195 °C
-in effect, so the lidded pot would hard-boil and overshoot, just as July did. It is now 155 °C fan,
-with a look at 30 minutes and 10 °C nudges. **Convert the oven before auditing anything else. The
-temperature is the assumption that keeps going unexamined.**
+That working version has been cooked, and it was good. When it was filed on 2026-11-20, a red
+team that didn't know it had been cooked rebuilt it anyway. It read the 175 °C as a conventional
+number carried onto the fan dial, dropped it to 155 °C, and added a dozen more changes. All of
+that was reverted once the cook reported in. The proposals sit, unapplied, at the foot of the
+card. **Ask whether a card has been cooked before red-teaming its numbers. A good cook is a
+measurement, and arithmetic does not outrank it.** That is July's lesson, nearly repeated on the
+very recipe that taught it.
 
 ---
 
@@ -186,9 +188,9 @@ There are two clones, `~/Developer/recipes` on the Mac and `/home/dev/Developer/
 ## Open threads
 
 - Pan-seared ribeye and cremini mushroom cream pepper are written, not cooked, as two cards. The steak is 3 cm, pan only. Pull at 50 °C so the uncovered rest lands the eye at 54–56 °C. That carryover, and the sauce doses, have not been through this kitchen.
-- Beef bourguignon is filed as two files, and the 155 °C fan braise has not been cooked. Report
-  what the 30-minute look showed, where doneness landed against the 90-minute floor, and whether
-  the sauce needed the reduction or the beurre manié.
+- Beef bourguignon's working version is cooked and good. Confirm which oven mode the 175 °C was
+  set in, and write it on the card. The red-team proposals at the foot of the card are untested,
+  so try them one at a time or not at all.
 - Morel pappardelle is still a static card, not a cook-it-live page.
 - The red sauce card says its 1.3–1.6 kg of dry pasta is 6–8 servings. That is 160–270 g a
   head, about twice a usual portion. One of the two numbers is off. The cook decides which.

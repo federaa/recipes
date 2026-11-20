@@ -399,14 +399,14 @@
   <h1>Beef Bourguignon</h1>
   <div class="meta">
     <span><b>Serves 4–6</b> · 1.36 kg chuck</span>
-    <span>~2 h 45 from the pot · salt the night before</span>
-    <span>Enameled Dutch oven · 2 garnish pans</span>
-    <span>Oven <b class="mono">155 °C fan</b> · lid on</span>
+    <span>~2 h 15 · 90 min hands-off</span>
+    <span>Dutch oven + 2 pans</span>
+    <span>Oven <b class="mono">175 °C</b> · lid on</span>
   </div>
   <div class="legend" id="legend">
-    <div class="legend-item"><span class="swatch" style="background:var(--grn-lard)"></span><div><b>Lardons</b> <span>· half braise, half mushroom pan</span></div></div>
+    <div class="legend-item"><span class="swatch" style="background:var(--grn-lard)"></span><div><b>Lardons</b> <span>· half held back</span></div></div>
     <div class="legend-item"><span class="swatch" style="background:var(--grn-onion)"></span><div><b>Pearl onions</b> <span>· glazed, own pan</span></div></div>
-    <div class="legend-item"><span class="swatch" style="background:var(--grn-mush)"></span><div><b>Mushrooms</b> <span>· dry-seared, carbon steel</span></div></div>
+    <div class="legend-item"><span class="swatch" style="background:var(--grn-mush)"></span><div><b>Mushrooms</b> <span>· dry-seared, own pan</span></div></div>
   </div>
 </header>
 
@@ -420,16 +420,15 @@
     <button class="mise-toggle" id="miseToggle" type="button" aria-expanded="false">▸ Mise / ingredients</button>
     <div class="mise" id="mise">
       <h2>Mise en place</h2>
-      <div class="grp">Beef · the night before</div>
+      <div class="grp">Beef</div>
       <ul>
         <li><span class="ing">Beef chuck, 5 cm cubes</span><span class="amt">1.36 kg</span></li>
         <li><span class="ing">Fine sea salt · 1%</span><span class="amt">14 g</span></li>
         <li><span class="ing">Black pepper</span><span class="amt">2 g</span></li>
       </ul>
-      <div class="grp">Base · enameled Dutch oven</div>
+      <div class="grp">Base</div>
       <ul>
-        <li><span class="ing">Lardons, diced</span><span class="amt">140 g</span></li>
-        <li class="cut"><span class="ing">Neutral oil, only if the lardons leave no film</span><span class="amt">15 ml</span></li>
+        <li><span class="ing">Lardons, pancetta, or slab bacon, diced</span><span class="amt">140 g</span></li>
         <li><span class="ing">Onion, finely chopped</span><span class="amt">150 g</span></li>
         <li><span class="ing">Carrot, sliced</span><span class="amt">100 g</span></li>
         <li><span class="ing">Garlic, minced</span><span class="amt">2 cloves</span></li>
@@ -438,33 +437,20 @@
       </ul>
       <div class="grp">Braise liquid</div>
       <ul>
-        <li><span class="ing">Dry red wine · 2022 Tissot D.D.</span><span class="amt">500 ml</span></li>
-        <li><span class="ing">Beef stock, unsalted</span><span class="amt">250 ml</span></li>
+        <li><span class="ing">Red wine</span><span class="amt">500 ml</span></li>
+        <li><span class="ing">Beef stock</span><span class="amt">250 ml</span></li>
         <li><span class="ing">Bay leaf</span><span class="amt">1</span></li>
-        <li><span class="ing">Thyme</span><span class="amt">1 sprig</span></li>
-        <li class="cut"><span class="ing">Water, only to reach halfway up the beef</span><span class="amt">as needed</span></li>
+        <li><span class="ing">Thyme sprig</span><span class="amt">1</span></li>
       </ul>
-      <div class="grp">Pearl onions · sauté pan, lid</div>
+      <div class="grp">Garnish · separate pans</div>
       <ul>
         <li><span class="ing">Pearl onions, peeled</span><span class="amt">225 g</span></li>
-        <li><span class="ing">Olive oil</span><span class="amt">15 ml</span></li>
-        <li><span class="ing">Water</span><span class="amt">60 ml</span></li>
-        <li><span class="ing">Sugar</span><span class="amt">2 g</span></li>
-        <li><span class="ing">Salt</span><span class="amt">1 g</span></li>
-      </ul>
-      <div class="grp">Mushrooms · carbon steel</div>
-      <ul>
         <li><span class="ing">Cremini, halved</span><span class="amt">225 g</span></li>
-        <li><span class="ing">Butter</span><span class="amt">15 g</span></li>
-        <li><span class="ing">Salt</span><span class="amt">1 g</span></li>
-      </ul>
-      <div class="grp">Only if the sauce stays thin</div>
-      <ul>
-        <li class="cut"><span class="ing">Beurre manié: butter + flour, mashed</span><span class="amt">15 g + 15 g</span></li>
-      </ul>
-      <div class="grp">Finish</div>
-      <ul>
-        <li><span class="ing">Flat-leaf parsley, chopped</span><span class="amt">10 g</span></li>
+        <li><span class="ing">Olive oil</span><span class="amt">15 ml</span></li>
+        <li><span class="ing">Water, for the onions</span><span class="amt">60 ml</span></li>
+        <li><span class="ing">Sugar</span><span class="amt">pinch</span></li>
+        <li><span class="ing">Butter, for the mushrooms</span><span class="amt">a knob</span></li>
+        <li><span class="ing">Flat-leaf parsley, chopped</span><span class="amt">to finish</span></li>
         <li><span class="ing">Egg noodles or crushed potatoes</span><span class="amt">to serve</span></li>
       </ul>
     </div>
@@ -498,15 +484,15 @@ const STEPS = [
   {
     kind: "plain",
     phase: "Prep",
-    where: "Fridge, rack",
+    where: "Counter",
     title: "Salt the beef",
     uses: [
       { amt: "1.36 kg", name: "chuck, 5 cm cubes" },
       { amt: "14 g", name: "fine sea salt, 1%" },
       { amt: "2 g", name: "black pepper" }
     ],
-    body: `<p><strong>Pat</strong> the cubes dry and weigh them. <strong>Salt</strong> at <em>1%</em> and pepper with <em>2 g</em>. <strong>Leave</strong> them uncovered on a rack in the fridge overnight.</p>
-    <p>If you are starting today, sear within <em>10 minutes</em> of salting or wait a full hour. Not 30 minutes: at that point the brine sits on the surface, and the cube steams.</p>`
+    body: `<p><strong>Weigh</strong> the cubes, then <strong>salt</strong> at <em>1%</em> and pepper with <em>2 g</em>.</p>
+    <p><strong>Rest</strong> them <em>30 minutes</em> at room temperature at the least. Up to <em>24 hours</em> uncovered in the fridge is better, because it dries the surface for a cleaner sear.</p>`
   },
   {
     kind: "timed",
@@ -517,14 +503,11 @@ const STEPS = [
     phase: "Base",
     where: "Dutch oven",
     title: "Render the lardons",
-    probe: "155 °C fan",
-    probeLabel: "Oven",
     uses: [
-      { amt: "140 g", name: "lardons" },
-      { amt: "15 ml", name: "oil, only if there is no film" }
+      { amt: "140 g", name: "lardons" }
     ],
-    body: `<p><strong>Heat</strong> the oven to <em>155 °C fan</em>. <strong>Render</strong> the lardons over medium-low until the fat is out and the edges are crisp. <strong>Lift</strong> them to a plate and split them in half.</p>
-    <p>Every drop of fat stays in the pot. Less than a film across the base: add the <em>15 ml</em> oil. Half the lardons go into the braise. The other half wait for the mushroom pan.</p>`
+    body: `<p><strong>Render</strong> the lardons over <strong>medium-low</strong> until the fat is out and the edges are crisp. <strong>Lift</strong> them to a plate with a slotted spoon.</p>
+    <p><strong>Leave every drop of fat in the pot.</strong> It is the searing medium and the base of everything after it. Half the lardons go into the braise. The other half are held back for the finish, so they stay meaty.</p>`
   },
   {
     kind: "timed",
@@ -534,12 +517,12 @@ const STEPS = [
     maxSec: 900,
     phase: "Base",
     where: "Dutch oven",
-    title: "Sear the first batch",
+    title: "Sear the first half",
     uses: [
       { amt: "½", name: "the beef, single layer" }
     ],
-    body: `<p><strong>Pat</strong> the cubes dry. <strong>Heat</strong> the fat until it threads smoke. <strong>Sear</strong> half the beef, with a finger's gap between cubes, until three faces are deep brown. <strong>Lift</strong> it to a tray and keep the juices.</p>
-    <p>A cube moves only when it releases. If the gap closes, make three batches.</p>`
+    body: `<p><strong>Heat</strong> the fat until it just threads smoke. <strong>Lay</strong> in half the beef in a single layer, with clear space around each cube.</p>
+    <p>Don't move anything until a piece <strong>releases from the pot without resistance</strong>, then turn it. Three deep-brown faces is plenty. Crowding is the one thing that ruins this step, so it takes two batches, not one.</p>`
   },
   {
     kind: "timed",
@@ -549,22 +532,22 @@ const STEPS = [
     maxSec: 900,
     phase: "Base",
     where: "Dutch oven",
-    title: "Sear the rest",
+    title: "Sear the second half",
     uses: [
       { amt: "½", name: "the beef, single layer" }
     ],
-    body: `<p><strong>Sear</strong> the rest the same way. <strong>Lift</strong> it to the tray. <strong>Lower</strong> the heat.</p>
-    <p>The fond is at its most fragile now.</p>`
+    body: `<p><strong>Lift</strong> the first batch to a plate. <strong>Sear</strong> the second half the same way, then lift it out.</p>
+    <p><strong>Lower</strong> the heat before the aromatics go in. The fond is at its most fragile now.</p>`
   },
   {
     kind: "gate",
     phase: "Base",
     where: "Dutch oven",
-    title: "Read the fond",
-    body: `<p>Look at the base before you build on it. In a wine braise, bitterness carries to the plate.</p>`,
+    title: "Fond, or scorch?",
+    body: `<p>Look at what is stuck to the bottom before you build on it. In a wine braise, bitterness carries all the way to the plate.</p>`,
     branches: [
-      { type: "good", glyph: "✓", head: "Brown, glossy, lifts", text: "It moves when a spoon drags through the fat. Carry on." },
-      { type: "bad", glyph: "✕", head: "Black, dry, welded on", text: "Pour off the fat, wipe the pot, and start the aromatics in 20 ml neutral oil. Some depth lost beats a bitter sauce." }
+      { type: "good", glyph: "✓", head: "Brown, glossy, lifts", text: "It dissolves when you drag a wooden spoon through the fat. That is the backbone of the sauce. Carry on." },
+      { type: "bad", glyph: "✕", head: "Black, dry, welded on", text: "Hard black flecks that won't move are burnt. Pour off the fat, wipe the pot, and start the aromatics on a fresh 20 g of fat. You lose some depth, but that beats a bitter sauce you can't fix." }
     ]
   },
   {
@@ -575,109 +558,60 @@ const STEPS = [
     maxSec: 780,
     phase: "Base",
     where: "Dutch oven",
-    title: "Brown the onion and carrot",
+    title: "Onion and carrot",
     uses: [
       { amt: "150 g", name: "onion" },
       { amt: "100 g", name: "carrot" },
       { amt: "2 cloves", name: "garlic, last minute" }
     ],
-    body: `<p><strong>Cook</strong> the onion and carrot over medium until the edges brown. <strong>Add</strong> the garlic for the last minute.</p>`
+    body: `<p><strong>Cook</strong> the onion and carrot in the fat over medium, stirring every couple of minutes. You want the <strong>edges browning</strong>, not just softening.</p>
+    <p><strong>Add</strong> the garlic for the last minute only.</p>`
   },
   {
     kind: "plain",
     phase: "Base",
     where: "Dutch oven",
-    title: "Fry the paste, then the flour",
+    title: "Tomato paste, then flour",
     uses: [
       { amt: "30 g", name: "tomato paste" },
       { amt: "16 g", name: "flour" }
     ],
-    body: `<p><strong>Fry</strong> the paste over medium for <em>2–3 minutes</em>, scraping the base, until it turns from red to brick and smells sweet. <strong>Stir</strong> in the flour for <em>1 minute</em>.</p>
-    <p>Medium, not high. Paste scorches before it caramelizes. The flour is the safety margin. It stays.</p>`
-  },
-  {
-    kind: "plain",
-    phase: "Base",
-    where: "Dutch oven",
-    title: "Build the braise",
-    uses: [
-      { amt: "500 ml", name: "red wine" },
-      { amt: "250 ml", name: "unsalted stock" },
-      { amt: "1 + 1", name: "bay leaf, thyme sprig" },
-      { amt: "½", name: "the lardons" }
-    ],
-    body: `<p><strong>Pour</strong> in the wine and stock and scrape the base clean. <strong>Add</strong> the bay, the thyme, the beef with its juices, and half the lardons. <strong>Bring</strong> it to a simmer on the gas.</p>
-    <p>The liquid should come at least halfway up the beef. If it is lower, top up with water, not stock. Do not pre-reduce the wine. The wine is the dish.</p>`
+    body: `<p><strong>Fry</strong> the paste for a full <em>2–3 minutes</em>, stirring, until it darkens from red to brick and smells sweet rather than sharp.</p>
+    <p><strong>Stir</strong> the flour through for <em>1 minute</em>. Keep the flour. It does real work here, and it is why this version does not depend on a gelatinous stock.</p>`
   },
   {
     kind: "timed",
-    timerName: "Oven look",
-    defaultSec: 1800,
-    minSec: 1500,
-    maxSec: 2100,
+    timerName: "Braise",
+    defaultSec: 5400,
+    minSec: 4800,
+    maxSec: 8100,
+    timerNote: "Turn the beef at halfway. Ninety minutes is the floor. The fork decides.",
     phase: "Braise",
     where: "Oven",
-    title: "Into the oven",
-    probe: "155 °C fan",
+    title: "Wine, stock, oven",
+    probe: "175 °C",
     probeLabel: "Oven",
-    also: [ "Half the lardons are on the plate for the mushroom pan" ],
-    body: `<p><strong>Cover</strong> the pot and <strong>braise</strong>. <strong>Look</strong> under the lid at <em>30 minutes</em>.</p>`
+    uses: [
+      { amt: "500 ml", name: "red wine" },
+      { amt: "250 ml", name: "beef stock" },
+      { amt: "1 + 1", name: "bay leaf, thyme sprig" },
+      { amt: "½", name: "the lardons" }
+    ],
+    body: `<p><strong>Pour</strong> in the wine and stock and scrape the base clean. <strong>Add</strong> the bay leaf, the thyme sprig, the beef, and half the lardons.</p>
+    <p><strong>Cover</strong> the pot and braise at <em>175 °C</em>. <strong>Turn</strong> the beef once, at halfway. Do not pre-reduce the wine.</p>
+    <p>The liquid will simmer at this setting, and that is intended. It is a fast, hot braise, and the speed is what makes 90 minutes work.</p>`
   },
   {
     kind: "gate",
     phase: "Braise",
     where: "Oven",
-    title: "Read the simmer",
-    body: `<p><strong>Lift</strong> the lid and watch the surface for ten seconds.</p>`,
+    title: "Tender, or not yet?",
+    body: `<p>Ninety minutes is the floor, not the verdict. Chuck varies widely with where in the shoulder it came from. <strong>Test</strong> a cube before you commit.</p>`,
     branches: [
-      { type: "good", glyph: "✓", head: "A lazy bubble now and then", text: "Turn the beef. Lid on. Carry on." },
-      { type: "wait", glyph: "!", head: "Rolling boil", text: "Turn the beef. Drop the oven 10 °C. Look again in 20 minutes." },
-      { type: "wait", glyph: "!", head: "Still, no bubbles", text: "Turn the beef. Raise the oven 10 °C. Look again in 20 minutes." }
+      { type: "good", glyph: "✓", head: "Yields to a fork", text: "A fork goes in with light resistance and the cube holds its shape when lifted. Done. On to the garnishes." },
+      { type: "wait", glyph: "!", head: "Still springy", text: "Lid back on for another 20 minutes, then test again. Repeat as needed." },
+      { type: "bad", glyph: "✕", head: "Falls apart when lifted", text: "It has gone too far and will not hold together on the plate. Out of the oven now." }
     ]
-  },
-  {
-    kind: "timed",
-    timerName: "Braise",
-    defaultSec: 3600,
-    minSec: 2400,
-    maxSec: 7200,
-    timerNote: "To the 90-minute floor. The fork decides, not the beep.",
-    phase: "Braise",
-    where: "Oven",
-    title: "Braise on",
-    body: `<p><strong>Braise</strong> <em>60 more minutes</em>. <strong>Start</strong> the pearl onions when this timer reads <em>30:00</em>.</p>`
-  },
-  {
-    kind: "timed",
-    timerName: "Onions",
-    defaultSec: 900,
-    minSec: 720,
-    maxSec: 1080,
-    phase: "Garnish",
-    where: "Sauté pan, lid",
-    title: "Pearl onions, covered",
-    also: [ "The braise is in the oven. Its timer is in the dock" ],
-    uses: [
-      { amt: "225 g", name: "pearl onions" },
-      { amt: "15 ml", name: "olive oil" },
-      { amt: "60 ml", name: "water" },
-      { amt: "2 g", name: "sugar" },
-      { amt: "1 g", name: "salt, and pepper" }
-    ],
-    body: `<p><strong>Bring</strong> everything to a simmer. <strong>Cover</strong> the pan and cook at medium until a knife slides through.</p>`
-  },
-  {
-    kind: "timed",
-    timerName: "Glaze",
-    defaultSec: 360,
-    minSec: 240,
-    maxSec: 480,
-    phase: "Garnish",
-    where: "Sauté pan",
-    title: "Glaze the onions",
-    also: [ "The braise is in the oven" ],
-    body: `<p><strong>Uncover</strong> the pan and turn the heat to high. <strong>Shake</strong> the pan until the liquid is a dark syrup that coats the onions.</p>
-    <p>Shake rather than stir. They should be glossy and browned in patches. Then off the heat.</p>`
   },
   {
     kind: "timed",
@@ -686,75 +620,66 @@ const STEPS = [
     minSec: 360,
     maxSec: 720,
     phase: "Garnish",
-    where: "Carbon steel",
-    title: "Sear the mushrooms",
-    also: [ "The braise is in the oven" ],
+    where: "Skillet, dry",
+    title: "Mushrooms, their own pan",
     uses: [
       { amt: "225 g", name: "cremini, halved" },
-      { amt: "15 g", name: "butter, last minute" },
-      { amt: "1 g", name: "salt, last minute" },
-      { amt: "½", name: "the lardons, last minute" }
+      { amt: "knob", name: "butter, then salt, at the end" }
     ],
-    body: `<p><strong>Sear</strong> the mushrooms in a dry, hot pan until they release their liquid, take it back, and brown. <strong>Add</strong> the butter, salt, and held lardons for the last minute.</p>
-    <p>Wait out the wet phase. Salt added early stalls the browning. The lardons re-crisp here.</p>`
+    body: `<p><strong>Sear</strong> the mushrooms in a <em>dry, properly hot</em> skillet, with no fat yet.</p>
+    <p>They go quiet, release their liquid, reabsorb it, then brown. <strong>Wait out the wet phase.</strong> Butter and salt go in only at the very end.</p>`
   },
   {
-    kind: "gate",
-    phase: "Finish",
-    where: "Dutch oven",
-    title: "Read the beef",
-    body: `<p>When the braise timer ends, <strong>lift</strong> a cube with a fork. Ninety minutes is the floor. Chuck varies with where in the shoulder it came from.</p>`,
-    branches: [
-      { type: "good", glyph: "✓", head: "Light resistance, holds", text: "The fork goes in easily and the cube holds when lifted. Out of the oven." },
-      { type: "wait", glyph: "!", head: "Springy", text: "Lid on, 20 more minutes, then test again. The garnishes wait off the heat." },
-      { type: "bad", glyph: "✕", head: "Shreds when lifted", text: "Out now. Lift the beef out of the liquid so the sauce work does not cook it further." }
-    ]
-  },
-  {
-    kind: "plain",
-    phase: "Finish",
-    where: "Dutch oven",
-    title: "Skim",
-    body: `<p><strong>Fish</strong> out the bay leaf and the thyme stem. <strong>Tilt</strong> the pot and <strong>ladle</strong> off the fat that pools at the edge.</p>
-    <p>Skim before you taste. Fat hides salt.</p>`
-  },
-  {
-    kind: "gate",
-    phase: "Finish",
-    where: "Dutch oven, gas",
-    title: "Read the sauce",
+    kind: "timed",
+    timerName: "Onions covered",
+    defaultSec: 900,
+    minSec: 720,
+    maxSec: 1080,
+    phase: "Garnish",
+    where: "Second pan, lid",
+    title: "Pearl onions, covered",
     uses: [
-      { amt: "15 g + 15 g", name: "beurre manié, only if still thin" }
+      { amt: "225 g", name: "pearl onions" },
+      { amt: "15 ml", name: "olive oil" },
+      { amt: "60 ml", name: "water" },
+      { amt: "pinch", name: "sugar, and salt and pepper" }
     ],
-    body: `<p><strong>Dip</strong> a spoon and <strong>draw</strong> a finger across the back. Reduce before you salt: reduction concentrates what is already there.</p>`,
-    branches: [
-      { type: "good", glyph: "✓", head: "Coats, the line holds", text: "On to salt." },
-      { type: "wait", glyph: "!", head: "Thin, runs back", text: "Beef out with a slotted spoon. Simmer the liquid uncovered, first look at 10 minutes. Still thin: whisk in the beurre manié a piece at a time and simmer 3 minutes. Beef back in." },
-      { type: "wait", glyph: "!", head: "Gluey, or skinning", text: "Loosen with water, 50 ml at a time." }
-    ]
+    body: `<p><strong>Bring</strong> everything to a simmer, then <strong>cover</strong> the pan and hold it at medium until the onions are tender through.</p>`
+  },
+  {
+    kind: "timed",
+    timerName: "Onions glaze",
+    defaultSec: 360,
+    minSec: 240,
+    maxSec: 480,
+    phase: "Garnish",
+    where: "Second pan",
+    title: "Pearl onions, glaze",
+    body: `<p><strong>Uncover</strong> the pan and raise the heat to high. <strong>Cook</strong> until the liquid becomes a <strong>dark syrup that coats them</strong>.</p>
+    <p>Shake the pan rather than stirring. They should finish glossy and browned in patches.</p>`
   },
   {
     kind: "gate",
     phase: "Finish",
     where: "Dutch oven",
-    title: "Taste for salt",
-    body: `<p><strong>Taste</strong> a spoon of sauce with a piece of beef. The brine, the lardons, the stock, and any reduction have all contributed.</p>`,
+    title: "The salt gate",
+    body: `<p><strong>Taste</strong> the braising liquid now, <strong>before you add anything</strong>. The 1% brine, the cured lardons, and 90 minutes of reduction have all contributed.</p>`,
     branches: [
-      { type: "good", glyph: "✓", head: "Snaps into focus", text: "Nothing more." },
-      { type: "wait", glyph: "!", head: "Flat", text: "2 g salt. Stir, wait a minute, taste again." },
-      { type: "bad", glyph: "✕", head: "Already salty", text: "No salt. Loosen with water, 50 ml at a time. Pepper and parsley for definition. Unsalted noodles under it." }
+      { type: "wait", glyph: "!", head: "Needs lifting", text: "Salt in 2 g increments, tasting between each, plus a few grinds of pepper. Stop the moment it snaps into focus." },
+      { type: "bad", glyph: "✕", head: "Already salty", text: "Don't add salt. Loosen with a splash of unsalted stock or water instead, and lean on pepper and parsley for definition." }
     ]
   },
   {
     kind: "plain",
     phase: "Finish",
     where: "Table",
-    title: "Plate",
+    title: "Assemble and plate",
     uses: [
-      { amt: "10 g", name: "parsley" }
+      { amt: "½", name: "the lardons, held back" },
+      { amt: "to finish", name: "parsley, chopped" }
     ],
-    body: `<p><strong>Scatter</strong> the mushrooms and lardons and the glazed onions over the stew. <strong>Leave</strong> them on top. <strong>Finish</strong> with the parsley. <strong>Serve</strong> over egg noodles or crushed potatoes.</p>
-    <p>Stirring them in undoes the separate pans. If they have sat, give them a minute back in their own pans.</p>`
+    body: `<p><strong>Scatter</strong> the mushrooms, the glazed onions, and the reserved lardons over the stew. <strong>Don't stir them in.</strong> You cooked them separately to keep their texture, and folding them through undoes that.</p>
+    <p><strong>Finish</strong> with chopped parsley. <strong>Serve</strong> over buttered egg noodles or crushed potatoes.</p>`
   }
 ];
 
