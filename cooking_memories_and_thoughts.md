@@ -23,7 +23,7 @@ moisture control as the central problem. Purge, roast, a proper sugo, bake, and 
 cutting so it sets into slices instead of sliding into slop.
 
 **Beef bourguignon.** The most instructive thing we've done, because it failed. Full post-mortem
-below — it earned its own section.
+below — it earned its own section. The working version lives in `Beef Bourguignon/`.
 
 **North African harissa-tomato braised chicken.** A base-swap off Brad Leone's coconut braise,
 pushed toward a tomato-harissa register. Three corrections carried the day: a salt-timing trap from
@@ -77,6 +77,10 @@ What actually went wrong:
   cooling that keeps a braise under 100 °C. The spec of 150 °C + sealed + cartouche targeting 88 °C
   was physically impossible. The honest version: 135 °C, no cartouche, probe at 20 min and nudge
   the oven ±15 °C to hold 93–96 °C.
+- **It was two incompatible systems welded together.** 88 °C is a low-temperature braise target,
+  where chuck needs 6–8 hours. Three hours is a classical-braise duration, which only works at a
+  simmer. Either system is coherent. The hybrid is not, and lowering the oven alone would not have
+  fixed it.
 - **Pre-reducing the wine front-loaded the exact loss it claimed to prevent.** Reduction destroys
   wine's top notes by the same mechanism braising does. In a braise where the wine *is* the flavor,
   reducing it first removes the point. (It's a fine technique for pan sauces, where wine is a
@@ -98,6 +102,12 @@ What it taught, beyond the specifics:
 
 The working version reverted to the NYT base with four changes only: salt at 1%, 30 g tomato paste
 properly caramelized, a third of the liquid as stock, garnishes cooked in separate pans.
+
+When it was filed on 2026-11-20, its red team found the same class of bug again. The card had put
+the source's 175 °C, a conventional number, straight onto the Miele fan dial. That is about 195 °C
+in effect, so the lidded pot would hard-boil and overshoot, just as July did. It is now 155 °C fan,
+with a look at 30 minutes and 10 °C nudges. **Convert the oven before auditing anything else. The
+temperature is the assumption that keeps going unexamined.**
 
 ---
 
@@ -169,13 +179,16 @@ Every recipe from here is a markdown file and a cook-it-live HTML copied from th
 
 On 2026-11-10 every cook-it-live page moved onto that one engine, including a Korean red sauce that needed the engine's own words in Korean. Moving a page onto a new engine turned out to be a content audit as well. The opening page builds itself from the mise, so the red sauce's struck source comparisons became ingredients on the first screen. The red sauce had never had a clock for the tray's 75 minutes at 160 °C. The old page admitted that in a note instead of giving it a timer. The Korean dock label had been rendering upside down. The eggplant's "not set yet" was painted the color of "ruined." **A page that has been cooked from can still be wrong in ways the cook worked around.**
 
-The repo is the only clone, at `~/Developer/recipes`. `Vibes/Recipes` in iCloud is a plain copy for the phone. Edit the repo, push, then copy.
+There are two clones, `~/Developer/recipes` on the Mac and `/home/dev/Developer/recipes` on devbox. `Vibes/Recipes` in iCloud is a plain copy for the phone, refreshed from the Mac after a push. `AGENTS.md` has the details.
 
 ---
 
 ## Open threads
 
 - Pan-seared ribeye and cremini mushroom cream pepper are written, not cooked, as two cards. The steak is 3 cm, pan only. Pull at 50 °C so the uncovered rest lands the eye at 54–56 °C. That carryover, and the sauce doses, have not been through this kitchen.
+- Beef bourguignon is filed as two files, and the 155 °C fan braise has not been cooked. Report
+  what the 30-minute look showed, where doneness landed against the 90-minute floor, and whether
+  the sauce needed the reduction or the beurre manié.
 - Morel pappardelle is still a static card, not a cook-it-live page.
 - The red sauce card says its 1.3–1.6 kg of dry pasta is 6–8 servings. That is 160–270 g a
   head, about twice a usual portion. One of the two numbers is off. The cook decides which.
