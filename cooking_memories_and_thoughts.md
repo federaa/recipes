@@ -155,7 +155,7 @@ corrections here came from exactly that.
 ## The kit & the cellar
 
 High-end gas, a Miele convection oven, a microwave. Cast iron and carbon steel, enameled braisers
-and larger pots, a Le Creuset tagine (cast-iron base, ceramic lid to 260 °C), a Smithey 17" carbon
+and larger pots (the big one is a Staub oval, 37 cm, 8 L, sold as 8.5 qt, matte black inside: https://www.amazon.com/dp/B001EPF9WO), a Le Creuset tagine (cast-iron base, ceramic lid to 260 °C), a Smithey 17" carbon
 steel paella pan, a wok. Metric is the working language throughout; no conversions.
 
 Three Japanese misos worth keeping straight (Marumasa Jōzō / AKOMEYA): a **white sweet** (shiro),

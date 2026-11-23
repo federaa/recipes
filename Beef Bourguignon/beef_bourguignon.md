@@ -68,7 +68,7 @@ Wine and stock stay 2:1. 2.00 / 1.36 is 1.47. Wine lands on 750 ml, one bottle. 
 
 **3. Sear the beef in batches.** Heat the fat until it threads smoke. Single layer, space around every cube, don't move anything until it releases cleanly. Deep brown on three faces. Two batches if they have space. A third if they touch. Lift each batch out.
 
-> **Fond check.** Brown and glossy, lifts when you drag a spoon through — good, carry on. Black, dry, welded to the base — pour off the fat, wipe the pot, restart the aromatics on fresh fat. A bitter wine braise can't be fixed later.
+> **Fond check.** Brown and glossy, lifts when you drag a spoon through — good, carry on. Black, dry, welded to the base — pour off the fat, wipe the pot, restart the aromatics on fresh fat. A bitter wine braise can't be fixed later. On the black Staub enamel, brown and burnt look alike, so the spoon and your nose decide, not the color.
 
 **4. Aromatics.** Onion and carrot in the fat over medium, ~10 minutes, until the edges brown. Garlic for the last minute.
 
