@@ -6,6 +6,32 @@ Companion file: `pimenton_roast_chicken_cook_live.html`
 
 ---
 
+## This cook: two birds
+
+The 2026 Thanksgiving cook is **two birds, for 8**. The cook page carries these doses. The card below is written for one bird.
+
+| | One bird | **Two birds** |
+|---|---|---|
+| Chickens, 1.8–2.2 kg | 1 | **2**, each salted at 8 g per kg of its own weight, with 2 g pepper each |
+| Wings | 1 kg | **1.5 kg**, on two trays |
+| Backbones and necks | 1 | **2** |
+| Onion / carrot / garlic | 150 g / 100 g / ½ head | **225 g / 150 g / 1 head** |
+| Thyme / bay / peppercorns | 3 sprigs / 1 / 2 g | **4 sprigs / 1 / 3 g** |
+| Tray deglaze / cold water | 200 ml / 2.5 L | **150 ml a tray / 3.5 L** |
+| Stock, then jus base | about 1.5 L, then 300 ml | **about 2.2 L, then 450 ml** (first look at 60 minutes) |
+| Pimentón oil | 30 ml oil, 3 + 1 g pimentón, 1 garlic, 1 g thyme | **doubled**, half per bird |
+| Jus finish | 15 ml fat, 1 garlic, 2 g pimentón, 0.5 g cumin, about 15 saffron threads, 50 ml sous voile, 20 g butter, 60 g olives, vinegar up to 5 ml | **× 1.5**: 22 ml, 2, 3 g, 0.75 g, about 20, 75 ml, 30 g, 90 g, up to 8 ml |
+| Salsa verde | 30 g parsley, 5 g mint, 15 g capers, 1 anchovy, ½ garlic, 1 zest, 10 ml vinegar, 100 ml oil | **doubled** |
+| Potatoes / chicken fat | 800 g / 40 ml | **1.6 kg / 80 ml**, in two pans |
+
+**Why the jus is × 1.5 and not × 2.** The stock is capped by the pot. 1.5 kg of wings, two backbones, and 3.5 L of water come to about 5.9 L in the 8 L Staub, which still holds a bare simmer with the lid ajar. 2 kg of wings would crowd it. 450 ml of jus base is about 56 ml a plate for eight. That is still a pour, but not Madre's brothy 75 ml. For the full 75 ml a plate, make a second pot of stock.
+
+**The oven.** Two 30 cm skillets with handles probably will not sit side by side on one Miele shelf. Set them in the cold oven on Monday to check. On two shelves, swap them top to bottom at the first probe, because the fan does not even out two levels by itself. From there each bird has its own probe and its own pull. Pull each one at 63 °C breast and 80 °C thigh, without waiting for the other.
+
+**Not cooked at this scale, or at the other.** The two-bird numbers are the one-bird card scaled, and they are asserted.
+
+---
+
 ## Where it comes from
 
 This is in the register of Madre, Greenpoint. Their chicken is a half bird with crisp skin "layered with different Spanish spices", a spiced jus poured over it, and salsa verde on top (The Modest Menu, July 2024). An earlier review put it beside confit potatoes, escarole, olives and black garlic. Nothing published says how they cook it. This is not their recipe.
@@ -245,7 +271,7 @@ The bird is set at 0.8% instead of the house 1% because the plate brings olives,
 
 **Technique stacking.** This is a new build. The bourguignon rule says departures from a tested recipe should be few. There is no tested recipe here, so the rule becomes: no component may be novel. Each one is the standard version of its technique, and the inventions are limited to the spice and wine choices, which are flavor, not structure. If something has to go on the day, the salsa verde and the potatoes can be dropped without touching the bird or the jus.
 
-**Quantity.** A 2 kg bird is four plates with other sides. 300 ml of jus is about 75 ml a plate, a brothy plate the way Madre does it. 800 g of potatoes serves four. For more than four, roast a second bird in a second skillet on the same schedule, and salt that bird at its own weight.
+**Quantity.** A 2 kg bird is four plates with other sides. 300 ml of jus is about 75 ml a plate, a brothy plate the way Madre does it. 800 g of potatoes serves four. For eight, see *This cook: two birds* above. The stock is capped by the 8 L pot at about 450 ml of jus base.
 
 **Wine.** Use the **2020 Tissot Savagnin Sous Voile**, of which the export lists 7 bottles. 50 ml goes in the jus and the rest is poured at the table. It is the Jura's flor wine, the closest thing in the cellar to the fino a Spanish kitchen would reach for, and it meets the pimentón, saffron, and olives head-on. For a red, pour the **2022 Tissot Trousseau Singulier** (4 bottles), which is light enough not to flatten the chicken.
 
