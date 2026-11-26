@@ -53,7 +53,7 @@ Dinner is Thursday. *S* is the time you serve.
 | **Wednesday** | Lift the fat and reduce the stock to about 300 ml of jus base | 15 min, plus watching |
 | **Thursday S − 2:00** | Boil the potatoes, then crush them and hold | 30 min |
 | **S − 1:40** | Make the salsa verde and the pimentón oil | 20 min |
-| **S − 1:30** | Take the bird out. Heat the oven with the skillet in it | — |
+| **S − 1:30** | Take the bird out of the fridge, uncovered. Heat the oven with the skillet in it | — |
 | **S − 1:10** | Bird in | — |
 | **S − 0:40** | First probe. Paint the oil on at a breast of 55 °C | 5 min |
 | **S − 0:30** | Pull at a breast of 63 °C. Rest it uncovered 15 min. Crisp the potatoes and build the jus while it rests | 15 min |
@@ -175,7 +175,9 @@ Use a knife, not a blender: a blender bruises the herbs to grey and emulsifies t
 Off the heat, because pimentón scorches in seconds in hot oil and turns bitter.
 
 #### 12. Heat the oven and the skillet · S − 1:30
-**Heat** the oven to *210 °C convection* with the cast-iron skillet inside, for *20 minutes*. **Take** the bird out of the fridge.
+**Heat** the oven to *210 °C convection* with the cast-iron skillet inside, for *20 minutes*. **Take** the bird out of the fridge, uncovered on its rack.
+
+Twenty minutes on the counter is the floor; pulling it up to *S − 2:00* (when you start the potatoes) knocks more chill off the bone side. Keep it uncovered so the dry skin does not sweat, and do not leave it out past an hour.
 
 #### 13. Roast · S − 1:10
 **Lay** the bird skin-up in the hot skillet. **Roast** it on the middle shelf. First probe at *30 minutes*, in the deepest part of the breast.
