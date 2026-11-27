@@ -36,8 +36,6 @@ The 2026 Thanksgiving cook is **two birds, for 8**. The cook page carries these 
 
 This is in the register of Madre, Greenpoint. Their chicken is a half bird with crisp skin "layered with different Spanish spices", a spiced jus poured over it, and salsa verde on top (The Modest Menu, July 2024). An earlier review put it beside confit potatoes, escarole, olives and black garlic. Nothing published says how they cook it. This is not their recipe.
 
-There is no single tested source. The parts are standard, well-tested techniques: a multi-day dry brine, a spatchcocked high-heat roast, a brown stock reduced to a jus, and a salsa verde. Nothing here is new chemistry. The risk is the stack and the schedule. The gates carry it, and every number not computed is flagged below.
-
 Taken from Madre: the spices on the skin, the jus, the salsa verde, the potatoes and the olives. Left out: the escarole, because the table has sides, and the black garlic, because it would be a second sweet-dark note fighting the pimentón.
 
 ---
@@ -48,7 +46,7 @@ Dinner is Thursday. *S* is the time you serve.
 
 | When | Work | Hands-on |
 |---|---|---|
-| **Monday (today)** | Spatchcock the bird, weigh it, salt it, and put it on a rack in the fridge, uncovered | 20 min |
+| **Monday** | Spatchcock the bird, weigh it, salt it, and put it on a rack in the fridge, uncovered | 20 min |
 | **Tuesday** | Roast the wings and backbone, simmer the stock 4 h, strain and chill it | 40 min |
 | **Wednesday** | Lift the fat and reduce the stock to about 300 ml of jus base | 15 min, plus watching |
 | **Thursday S − 2:00** | Boil the potatoes, then crush them and hold | 30 min |
