@@ -20,6 +20,7 @@ Assume the tool is already here. Name the vessel by the job it does.
 - Cast iron and carbon steel, for searing and anything that needs a seasoned release surface
 - Enameled braisers, enameled Dutch ovens, and larger pots, for anything salty or acidic that stays wet
 - Staub oval cocotte, 37 cm, 8 L (sold as 8.5 qt), matte black enamel, self-basting lid: https://www.amazon.com/dp/B001EPF9WO. The opening is 37 cm and the base about 28.6 cm, about 8.5 kg empty. It is the big pot for the chili and the scaled bourguignon. An oval on a round burner runs cool at the ends. On black enamel, brown and burnt look alike.
+- Le Creuset Signature enameled cast-iron braiser, 3.3 L (sold as 3.5 qt), 29.2 cm diam × 6.4 cm high, about 5.4 kg empty, domed lid. Wide and shallow: reduces fast and holds strong carryover heat off the burner (pull eggs early).
 - Le Creuset tagine (cast-iron base, ceramic lid to 260 °C)
 - Wok
 - Smithey 17" carbon steel paella pan

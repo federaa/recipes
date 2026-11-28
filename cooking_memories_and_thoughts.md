@@ -155,7 +155,7 @@ corrections here came from exactly that.
 ## The kit & the cellar
 
 High-end gas, a Miele convection oven, a microwave. Cast iron and carbon steel, enameled braisers
-and larger pots (the big one is a Staub oval, 37 cm, 8 L, sold as 8.5 qt, matte black inside: https://www.amazon.com/dp/B001EPF9WO), a Le Creuset tagine (cast-iron base, ceramic lid to 260 °C), a Smithey 17" carbon
+and larger pots (the big one is a Staub oval, 37 cm, 8 L, sold as 8.5 qt, matte black inside: https://www.amazon.com/dp/B001EPF9WO; plus a Le Creuset Signature 3.3 L / 3.5 qt braiser, 29.2 cm × 6.4 cm, 5.4 kg), a Le Creuset tagine (cast-iron base, ceramic lid to 260 °C), a Smithey 17" carbon
 steel paella pan, a wok. Metric is the working language throughout; no conversions.
 
 Three Japanese misos worth keeping straight (Marumasa Jōzō / AKOMEYA): a **white sweet** (shiro),
@@ -189,6 +189,7 @@ There are two clones, `~/Developer/recipes` on the Mac and `/home/dev/Developer/
 
 - Pan-seared ribeye and cremini mushroom cream pepper are written, not cooked, as two cards. The steak is 3 cm, pan only. Pull at 50 °C so the uncovered rest lands the eye at 54–56 °C. That carryover, and the sauce doses, have not been through this kitchen.
 - Beef bourguignon's working method is cooked and good, at 175 °C on the Miele's convection, on the 1.36 kg batch. The card is now scaled to the Staub oval 37 cm, 8 L (sold as 8.5 qt): 2.00 kg, 750 ml wine, 375 ml stock. That scale has not been cooked. The red-team proposals at the foot of the card are untested, so try them one at a time or not at all.
+- North African mushroom & onion shakshuka, written and not yet cooked: 8 eggs in the Le Creuset 3.5 qt braiser, mushrooms seared dry first and lifted out, 450 g sweet onions, cumin/caraway/coriander/harissa/preserved lemon rind, pulled early at a faint glossy white collar for the 5.4 kg cast-iron carryover. After the first cook, file the actual reduction time, egg-poach/carryover timing, and salt/heat balance.
 - Hotteok Dutch baby, written and not yet cooked: NYT 6648's 3-egg / 65 g flour / 120 g milk ratio on a 25–26 cm cast-iron skillet at 200 °C convection, with a 15–20 minute batter rest, a stovetop brown-butter dark-sugar-nut filling built off-heat while it bakes, and fresh lemon or yuzu at the table. After the first cook, file the actual bake time to pull, rim height, and whether the sugar-to-citrus balance wants adjusting.
 - Pimentón roast chicken, for Thanksgiving 2026-11-26, in the register of Madre, Greenpoint: salted three
   days, spatchcocked in cast iron at 210 °C convection, with a spiced jus and a salsa verde. It is a new

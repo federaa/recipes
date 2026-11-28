@@ -1,0 +1,1252 @@
+<!DOCTYPE html>
+<!--
+  Cook It Live engine 2026-11-10.
+  Copy this file per dish. Replace the header, the mise, RECIPE_ID, and STEPS.
+  A page in another language also fills UI and sets lang.
+  Leave the script below UI alone unless you are fixing the engine.
+  Engine fixes go back into this file and into cook-it-live/SKILL.md.
+-->
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cook It Live · North African Mushroom Shakshuka</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ground: #16110d;
+    --panel: #201811;
+    --panel-2: #2a2118;
+    --line: #3a2e21;
+    --ivory: #f2e9dc;
+    --muted: #a2937d;
+    --faint: #6f6353;
+    --amber: #e29b38;
+    --amber-deep: #b3731f;
+    --chili: #c94427;
+    --chili-soft: #e66649;
+    /* component legend */
+    --c-mush: #9c7a54;
+    --c-sauce: #c84b2c;
+    --c-finish: #7a9b48;
+    --radius: 4px;
+    --dock-h: 108px;
+  }
+
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+
+  body {
+    margin: 0;
+    background: var(--ground);
+    color: var(--ivory);
+    font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+    line-height: 1.5;
+    padding-bottom: calc(var(--dock-h) + env(safe-area-inset-bottom));
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .mono { font-family: "JetBrains Mono", ui-monospace, monospace; font-feature-settings: "tnum"; }
+
+  header {
+    border-bottom: 1px solid var(--line);
+    padding: 18px 20px 18px;
+    background: linear-gradient(180deg, #1c1510 0%, var(--ground) 100%);
+  }
+  .head-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 8px;
+  }
+  .head-actions { display: flex; gap: 8px; flex: 0 0 auto; }
+  .eyebrow {
+    font-family: "JetBrains Mono", monospace;
+    font-size: 11px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--amber);
+    margin: 0;
+  }
+  h1 {
+    font-family: "Fraunces", Georgia, serif;
+    font-weight: 500;
+    font-size: clamp(26px, 5vw, 40px);
+    line-height: 1.04;
+    margin: 0 0 10px;
+    letter-spacing: -0.01em;
+  }
+  .meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px 18px;
+    font-family: "JetBrains Mono", monospace;
+    font-size: 12px;
+    color: var(--muted);
+  }
+  .meta b { color: var(--ivory); font-weight: 500; }
+
+  .legend { display: flex; gap: 16px; flex-wrap: wrap; margin-top: 16px; }
+  .legend:empty { display: none; }
+  .legend-item { display: flex; align-items: center; gap: 8px; font-size: 12px; color: var(--muted); }
+  .swatch {
+    width: 14px; height: 14px; border-radius: 50%;
+    flex: 0 0 auto;
+    box-shadow: inset 0 0 0 1px rgba(0,0,0,0.35);
+  }
+  .legend-item b { color: var(--ivory); font-weight: 500; }
+  .legend-item span { color: var(--faint); }
+
+  .wrap {
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: 20px;
+    display: grid;
+    grid-template-columns: 268px 1fr;
+    gap: 26px;
+    align-items: start;
+  }
+
+  .rail { position: sticky; top: 16px; }
+  .rail h2, .mise h2 {
+    font-family: "JetBrains Mono", monospace;
+    font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--faint); margin: 0 0 12px; font-weight: 500;
+  }
+  .steplist { list-style: none; margin: 0 0 26px; padding: 0; }
+  .steplist li {
+    display: flex; align-items: baseline; gap: 11px;
+    padding: 7px 10px; border-radius: var(--radius);
+    cursor: pointer; color: var(--muted);
+    font-size: 13.5px; line-height: 1.3;
+    border: 1px solid transparent;
+  }
+  .steplist li:hover { background: var(--panel); color: var(--ivory); }
+  .steplist li.active { background: var(--panel-2); color: var(--ivory); border-color: var(--line); }
+  .steplist li.done .idx { color: var(--amber-deep); }
+  .steplist li.done .s-name { color: var(--faint); text-decoration: line-through; text-decoration-color: var(--line); }
+  .steplist li.phase {
+    cursor: default; pointer-events: none;
+    font-family: "JetBrains Mono", monospace;
+    font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase;
+    color: var(--faint); padding: 14px 10px 2px;
+  }
+  .steplist li.phase:hover { background: transparent; color: var(--faint); }
+  .idx { font-family: "JetBrains Mono", monospace; font-size: 11px; color: var(--faint); flex: 0 0 20px; }
+  .active .idx { color: var(--amber); }
+  .s-tag {
+    margin-left: auto; font-family: "JetBrains Mono", monospace;
+    font-size: 10px; letter-spacing: 0.05em;
+    padding: 1px 6px; border-radius: 20px; flex: 0 0 auto; align-self: center;
+  }
+  .s-tag.timed { color: var(--amber); border: 1px solid var(--amber-deep); }
+  .s-tag.gate { color: var(--chili-soft); border: 1px solid #7a3020; }
+
+  .mise {
+    background: var(--panel); border: 1px solid var(--line);
+    border-radius: var(--radius); padding: 16px 16px 6px;
+  }
+  .mise ul { list-style: none; margin: 0 0 14px; padding: 0; }
+  .mise li {
+    display: flex; justify-content: space-between; gap: 12px;
+    font-size: 13px; padding: 5px 0; border-bottom: 1px solid #2a2018;
+  }
+  .mise li:last-child { border-bottom: none; }
+  .mise .ing { color: var(--ivory); }
+  .mise .amt { font-family: "JetBrains Mono", monospace; font-size: 12.5px; color: var(--amber); white-space: nowrap; }
+  .mise .grp { font-family: "JetBrains Mono", monospace; font-size: 10.5px; letter-spacing: .12em; text-transform: uppercase; color: var(--faint); margin: 12px 0 4px; }
+  .cut { color: var(--faint); text-decoration: line-through; text-decoration-color: var(--chili); }
+  .cut .amt { color: var(--faint); }
+
+  /* The opening page is the full mise, not the narrow rail card. */
+  .step-body .mise-page {
+    display: block;
+    max-width: 40rem;
+    background: transparent;
+    border: none;
+    padding: 0;
+  }
+  .step-body .mise-page .grp {
+    font-size: 11px;
+    margin: 22px 0 6px;
+  }
+  .step-body .mise-page .grp:first-child { margin-top: 0; }
+  .step-body .mise-page li {
+    font-size: 16.5px;
+    padding: 8px 0;
+  }
+  .step-body .mise-page .amt { font-size: 15px; }
+  .page-note {
+    margin: 0 0 18px;
+    max-width: 62ch;
+    color: var(--muted);
+    font-size: 15.5px;
+  }
+  .rail .page-note { display: none; }
+  body.on-mise .rail .mise,
+  body.on-mise #miseToggle { display: none !important; }
+
+  .stage { min-height: 60vh; }
+  .step-head { display: flex; align-items: baseline; gap: 14px; margin-bottom: 4px; flex-wrap: wrap; }
+  .step-num { font-family: "JetBrains Mono", monospace; font-size: 13px; color: var(--amber); letter-spacing: .1em; }
+  .step-kind {
+    font-family: "JetBrains Mono", monospace; font-size: 10.5px; letter-spacing: .14em; text-transform: uppercase;
+    padding: 2px 9px; border-radius: 20px;
+  }
+  .step-kind.timed { color: var(--amber); border: 1px solid var(--amber-deep); }
+  .step-kind.gate { color: var(--chili-soft); border: 1px solid #7a3020; background: rgba(210,73,43,.08); }
+  .step-kind.plain { color: var(--faint); border: 1px solid var(--line); }
+  .step-kind.mise { color: var(--amber); border: 1px solid var(--amber-deep); }
+  .where {
+    font-family: "JetBrains Mono", monospace; font-size: 10.5px; letter-spacing: .14em;
+    text-transform: uppercase; color: var(--ivory);
+    border: 1px solid var(--amber-deep); background: rgba(224,160,62,.08);
+    border-radius: 20px; padding: 2px 9px;
+  }
+  .phase-kicker {
+    font-family: "JetBrains Mono", monospace; font-size: 11px; letter-spacing: .18em;
+    text-transform: uppercase; color: var(--amber); margin: 12px 0 0;
+  }
+
+  .uses { display: flex; flex-wrap: wrap; gap: 6px; margin: 0 0 16px; }
+  .use {
+    font-family: "JetBrains Mono", monospace; font-size: 12.5px; line-height: 1.35;
+    color: var(--muted); background: var(--panel); border: 1px solid var(--line);
+    border-radius: 999px; padding: 5px 10px;
+  }
+  .use b { color: var(--amber); font-weight: 500; }
+
+  .step-title {
+    font-family: "Fraunces", Georgia, serif; font-weight: 500;
+    font-size: clamp(24px, 4vw, 34px); line-height: 1.08; margin: 8px 0 18px;
+    letter-spacing: -0.01em;
+  }
+  .step-title:focus { outline: none; }
+  .step-body { font-size: 16px; color: #ded2c1; max-width: 62ch; }
+  .step-body p { margin: 0 0 14px; }
+  .step-body strong { color: var(--ivory); font-weight: 600; }
+  .step-body em { color: var(--amber); font-style: normal; }
+
+  .also {
+    border: 1px solid var(--amber-deep);
+    background: rgba(224,160,62,.06);
+    border-radius: var(--radius);
+    padding: 10px 14px;
+    margin: 0 0 16px;
+    max-width: 62ch;
+  }
+  .also-k {
+    font-family: "JetBrains Mono", monospace;
+    font-size: 10px; letter-spacing: .16em; text-transform: uppercase; color: var(--amber);
+  }
+  .also ul { margin: 6px 0 0; padding-left: 18px; color: var(--muted); font-size: 14.5px; }
+
+  .probe {
+    display: inline-flex; align-items: center; gap: 10px;
+    background: var(--panel-2); border: 1px solid var(--line);
+    border-radius: var(--radius); padding: 10px 16px; margin: 4px 0 18px;
+  }
+  .probe .lab { font-size: 11px; letter-spacing: .12em; text-transform: uppercase; color: var(--faint); font-family: "JetBrains Mono", monospace; }
+  .probe .val { font-family: "JetBrains Mono", monospace; font-size: 22px; color: var(--amber); font-weight: 500; }
+
+  .gate-branches { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 14px; margin: 20px 0; }
+  .branch { border: 1px solid var(--line); border-radius: var(--radius); padding: 16px; background: var(--panel); }
+  .branch.good { border-color: #4a5a2e; }
+  .branch.wait { border-color: var(--amber-deep); }
+  .branch.bad { border-color: #7a3020; }
+  .branch h4 {
+    font-family: "JetBrains Mono", monospace; font-size: 12px; letter-spacing: .06em;
+    margin: 0 0 8px; display: flex; align-items: center; gap: 8px; text-transform: uppercase;
+  }
+  .branch.good h4 { color: #a9c76a; }
+  .branch.wait h4 { color: var(--amber); }
+  .branch.bad h4 { color: var(--chili-soft); }
+  .branch p { margin: 0; font-size: 14px; color: var(--muted); }
+
+  .timer-launch {
+    display: flex; align-items: center; gap: 12px; flex-wrap: wrap;
+    margin: 22px 0 6px; padding: 16px; border: 1px dashed var(--amber-deep);
+    border-radius: var(--radius); background: rgba(224,160,62,.04);
+  }
+  .timer-launch .tl-time { font-family: "JetBrains Mono", monospace; font-size: 30px; color: var(--amber); font-weight: 500; }
+  .timer-launch .tl-lab { font-size: 13px; color: var(--muted); flex: 1 1 180px; }
+  .adj { display: inline-flex; gap: 6px; }
+  .adj button {
+    min-width: 44px; height: 44px; padding: 0 8px;
+    font-family: "JetBrains Mono", monospace; font-size: 14px;
+    background: var(--panel-2); color: var(--ivory); border: 1px solid var(--line);
+    border-radius: var(--radius); cursor: pointer;
+  }
+  .adj button:hover { border-color: var(--amber-deep); color: var(--amber); }
+
+  button { font-family: inherit; }
+  .btn {
+    border: none; border-radius: var(--radius); cursor: pointer;
+    font-family: "JetBrains Mono", monospace; font-size: 13px; letter-spacing: .04em;
+    padding: 12px 20px; min-height: 44px;
+  }
+  .btn:disabled { opacity: 0.4; cursor: default; }
+  .btn-amber { background: var(--amber); color: #1c1207; font-weight: 700; }
+  .btn-amber:hover:not(:disabled) { filter: brightness(1.08); }
+  .btn-ghost { background: var(--panel-2); color: var(--ivory); border: 1px solid var(--line); }
+  .btn-ghost:hover:not(:disabled) { border-color: var(--amber-deep); color: var(--amber); }
+  .btn-tiny {
+    background: var(--panel-2); border: 1px solid var(--line); color: var(--muted);
+    border-radius: var(--radius); padding: 7px 12px; cursor: pointer;
+    font-family: "JetBrains Mono", monospace; font-size: 11px; letter-spacing: .05em;
+    min-height: 36px;
+  }
+  .btn-tiny:hover { color: var(--amber); border-color: var(--amber-deep); }
+  .btn-tiny.armed { color: var(--chili-soft); border-color: #7a3020; }
+
+  .nav { display: flex; justify-content: space-between; gap: 12px; margin-top: 34px; padding-top: 20px; border-top: 1px solid var(--line); }
+
+  .dock {
+    position: fixed; left: 0; right: 0; bottom: 0; z-index: 40;
+    min-height: var(--dock-h);
+    background: rgba(20,15,11,.94); backdrop-filter: blur(8px);
+    border-top: 1px solid var(--line);
+    padding: 12px 16px calc(12px + env(safe-area-inset-bottom));
+    display: flex; align-items: center; gap: 12px; overflow-x: auto;
+  }
+  .dock-label {
+    font-family: "JetBrains Mono", monospace; font-size: 10px; letter-spacing: .16em;
+    text-transform: uppercase; color: var(--faint); writing-mode: vertical-rl; transform: rotate(180deg);
+    flex: 0 0 auto; padding-right: 2px;
+  }
+  .dock-empty { color: var(--faint); font-size: 13px; font-family: "JetBrains Mono", monospace; }
+  .chip {
+    flex: 0 0 auto; display: flex; align-items: center; gap: 12px;
+    background: var(--panel-2); border: 1px solid var(--line);
+    border-radius: var(--radius); padding: 8px 8px 8px 14px; min-width: 200px;
+  }
+  .chip.ringing { border-color: var(--chili); animation: flash .7s steps(1) infinite; }
+  @keyframes flash { 50% { background: rgba(210,73,43,.22); } }
+  .chip .c-info { display: flex; flex-direction: column; gap: 1px; }
+  .chip .c-name { font-size: 11px; color: var(--muted); font-family: "JetBrains Mono", monospace; letter-spacing: .04em; }
+  .chip .c-time { font-family: "JetBrains Mono", monospace; font-size: 24px; font-weight: 500; color: var(--amber); line-height: 1; }
+  .chip.ringing .c-time { color: var(--chili-soft); }
+  .chip .c-btns { display: flex; gap: 6px; margin-left: auto; }
+  .chip .c-btns button {
+    width: 44px; height: 44px; border-radius: var(--radius);
+    background: var(--panel); border: 1px solid var(--line); color: var(--muted);
+    cursor: pointer; font-size: 14px; display: grid; place-items: center;
+  }
+  .chip .c-btns button:hover { color: var(--amber); border-color: var(--amber-deep); }
+
+  .empty-stage { color: var(--muted); max-width: 52ch; }
+  .sr {
+    position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+    overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0;
+  }
+
+  :focus-visible { outline: 2px solid var(--amber); outline-offset: 2px; }
+
+  @media (max-width: 860px) {
+    .wrap { grid-template-columns: 1fr; gap: 18px; }
+    .rail { position: static; order: 2; }
+    .seq h2, .rail .steplist { display: none; }
+    .seq.open h2, .seq.open .steplist { display: block; }
+    .mise-toggle {
+      display: block; width: 100%; text-align: left;
+      background: var(--panel); border: 1px solid var(--line); color: var(--ivory);
+      border-radius: var(--radius); padding: 12px 14px; margin-bottom: 12px;
+      font-family: "JetBrains Mono", monospace; font-size: 12px; letter-spacing: .06em; cursor: pointer;
+      min-height: 44px;
+    }
+    .mise { display: none; }
+    .mise.open { display: block; }
+    .stage { order: 1; }
+    .progress-mini { display: flex; }
+  }
+  @media (min-width: 861px) {
+    .progress-mini { display: none; }
+    .mise-toggle { display: none; }
+    .rail {
+      max-height: calc(100vh - 20px - var(--dock-h));
+      overflow: auto;
+      padding-right: 6px;
+    }
+    .rail .mise { margin-top: 6px; }
+  }
+
+  .progress-mini { gap: 4px; margin-bottom: 14px; flex-wrap: wrap; }
+  .progress-mini .pip {
+    height: 8px; flex: 1 1 16px; border-radius: 2px; background: var(--line); cursor: pointer;
+  }
+  .progress-mini .pip.done { background: var(--amber-deep); }
+  .progress-mini .pip.active { background: var(--amber); }
+
+  @media (prefers-reduced-motion: reduce) {
+    * { animation: none !important; transition: none !important; }
+    .chip.ringing { background: rgba(210,73,43,.22); }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="head-row">
+    <p class="eyebrow">Cook It Live</p>
+    <div class="head-actions">
+      <button class="btn-tiny" id="soundToggle" type="button" aria-pressed="true">Sound on</button>
+      <button class="btn-tiny" id="resetBtn" type="button">Start over</button>
+    </div>
+  </div>
+  <h1>North African Mushroom Shakshuka</h1>
+  <div class="meta">
+    <span><b>Serves 4–5</b> · 8 eggs</span>
+    <span>Le Creuset 3.5 qt braiser (29.2 cm, 5.4 kg)</span>
+    <span>One pot · gas range · ~50–55 min</span>
+  </div>
+  <div class="legend" id="legend">
+    <div class="legend-item"><span class="swatch" style="background:var(--c-mush)"></span><div><b>Mushrooms</b> <span>· seared dry first, lifted out</span></div></div>
+    <div class="legend-item"><span class="swatch" style="background:var(--c-sauce)"></span><div><b>Sauce</b> <span>· sweet onion, cumin, caraway, harissa, preserved lemon</span></div></div>
+    <div class="legend-item"><span class="swatch" style="background:var(--c-finish)"></span><div><b>Eggs &amp; finish</b> <span>· pulled early, finished off-heat with feta &amp; herbs</span></div></div>
+  </div>
+</header>
+
+<div class="wrap">
+  <aside class="rail" id="rail">
+    <button class="mise-toggle" id="seqToggle" type="button" aria-expanded="false">▸ Sequence</button>
+    <div class="seq" id="seq">
+      <h2>Sequence</h2>
+      <ol class="steplist" id="steplist"></ol>
+    </div>
+    <button class="mise-toggle" id="miseToggle" type="button" aria-expanded="false">▸ Mise / ingredients</button>
+    <div class="mise" id="mise">
+      <h2>Mise en place</h2>
+      <div class="grp">Mushrooms</div>
+      <ul>
+        <li><span class="ing">Cremini (or maitake/shiitake), sliced 5–6 mm</span><span class="amt">300 g</span></li>
+        <li><span class="ing">Olive oil</span><span class="amt">20 ml</span></li>
+        <li><span class="ing">Fine sea salt</span><span class="amt">2 g</span></li>
+      </ul>
+      <div class="grp">Aromatics &amp; spices</div>
+      <ul>
+        <li><span class="ing">Olive oil</span><span class="amt">30 ml</span></li>
+        <li><span class="ing">Yellow onions, thinly sliced</span><span class="amt">450 g</span></li>
+        <li><span class="ing">Fine sea salt (plus taste gate)</span><span class="amt">2 g</span></li>
+        <li><span class="ing">Red bell pepper, thinly sliced</span><span class="amt">200 g</span></li>
+        <li><span class="ing">Fresh jalapeño, thinly sliced</span><span class="amt">1 (~25 g)</span></li>
+        <li><span class="ing">Garlic, thinly sliced</span><span class="amt">25 g (~5 cloves)</span></li>
+        <li><span class="ing">Whole cumin seeds</span><span class="amt">4 g</span></li>
+        <li><span class="ing">Ground cumin</span><span class="amt">4 g</span></li>
+        <li><span class="ing">Ground coriander</span><span class="amt">3 g</span></li>
+        <li><span class="ing">Caraway seeds, lightly crushed</span><span class="amt">2 g</span></li>
+        <li><span class="ing">Sweet paprika (or sweet pimentón)</span><span class="amt">4 g</span></li>
+        <li><span class="ing">Tomato paste</span><span class="amt">25 g</span></li>
+        <li><span class="ing">Harissa paste (Tunisian or rose)</span><span class="amt">25 g</span></li>
+      </ul>
+      <div class="grp">Sauce</div>
+      <ul>
+        <li><span class="ing">Whole peeled plum tomatoes, hand-crushed</span><span class="amt">1,600 g (2 cans)</span></li>
+        <li><span class="ing">Water, to rinse cans</span><span class="amt">60 ml</span></li>
+        <li><span class="ing">Preserved lemon rind, rinsed &amp; minced</span><span class="amt">15 g</span></li>
+        <li class="cut"><span class="ing">Honey, only if tomatoes read sharp</span><span class="amt">≤ 5 g</span></li>
+      </ul>
+      <div class="grp">Eggs &amp; finish</div>
+      <ul>
+        <li><span class="ing">Large eggs</span><span class="amt">8</span></li>
+        <li><span class="ing">Fine sea salt, pinch per egg</span><span class="amt">~1 g</span></li>
+        <li><span class="ing">Sheep's-milk feta, crumbled</span><span class="amt">80 g</span></li>
+        <li><span class="ing">Cilantro / parsley / mint, chopped</span><span class="amt">20 / 10 / 5 g</span></li>
+        <li><span class="ing">Extra-virgin olive oil, to finish</span><span class="amt">15 ml</span></li>
+      </ul>
+    </div>
+  </aside>
+
+  <main class="stage" id="stage">
+    <div class="progress-mini" id="progressMini"></div>
+    <div id="stepView"></div>
+    <div class="nav">
+      <button class="btn btn-ghost" id="prevBtn" type="button">← Back</button>
+      <button class="btn btn-amber" id="nextBtn" type="button">Next step →</button>
+    </div>
+  </main>
+</div>
+
+<div class="dock" id="dock">
+  <span class="dock-label">Timers</span>
+  <span class="dock-empty" id="dockEmpty">No timers running. Start one from a timed step.</span>
+</div>
+<div id="live" class="sr" aria-live="assertive"></div>
+
+<script>
+"use strict";
+
+/* Unique per dish. The restore key is cook-live:<RECIPE_ID>. */
+const RECIPE_ID = "north-african-mushroom-shakshuka";
+const ENGINE = "2026-11-10";
+
+/* Replace with the dish. Shape is documented in cook-it-live/SKILL.md. */
+const STEPS = [
+  {
+    kind: "timed",
+    timerName: "Mushrooms",
+    defaultSec: 420,
+    minSec: 300,
+    maxSec: 600,
+    timerNote: "3 min undisturbed, then stir until dry and browned.",
+    phase: "Mushrooms",
+    where: "Le Creuset braiser, gas",
+    title: "Sear the mushrooms and lift out",
+    uses: [
+      { amt: "20 ml", name: "olive oil" },
+      { amt: "300 g", name: "sliced mushrooms" },
+      { amt: "2 g", name: "fine sea salt (after browning)" }
+    ],
+    body: `<p><strong>Warm</strong> the braiser over medium gas with <em>20 ml</em> olive oil, then step to medium-high. <strong>Spread</strong> <em>300 g</em> mushrooms across the floor without salt. <strong>Cook</strong> undisturbed <em>3 minutes</em>, then stir occasionally until their water cooks off and the edges are deeply browned, <em>6–8 minutes</em> total. <strong>Season</strong> with <em>2 g</em> salt and <strong>transfer</strong> to a bowl.</p>
+    <p>Preheat enamel gradually with oil, never dry on high. Lifting the mushrooms out keeps them meaty instead of steaming while the onions soften.</p>`
+  },
+  {
+    kind: "timed",
+    timerName: "Onions",
+    defaultSec: 660,
+    minSec: 480,
+    maxSec: 900,
+    timerNote: "Soft, sweet, and golden at the edges.",
+    phase: "Base",
+    where: "Le Creuset braiser, gas",
+    title: "Sweat the onions sweet",
+    uses: [
+      { amt: "30 ml", name: "olive oil" },
+      { amt: "450 g", name: "sliced yellow onions" },
+      { amt: "2 g", name: "fine sea salt" }
+    ],
+    body: `<p><strong>Lower</strong> to medium gas. <strong>Add</strong> <em>30 ml</em> olive oil, <em>450 g</em> sliced onions, and <em>2 g</em> salt, scraping up the mushroom fond. <strong>Cook</strong> <em>10–12 minutes</em>, stirring often, until soft, sweet, and golden at the edges.</p>
+    <p>Slice the bell pepper, jalapeño, and garlic while the onions sweat.</p>`
+  },
+  {
+    kind: "timed",
+    timerName: "Peppers",
+    defaultSec: 300,
+    minSec: 240,
+    maxSec: 480,
+    phase: "Base",
+    where: "Le Creuset braiser, gas",
+    title: "Soften the peppers",
+    uses: [
+      { amt: "200 g", name: "sliced red bell pepper" },
+      { amt: "1", name: "sliced jalapeño" }
+    ],
+    body: `<p><strong>Add</strong> <em>200 g</em> red bell pepper and <em>1</em> sliced jalapeño. <strong>Cook</strong> <em>5–6 minutes</em> until tender.</p>`
+  },
+  {
+    kind: "plain",
+    phase: "Base",
+    where: "Le Creuset braiser, medium-low gas",
+    title: "Bloom garlic, tomato paste, and spices",
+    uses: [
+      { amt: "25 g", name: "sliced garlic" },
+      { amt: "4 g + 2 g", name: "whole cumin + crushed caraway" },
+      { amt: "25 g", name: "tomato paste" },
+      { amt: "4 / 3 / 4 g", name: "ground cumin, coriander, paprika" },
+      { amt: "25 g", name: "harissa paste" }
+    ],
+    body: `<p><strong>Lower</strong> to medium-low. <strong>Clear</strong> a space in the center, <strong>add</strong> <em>25 g</em> garlic, <em>4 g</em> whole cumin seeds, and <em>2 g</em> crushed caraway, and <strong>fry</strong> <em>60 seconds</em> until fragrant.</p>
+    <p><strong>Stir</strong> in <em>25 g</em> tomato paste and <strong>cook</strong> <em>2 minutes</em> until brick-red. <strong>Stir</strong> in <em>4 g</em> ground cumin, <em>3 g</em> coriander, <em>4 g</em> paprika, and <em>25 g</em> harissa for <em>30 seconds</em> until toasted and aromatic.</p>
+    <p>Stay on medium-low: tomato paste and ground spices scorch fast on enamel.</p>`
+  },
+  {
+    kind: "timed",
+    timerName: "Reduce",
+    defaultSec: 960,
+    minSec: 720,
+    maxSec: 1320,
+    timerNote: "Uncovered. Stir in preserved lemon rind in the last 3 minutes.",
+    phase: "Sauce",
+    where: "Le Creuset braiser, gas",
+    title: "Simmer uncovered to thickness",
+    uses: [
+      { amt: "1,600 g", name: "hand-crushed plum tomatoes (2 cans)" },
+      { amt: "60 ml", name: "water, to rinse cans" },
+      { amt: "all", name: "seared mushrooms + juices" },
+      { amt: "15 g", name: "minced preserved lemon rind (last 3 min)" }
+    ],
+    body: `<p><strong>Pour</strong> in <em>1,600 g</em> hand-crushed tomatoes, <strong>rinse</strong> the cans with <em>60 ml</em> water into the pot, and <strong>return</strong> the browned mushrooms with any bowl juices. <strong>Bring</strong> to a brisk simmer, then <strong>reduce</strong> uncovered over medium-low, stirring occasionally, for <em>15–18 minutes</em>. <strong>Stir</strong> in <em>15 g</em> rinsed, minced preserved lemon rind during the last <em>3 minutes</em>.</p>
+    <p>While it reduces: chop the herbs, crumble the feta, crack all 8 eggs into small cups so they go in together, and warm the pita.</p>`
+  },
+  {
+    kind: "gate",
+    phase: "Sauce",
+    where: "Le Creuset braiser",
+    title: "Read the thickness",
+    body: `<p><strong>Drag</strong> a wooden spoon across the floor of the braiser.</p>`,
+    branches: [
+      { type: "good", glyph: "✓", head: "Holds a 2-second trail", text: "Thick enough to cradle the eggs. Move to the taste gate." },
+      { type: "wait", glyph: "!", head: "Floods back watery", text: "Simmer 3–5 minutes more uncovered, then check again." },
+      { type: "wait", glyph: "!", head: "Catching at the edges", text: "Drop the gas and loosen with 30 ml water." }
+    ]
+  },
+  {
+    kind: "gate",
+    phase: "Sauce",
+    where: "Le Creuset braiser",
+    title: "Taste before the eggs",
+    uses: [
+      { amt: "2 g steps", name: "fine sea salt, if needed" },
+      { amt: "5 g", name: "honey, only if tomatoes read sharp" }
+    ],
+    body: `<p><strong>Taste</strong> the sauce off a spoon, remembering <em>80 g</em> salty sheep's-milk feta is going on top. (If making ahead, cool and hold here.)</p>`,
+    branches: [
+      { type: "good", glyph: "✓", head: "Balanced, slightly shy of full salt", text: "Ready for the eggs." },
+      { type: "wait", glyph: "!", head: "Flat or under-salted", text: "Add salt in 2 g steps (expect 0–2 g with salted cans, 5–7 g with unsalted), tasting between each." },
+      { type: "wait", glyph: "!", head: "Sharp or tinny tomatoes", text: "Stir in 5 g honey, then taste again." }
+    ]
+  },
+  {
+    kind: "plain",
+    phase: "Eggs",
+    where: "Le Creuset braiser, low gas",
+    title: "Set the eggs in the wells",
+    uses: [
+      { amt: "8", name: "staged large eggs" },
+      { amt: "~1 g", name: "fine sea salt, tiny pinch per egg" }
+    ],
+    body: `<p><strong>Drop</strong> the gas to low. <strong>Press</strong> <em>8</em> shallow wells with the back of a spoon (<em>7</em> in an outer ring, <em>1</em> in the center) and <strong>slip</strong> the staged eggs in together.</p>
+    <p><strong>Drag</strong> the tip of a spoon gently through only the thick outer clear whites to pull a little hot sauce into them without touching the yolks. <strong>Pinch</strong> salt onto each egg.</p>`
+  },
+  {
+    kind: "timed",
+    timerName: "Poach",
+    defaultSec: 240,
+    minSec: 180,
+    maxSec: 420,
+    timerNote: "First look at 4 minutes. Pull early for the 5.4 kg cast-iron carryover.",
+    phase: "Eggs",
+    where: "Le Creuset braiser, covered, low gas",
+    title: "Poach covered",
+    body: `<p><strong>Cover</strong> with the Le Creuset lid and <strong>cook</strong> on low gas for <em>4 minutes</em>.</p>`
+  },
+  {
+    kind: "gate",
+    phase: "Eggs",
+    where: "Le Creuset braiser",
+    title: "Read the eggs",
+    body: `<p><strong>Lift</strong> the lid and read the ring of white right around each yolk.</p>`,
+    branches: [
+      { type: "good", glyph: "✓", head: "Outer white set, inner collar faintly glossy", text: "Cut the gas and pull the braiser off the burner now." },
+      { type: "wait", glyph: "!", head: "Clear runny pools across whites", text: "Cover 1–2 minutes more, then check again." },
+      { type: "bad", glyph: "✕", head: "Whites fully opaque and firm", text: "Off the heat immediately and spoon straight into warm bowls so the cast iron does not chalk the yolks." }
+    ]
+  },
+  {
+    kind: "timed",
+    timerName: "Carryover",
+    defaultSec: 120,
+    minSec: 60,
+    maxSec: 180,
+    timerNote: "Uncovered, off the burner.",
+    phase: "Finish",
+    where: "Le Creuset braiser, off heat",
+    title: "Finish off-heat and serve",
+    uses: [
+      { amt: "80 g", name: "crumbled sheep's-milk feta" },
+      { amt: "20 / 10 / 5 g", name: "cilantro, parsley, mint" },
+      { amt: "15 ml", name: "extra-virgin olive oil" }
+    ],
+    body: `<p><strong>Leave</strong> the braiser uncovered off the heat for <em>2 minutes</em> so the 5.4 kg cast iron finishes setting the last translucent ring of white. <strong>Scatter</strong> <em>80 g</em> crumbled feta and the chopped herbs across the top. <strong>Drizzle</strong> <em>15 ml</em> olive oil and <strong>serve</strong> straight from the braiser.</p>`
+  }
+];
+
+/* Interface text. English is built in. A page in another language overrides keys here. */
+const UI = {};
+
+/* ---------------- state ---------------- */
+const T = Object.assign({
+  back: "← Back",
+  next: "Next step →",
+  startCooking: "Start cooking →",
+  finish: "Finish",
+  cookAgain: "Cook again",
+  soundOn: "Sound on",
+  soundOff: "Sound off",
+  startOver: "Start over",
+  clearCook: "Clear this cook?",
+  sequence: "Sequence",
+  miseToggle: "Mise / ingredients",
+  timers: "Timers",
+  noTimers: "No timers running. Start one from a timed step.",
+  kindTimed: "Timed",
+  kindGate: "Decision",
+  kindPlain: "Step",
+  kindMise: "Ingredients",
+  tagTimed: "timer",
+  tagGate: "gate",
+  misePhase: "Mise",
+  miseWhere: "Counter",
+  miseTitle: "Ingredients",
+  stillRunning: "Still running",
+  pullAt: "Pull at",
+  doneHead: "Done",
+  doneText: "That is the cook. Start over clears the timers and the place.",
+  wallClock: "Wall clock. Holds while the screen is locked, as long as this tab stays loaded. Reopening this file restores the end time.",
+  startTimer: name => "▶ Start " + name,
+  chipDone: " · done",
+  chipPaused: " · paused",
+  pause: "pause",
+  resume: "resume",
+  dismiss: "dismiss",
+  unitH: "h",
+  unitM: "m",
+  unitS: "s",
+  liveDone: name => name + " timer done",
+  notifyTitle: name => name + " · done",
+  notifyBody: "Timer finished."
+}, UI);
+
+const storageKey = "cook-live:" + RECIPE_ID;
+let current = 0;
+const done = new Set();
+let finished = false;
+let soundOn = true;
+const timers = {};
+let timerSeq = 0;
+const timedDraft = {};
+let wakeLock = null;
+let audioCtx = null;
+let resetArm = 0;
+
+function load() {
+  let blob = null;
+  try { blob = JSON.parse(localStorage.getItem(storageKey) || "null"); } catch (e) { blob = null; }
+  if (!blob || typeof blob !== "object") return;
+  if (Number.isInteger(blob.current)) current = blob.current;
+  if (current < 0 || current >= Math.max(STEPS.length, 1)) current = 0;
+  if (STEPS.length && current >= STEPS.length) current = 0;
+  if (Array.isArray(blob.done)) blob.done.forEach(i => { if (Number.isInteger(i)) done.add(i); });
+  if (typeof blob.soundOn === "boolean") soundOn = blob.soundOn;
+  if (blob.finished) finished = true;
+  if (blob.timedDraft && typeof blob.timedDraft === "object") {
+    Object.keys(blob.timedDraft).forEach(k => { timedDraft[k] = blob.timedDraft[k]; });
+  }
+  if (Number.isInteger(blob.timerSeq)) timerSeq = blob.timerSeq;
+  if (Array.isArray(blob.timers)) {
+    blob.timers.forEach(raw => {
+      if (!raw || typeof raw.name !== "string") return;
+      const t = {
+        name: raw.name,
+        endsAt: typeof raw.endsAt === "number" ? raw.endsAt : null,
+        remaining: typeof raw.remaining === "number" ? raw.remaining : 0,
+        running: !!raw.running,
+        ringing: !!raw.ringing,
+        announced: !!raw.announced
+      };
+      if (t.running && t.endsAt) {
+        const left = Math.round((t.endsAt - Date.now()) / 1000);
+        if (left <= 0) {
+          t.remaining = 0; t.running = false; t.ringing = true;
+        } else {
+          t.remaining = left;
+        }
+      }
+      const id = Number.isInteger(raw.id) ? raw.id : ++timerSeq;
+      timers[id] = t;
+      if (id > timerSeq) timerSeq = id;
+    });
+  }
+  /* Older saves were indexed from the first cook step. The ingredients page now leads.
+     An unstarted cook stays on that page. */
+  if (!blob.ingredientsLead) {
+    const unstarted = current === 0 && done.size === 0 && !blob.finished && (!blob.timers || blob.timers.length === 0);
+    if (unstarted) return;
+    current += 1;
+    const shifted = [...done].map(i => i + 1);
+    done.clear();
+    shifted.forEach(i => { if (i < STEPS.length) done.add(i); });
+    const drafts = {};
+    Object.keys(timedDraft).forEach(k => {
+      const m = /^pending_(\d+)$/.exec(k);
+      if (m) drafts["pending_" + (Number(m[1]) + 1)] = timedDraft[k];
+      else drafts[k] = timedDraft[k];
+    });
+    Object.keys(timedDraft).forEach(k => delete timedDraft[k]);
+    Object.keys(drafts).forEach(k => { timedDraft[k] = drafts[k]; });
+    if (current >= STEPS.length) current = Math.max(0, STEPS.length - 1);
+  }
+}
+
+function save() {
+  const blob = {
+    engine: ENGINE,
+    ingredientsLead: true,
+    current,
+    done: [...done],
+    finished,
+    soundOn,
+    timerSeq,
+    timedDraft,
+    timers: Object.keys(timers).map(id => {
+      const t = timers[id];
+      return {
+        id: Number(id), name: t.name, endsAt: t.endsAt, remaining: t.remaining,
+        running: t.running, ringing: t.ringing, announced: t.announced
+      };
+    })
+  };
+  try { localStorage.setItem(storageKey, JSON.stringify(blob)); } catch (e) { /* private mode */ }
+}
+
+/* ---------------- audio + alerts ---------------- */
+function unlockAudio() {
+  try {
+    audioCtx = audioCtx || new (window.AudioContext || window.webkitAudioContext)();
+    if (audioCtx.state === "suspended") audioCtx.resume();
+  } catch (e) { /* audio unavailable */ }
+}
+function beep() {
+  if (!soundOn) return;
+  try {
+    unlockAudio();
+    if (!audioCtx) return;
+    const now = audioCtx.currentTime;
+    [0, 0.28, 0.56].forEach(off => {
+      const o = audioCtx.createOscillator();
+      const g = audioCtx.createGain();
+      o.frequency.value = 880;
+      o.type = "sine";
+      o.connect(g); g.connect(audioCtx.destination);
+      g.gain.setValueAtTime(0.0001, now + off);
+      g.gain.exponentialRampToValueAtTime(0.32, now + off + 0.02);
+      g.gain.exponentialRampToValueAtTime(0.0001, now + off + 0.22);
+      o.start(now + off); o.stop(now + off + 0.24);
+    });
+  } catch (e) { /* audio unavailable */ }
+}
+function announce(name) {
+  const live = document.getElementById("live");
+  if (live) live.textContent = T.liveDone(name);
+  if ("Notification" in window && Notification.permission === "granted") {
+    try { new Notification(T.notifyTitle(name), { body: T.notifyBody }); } catch (e) { /* blocked */ }
+  }
+}
+function askNotify() {
+  if (!("Notification" in window)) return;
+  if (Notification.permission !== "default") return;
+  try { Notification.requestPermission(); } catch (e) { /* no permission API */ }
+}
+
+/* ---------------- helpers ---------------- */
+function esc(s) {
+  return String(s == null ? "" : s).replace(/[&<>"']/g, c => ({
+    "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;"
+  }[c]));
+}
+function fmt(sec) {
+  sec = Math.max(0, Math.round(sec));
+  const h = Math.floor(sec / 3600);
+  const m = Math.floor((sec % 3600) / 60);
+  const s = sec % 60;
+  const mm = String(m).padStart(2, "0");
+  const ss = String(s).padStart(2, "0");
+  return h > 0 ? (h + ":" + mm + ":" + ss) : (mm + ":" + ss);
+}
+function adjustSteps(st) {
+  if (st.defaultSec >= 3600) return [-3600, -300, 300, 3600];
+  if (st.defaultSec >= 1200) return [-300, -60, 60, 300];
+  return [-60, -30, 30, 60];
+}
+function adjLabel(delta) {
+  const sign = delta > 0 ? "+" : "−";
+  const a = Math.abs(delta);
+  if (a >= 3600 && a % 3600 === 0) return sign + (a / 3600) + T.unitH;
+  if (a >= 60 && a % 60 === 0) return sign + (a / 60) + T.unitM;
+  return sign + a + T.unitS;
+}
+const kindLabel = { timed: T.kindTimed, gate: T.kindGate, plain: T.kindPlain, mise: T.kindMise };
+
+/* ---------------- rail + progress ---------------- */
+function renderRail() {
+  const ol = document.getElementById("steplist");
+  ol.innerHTML = "";
+  STEPS.forEach((st, i) => {
+    if (st.phase && (i === 0 || STEPS[i - 1].phase !== st.phase)) {
+      const ph = document.createElement("li");
+      ph.className = "phase";
+      ph.textContent = st.phase;
+      ol.appendChild(ph);
+    }
+    const li = document.createElement("li");
+    li.className = (i === current ? "active " : "") + (done.has(i) ? "done" : "");
+    let tag = "";
+    if (st.kind === "timed") tag = `<span class="s-tag timed">${esc(T.tagTimed)}</span>`;
+    if (st.kind === "gate") tag = `<span class="s-tag gate">${esc(T.tagGate)}</span>`;
+    li.innerHTML = `<span class="idx mono">${String(i + 1).padStart(2, "0")}</span><span class="s-name">${esc(st.title)}</span>${tag}`;
+    li.addEventListener("click", () => goto(i));
+    ol.appendChild(li);
+  });
+
+  const mini = document.getElementById("progressMini");
+  mini.innerHTML = "";
+  STEPS.forEach((st, i) => {
+    const p = document.createElement("div");
+    p.className = "pip" + (i === current ? " active" : done.has(i) ? " done" : "");
+    p.title = st.title || "";
+    p.addEventListener("click", () => goto(i));
+    mini.appendChild(p);
+  });
+
+  const active = ol.querySelector("li.active");
+  const rail = document.getElementById("rail");
+  if (active && rail.scrollHeight > rail.clientHeight + 4) {
+    const railRect = rail.getBoundingClientRect();
+    const aRect = active.getBoundingClientRect();
+    if (aRect.bottom > railRect.bottom - 8) rail.scrollTop += aRect.bottom - railRect.bottom + 16;
+    else if (aRect.top < railRect.top + 8) rail.scrollTop -= railRect.top - aRect.top + 16;
+  }
+}
+
+/* ---------------- step view ---------------- */
+function renderStep() {
+  const v = document.getElementById("stepView");
+  const prev = document.getElementById("prevBtn");
+  const next = document.getElementById("nextBtn");
+  if (!STEPS.length) {
+    v.innerHTML = `<p class="empty-stage">This is the cook-it-live engine. Copy the file, then fill the header, the mise, and STEPS. The shape is in cook-it-live/SKILL.md.</p>`;
+    prev.disabled = true;
+    next.disabled = true;
+    return;
+  }
+  const st = STEPS[current];
+  const uses = (st.uses && st.uses.length)
+    ? `<div class="uses">` + st.uses.map(u => `<span class="use"><b>${esc(u.amt)}</b> ${esc(u.name)}</span>`).join("") + `</div>`
+    : "";
+  const also = (st.also && st.also.length)
+    ? `<div class="also"><div class="also-k">${esc(T.stillRunning)}</div><ul>` + st.also.map(a => `<li>${esc(a)}</li>`).join("") + `</ul></div>`
+    : "";
+  let html = `<div class="step-head">
+      <span class="step-num mono">${String(current + 1).padStart(2, "0")} / ${String(STEPS.length).padStart(2, "0")}</span>
+      <span class="step-kind ${esc(st.kind)}">${esc(kindLabel[st.kind] || T.kindPlain)}</span>
+      ${st.where ? `<span class="where">${esc(st.where)}</span>` : ""}
+    </div>
+    ${st.phase ? `<p class="phase-kicker">${esc(st.phase)}</p>` : ""}
+    <h2 class="step-title" id="stepTitle" tabindex="-1">${esc(st.title)}</h2>
+    ${uses}
+    ${also}
+    ${st.probe ? `<div class="probe"><span class="lab">${esc(st.probeLabel || T.pullAt)}</span><span class="val mono">${esc(st.probe)}</span></div>` : ""}
+    <div class="step-body">${st.body || ""}</div>`;
+
+  if (st.kind === "gate" && st.branches) {
+    html += `<div class="gate-branches">`;
+    st.branches.forEach(b => {
+      const type = (b.type === "good" || b.type === "wait" || b.type === "bad") ? b.type : "wait";
+      html += `<div class="branch ${type}">
+        <h4><span class="glyph">${esc(b.glyph || "")}</span> ${esc(b.head)}</h4>
+        <p>${esc(b.text)}</p></div>`;
+    });
+    html += `</div>`;
+  }
+
+  if (finished) {
+    html += `<div class="also"><div class="also-k">${esc(T.doneHead)}</div><ul><li>${esc(T.doneText)}</li></ul></div>`;
+  }
+
+  if (st.kind === "timed") {
+    const pending = "pending_" + current;
+    if (!(pending in timedDraft)) timedDraft[pending] = st.defaultSec;
+    const buttons = adjustSteps(st).map(d =>
+      `<button type="button" data-adj="${d}">${adjLabel(d)}</button>`
+    ).join("");
+    const note = st.timerNote
+      ? esc(st.timerNote)
+      : esc(T.wallClock);
+    html += `<div class="timer-launch">
+        <span class="tl-time mono" id="draft_${current}">${fmt(timedDraft[pending])}</span>
+        <span class="adj">${buttons}</span>
+        <span class="tl-lab">${esc(st.timerName)}. ${note}</span>
+        <button class="btn btn-amber" id="launch_${current}" type="button">${esc(T.startTimer(st.timerName))}</button>
+      </div>`;
+  }
+
+  v.innerHTML = html;
+
+  if (st.kind === "timed") {
+    v.querySelectorAll("[data-adj]").forEach(btn => {
+      btn.addEventListener("click", () => {
+        const key = "pending_" + current;
+        let val = timedDraft[key] + parseInt(btn.dataset.adj, 10);
+        val = Math.min(st.maxSec, Math.max(st.minSec, val));
+        timedDraft[key] = val;
+        document.getElementById("draft_" + current).textContent = fmt(val);
+        save();
+      });
+    });
+    document.getElementById("launch_" + current).addEventListener("click", () => {
+      addTimer(st.timerName, timedDraft["pending_" + current]);
+    });
+  }
+
+  prev.disabled = current === 0;
+  next.disabled = authoredCount === 0;
+  next.textContent = finished ? T.cookAgain
+    : (current === STEPS.length - 1 ? T.finish
+    : (st.kind === "mise" ? T.startCooking : T.next));
+  document.body.classList.toggle("on-mise", st.kind === "mise");
+
+  const title = document.getElementById("stepTitle");
+  if (title) title.focus({ preventScroll: true });
+}
+
+/* ---------------- navigation ---------------- */
+function goto(i) {
+  if (!STEPS.length || i < 0 || i >= STEPS.length) return;
+  finished = false;
+  current = i;
+  save();
+  renderRail();
+  renderStep();
+  const reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  window.scrollTo({ top: 0, behavior: reduce ? "auto" : "smooth" });
+}
+function advance() {
+  if (!STEPS.length) return;
+  if (finished) { resetCook(); return; }
+  done.add(current);
+  if (current < STEPS.length - 1) goto(current + 1);
+  else { finished = true; save(); renderRail(); renderStep(); }
+}
+document.getElementById("nextBtn").addEventListener("click", advance);
+document.getElementById("prevBtn").addEventListener("click", () => goto(current - 1));
+
+/* ---------------- timers / dock ---------------- */
+function addTimer(name, sec) {
+  unlockAudio();
+  askNotify();
+  const id = ++timerSeq;
+  timers[id] = {
+    name,
+    endsAt: Date.now() + sec * 1000,
+    remaining: sec,
+    running: true,
+    ringing: false,
+    announced: false
+  };
+  save();
+  renderDock();
+  syncWake();
+}
+function sweepTimers() {
+  let changed = false;
+  Object.keys(timers).forEach(id => {
+    const t = timers[id];
+    if (t.running && t.endsAt) {
+      const left = Math.round((t.endsAt - Date.now()) / 1000);
+      if (left <= 0) {
+        t.remaining = 0;
+        t.running = false;
+        t.ringing = true;
+        changed = true;
+      } else {
+        t.remaining = left;
+      }
+    }
+    if (t.ringing && !t.announced) {
+      t.announced = true;
+      changed = true;
+      beep();
+      announce(t.name);
+    }
+    updateChip(id);
+  });
+  if (changed) { save(); syncWake(); }
+}
+function toggleTimer(id) {
+  const t = timers[id];
+  if (!t) return;
+  if (t.ringing) { removeTimer(id); return; }
+  if (t.running) {
+    t.remaining = Math.max(0, Math.round((t.endsAt - Date.now()) / 1000));
+    t.running = false;
+    t.endsAt = null;
+  } else if (t.remaining > 0) {
+    unlockAudio();
+    t.running = true;
+    t.endsAt = Date.now() + t.remaining * 1000;
+  }
+  save();
+  updateChip(id);
+  syncWake();
+}
+function removeTimer(id) {
+  if (!timers[id]) return;
+  delete timers[id];
+  save();
+  renderDock();
+  syncWake();
+}
+function renderDock() {
+  const dock = document.getElementById("dock");
+  dock.querySelectorAll(".chip").forEach(c => c.remove());
+  const ids = Object.keys(timers);
+  document.getElementById("dockEmpty").style.display = ids.length ? "none" : "";
+  ids.forEach(id => dock.appendChild(buildChip(id)));
+}
+function buildChip(id) {
+  const t = timers[id];
+  const el = document.createElement("div");
+  el.className = "chip" + (t.ringing ? " ringing" : "");
+  el.id = "chip_" + id;
+  el.innerHTML = `
+    <div class="c-info">
+      <span class="c-name">${esc(t.name + (t.ringing ? T.chipDone : (t.running ? "" : T.chipPaused)))}</span>
+      <span class="c-time mono">${fmt(t.remaining)}</span>
+    </div>
+    <div class="c-btns">
+      <button type="button" title="${esc(t.ringing ? T.dismiss : (t.running ? T.pause : T.resume))}" data-act="toggle">${t.ringing ? "✓" : (t.running ? "❚❚" : "▶")}</button>
+      <button type="button" title="${esc(T.dismiss)}" data-act="remove">✕</button>
+    </div>`;
+  el.querySelector('[data-act="toggle"]').addEventListener("click", () => toggleTimer(id));
+  el.querySelector('[data-act="remove"]').addEventListener("click", () => removeTimer(id));
+  return el;
+}
+function updateChip(id) {
+  const t = timers[id];
+  const el = document.getElementById("chip_" + id);
+  if (!el || !t) { renderDock(); return; }
+  el.className = "chip" + (t.ringing ? " ringing" : "");
+  el.querySelector(".c-time").textContent = fmt(t.remaining);
+  el.querySelector(".c-name").textContent = t.name + (t.ringing ? T.chipDone : (t.running ? "" : T.chipPaused));
+  const toggle = el.querySelector('[data-act="toggle"]');
+  toggle.textContent = t.ringing ? "✓" : (t.running ? "❚❚" : "▶");
+  toggle.title = t.ringing ? T.dismiss : (t.running ? T.pause : T.resume);
+}
+
+async function syncWake() {
+  const any = Object.keys(timers).some(id => timers[id].running);
+  if (any && "wakeLock" in navigator) {
+    try {
+      if (!wakeLock) wakeLock = await navigator.wakeLock.request("screen");
+    } catch (e) { /* unsupported or hidden tab */ }
+  } else if (wakeLock) {
+    try { await wakeLock.release(); } catch (e) { /* already released */ }
+    wakeLock = null;
+  }
+}
+document.addEventListener("visibilitychange", () => {
+  if (document.visibilityState !== "visible") return;
+  sweepTimers();
+  syncWake();
+});
+setInterval(sweepTimers, 250);
+
+/* ---------------- toggles ---------------- */
+function paintSound() {
+  const b = document.getElementById("soundToggle");
+  b.textContent = soundOn ? T.soundOn : T.soundOff;
+  b.setAttribute("aria-pressed", soundOn ? "true" : "false");
+}
+document.getElementById("soundToggle").addEventListener("click", (e) => {
+  soundOn = !soundOn;
+  paintSound();
+  save();
+  if (soundOn) { unlockAudio(); beep(); }
+});
+document.getElementById("seqToggle").addEventListener("click", (e) => {
+  const seq = document.getElementById("seq");
+  const open = seq.classList.toggle("open");
+  e.currentTarget.textContent = (open ? "▾ " : "▸ ") + T.sequence;
+  e.currentTarget.setAttribute("aria-expanded", open ? "true" : "false");
+  if (open) seq.scrollIntoView({ block: "start" });
+});
+document.getElementById("miseToggle").addEventListener("click", (e) => {
+  const m = document.getElementById("mise");
+  const open = m.classList.toggle("open");
+  e.currentTarget.textContent = (open ? "▾ " : "▸ ") + T.miseToggle;
+  e.currentTarget.setAttribute("aria-expanded", open ? "true" : "false");
+  if (open) m.scrollIntoView({ block: "start" });
+});
+document.getElementById("resetBtn").addEventListener("click", (e) => {
+  const now = Date.now();
+  if (now - resetArm > 4000) {
+    resetArm = now;
+    e.currentTarget.textContent = T.clearCook;
+    e.currentTarget.classList.add("armed");
+    setTimeout(() => {
+      if (Date.now() - resetArm >= 3900) {
+        const b = document.getElementById("resetBtn");
+        b.textContent = T.startOver;
+        b.classList.remove("armed");
+      }
+    }, 4000);
+    return;
+  }
+  resetCook();
+});
+function resetCook() {
+  current = 0;
+  done.clear();
+  finished = false;
+  Object.keys(timers).forEach(id => delete timers[id]);
+  Object.keys(timedDraft).forEach(k => delete timedDraft[k]);
+  timerSeq = 0;
+  resetArm = 0;
+  const b = document.getElementById("resetBtn");
+  b.textContent = T.startOver;
+  b.classList.remove("armed");
+  try { localStorage.removeItem(storageKey); } catch (e) { /* private mode */ }
+  renderRail();
+  renderStep();
+  renderDock();
+  syncWake();
+}
+
+document.addEventListener("keydown", (e) => {
+  if (e.metaKey || e.ctrlKey || e.altKey) return;
+  const tag = e.target && e.target.tagName;
+  if (tag === "BUTTON" || tag === "INPUT" || tag === "TEXTAREA") return;
+  if (e.key === "ArrowRight") { e.preventDefault(); advance(); }
+  if (e.key === "ArrowLeft") { e.preventDefault(); goto(current - 1); }
+});
+
+/* The opening page is the mise. Built from the sidebar list so a dish types it once. */
+function buildIngredientsStep() {
+  const mise = document.getElementById("mise");
+  const clone = mise.cloneNode(true);
+  clone.removeAttribute("id");
+  clone.classList.add("mise-page");
+  const h2 = clone.querySelector("h2");
+  if (h2) h2.remove();
+  let note = "";
+  if (!authoredCount) {
+    note = `<p class="empty-stage">Copy this file, then replace the mise and STEPS. The shape is in cook-it-live/SKILL.md.</p>`;
+  }
+  return {
+    kind: "mise",
+    phase: T.misePhase,
+    where: T.miseWhere,
+    title: T.miseTitle,
+    body: clone.outerHTML + note
+  };
+}
+const authoredCount = STEPS.length;
+STEPS.unshift(buildIngredientsStep());
+
+/* Static chrome takes its words from T, so a translated page needs no engine edits. */
+function paintChrome() {
+  document.getElementById("prevBtn").textContent = T.back;
+  document.getElementById("resetBtn").textContent = T.startOver;
+  document.getElementById("seqToggle").textContent = "▸ " + T.sequence;
+  document.getElementById("miseToggle").textContent = "▸ " + T.miseToggle;
+  const seqHead = document.querySelector("#seq h2");
+  if (seqHead) seqHead.textContent = T.sequence;
+  const dockLabel = document.querySelector("#dock .dock-label");
+  if (dockLabel) dockLabel.textContent = T.timers;
+  document.getElementById("dockEmpty").textContent = T.noTimers;
+}
+
+/* ---------------- init ---------------- */
+load();
+paintChrome();
+paintSound();
+renderRail();
+renderStep();
+renderDock();
+sweepTimers();
+syncWake();
+</script>
+</body>
+</html>
