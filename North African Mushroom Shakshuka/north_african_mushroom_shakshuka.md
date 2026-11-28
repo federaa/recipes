@@ -25,7 +25,7 @@ Departures for this kitchen: added **300 g** seared mushrooms, doubled down on o
 - Olive oil — **30 ml**
 - Yellow onions (~2 medium-large), thinly sliced pole-to-pole — **450 g**
 - Fine sea salt — **2 g**, *plus more at the taste gate*
-- Red bell pepper (1 large), thinly sliced — **200 g**
+- Red bell pepper (½ large), thinly sliced — **100 g**
 - Fresh jalapeño, thinly sliced (seeded for moderate heat, whole for Cafe Mogador heat) — **1** (~25 g)
 - Garlic (~5 cloves), thinly sliced — **25 g**
 - Whole cumin seeds — **4 g**
@@ -66,7 +66,7 @@ No salt until the moisture leaves, and lift them out so they hold meaty chew ins
 Sweetening this much onion concentrates natural sugars that buffer tomato acidity later.
 
 ### 3. Soften the peppers
-**Add** *200 g* sliced red bell pepper and *1* sliced jalapeño. **Cook** *5–6 minutes* until tender.
+**Add** *100 g* sliced red bell pepper and *1* sliced jalapeño. **Cook** *5–6 minutes* until tender.
 
 ### 4. Bloom the garlic, tomato paste, and spices
 **Lower** to medium-low. **Clear** a space in the center, **add** *25 g* sliced garlic, *4 g* whole cumin seeds, and *2 g* crushed caraway seeds, and **fry** *60 seconds* until fragrant. **Stir** in *25 g* tomato paste and **cook** *2 minutes* until brick-red. **Stir** in *4 g* ground cumin, *3 g* ground coriander, *4 g* sweet paprika, and *25 g* harissa for *30 seconds* until toasted and aromatic.
@@ -146,7 +146,7 @@ Cook it in one vessel—the **Le Creuset 3.5 qt enameled braiser**—by searing 
 | **Total (~2.1 kg plate) with salted cans** | **~16.0 g (~0.76%)** | **Already near target; taste gate adds 0–2 g** |
 | **Total with unsalted cans** | **~9.7 g (~0.46%)** | **Taste gate adds ~5–7 g in 2 g steps** |
 
-**Acid, stacked.** Two cans of tomatoes, *25 g* tomato paste, and *25 g* harissa already carry a full acid stack. Preserved lemon is **rind only** (pulp scraped and rinsed) so it delivers fermented citrus perfume without liquid acid; no extra lemon juice or vinegar enters the sauce. Sweetened *450 g* onions, *200 g* red pepper, *65 ml* olive oil, *80 g* feta, and *8* runny yolks buffer the sharpness, with *5 g* honey held conditional at the taste gate. *(Fallback if out of preserved lemon: grate 1 fresh lemon's zest at Step 11 and expect ~1 g more salt at Step 7.)*
+**Acid, stacked.** Two cans of tomatoes, *25 g* tomato paste, and *25 g* harissa already carry a full acid stack. Preserved lemon is **rind only** (pulp scraped and rinsed) so it delivers fermented citrus perfume without liquid acid; no extra lemon juice or vinegar enters the sauce. Sweetened *450 g* onions, *100 g* red pepper, *65 ml* olive oil, *80 g* feta, and *8* runny yolks buffer the sharpness, with *5 g* honey held conditional at the taste gate. *(Fallback if out of preserved lemon: grate 1 fresh lemon's zest at Step 11 and expect ~1 g more salt at Step 7.)*
 
 **Quantity.** *8* eggs and ~1.55 L of thick sauce is **4 generous plates** (2 eggs each) or **5** beside pita/bread and sides. One pot on the gas, ~50–55 minutes start to finish (~15 minutes on the day if the sauce is made ahead through Step 7).
 
@@ -154,6 +154,4 @@ Cook it in one vessel—the **Le Creuset 3.5 qt enameled braiser**—by searing 
 
 ## Numbers
 
-**Measured / known geometry.** Le Creuset 3.5 qt braiser: `29.2 cm` diam × `6.4 cm` high, `5.4 kg`.
-
-**Asserted, not cooked in this kitchen.** All spice, oil, mushroom, onion, and tomato quantities; the *6–8 minute* mushroom sear, *10–12 minute* onion sweat, and *15–18 minute* uncovered reduction window in the 29.2 cm braiser; the *4-minute* covered egg first look and *2-minute* off-heat carryover window; and the built-in salt estimates for harissa, preserved lemon, feta, and canned tomatoes. After the first cook, file the actual reduction time, whether 4 minutes covered + 2 minutes off-heat nailed the egg set in the 5.4 kg braiser, and the salt/heat balance.
+**Cooked in this kitchen (2026-11-28).** Cooked great in the Le Creuset 3.5 qt braiser (`29.2 cm` diam × `6.4 cm` high, `5.4 kg`). Red bell pepper was sized down by half after the cook (**200 g → 100 g**). Exact reduction minutes and egg-poach/carryover timings were not logged separately, so treat the clock windows as first looks and let the gates decide.
